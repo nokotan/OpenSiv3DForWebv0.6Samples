@@ -47,7 +47,7 @@ set(Siv3DAppCompileFlags
 set(Siv3DAppLinkerFlags
     # "--closure 1"
 
-    # "-s ENVIRONMENT='WEB'"
+    "-s ENVIRONMENT='web'"
     "-s ALLOW_MEMORY_GROWTH=1"
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
 
@@ -144,3 +144,5 @@ endfunction()
 
 add_subdirectory(Main)
 add_subdirectory(KDTree)
+add_subdirectory(Spline2D)
+add_subdirectory(PackRectangles)
