@@ -4,7 +4,7 @@
 
 ### Empowered Audio
 
-<https://siv3d-v6-apps.kamenokosoft.com/EmpoweredAndio/EmpoweredAndio.html>
+<https://siv3d-v6-apps.kamenokosoft.com/EmpoweredAudio/EmpoweredAudio.html>
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">OpenSiv3D v0.6 で強化された s3d::Audio クラス<br>（音が流れます） <a href="https://t.co/m4zolaPmM0">pic.twitter.com/m4zolaPmM0</a></p>&mdash; Ryo Suzuki (@Reputeless) <a href="https://twitter.com/Reputeless/status/1396837204597481479?ref_src=twsrc%5Etfw">May 24, 2021</a></blockquote>
 
