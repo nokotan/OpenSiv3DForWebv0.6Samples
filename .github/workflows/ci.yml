@@ -11,7 +11,7 @@ jobs:
       image: 'emscripten/emsdk:2.0.22'
     
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Build Project
@@ -19,6 +19,10 @@ jobs:
           mkdir Build && cd Build
           emcmake cmake ..
           make -j4
+
+      - name: Pre Deploy
+        run: |
+          cp README.md Build/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
