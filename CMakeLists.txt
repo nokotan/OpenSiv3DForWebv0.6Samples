@@ -61,8 +61,8 @@ set(Siv3DAppLinkerFlags
     "-s MIN_WEBGL_VERSION=2"
     "-s MAX_WEBGL_VERSION=2"
 
-    # "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
-    # "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
+    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
     "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
 
     "--pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js'"
@@ -143,3 +143,4 @@ endfunction()
 
 
 add_subdirectory(Main)
+add_subdirectory(KDTree)
