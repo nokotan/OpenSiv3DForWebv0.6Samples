@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(Siv3DTest)
+project(Siv3DApp)
 
 
 
 # Common Config
 
-set(Siv3DTestIncludeDirectories
+set(Siv3DAppIncludeDirectories
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include/ThirdParty
 )
 
-set(Siv3DTestLibraryDirectories
+set(Siv3DAppLibraryDirectories
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/freetype
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/harfbuzz
@@ -23,7 +23,7 @@ set(Siv3DTestLibraryDirectories
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/tiff
 )
 
-set(Siv3DTestLibraries
+set(Siv3DAppLibraries
     Siv3D
     freetype
     harfbuzz
@@ -39,12 +39,12 @@ set(Siv3DTestLibraries
     tiff
 )
 
-set(Siv3DTestCompileFlags 
+set(Siv3DAppCompileFlags 
     "-Wno-unknown-pragmas"
     "-D_XM_SSE4_INTRINSICS_" 
 )
 
-set(Siv3DTestLinkerFlags
+set(Siv3DAppLinkerFlags
     # "--closure 1"
 
     # "-s ENVIRONMENT='WEB'"
@@ -65,36 +65,81 @@ set(Siv3DTestLinkerFlags
     # "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
     "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
 
-    "--pre-js '${CMAKE_BINARY_DIR}/Siv3DTest.data.js'"
+    "--pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js'"
     "-s FORCE_FILESYSTEM=1"
 )
 
-string (REPLACE ";" " " Siv3DTestCompileFlags "${Siv3DTestCompileFlags}")
-string (REPLACE ";" " " Siv3DTestLinkerFlags "${Siv3DTestLinkerFlags}")
+string (REPLACE ";" " " Siv3DAppCompileFlags "${Siv3DAppCompileFlags}")
+string (REPLACE ";" " " Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags}")
 
 
 
 # Packaging Files
 
 add_custom_command(
-    OUTPUT Siv3DTest.data Siv3DTest.data.js
+    OUTPUT Siv3DApp.data Siv3DApp.data.js
     COMMAND python3 
     ARGS
         $ENV{EMSDK}/upstream/emscripten/tools/file_packager.py
-        Siv3DTest.data
-        --js-output=Siv3DTest.data.js
+        Siv3DApp.data
+        --js-output=Siv3DApp.data.js
         --preload "${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/resources@/resources"
         --preload "${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/example@/example"
         --from-emcc
 )
 
 add_custom_target(
-    Siv3DTestData
-    DEPENDS Siv3DTest.data Siv3DTest.data.js
+    Siv3DAppData
+    DEPENDS Siv3DApp.data Siv3DApp.data.js
 )
 
 
 
 # Projects
+
+function(Siv3DAppSetProjectDefaultConfig ProjectName)
+
+    target_include_directories(${ProjectName}
+        PUBLIC
+            "${Siv3DAppIncludeDirectories}"
+    )
+
+    target_link_directories(${ProjectName}
+        PUBLIC
+            "${Siv3DAppLibraryDirectories}"
+    )
+
+    target_link_libraries(${ProjectName}
+        "${Siv3DAppLibraries}"
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES COMPILE_FLAGS 
+            "${Siv3DAppCompileFlags}"
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES LINK_FLAGS 
+            "${Siv3DAppLinkerFlags}"
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES 
+            CXX_STANDARD 20
+            SUFFIX ".html"
+    )
+
+    add_custom_command(
+        TARGET ${ProjectName}
+        PRE_LINK
+        COMMAND cp ${CMAKE_BINARY_DIR}/Siv3DApp.data ${CMAKE_BINARY_DIR}/${ProjectName}
+    )
+
+    add_dependencies(${ProjectName}
+        Siv3DAppData
+    )
+
+endfunction()
+
 
 add_subdirectory(Main)
