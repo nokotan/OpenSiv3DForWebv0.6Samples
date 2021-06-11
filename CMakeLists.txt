@@ -127,6 +127,7 @@ function(Siv3DAppSetProjectDefaultConfig ProjectName)
         PROPERTIES 
             CXX_STANDARD 20
             SUFFIX ".html"
+            LINK_DEPENDS "Siv3DApp.data.js"
     )
 
     add_custom_command(
