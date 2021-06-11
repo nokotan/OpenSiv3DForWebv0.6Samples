@@ -17,12 +17,13 @@ jobs:
       - name: Build Project
         run: |
           mkdir Build && cd Build
-          emcmake cmake ..
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=RELEASE
           make -j4
 
       - name: Pre Deploy
         run: |
           cp README.md Build/
+          cp _config.yml Build/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

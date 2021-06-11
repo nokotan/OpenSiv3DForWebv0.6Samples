@@ -1,0 +1,10 @@
+theme: jekyll-theme-tactile
+
+description: OpenSiv3D for Web v0.6 brings you to developing WebGL application with C++20!
+
+twitter:
+  username: kamenoko_dev
+  card: summary
+
+plugins:
+  - jekyll-seo-tag
