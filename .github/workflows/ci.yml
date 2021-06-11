@@ -1,0 +1,29 @@
+name: App Deploy
+
+on:
+  push: 
+    branches: [ '*' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: 'emscripten/emsdk:2.0.22'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Project
+        run: |
+          mkdir Build && cd Build
+          emcmake cmake ..
+          make -j4
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Build
+          keep_files: true
+          exclude_assets: 'CMakeFiles,**/CMakeFiles'
