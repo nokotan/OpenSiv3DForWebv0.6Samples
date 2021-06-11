@@ -40,7 +40,7 @@
 
 <https://siv3d-v6-apps.kamenokosoft.com/PackRectangles/PackRectangles.html>
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">長方形詰込み時、回転を許可してより密に詰めるオプションを追加 <a href="https://twitter.com/hashtag/OpenSiv3D?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSiv3D</a> (v0.6) <a href="https://t.co/tHG3U8FyOl">pic.twitter.com/tHG3U8FyOl</a></p>&mdash; Ryo Suzuki (@Reputeless) <a href="https://twitter.com/Reputeless/status/1348610384551235587?ref_src=twsrc%5Etfw">January 11, 2021</a>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">長方形詰込み時、回転を許可してより密に詰めるオプションを追加 <a href="https://twitter.com/hashtag/OpenSiv3D?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSiv3D</a> (v0.6) <a href="https://t.co/tHG3U8FyOl">pic.twitter.com/tHG3U8FyOl</a></p>&mdash; Ryo Suzuki (@Reputeless) <a href="https://twitter.com/Reputeless/status/1348610384551235587?ref_src=twsrc%5Etfw">January 11, 2021</a></blockquote>
 
 ### Polygon Outline
 
