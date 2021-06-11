@@ -35,7 +35,8 @@ void Main()
     Point offset{ 0, 0 };
     Stopwatch s;
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+    {
 		System::Update();
 
 		if (!s.isStarted() || s > 1.8s)

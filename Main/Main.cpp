@@ -13,7 +13,8 @@ void SetMainLoop(std::function<void()> mainLoop)
 
 void Main()
 {
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		for (auto i : step(20))

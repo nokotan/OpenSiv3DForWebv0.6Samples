@@ -23,7 +23,8 @@ void Main()
 	Stopwatch stopwatch;
 	SplineIndex si;
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		// 制御点の追加

@@ -45,7 +45,8 @@ void Main()
 	const Vec2 goal{ 1100, 300 };
 	const Polygon goalDiamond = RectF{ Arg::center = goal, 48 }.rotated(45_deg).calculateRoundBuffer(3);
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		for (const auto& facetPolygon : facetPolygons)

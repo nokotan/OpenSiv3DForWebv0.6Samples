@@ -20,7 +20,8 @@ void Main()
 	const Polygon polygon1 = Shape2D::Heart(180, Scene::Center().movedBy(0, 120));
 	const Polygon polygon2 = Shape2D::NStar(8, 180, 140, Scene::Center().movedBy(350, -120));
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		const double t = (Scene::Time() * 720);

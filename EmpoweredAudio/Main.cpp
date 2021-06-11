@@ -55,7 +55,8 @@ void Main()
 
 	std::future<Audio> nextAudio;
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		ClearPrint();

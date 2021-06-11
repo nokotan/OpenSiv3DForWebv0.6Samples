@@ -59,7 +59,8 @@ void Main()
 	// radius search する際の探索距離
 	constexpr double searchDistance = 80.0;
 
-	SetMainLoop([&]{
+	SetMainLoop([&]
+	{
 		System::Update();
 
 		const Vec2 cursorPos = Cursor::PosF();
