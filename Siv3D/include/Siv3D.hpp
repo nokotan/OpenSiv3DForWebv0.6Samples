@@ -333,9 +333,6 @@
 // プロファイラー | Profiler
 # include <Siv3D/Profiler.hpp>
 
-// 時間の測定 | Time profiler
-//# include <Siv3D/TimeProfiler.hpp> // [Siv3D ToDo]
-
 // 処理にかかった時間の測定 | Clock counter in milliseconds
 # include <Siv3D/MillisecClock.hpp>
 
@@ -344,6 +341,9 @@
 
 // Clock counter in CPU clocks | 処理にかかった CPU サイクル数の測定
 # include <Siv3D/RDTSCClock.hpp>
+
+// 時間の測定 | Time profiler
+# include <Siv3D/TimeProfiler.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -515,8 +515,7 @@
 
 # include <Siv3D/EasingAB.hpp>
 
-// イージング ユーティリティ | Easing utility
-//# include <Siv3D/EasingController.hpp>
+# include <Siv3D/SimpleAnimation.hpp>
 
 // トランジション | Transition
 # include <Siv3D/Transition.hpp>
@@ -710,10 +709,6 @@
 // Quaternion
 # include <Siv3D/Quaternion.hpp> // [Siv3D ToDo]
 
-// レイ
-// Ray
-# include <Siv3D/Ray.hpp> // [Siv3D ToDo]
-
 // 3D 線分
 // 3D Line segment
 # include <Siv3D/Line3D.hpp> // [Siv3D ToDo]
@@ -737,6 +732,12 @@
 // 平面
 // Plane
 # include <Siv3D/Plane.hpp> // [Siv3D ToDo]
+
+// レイ
+// Ray
+# include <Siv3D/Ray.hpp> // [Siv3D ToDo]
+
+# include <Siv3D/Geometry3D.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -820,6 +821,19 @@
 
 // Twitter | Twitter
 # include <Siv3D/Twitter.hpp>
+
+# include <Siv3D/IPv4Address.hpp>
+
+
+//////////////////////////////////////////////////
+//
+//	TCP 通信 | TCP communication
+//
+//////////////////////////////////////////////////
+
+# include <Siv3D/TCPServer.hpp>
+
+# include <Siv3D/TCPClient.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1084,6 +1098,8 @@
 // XInput コントローラ | XInput controller
 # include <Siv3D/XInput.hpp>
 
+# include <Siv3D/Pentablet.hpp>
+
 //////////////////////////////////////////////////
 //
 //	Web カメラ | Webcam
@@ -1117,6 +1133,28 @@
 # include <Siv3D/AssetIDWrapper.hpp>
 
 # include <Siv3D/AssetHandle.hpp>
+
+# include <Siv3D/Asset.hpp>
+
+//# include <Siv3D/AudioAssetData.hpp>
+
+//# include <Siv3D/AudioAsset.hpp>
+
+//# include <Siv3D/TextureAssetData.hpp>
+
+//# include <Siv3D/TextureAsset.hpp>
+
+# include <Siv3D/FontAssetData.hpp>
+
+# include <Siv3D/FontAsset.hpp>
+
+//# include <Siv3D/VertexShaderAssetData.hpp>
+
+//# include <Siv3D/VertexShaderAsset.hpp>
+
+//# include <Siv3D/PixelShaderAssetData.hpp>
+
+//# include <Siv3D/PixelShaderAsset.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1482,6 +1520,7 @@
 # include <Siv3D/FFTResult.hpp>
 # include <Siv3D/FFTSampleLength.hpp>
 # include <Siv3D/FFT.hpp>
+# include <Siv3D/UUID.hpp>
 
 //////////////////////////////////////////////////
 //

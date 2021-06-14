@@ -57,9 +57,22 @@ namespace s3d
 		/// @return オープンに成功した場合 true, それ以外の場合は false
 		bool LaunchBrowser(FilePathView url);
 
+		bool ShowInFileManager(FilePathView path);
+
 		/// @brief レンダラーの設定を返します。
 		/// @return レンダラーの設定
 		[[nodiscard]]
 		EngineOption::Renderer GetRendererType();
 	}
+
+# if SIV3D_PLATFORM(WEB)
+
+	namespace Platform::Web::System
+	{
+		/// @brief ゲームループごとに呼ばれる関数を登録します
+		[[noreturn]] 
+		void SetMainLoop(std::function<void()> mainLoop);
+	}
+
+# endif
 }
