@@ -76,6 +76,20 @@ string (REPLACE ";" " " Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags}")
 
 # Packaging Files
 
+set(Siv3DAppBundledFilesPath
+    /resources/engine/font/noto-cjk
+    /resources/engine/font/noto-emoji
+    /resources/engine/shader/glsl
+    /resources/engine/texture/box-shadow
+)
+
+set(Siv3DAppBundledFilesFlags "")
+
+foreach(file ${Siv3DAppBundledFilesPath})
+    list(APPEND Siv3DAppBundledFilesFlags "--preload")
+    list(APPEND Siv3DAppBundledFilesFlags "${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/${file}@${file}")
+endforeach()
+
 add_custom_command(
     OUTPUT Siv3DApp.data Siv3DApp.data.js
     COMMAND python3 
@@ -83,8 +97,7 @@ add_custom_command(
         $ENV{EMSDK}/upstream/emscripten/tools/file_packager.py
         Siv3DApp.data
         --js-output=Siv3DApp.data.js
-        --preload "${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/resources@/resources"
-        --preload "${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/example@/example"
+        ${Siv3DAppBundledFilesFlags}
         --from-emcc
 )
 
