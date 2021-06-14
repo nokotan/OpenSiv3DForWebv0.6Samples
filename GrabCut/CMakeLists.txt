@@ -9,7 +9,7 @@ target_sources(GrabCut
         Main.cpp
 )
 
-set_target_properties(VideoReader
+set_target_properties(GrabCut
     PROPERTIES LINK_FLAGS 
         "${Siv3DAppLinkerFlags} --preload-file ${CMAKE_SOURCE_DIR}/Siv3D/example/windmill.png@/example/windmill.png"
 )
