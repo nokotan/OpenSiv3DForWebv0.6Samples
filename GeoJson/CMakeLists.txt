@@ -9,7 +9,8 @@ target_sources(GeoJson
         Main.cpp
 )
 
-set_target_properties(GeoJson
-    PROPERTIES LINK_FLAGS 
-        "${Siv3DAppLinkerFlags} --preload-file ${CMAKE_SOURCE_DIR}/Siv3D/example/geojson/countries.geojson@/example/geojson/countries.geojson"
+set(GeoJsonBundledFilesPath
+    /example/geojson/countries.geojson
 )
+
+Siv3DAppProjectDataBundle(GeoJson "${GeoJsonBundledFilesPath}")

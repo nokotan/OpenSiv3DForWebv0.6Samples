@@ -9,7 +9,8 @@ target_sources(VideoReader
         Main.cpp
 )
 
-set_target_properties(VideoReader
-    PROPERTIES LINK_FLAGS 
-        "${Siv3DAppLinkerFlags} --preload-file ${CMAKE_SOURCE_DIR}/Siv3D/example/video/river.mp4@/example/video/river.mp4"
+set(VideoReaderBundledFilesPath
+    /example/video/river.mp4
 )
+
+Siv3DAppProjectDataBundle(VideoReader "${VideoReaderBundledFilesPath}")

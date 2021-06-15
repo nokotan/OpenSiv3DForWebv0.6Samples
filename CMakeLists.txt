@@ -64,9 +64,6 @@ set(Siv3DAppLinkerFlags
     "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
     "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
     "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
-
-    "--pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js'"
-    "-s FORCE_FILESYSTEM=1"
 )
 
 string (REPLACE ";" " " Siv3DAppCompileFlags "${Siv3DAppCompileFlags}")
@@ -153,6 +150,37 @@ function(Siv3DAppSetProjectDefaultConfig ProjectName)
         Siv3DAppData
     )
 
+    get_target_property(ProjectLinkFlag
+        ${ProjectName} LINK_FLAGS
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES LINK_FLAGS 
+            "${ProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
+    )
+
+endfunction()
+
+function(Siv3DAppProjectDataBundle ProjectName FilesPath)
+
+    set(BundledFilesFlags "")
+
+    foreach(file ${FilesPath})
+        list(APPEND BundledFilesFlags "--preload-file")
+        list(APPEND BundledFilesFlags "${CMAKE_SOURCE_DIR}/Siv3D/${file}@${file}")
+    endforeach()
+
+    string (REPLACE ";" " " BundledFilesFlags "${BundledFilesFlags}")
+
+    get_target_property(ProjectLinkFlag
+        ${ProjectName} LINK_FLAGS
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES LINK_FLAGS 
+            "${ProjectLinkFlag} ${BundledFilesFlags}"
+    )
+    
 endfunction()
 
 

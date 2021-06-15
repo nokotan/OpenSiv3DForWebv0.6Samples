@@ -9,7 +9,8 @@ target_sources(GrabCut
         Main.cpp
 )
 
-set_target_properties(GrabCut
-    PROPERTIES LINK_FLAGS 
-        "${Siv3DAppLinkerFlags} --preload-file ${CMAKE_SOURCE_DIR}/Siv3D/example/windmill.png@/example/windmill.png"
+set(GrabCutBundledFilesPath
+    /example/windmill.png
 )
+
+Siv3DAppProjectDataBundle(GrabCut "${GrabCutBundledFilesPath}")
