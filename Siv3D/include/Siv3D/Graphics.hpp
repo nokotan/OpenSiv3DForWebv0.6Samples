@@ -17,5 +17,10 @@ namespace s3d
 	namespace Graphics
 	{
 		inline constexpr uint32 DefaultSampleCount = 4;
+
+		void SetVSyncEnabled(bool enabled);
+
+		[[nodiscard]]
+		bool IsVSyncEnabled();
 	}
 }

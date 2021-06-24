@@ -213,6 +213,9 @@
 // 正規表現 | Regular expression
 # include <Siv3D/RegExp.hpp>
 
+// 実行ファイルに埋める文字列の難読化 | String literal obfuscation
+# include <Siv3D/Obfuscation.hpp>
+
 //////////////////////////////////////////////////
 //
 //	文字列フォーマット | Formatting
@@ -824,12 +827,15 @@
 
 # include <Siv3D/IPv4Address.hpp>
 
+# include <Siv3D/Network.hpp>
 
 //////////////////////////////////////////////////
 //
 //	TCP 通信 | TCP communication
 //
 //////////////////////////////////////////////////
+
+# include <Siv3D/TCPError.hpp>
 
 # include <Siv3D/TCPServer.hpp>
 
@@ -1134,27 +1140,31 @@
 
 # include <Siv3D/AssetHandle.hpp>
 
+# include <Siv3D/AssetState.hpp>
+
+# include <Siv3D/AssetInfo.hpp>
+
 # include <Siv3D/Asset.hpp>
 
-//# include <Siv3D/AudioAssetData.hpp>
+# include <Siv3D/AudioAssetData.hpp>
 
-//# include <Siv3D/AudioAsset.hpp>
+# include <Siv3D/AudioAsset.hpp>
 
-//# include <Siv3D/TextureAssetData.hpp>
+# include <Siv3D/TextureAssetData.hpp>
 
-//# include <Siv3D/TextureAsset.hpp>
+# include <Siv3D/TextureAsset.hpp>
 
 # include <Siv3D/FontAssetData.hpp>
 
 # include <Siv3D/FontAsset.hpp>
 
-//# include <Siv3D/VertexShaderAssetData.hpp>
+# include <Siv3D/VertexShaderAssetData.hpp>
 
-//# include <Siv3D/VertexShaderAsset.hpp>
+# include <Siv3D/VertexShaderAsset.hpp>
 
-//# include <Siv3D/PixelShaderAssetData.hpp>
+# include <Siv3D/PixelShaderAssetData.hpp>
 
-//# include <Siv3D/PixelShaderAsset.hpp>
+# include <Siv3D/PixelShaderAsset.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1212,6 +1222,8 @@
 
 // 2D ビューポートスコープ | 2D Viewport scope
 # include <Siv3D/ScopedViewport2D.hpp>
+
+# include <Siv3D/ScopedRenderTarget2D.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1286,6 +1298,10 @@
 # include <Siv3D/DynamicTexture.hpp>
 
 # include <Siv3D/VideoTexture.hpp>
+
+# include <Siv3D/RenderTexture.hpp>
+
+# include <Siv3D/MSRenderTexture.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1488,12 +1504,12 @@
 
 //////////////////////////////////////////////////
 //
-//	アプリケーション設定 | Application configuration
+//	エンジン設定 | Engine configuration
 //
 //////////////////////////////////////////////////
 
-// アプリケーションの設定 | Application configuration
-# include <Siv3D/ApplicationOptions.hpp>
+//　エンジンの設定 | Engine configuration
+# include <Siv3D/EngineOptions.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1546,6 +1562,36 @@
 	# include <Siv3D/Windows/Libraries.hpp>
 
 # endif
+
+# if SIV3D_PLATFORM(WEB) && __has_include(<emscripten.h>)
+
+	# include <emscripten.h>
+
+# endif
+
+# if SIV3D_PLATFORM(WEB)
+
+	# define SIV3D_MAINLOOP_BEGIN	s3d::Platform::Web::System::SetMainLoop([&] { s3d::System::Update();
+	# define SIV3D_MAINLOOP_END		});
+
+# else
+
+	# define SIV3D_MAINLOOP_BEGIN	while (s3d::System::Update())
+	# define SIV3D_MAINLOOP_END		
+
+# endif
+/*
+# include <Siv3D.hpp>
+
+void Main()
+{
+	SIV3D_MAINLOOP_BEGIN
+	{
+
+	}
+	SIV3D_MAINLOOP_END
+}
+*/
 
 //////////////////////////////////////////////////
 //

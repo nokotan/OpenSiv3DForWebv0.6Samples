@@ -21,24 +21,22 @@ namespace s3d
 	/// @brief 非同期処理クラス
 	/// @tparam Type 非同期処理のタスクで実行する関数の戻り値の型
 	template <class Type>
-	class AsyncTask : protected std::future<Type>
+	class AsyncTask
 	{
 	public:
 
 		using base_type = std::future<Type>;
 
-		using base_type::operator=;
-		using base_type::get;
-		using base_type::valid;
-		using base_type::wait;
-		using base_type::wait_for;
-		using base_type::wait_until;
-		using base_type::share;
-
 		/// @brief デフォルトコンストラクタ
 		/// @remark 何もしません
 		SIV3D_NODISCARD_CXX20
 		AsyncTask() = default;
+
+		SIV3D_NODISCARD_CXX20
+		AsyncTask(base_type&& other) noexcept;
+
+		SIV3D_NODISCARD_CXX20
+		AsyncTask(AsyncTask&& other) noexcept;
 
 		/// @brief 非同期処理のタスクを作成します
 		/// @tparam Fty 非同期処理のタスクで実行する関数の型
@@ -50,10 +48,52 @@ namespace s3d
 		SIV3D_NODISCARD_CXX20
 		explicit AsyncTask(Fty&& f, Args&&... args);
 
-		/// @brief 非同期処理のタスクが完了しているかを返します。
-		/// @return 非同期処理のタスクが完了している場合 true, それ以外の場合は false
+		~AsyncTask() = default;
+
+		AsyncTask(const base_type&) = delete;
+		
+		AsyncTask(const AsyncTask&) = delete;
+		
+		AsyncTask& operator =(const base_type&) = delete;
+		
+		AsyncTask& operator =(const AsyncTask&) = delete;
+
+		AsyncTask& operator =(base_type&& other) noexcept;
+		
+		AsyncTask& operator =(AsyncTask&& other) noexcept;
+
+		/// @brief 非同期処理を持っているかを返します。
+		/// @remark `get()` を呼ぶと、非同期処理を持たない状態に戻ります。
+		/// @return 非同期処理を持っている場合 true, それ以外の場合は false
+		[[nodiscard]]
+		bool isValid() const noexcept;
+
+		/// @brief タスクが完了した非同期処理を持っていて、結果をすぐに返せる状態であるかを返します。
+		/// @remark `get()` を呼ぶと、非同期処理を持たない状態に戻ります。
+		/// @return タスクが完了した非同期処理を持っていて、結果をすぐに返せる状態である場合 true, それ以外の場合は false
 		[[nodiscard]]
 		bool isReady() const;
+
+		/// @brief タスクが完了した非同期処理の結果を返します。
+		/// @remark タスクが完了していない場合は、完了まで待機します。
+		/// @return タスクが完了した非同期処理の結果
+		Type get();
+
+		/// @brief 非同期処理のタスク完了を待ちます。
+		void wait() const;
+
+		template <class Rep, class Period>
+		std::future_status wait_for(const std::chrono::duration<Rep, Period>& relTime) const;
+
+		template <class Clock, class Duration>
+		std::future_status wait_until(const std::chrono::time_point<Clock, Duration>& absTime) const;
+
+		[[nodiscard]]
+		std::shared_future<Type> share() noexcept;
+
+	private:
+
+		base_type m_data;
 	};
 
 	template <class Fty, class... Args, std::enable_if_t<std::is_invocable_v<Fty, Args...>>* = nullptr>
