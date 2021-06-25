@@ -53,7 +53,7 @@ void Main()
 	double width = 0.5;
 	double reverbWet = 0.5;
 
-	std::future<Audio> nextAudio;
+	AsyncTask<Audio> nextAudio;
 
 	SetMainLoop([&]
 	{
@@ -85,7 +85,7 @@ void Main()
 			nextAudio = Platform::Web::Dialog::OpenAudio();
 		}
 
-		if (nextAudio.valid() && nextAudio.wait_for(0s) == std::future_status::ready)
+		if (nextAudio.isReady())
 		{
 			audio = nextAudio.get();
 		}
