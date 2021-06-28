@@ -185,6 +185,7 @@ endfunction()
 
 
 add_subdirectory(Main)
+add_subdirectory(Main3D)
 add_subdirectory(EmpoweredAudio)
 add_subdirectory(KDTree)
 add_subdirectory(GeoJson)
