@@ -1,3 +1,7 @@
 Module["getCurrentAudioContext"] = function() {
-    return AL.currentCtx.audioCtx;
+    return Module["SDL2"].audioContext;
+}
+
+Module["getCurrentAudioSource"] = function() {
+    return Module["SDL2"].audio.scriptProcessorNode;
 }

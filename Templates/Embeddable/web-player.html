@@ -105,7 +105,7 @@
         <div id="footer-control">
           <a class="footer-button st0" href="javascript:void(0);" onclick="Module.toggleAudioContext()">
             <svg id="sound-off" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; display: none;" xml:space="preserve">
               <g class="st0">
                 <path d="M0,204.883V307.12c0,21.22,17.212,38.437,38.442,38.437h71.582V166.446H38.442
                   C17.212,166.446,0,183.653,0,204.883z"/>
@@ -119,7 +119,7 @@
               </g>
             </svg>
             <svg id="sound-on" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" style="display: none;">
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g>
                 <path d="M0,206.254v99.491c0,20.663,16.752,37.418,37.414,37.418h69.667V168.844H37.414
                   C16.752,168.844,0,185.591,0,206.254z"/>
@@ -156,9 +156,24 @@
       const canvasContainerElement = document.querySelector("#canvas-container");
       const soundOnIcon = document.querySelector('#sound-on');
       const soundOffIcon = document.querySelector('#sound-off');
+      let gainNode;
 
       const onResize = function() {
         Module["setCanvasSize"](canvasContainerElement.clientWidth, canvasContainerElement.clientHeight);
+      }
+
+      const onAudioInit = function() {
+        // Inject Gain Node
+
+        /** @type { AudioContext } */
+        const audioCtx = Module["getCurrentAudioContext"]();
+        /** @type { ScriptProcessorNode } */
+        const audioSource = Module["getCurrentAudioSource"]();
+
+        gainNode = audioCtx.createGain();
+        audioSource.disconnect(audioCtx.destination);
+        audioSource.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
       }
 
       let runtimeReady = false;
@@ -174,7 +189,14 @@
 
       var Module = {
         preRun: [],
-        postRun: [ onResize ],
+        postRun: [ onResize, onAudioInit ],
+        printErr: function (text) {
+          if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(" ");
+          if (runtimeReady) {
+            onRuntimeError();
+            window.alert(text);
+          }
+        },
         canvas: (function () {
           var canvas = document.getElementById("canvas");
 
@@ -185,6 +207,7 @@
             "webglcontextlost",
             function (e) {
                 alert("WebGL context lost. You will need to reload the page.");
+                onRuntimeError();
                 e.preventDefault();
             },
           false
@@ -202,11 +225,11 @@
           Module["setStatus"].last.time = now;
           Module["setStatus"].last.text = text;
           if (m) {
-          text = m[1];
-          progressElement.style.width = `${parseInt(m[2]) * 100 / parseInt(m[4])}%`;
-          progressElement.hidden = false;   
-          } else {
-          if (!hasRaiseRuntimeError) progressElement.hidden = true;
+            text = m[1];
+            progressElement.style.width = `${parseInt(m[2]) * 100 / parseInt(m[4])}%`;
+            progressElement.hidden = false;   
+          } else if (!hasRaiseRuntimeError) { 
+            progressElement.hidden = true;
           }
         },
         totalDependencies: 0,
@@ -227,18 +250,16 @@
           window.addEventListener("resize", onResize);
         },
         toggleAudioContext: function() {
-          const audioCtx = Module["getCurrentAudioContext"]();
+          if (gainNode.gain.value == 1.0) {
+            gainNode.gain.value = 0.0;
 
-          if(audioCtx.state === 'running') {
-              audioCtx.suspend().then(function () {
-                  soundOnIcon.style.display = "none";
-                  soundOffIcon.style.display = "inline";
-              });
-          } else if(audioCtx.state === 'suspended') {
-              audioCtx.resume().then(function () {      
-                  soundOnIcon.style.display = "inline";
-                  soundOffIcon.style.display = "none";
-              });  
+            soundOnIcon.style.display = "none";
+            soundOffIcon.style.display = "inline";
+          } else {
+            gainNode.gain.value = 1.0;     
+
+            soundOnIcon.style.display = "inline";
+            soundOffIcon.style.display = "none";
           }
         }
       }
