@@ -149,6 +149,15 @@ namespace s3d
 		[[nodiscard]]
 		double spaceWidth() const;
 
+		/// @brief インデントに含まれるスペースの数を返します。
+		/// @return インデントに含まれるスペースの数
+		[[nodiscard]]
+		int32 indentSize() const;
+
+		/// @brief インデントに含まれるスペースの数を設定します。
+		/// @param indentSize インデントに含まれるスペースの数
+		void setIndentSize(int32 indentSize) const;
+
 		/// @brief レンダリング方式が SDF, MSDF の場合にキャッシュテクスチャに保存する文字の周囲の余白を設定します。 
 		/// @param thickness 
 		/// @remark デフォルト値は 2 です。
@@ -399,6 +408,8 @@ namespace s3d
 		[[nodiscard]]
 		DrawableText operator()(const Args& ... args) const;
 
+		void swap(Font& other) noexcept;
+
 		/// @brief テキスト描画用の標準ピクセルシェーダを返します。
 		/// @param method フォントのレンダリング方式
 		/// @param type テキストのスタイル
@@ -408,3 +419,8 @@ namespace s3d
 		static const PixelShader& GetPixelShader(FontMethod method, TextStyle::Type type = TextStyle::Type::Default, HasColor hasColor = HasColor::No);
 	};
 }
+
+template <>
+inline void std::swap(s3d::Font& a, s3d::Font& b) noexcept;
+
+# include "detail/Font.ipp"

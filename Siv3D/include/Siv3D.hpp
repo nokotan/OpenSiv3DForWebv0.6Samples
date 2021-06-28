@@ -907,6 +907,8 @@
 
 # include <Siv3D/ImageROI.hpp>
 
+# include <Siv3D/GrabCutClass.hpp>
+
 // 背景抽出
 # include <Siv3D/GrabCut.hpp>
 
@@ -1367,6 +1369,32 @@
 
 //////////////////////////////////////////////////
 //
+//	2D パーティクルシステム | 2D Particle System
+//
+//////////////////////////////////////////////////
+
+# include <Siv3D/Emission2D.hpp>
+
+// 2D パーティクルシステム | 2D Particle system (Particle)
+# include <Siv3D/Particle2D.hpp>
+
+# include <Siv3D/IEmitter2D.hpp>
+
+# include <Siv3D/CircleEmitter2D.hpp>
+
+# include <Siv3D/ArcEmitter2D.hpp>
+
+# include <Siv3D/RectEmitter2D.hpp>
+
+# include <Siv3D/PolygonEmitter2D.hpp>
+
+# include <Siv3D/ParticleSystem2DParameters.hpp>
+
+// 2D パーティクルシステム | 2D Particle system (System)
+# include <Siv3D/ParticleSystem2D.hpp>
+
+//////////////////////////////////////////////////
+//
 //	シリアル通信 | Serial communication
 //
 //////////////////////////////////////////////////
@@ -1418,6 +1446,10 @@
 
 // 文章読み上げオブジェクト | Text to speech object
 # include <Siv3D/Say.hpp>
+
+# include <Siv3D/KlattTTSParameters.hpp>
+
+# include <Siv3D/KlattTTS.hpp>
 
 //////////////////////////////////////////////////
 //
@@ -1537,6 +1569,15 @@
 # include <Siv3D/FFTSampleLength.hpp>
 # include <Siv3D/FFT.hpp>
 # include <Siv3D/UUID.hpp>
+
+
+# include <Siv3D/Vertex3D.hpp>
+# include <Siv3D/BasicCamera3D.hpp>
+# include <Siv3D/Mesh.hpp>
+# include <Siv3D/Graphics3D.hpp>
+# include <Siv3D/ScopedViewport3D.hpp>
+# include <Siv3D/ScopedRenderTarget3D.hpp>
+# include <Siv3D/ScopedCustomShader3D.hpp>
 
 //////////////////////////////////////////////////
 //

@@ -26,7 +26,8 @@ namespace s3d
 		Glyph() = default;
 
 		SIV3D_NODISCARD_CXX20
-		explicit Glyph(const GlyphInfo& glyphInfo)
-			: GlyphInfo{ glyphInfo } {}
+		explicit Glyph(const GlyphInfo& glyphInfo);
 	};
 }
+
+# include "detail/Glyph.ipp"
