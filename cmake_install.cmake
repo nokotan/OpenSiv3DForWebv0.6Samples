@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/Main/cmake_install.cmake")
+  include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/Main3D/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/EmpoweredAudio/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/KDTree/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/GeoJson/cmake_install.cmake")

@@ -137,6 +137,19 @@ Main/fast:
 .PHONY : Main/fast
 
 #=============================================================================
+# Target rules for targets named Main3D
+
+# Build rule for target.
+Main3D: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Main3D
+.PHONY : Main3D
+
+# fast build rule for target.
+Main3D/fast:
+	$(MAKE) -f Main3D/CMakeFiles/Main3D.dir/build.make Main3D/CMakeFiles/Main3D.dir/build
+.PHONY : Main3D/fast
+
+#=============================================================================
 # Target rules for targets named EmpoweredAudio
 
 # Build rule for target.
@@ -289,6 +302,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... Siv3DAppData"
 	@echo "... Main"
+	@echo "... Main3D"
 	@echo "... EmpoweredAudio"
 	@echo "... KDTree"
 	@echo "... GeoJson"
