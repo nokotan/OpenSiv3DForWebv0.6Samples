@@ -43,7 +43,7 @@ namespace s3d
 		explicit Quaternion(const Mat4x4& m) noexcept;
 		
 		SIV3D_NODISCARD_CXX20
-		Quaternion(Float4 _vec) noexcept;
+		explicit Quaternion(Float4 _vec) noexcept;
 
 		SIV3D_NODISCARD_CXX20
 		Quaternion(aligned_float4 _vec) noexcept;
@@ -148,6 +148,18 @@ namespace s3d
 		SIV3D_CONCEPT_ARITHMETIC
 		[[nodiscard]]
 		static Quaternion SIV3D_VECTOR_CALL RotationAxis(Float3 axis, Arithmetic angle) noexcept;
+
+		SIV3D_CONCEPT_ARITHMETIC
+		[[nodiscard]]
+		static Quaternion SIV3D_VECTOR_CALL RotateX(Arithmetic angle) noexcept;
+
+		SIV3D_CONCEPT_ARITHMETIC
+		[[nodiscard]]
+		static Quaternion SIV3D_VECTOR_CALL RotateY(Arithmetic angle) noexcept;
+
+		SIV3D_CONCEPT_ARITHMETIC
+		[[nodiscard]]
+		static Quaternion SIV3D_VECTOR_CALL RotateZ(Arithmetic angle) noexcept;
 
 		[[nodiscard]]
 		static Quaternion SIV3D_VECTOR_CALL Rotate(const Mat4x4& m) noexcept;

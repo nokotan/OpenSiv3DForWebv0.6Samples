@@ -19,7 +19,8 @@
 
 namespace s3d
 {
-	struct AABB;
+	struct MeshData;
+	struct Box;
 	struct Sphere;
 	class Texture;
 
@@ -31,15 +32,12 @@ namespace s3d
 		Mesh();
 
 		SIV3D_NODISCARD_CXX20
-		Mesh(const Array<Vertex3D>& vertices, const Array<Vertex3D::IndexType>& indices);
-
-		SIV3D_NODISCARD_CXX20
-		explicit Mesh(const AABB& aabb);
-
-		SIV3D_NODISCARD_CXX20
-		explicit Mesh(const Sphere& sphere, uint32 quality = 12);
+		explicit Mesh(const MeshData& meshData);
 
 		virtual ~Mesh();
+
+		[[nodiscard]]
+		size_t num_vertices() const;
 
 		[[nodiscard]]
 		size_t num_triangles() const;
@@ -69,5 +67,40 @@ namespace s3d
 		void draw(const Vec3& pos, const Quaternion& rotation, const Texture& texture, const ColorF& color = Palette::White) const;
 
 		void draw(const Mat4x4& mat, const Texture& texture, const ColorF& color = Palette::White) const;
+
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, double x, double y, double z, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Vec3& pos, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, double x, double y, double z, const Quaternion& rotation, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Vec3& pos, const Quaternion& rotation, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Mat4x4& mat, const ColorF& color = Palette::White) const;
+
+
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, double x, double y, double z, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Vec3& pos, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, double x, double y, double z, const Quaternion& rotation, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Vec3& pos, const Quaternion& rotation, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		void drawSubset(uint32 startTriangle, uint32 triangleCount, const Mat4x4& mat, const Texture& texture, const ColorF& color = Palette::White) const;
+
+
+		void swap(Mesh& other) noexcept;
 	};
 }
+
+template <>
+inline void std::swap(s3d::Mesh& a, s3d::Mesh& b) noexcept;
+
+# include "detail/Mesh.ipp"

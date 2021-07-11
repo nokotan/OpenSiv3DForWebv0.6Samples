@@ -325,12 +325,12 @@ namespace s3d
 		return DirectX::XMMatrixRotationQuaternion(quaternion);
 	}
 
-	inline Mat4x4 Mat4x4::Reflect(const Plane plane) noexcept
+	inline Mat4x4 Mat4x4::Reflect(const InfinitePlane plane) noexcept
 	{
 		return DirectX::XMMatrixReflect(plane);
 	}
 
-	inline Mat4x4 Mat4x4::Shadow(const Plane plane, const Float3 lightPos) noexcept
+	inline Mat4x4 Mat4x4::Shadow(const InfinitePlane plane, const Float3 lightPos) noexcept
 	{
 		return DirectX::XMMatrixShadow(plane, SIMD_Float4{ lightPos, 0.0f });
 	}

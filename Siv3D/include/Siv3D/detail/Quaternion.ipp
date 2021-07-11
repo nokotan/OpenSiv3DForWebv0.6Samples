@@ -33,14 +33,12 @@ namespace s3d
 	inline Quaternion& Quaternion::operator =(const aligned_float4 other) noexcept
 	{
 		value = other;
-
 		return *this;
 	}
 
 	inline Quaternion& Quaternion::operator =(const SIMD_Float4 other) noexcept
 	{
 		value = other;
-
 		return *this;
 	}
 
@@ -213,5 +211,23 @@ namespace s3d
 	inline Quaternion Quaternion::RotationAxis(const Float3 axis, const Arithmetic angle) noexcept
 	{
 		return DirectX::XMQuaternionRotationAxis(SIMD_Float4{ axis, 0.0f }, static_cast<float>(angle));
+	}
+
+	SIV3D_CONCEPT_ARITHMETIC_
+	inline Quaternion Quaternion::RotateX(const Arithmetic angle) noexcept
+	{
+		return DirectX::XMQuaternionRotationNormal(DirectX::g_XMIdentityR0, static_cast<float>(angle));
+	}
+
+	SIV3D_CONCEPT_ARITHMETIC_
+	inline Quaternion Quaternion::RotateY(const Arithmetic angle) noexcept
+	{
+		return DirectX::XMQuaternionRotationNormal(DirectX::g_XMIdentityR1, static_cast<float>(angle));
+	}
+
+	SIV3D_CONCEPT_ARITHMETIC_
+	inline Quaternion Quaternion::RotateZ(const Arithmetic angle) noexcept
+	{
+		return DirectX::XMQuaternionRotationNormal(DirectX::g_XMIdentityR2, static_cast<float>(angle));
 	}
 }

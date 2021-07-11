@@ -19,10 +19,10 @@
 namespace s3d
 {
 	struct Triangle3D;
-	struct Plane;
 	struct Sphere;
-	struct AABB;
-	struct OBB;
+	struct Plane;
+	struct Box;
+	struct OrientedBox;
 
 	struct Ray
 	{
@@ -62,19 +62,35 @@ namespace s3d
 		Vec3 SIV3D_VECTOR_CALL point_at(Arithmetic distance) const noexcept;
 
 		[[nodiscard]]
-		Optional<float> SIV3D_VECTOR_CALL intersects(Triangle3D triangle) const;
-
-		[[nodiscard]]
-		Optional<float> SIV3D_VECTOR_CALL intersects(Plane plane) const;
+		Optional<float> SIV3D_VECTOR_CALL intersects(const Triangle3D& triangle) const;
 
 		[[nodiscard]]
 		Optional<float> SIV3D_VECTOR_CALL intersects(const Sphere& sphere) const;
 
 		[[nodiscard]]
-		Optional<float> SIV3D_VECTOR_CALL intersects(const AABB& aabb) const;
+		Optional<float> SIV3D_VECTOR_CALL intersects(const Plane& plane) const;
 
 		[[nodiscard]]
-		Optional<float> SIV3D_VECTOR_CALL intersects(const OBB& obb) const;
+		Optional<float> SIV3D_VECTOR_CALL intersects(const Box& aabb) const;
+
+		[[nodiscard]]
+		Optional<float> SIV3D_VECTOR_CALL intersects(const OrientedBox& obb) const;
+
+
+		[[nodiscard]]
+		Optional<Float3> SIV3D_VECTOR_CALL intersectsAt(const Triangle3D& triangle) const;
+
+		[[nodiscard]]
+		Optional<Float3> SIV3D_VECTOR_CALL intersectsAt(const Sphere& sphere) const;
+
+		[[nodiscard]]
+		Optional<Float3> SIV3D_VECTOR_CALL intersectsAt(const Plane& plane) const;
+
+		[[nodiscard]]
+		Optional<Float3> SIV3D_VECTOR_CALL intersectsAt(const Box& aabb) const;
+
+		[[nodiscard]]
+		Optional<Float3> SIV3D_VECTOR_CALL intersectsAt(const OrientedBox& obb) const;
 
 		template <class CharType>
 		friend std::basic_ostream<CharType>& operator <<(std::basic_ostream<CharType>& output, const Ray& value)
