@@ -191,10 +191,8 @@
         preRun: [],
         postRun: [ onResize, onAudioInit ],
         printErr: function (text) {
-          if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(" ");
           if (runtimeReady) {
             onRuntimeError();
-            window.alert(text);
           }
         },
         canvas: (function () {
