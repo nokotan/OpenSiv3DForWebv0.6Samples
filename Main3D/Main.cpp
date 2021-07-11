@@ -13,24 +13,31 @@ void Main()
 
 	// 3D 形状クラスは準備中なので Mesh を作成。
 	// 今後の実装で、Sphere{...}.draw(), AABB{...}.draw() などをできるようにする。
-	Mesh smallPlaneMesh;
+	Mesh smallPlaneMesh
 	{
-		Array<Vertex3D> vertices =
+		// MeshData
 		{
-			{ .pos = { -6.0f, 0.0f,  6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 0.0f, 0.0f } },
-			{ .pos = {  6.0f, 0.0f,  6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 1.0f, 0.0f } },
-			{ .pos = { -6.0f, 0.0f, -6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 0.0f, 1.0f } },
-			{ .pos = {  6.0f, 0.0f, -6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 1.0f, 1.0f } },
-		};
-		smallPlaneMesh = Mesh{ vertices, { 0,1,2, 2,1,3 } };
-	}
-	const AABB floorAABB{ Vec3{ 0, 0, 0 }, Vec3{ 20, 0.01, 20 } };
-	const Mesh floorMesh{ floorAABB };
-	const Mesh markerMesh{ Sphere{ Vec3{0,0,0}, 0.2 } };
-	const Mesh smallBoxMesh{ AABB{ Vec3{0,0,0}, Vec3{0.25, 0.25, 0.25}} };
-	const Mesh earthMesh{ Sphere{ Vec3{0,3,0}, 3.0 } };
-	const Mesh boxMesh{ AABB{ Vec3{0,0,0}, Vec3{2,2,2}} };
-	const Mesh ballMesh{ Sphere{ Vec3{0,0,0}, 1.0 } };
+			// Array<Vertex3D>
+			{
+				{ .pos = { -6.0f, 0.0f,  6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 0.0f, 0.0f } },
+				{ .pos = {  6.0f, 0.0f,  6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 1.0f, 0.0f } },
+				{ .pos = { -6.0f, 0.0f, -6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 0.0f, 1.0f } },
+				{ .pos = {  6.0f, 0.0f, -6.0f }, .normal = { 0.0f, 1.0f, 0.0f }, .tex = { 1.0f, 1.0f } },
+			},
+			// Array<TriangleIndex32>
+			{
+				{ 0, 1, 2 },
+				{ 2, 1, 3 },
+			}
+		}
+	};
+	const Box floorAABB{ Vec3{ 0, 0, 0 }, Vec3{ 20, 0.01, 20 } };
+	const Mesh floorMesh{ MeshData::Box( Vec3{ 0, 0, 0 }, Vec3{ 20, 0.01, 20 } ) };
+	const Mesh markerMesh{ MeshData::Sphere( Vec3{0,0,0}, 0.2 ) };
+	const Mesh smallBoxMesh{ MeshData::Box( Vec3{0,0,0}, Vec3{0.25, 0.25, 0.25} ) };
+	const Mesh earthMesh{ MeshData::Sphere( Vec3{0,3,0}, 3.0 ) };
+	const Mesh boxMesh{ MeshData::Box( Vec3{0,0,0}, Vec3{2,2,2} ) };
+	const Mesh ballMesh{ MeshData::Sphere( Vec3{0,0,0}, 1.0 ) };
 
 	Image image{ 1000, 1000, Palette::White };
 	DynamicTexture dtexture{ image };
