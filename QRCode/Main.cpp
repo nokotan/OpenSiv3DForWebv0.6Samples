@@ -1,15 +1,4 @@
 # include <Siv3D.hpp>
-# include <emscripten.h>
-
-void RunMainLoop(void* arg)
-{
-	static_cast<const std::function<void()>*>(arg)->operator()();
-}
-
-void SetMainLoop(std::function<void()> mainLoop)
-{
-	emscripten_set_main_loop_arg(RunMainLoop, reinterpret_cast<void*>(&mainLoop), 0, 1);
-}
 
 void Main()
 {
@@ -18,7 +7,7 @@ void Main()
 	TextEditState text;
 	text.text = U"https://github.com/Siv3D/OpenSiv3D/tree/v6_winmac_develop";
 
-	SetMainLoop([&]
+	Platform::Web::System::SetMainLoop([&]
 	{
 		System::Update();
 

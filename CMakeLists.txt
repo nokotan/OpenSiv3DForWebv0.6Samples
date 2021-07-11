@@ -41,7 +41,6 @@ set(Siv3DAppLibraries
 
 set(Siv3DAppCompileFlags 
     "-Wno-unknown-pragmas"
-    "-D_XM_SSE4_INTRINSICS_" 
 )
 
 set(Siv3DAppLinkerFlags
@@ -64,10 +63,24 @@ set(Siv3DAppLinkerFlags
     "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
     "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
     "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
+    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
 )
 
 string (REPLACE ";" " " Siv3DAppCompileFlags "${Siv3DAppCompileFlags}")
 string (REPLACE ";" " " Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags}")
+
+if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
+  set(Siv3DAppCompileFlags "${Siv3DAppCompileFlags} -s EXCEPTION_CATCHING_ALLOWED=[\"InitSiv3D\"]")
+  set(Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags} -s EXCEPTION_CATCHING_ALLOWED=[\"InitSiv3D\"]")
+endif()
+
+if ("${CMAKE_C_FLAGS}" STREQUAL "" OR NOT ${CMAKE_C_FLAGS} MATCHES "-msimd128")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_XM_NO_INTRINSICS_")
+endif ()
+
+if ("${CMAKE_CXX_FLAGS}" STREQUAL "" OR NOT ${CMAKE_CXX_FLAGS} MATCHES "-msimd128")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_XM_NO_INTRINSICS_")
+endif ()
 
 
 

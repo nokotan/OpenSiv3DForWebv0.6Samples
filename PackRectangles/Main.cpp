@@ -1,15 +1,4 @@
 # include <Siv3D.hpp>
-# include <emscripten.h>
-
-void RunMainLoop(void* arg)
-{
-	static_cast<const std::function<void()>*>(arg)->operator()();
-}
-
-void SetMainLoop(std::function<void()> mainLoop)
-{
-	emscripten_set_main_loop_arg(RunMainLoop, reinterpret_cast<void*>(&mainLoop), 0, 1);
-}
 
 // ランダムな長方形の配列を作成
 Array<Rect> GenerateRandomRects()
@@ -35,7 +24,7 @@ void Main()
     Point offset{ 0, 0 };
     Stopwatch s;
 
-	SetMainLoop([&]
+	Platform::Web::System::SetMainLoop([&]
     {
 		System::Update();
 

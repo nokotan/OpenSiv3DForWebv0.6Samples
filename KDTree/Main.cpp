@@ -1,15 +1,4 @@
 # include <Siv3D.hpp>
-# include <emscripten.h>
-
-void RunMainLoop(void* arg)
-{
-	static_cast<const std::function<void()>*>(arg)->operator()();
-}
-
-void SetMainLoop(std::function<void()> mainLoop)
-{
-	emscripten_set_main_loop_arg(RunMainLoop, reinterpret_cast<void*>(&mainLoop), 0, 1);
-}
 
 struct Unit
 {
@@ -59,7 +48,7 @@ void Main()
 	// radius search する際の探索距離
 	constexpr double searchDistance = 80.0;
 
-	SetMainLoop([&]
+	Platform::Web::System::SetMainLoop([&]
 	{
 		System::Update();
 
