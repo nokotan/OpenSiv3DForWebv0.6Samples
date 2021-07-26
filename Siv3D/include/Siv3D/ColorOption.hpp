@@ -10,8 +10,14 @@
 //-----------------------------------------------
 
 # pragma once
+# include "Common.hpp"
 
 namespace s3d
 {
+	enum class ColorOption
+	{
+		Default,
 
+		ApplySRGBCurve,
+	};
 }

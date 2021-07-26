@@ -11,21 +11,15 @@
 
 # pragma once
 # include "Common.hpp"
-# include "PointVector.hpp"
+# include "Optional.hpp"
+# include "Mesh.hpp"
 
 namespace s3d
 {
-	struct OBB
+	struct ModelMeshPart
 	{
-		Vec3 center;
+		Mesh mesh;
 
-		Vec3 size;
-
-		Quaternion orientation;
-
-
-
+		Optional<size_t> materialID;
 	};
 }
-
-# include "detail/OBB.ipp"

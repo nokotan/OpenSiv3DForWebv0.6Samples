@@ -11,19 +11,22 @@
 
 # pragma once
 # include "Common.hpp"
-# include "PointVector.hpp"
+# include "Array.hpp"
+# include "String.hpp"
+# include "ModelMeshPart.hpp"
+# include "Box.hpp"
+# include "Sphere.hpp"
 
 namespace s3d
 {
-	struct AABB
+	struct ModelObject
 	{
-		Vec3 center;
+		String name;
 
-		Vec3 size;
+		Array<ModelMeshPart> parts;
 
+		Sphere boudingSphere{ 0.0 };
 
-
+		Box boudingBox{ 0.0 };
 	};
 }
-
-# include "detail/AABB.ipp"

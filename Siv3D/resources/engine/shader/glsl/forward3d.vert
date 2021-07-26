@@ -22,18 +22,20 @@ layout(location = 2) in vec2 VertexUV;
 //	VSOutput
 //
 out vec3 WorldPosition;
-out vec4 Color;
 out vec2 UV;
 out vec3 Normal;
 
 //
 //	Constant Buffer
 //
-layout(std140) uniform VSConstants3D
+layout(std140) uniform VSPerView
+{
+	mat4x4 g_worldToProjected;
+};
+
+layout(std140) uniform VSPerObject
 {
 	mat4x4 g_localToWorld;
-	mat4x4 g_worldToProjected;
-	vec4   g_diffuse;
 };
 
 //
@@ -45,7 +47,6 @@ void main()
 
 	gl_Position		= worldPosition * g_worldToProjected;
 	WorldPosition	= worldPosition.xyz;
-	Color			= g_diffuse;
 	UV				= VertexUV;
 	Normal			= VertexNormal * mat3x3(g_localToWorld);
 }

@@ -18,6 +18,7 @@ namespace s3d
 {
 	class Texture;
 	struct Quaternion;
+	struct Mat4x4;
 
 	struct Box
 	{
@@ -113,17 +114,78 @@ namespace s3d
 
 
 		[[nodiscard]]
+		std::array<Vec3, 8> getCorners() const noexcept;
+
+		[[nodiscard]]
 		bool intersects(const Box& box) const noexcept;
 
 
-		void draw(const ColorF& color = Palette::White) const;
+		const Box& draw(const ColorF& color = Palette::White) const;
 		
-		void draw(const Texture& texture, const ColorF& color = Palette::White) const;
+		const Box& draw(const Texture& texture, const ColorF& color = Palette::White) const;
 
-		void draw(const Quaternion& rotation, const ColorF& color = Palette::White) const;
+		const Box& draw(const Quaternion& rotation, const ColorF& color = Palette::White) const;
 
-		void draw(const Quaternion& rotation, const Texture& texture, const ColorF& color = Palette::White) const;
+		const Box& draw(const Quaternion& rotation, const Texture& texture, const ColorF& color = Palette::White) const;
+
+		const Box& draw(const Mat4x4& mat, const ColorF& color = Palette::White) const;
+
+		const Box& draw(const Mat4x4& mat, const Texture& texture, const ColorF& color = Palette::White) const;
+
+
+		const Box& drawFrame(const ColorF& color = Palette::White) const;
+
+
+		template <class CharType>
+		friend std::basic_ostream<CharType>& operator <<(std::basic_ostream<CharType>& output, const Box& value)
+		{
+			return output << CharType('(')
+				<< value.center << CharType(',') << CharType(' ')
+				<< value.size << CharType(')');
+		}
+
+		template <class CharType>
+		friend std::basic_istream<CharType>& operator >>(std::basic_istream<CharType>& input, Box& value)
+		{
+			CharType unused;
+			return input >> unused
+				>> value.center >> unused
+				>> value.size >> unused;
+		}
+
+		friend void Formatter(FormatData& formatData, const Box& value)
+		{
+			_Formatter(formatData, value);
+		}
+
+		static void _Formatter(FormatData& formatData, const Box& value);
 	};
 }
 
 # include "detail/Box.ipp"
+
+template <>
+struct SIV3D_HIDDEN fmt::formatter<s3d::Box, s3d::char32>
+{
+	std::u32string tag;
+
+	auto parse(basic_format_parse_context<s3d::char32>& ctx)
+	{
+		return s3d::detail::GetFormatTag(tag, ctx);
+	}
+
+	template <class FormatContext>
+	auto format(const s3d::Box& value, FormatContext& ctx)
+	{
+		if (tag.empty())
+		{
+			return format_to(ctx.out(), U"({}, {})", value.center, value.size);
+		}
+		else
+		{
+			const std::u32string format
+				= (U"({:" + tag + U"}, {:" + tag + U"})");
+			return format_to(ctx.out(), format, value.center, value.size);
+		}
+	}
+};

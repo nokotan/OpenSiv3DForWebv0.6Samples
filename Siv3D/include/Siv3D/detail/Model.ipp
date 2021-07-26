@@ -11,7 +11,8 @@
 
 # pragma once
 
-namespace s3d
+template <>
+inline void std::swap(s3d::Model& a, s3d::Model& b) noexcept
 {
-
+	a.swap(b);
 }

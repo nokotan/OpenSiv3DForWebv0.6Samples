@@ -71,12 +71,14 @@ namespace s3d
 			
 			Default2D = ClampLinear,
 			
-			Default3D = ClampAniso,
+			Default3D = RepeatAniso,
 		};
 
 	public:
 
 		static constexpr uint32 MaxSamplerCount = 8;
+
+		static constexpr uint32 DefaultMaxAnisotropy = 4;
 
 		using storage_type = std::array<uint32, 6>;
 

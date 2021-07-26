@@ -748,6 +748,15 @@
 
 # include <Siv3D/Geometry3D.hpp>
 
+
+# include <Siv3D/Material.hpp>
+# include <Siv3D/PhongMaterial.hpp>
+
+# include <Siv3D/ModelMeshPart.hpp>
+# include <Siv3D/ModelObject.hpp>
+# include <Siv3D/Model.hpp>
+
+
 //////////////////////////////////////////////////
 //
 //	乱数と分布 | Random and Distribution
@@ -1587,6 +1596,7 @@
 
 # include <Siv3D/Vertex3D.hpp>
 # include <Siv3D/BasicCamera3D.hpp>
+# include <Siv3D/DebugCamera3D.hpp>
 # include <Siv3D/NormalComputation.hpp>
 # include <Siv3D/MeshData.hpp>
 # include <Siv3D/Mesh.hpp>
@@ -1596,6 +1606,8 @@
 # include <Siv3D/ScopedViewport3D.hpp>
 # include <Siv3D/ScopedRenderTarget3D.hpp>
 # include <Siv3D/ScopedCustomShader3D.hpp>
+# include <Siv3D/Transformer3D.hpp>
+# include <Siv3D/Sky.hpp>
 
 //////////////////////////////////////////////////
 //

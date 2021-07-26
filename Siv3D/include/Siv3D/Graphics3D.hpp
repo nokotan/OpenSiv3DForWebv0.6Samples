@@ -70,12 +70,18 @@ namespace s3d
 		[[nodiscard]]
 		Optional<PixelShader> GetCustomPixelShader();
 
-		void SetCameraTransform(const Mat4x4& matrix);
+		void SetCameraTransform(const Mat4x4& matrix, const Float3& eyePosition);
 
 		void SetCameraTransform(const BasicCamera3D& camera3D);
 
 		[[nodiscard]]
 		const Mat4x4& GetCameraTransform();
+
+		[[nodiscard]]
+		Float3 GetEyePosition();
+
+		[[nodiscard]]
+		const Mat4x4& GetLocalTransform();
 
 		[[nodiscard]]
 		Optional<RenderTexture> GetRenderTarget();
@@ -92,6 +98,21 @@ namespace s3d
 		/// @param slot スロット。最大 (SamplerState::MaxSamplerCount - 1)
 		/// @param texture アタッチするテクスチャ。none の場合テクスチャのアタッチを解除します。
 		void SetPSTexture(uint32 slot, const Optional<Texture>& texture);
+
+		void SetGlobalAmbientColor(const ColorF& color);
+
+		[[nodiscard]]
+		ColorF GetGlobalAmbientColor();
+
+		void SetSunDirection(const Vec3& direction);
+
+		[[nodiscard]]
+		Vec3 GetSunDirection();
+
+		void SetSunColor(const ColorF& color);
+
+		[[nodiscard]]
+		ColorF GetSunColor();
 
 		/// @brief 現在までの 3D 描画を実行します。
 		void Flush();
