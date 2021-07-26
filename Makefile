@@ -137,19 +137,6 @@ Main/fast:
 .PHONY : Main/fast
 
 #=============================================================================
-# Target rules for targets named Main3D
-
-# Build rule for target.
-Main3D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Main3D
-.PHONY : Main3D
-
-# fast build rule for target.
-Main3D/fast:
-	$(MAKE) -f Main3D/CMakeFiles/Main3D.dir/build.make Main3D/CMakeFiles/Main3D.dir/build
-.PHONY : Main3D/fast
-
-#=============================================================================
 # Target rules for targets named EmpoweredAudio
 
 # Build rule for target.
@@ -292,6 +279,110 @@ VideoReader/fast:
 	$(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/build
 .PHONY : VideoReader/fast
 
+#=============================================================================
+# Target rules for targets named Test3DCase1
+
+# Build rule for target.
+Test3DCase1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase1
+.PHONY : Test3DCase1
+
+# fast build rule for target.
+Test3DCase1/fast:
+	$(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1.dir/build
+.PHONY : Test3DCase1/fast
+
+#=============================================================================
+# Target rules for targets named Test3DCase2
+
+# Build rule for target.
+Test3DCase2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase2
+.PHONY : Test3DCase2
+
+# fast build rule for target.
+Test3DCase2/fast:
+	$(MAKE) -f Test3DCase2/CMakeFiles/Test3DCase2.dir/build.make Test3DCase2/CMakeFiles/Test3DCase2.dir/build
+.PHONY : Test3DCase2/fast
+
+#=============================================================================
+# Target rules for targets named Test3DCase3
+
+# Build rule for target.
+Test3DCase3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase3
+.PHONY : Test3DCase3
+
+# fast build rule for target.
+Test3DCase3/fast:
+	$(MAKE) -f Test3DCase3/CMakeFiles/Test3DCase3.dir/build.make Test3DCase3/CMakeFiles/Test3DCase3.dir/build
+.PHONY : Test3DCase3/fast
+
+#=============================================================================
+# Target rules for targets named Test3DCase4
+
+# Build rule for target.
+Test3DCase4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase4
+.PHONY : Test3DCase4
+
+# fast build rule for target.
+Test3DCase4/fast:
+	$(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/build
+.PHONY : Test3DCase4/fast
+
+#=============================================================================
+# Target rules for targets named Test3DShading
+
+# Build rule for target.
+Test3DShading: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DShading
+.PHONY : Test3DShading
+
+# fast build rule for target.
+Test3DShading/fast:
+	$(MAKE) -f Test3DShading/CMakeFiles/Test3DShading.dir/build.make Test3DShading/CMakeFiles/Test3DShading.dir/build
+.PHONY : Test3DShading/fast
+
+#=============================================================================
+# Target rules for targets named Test3DSky
+
+# Build rule for target.
+Test3DSky: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DSky
+.PHONY : Test3DSky
+
+# fast build rule for target.
+Test3DSky/fast:
+	$(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/build
+.PHONY : Test3DSky/fast
+
+#=============================================================================
+# Target rules for targets named TestSRGBCase1
+
+# Build rule for target.
+TestSRGBCase1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase1
+.PHONY : TestSRGBCase1
+
+# fast build rule for target.
+TestSRGBCase1/fast:
+	$(MAKE) -f TestSRGBCase1/CMakeFiles/TestSRGBCase1.dir/build.make TestSRGBCase1/CMakeFiles/TestSRGBCase1.dir/build
+.PHONY : TestSRGBCase1/fast
+
+#=============================================================================
+# Target rules for targets named TestSRGBCase2
+
+# Build rule for target.
+TestSRGBCase2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase2
+.PHONY : TestSRGBCase2
+
+# fast build rule for target.
+TestSRGBCase2/fast:
+	$(MAKE) -f TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build.make TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build
+.PHONY : TestSRGBCase2/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -302,7 +393,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... Siv3DAppData"
 	@echo "... Main"
-	@echo "... Main3D"
 	@echo "... EmpoweredAudio"
 	@echo "... KDTree"
 	@echo "... GeoJson"
@@ -314,6 +404,14 @@ help:
 	@echo "... QRCode"
 	@echo "... NavMesh"
 	@echo "... VideoReader"
+	@echo "... Test3DCase1"
+	@echo "... Test3DCase2"
+	@echo "... Test3DCase3"
+	@echo "... Test3DCase4"
+	@echo "... Test3DShading"
+	@echo "... Test3DSky"
+	@echo "... TestSRGBCase1"
+	@echo "... TestSRGBCase2"
 .PHONY : help
 
 
