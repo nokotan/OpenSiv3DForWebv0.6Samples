@@ -43,6 +43,8 @@ namespace s3d
 
 		void setView(const Vec3& eyePosition, const Vec3& focusPosition, const Vec3& upDirection = Vec3{ 0, 1, 0 }) noexcept;
 
+		void setUpDirection(const Vec3& upDirection) noexcept;
+
 		[[nodiscard]]
 		const Size& getSceneSize() const noexcept;
 
@@ -60,6 +62,12 @@ namespace s3d
 
 		[[nodiscard]]
 		const Vec3& getUpDirection() const noexcept;
+
+		[[nodiscard]]
+		Vec3 getLookAtVector() const noexcept;
+
+		[[nodiscard]]
+		Quaternion getLookAtOrientation() const noexcept;
 
 		[[nodiscard]]
 		const Mat4x4& SIV3D_VECTOR_CALL getProj() const noexcept;

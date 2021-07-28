@@ -182,6 +182,15 @@ namespace s3d
 		constexpr Vector3D cross(Vector3D v) const noexcept;
 
 		[[nodiscard]]
+		value_type angleTo(Vector3D v) const noexcept;
+
+		[[nodiscard]]
+		constexpr Vector3D projectOnVector(Vector3D v) const noexcept;
+
+		[[nodiscard]]
+		constexpr Vector3D projectOnPlane(Vector3D planeNormal) const noexcept;
+
+		[[nodiscard]]
 		value_type length() const noexcept;
 
 		[[nodiscard]]

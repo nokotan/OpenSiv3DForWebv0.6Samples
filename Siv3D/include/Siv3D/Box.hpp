@@ -11,6 +11,7 @@
 
 # pragma once
 # include "Common.hpp"
+# include "Optional.hpp"
 # include "PointVector.hpp"
 # include "ColorHSV.hpp"
 
@@ -19,6 +20,11 @@ namespace s3d
 	class Texture;
 	struct Quaternion;
 	struct Mat4x4;
+	struct Triangle3D;
+	struct Sphere;
+	struct OrientedBox;
+	class ViewFrustum;
+	struct Ray;
 
 	struct Box
 	{
@@ -104,6 +110,29 @@ namespace s3d
 		constexpr Box(const Vec3& _center, const Vec3& _size) noexcept;
 
 
+		SIV3D_NODISCARD_CXX20
+		constexpr Box(Arg::bottomCenter_<Vec3> _center, double _size) noexcept;
+
+		SIV3D_CONCEPT_ARITHMETIC
+		SIV3D_NODISCARD_CXX20
+		constexpr Box(Arg::bottomCenter_<Vec3> _center, Arithmetic _size) noexcept;
+
+		SIV3D_NODISCARD_CXX20
+		constexpr Box(Arg::bottomCenter_<Vec3> _center, double _w, double _h, double _d) noexcept;
+
+	# if __cpp_lib_concepts
+		template <Concept::Arithmetic W, Concept::Arithmetic H, Concept::Arithmetic D>
+	# else
+		template <class W, class H, class D, std::enable_if_t<std::conjunction_v<std::is_arithmetic<W>, std::is_arithmetic<H>, std::is_arithmetic<D>>>* = nullptr>
+	# endif
+		SIV3D_NODISCARD_CXX20
+		constexpr Box(Arg::bottomCenter_<Vec3> _center, W _w, H _h, D _d) noexcept;
+
+		SIV3D_NODISCARD_CXX20
+		constexpr Box(Arg::bottomCenter_<Vec3> _center, const Vec3& _size) noexcept;
+
+
+
 		constexpr Box& setPos(double cx, double cy, double cz) noexcept;
 
 		constexpr Box& setPos(const Vec3& _center) noexcept;
@@ -114,10 +143,59 @@ namespace s3d
 
 
 		[[nodiscard]]
+		constexpr Box stretched(double xyz) const noexcept;
+
+		[[nodiscard]]
+		constexpr Box stretched(double x, double y, double z) const noexcept;
+
+		[[nodiscard]]
+		constexpr Box stretched(Vec3 xyz) const noexcept;
+
+
+		[[nodiscard]]
 		std::array<Vec3, 8> getCorners() const noexcept;
+
+
+		[[nodiscard]]
+		bool intersects(const Vec3& point) const noexcept;
+
+		[[nodiscard]]
+		bool intersects(const Triangle3D& triangle) const noexcept;
+
+		[[nodiscard]]
+		bool intersects(const Sphere& sphere) const noexcept;
 
 		[[nodiscard]]
 		bool intersects(const Box& box) const noexcept;
+
+		[[nodiscard]]
+		bool intersects(const OrientedBox& box) const noexcept;
+
+		[[nodiscard]]
+		bool intersects(const ViewFrustum& frustum) const noexcept;
+
+		[[nodiscard]]
+		Optional<float> intersects(const Ray& ray) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const Vec3& point) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const Triangle3D& triangle) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const Sphere& sphere) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const Box& box) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const OrientedBox& box) const noexcept;
+
+		[[nodiscard]]
+		bool contains(const ViewFrustum& frustum) const noexcept;
+
+
 
 
 		const Box& draw(const ColorF& color = Palette::White) const;
@@ -134,6 +212,10 @@ namespace s3d
 
 
 		const Box& drawFrame(const ColorF& color = Palette::White) const;
+
+
+		[[nodiscard]]
+		static constexpr Box FromTwoPoints(const Vec3& a, const Vec3& b) noexcept;
 
 
 		template <class CharType>
