@@ -383,6 +383,19 @@ TestSRGBCase2/fast:
 	$(MAKE) -f TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build.make TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build
 .PHONY : TestSRGBCase2/fast
 
+#=============================================================================
+# Target rules for targets named TestSRGBCase3
+
+# Build rule for target.
+TestSRGBCase3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase3
+.PHONY : TestSRGBCase3
+
+# fast build rule for target.
+TestSRGBCase3/fast:
+	$(MAKE) -f TestSRGBCase3/CMakeFiles/TestSRGBCase3.dir/build.make TestSRGBCase3/CMakeFiles/TestSRGBCase3.dir/build
+.PHONY : TestSRGBCase3/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -412,6 +425,7 @@ help:
 	@echo "... Test3DSky"
 	@echo "... TestSRGBCase1"
 	@echo "... TestSRGBCase2"
+	@echo "... TestSRGBCase3"
 .PHONY : help
 
 

@@ -54,6 +54,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/Test3DSky/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/TestSRGBCase1/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/TestSRGBCase2/cmake_install.cmake")
+  include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/TestSRGBCase3/cmake_install.cmake")
 
 endif()
 
