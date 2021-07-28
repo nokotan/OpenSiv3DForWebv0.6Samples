@@ -87,7 +87,8 @@ endif ()
 # Packaging Files
 
 set(Siv3DAppBundledFilesPath
-    /resources/engine/font/noto-cjk
+    /resources/engine/font/noto-cjk/LICENSE
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /resources/engine/font/noto-emoji
     /resources/engine/shader/glsl
     /resources/engine/texture/box-shadow
