@@ -8,7 +8,7 @@ void DrawModel(const Model& model, const Mat4x4& mat)
 
 	for (const auto& object : model.objects())
 	{
-		Model::Draw(object, materials);
+		object.draw(materials);
 	}
 }
 
@@ -28,7 +28,7 @@ void DrawMillModel(const Model& model, const Mat4x4& mat)
 
 		const Transformer3D t{ (m * mat) };
 
-		Model::Draw(object, materials);
+		object.draw(materials);
 	}
 }
 
