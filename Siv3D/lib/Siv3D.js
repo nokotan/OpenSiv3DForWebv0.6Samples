@@ -321,7 +321,7 @@ mergeInto(LibraryManager.library, {
 
         const video = videoElements[idx];
         if (!!video.src) {
-            URL.revokeObjectURL(src);
+            URL.revokeObjectURL(video.src);
         }
 
         delete videoElements[idx];
