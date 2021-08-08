@@ -19,7 +19,7 @@ mergeInto(LibraryManager.library, {
         if (!window.keysBuffer) {
             window.keysBuffer = Module._malloc(349 /* GLFW_KEY_LAST + 1 */)
         }
-        Module.HEAPU8.set(window.keys, window.keysBuffer);
+        Module["HEAPU8"].set(window.keys, window.keysBuffer);
         return window.keysBuffer;
     },
     glfwGetKeysSiv3D__sig: "ii",
