@@ -61,6 +61,8 @@ set(Siv3DAppLinkerFlags
     "-s MIN_WEBGL_VERSION=2"
     "-s MAX_WEBGL_VERSION=2"
 
+    "-s LZ4=1"
+
     "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
     "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
     "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
@@ -110,6 +112,7 @@ add_custom_command(
         Siv3DApp.data
         --js-output=Siv3DApp.data.js
         ${Siv3DAppBundledFilesFlags}
+        --lz4
         --from-emcc
 )
 
