@@ -17,7 +17,7 @@ jobs:
       - name: Build Project
         run: |
           mkdir Build && cd Build
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=RELEASE
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL
           make -j4
 
       - name: Pre Deploy
