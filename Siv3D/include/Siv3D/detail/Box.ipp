@@ -127,25 +127,25 @@ namespace s3d
 		, size{ _size } {}
 
 
-	inline constexpr Box& Box::setPos(const double cx, const double cy, const double cz) noexcept
+	inline constexpr Box& Box::setPos(const value_type cx, const value_type cy, const value_type cz) noexcept
 	{
 		center.set(cx, cy, cz);
 		return *this;
 	}
 
-	inline constexpr Box& Box::setPos(const Vec3& _center) noexcept
+	inline constexpr Box& Box::setPos(const position_type _center) noexcept
 	{
 		center.set(_center);
 		return *this;
 	}
 
-	inline constexpr Box& Box::setSize(const double _w, const double _h, const double _d) noexcept
+	inline constexpr Box& Box::setSize(const value_type _w, const value_type _h, const value_type _d) noexcept
 	{
 		size.set(_w, _h, _d);
 		return *this;
 	}
 
-	inline constexpr Box& Box::setSize(const Vec3& _size) noexcept
+	inline constexpr Box& Box::setSize(const size_type _size) noexcept
 	{
 		size.set(_size);
 		return *this;
@@ -211,6 +211,16 @@ namespace s3d
 	inline constexpr Box Box::lerp(const Box& other, const double f) const noexcept
 	{
 		return{ center.lerp(other.center, f), size.lerp(other.size, f) };
+	}
+
+	inline constexpr Box::position_type Box::topCenter() const noexcept
+	{
+		return{ center.x, (center.y + size.y * 0.5), center.z };
+	}
+
+	inline constexpr Box::position_type Box::bottomCenter() const noexcept
+	{
+		return{ center.x, (center.y - size.y * 0.5), center.z };
 	}
 
 	inline constexpr Box Box::FromPoints(const Vec3& a, const Vec3& b) noexcept

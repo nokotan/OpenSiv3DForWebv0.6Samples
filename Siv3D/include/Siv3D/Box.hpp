@@ -32,7 +32,7 @@ namespace s3d
 
 		using size_type = Vec3;
 
-		using value_type = typename size_type::value_type;
+		using value_type = size_type::value_type;
 
 	SIV3D_DISABLE_MSVC_WARNINGS_PUSH(4201)
 
@@ -165,13 +165,13 @@ namespace s3d
 		constexpr Box(Arg::bottomCenter_<Vec3> _center, const Vec3& _size) noexcept;
 
 
-		constexpr Box& setPos(double cx, double cy, double cz) noexcept;
+		constexpr Box& setPos(value_type cx, value_type cy, value_type cz) noexcept;
 
-		constexpr Box& setPos(const Vec3& _center) noexcept;
+		constexpr Box& setPos(position_type _center) noexcept;
 
-		constexpr Box& setSize(double _w, double _h, double _d) noexcept;
+		constexpr Box& setSize(value_type _w, value_type _h, value_type _d) noexcept;
 
-		constexpr Box& setSize(const Vec3& _size) noexcept;
+		constexpr Box& setSize(size_type _size) noexcept;
 
 
 		[[nodiscard]]
@@ -214,6 +214,17 @@ namespace s3d
 
 		[[nodiscard]]
 		constexpr Box lerp(const Box& other, double f) const noexcept;
+
+
+		[[nodiscard]]
+		OrientedBox oriented(const Quaternion& orientation) const noexcept;
+
+
+		[[nodiscard]]
+		constexpr position_type topCenter() const noexcept;
+
+		[[nodiscard]]
+		constexpr position_type bottomCenter() const noexcept;
 
 
 		[[nodiscard]]
