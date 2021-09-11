@@ -137,6 +137,19 @@ Main/fast:
 .PHONY : Main/fast
 
 #=============================================================================
+# Target rules for targets named AdditionalEmoji
+
+# Build rule for target.
+AdditionalEmoji: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AdditionalEmoji
+.PHONY : AdditionalEmoji
+
+# fast build rule for target.
+AdditionalEmoji/fast:
+	$(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build
+.PHONY : AdditionalEmoji/fast
+
+#=============================================================================
 # Target rules for targets named DragDrop
 
 # Build rule for target.
@@ -161,6 +174,97 @@ EmpoweredAudio: cmake_check_build_system
 EmpoweredAudio/fast:
 	$(MAKE) -f EmpoweredAudio/CMakeFiles/EmpoweredAudio.dir/build.make EmpoweredAudio/CMakeFiles/EmpoweredAudio.dir/build
 .PHONY : EmpoweredAudio/fast
+
+#=============================================================================
+# Target rules for targets named Microphone
+
+# Build rule for target.
+Microphone: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Microphone
+.PHONY : Microphone
+
+# fast build rule for target.
+Microphone/fast:
+	$(MAKE) -f Microphone/CMakeFiles/Microphone.dir/build.make Microphone/CMakeFiles/Microphone.dir/build
+.PHONY : Microphone/fast
+
+#=============================================================================
+# Target rules for targets named MaterialIcon
+
+# Build rule for target.
+MaterialIcon: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MaterialIcon
+.PHONY : MaterialIcon
+
+# fast build rule for target.
+MaterialIcon/fast:
+	$(MAKE) -f MaterialIcon/CMakeFiles/MaterialIcon.dir/build.make MaterialIcon/CMakeFiles/MaterialIcon.dir/build
+.PHONY : MaterialIcon/fast
+
+#=============================================================================
+# Target rules for targets named QrReader
+
+# Build rule for target.
+QrReader: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QrReader
+.PHONY : QrReader
+
+# fast build rule for target.
+QrReader/fast:
+	$(MAKE) -f QrReader/CMakeFiles/QrReader.dir/build.make QrReader/CMakeFiles/QrReader.dir/build
+.PHONY : QrReader/fast
+
+#=============================================================================
+# Target rules for targets named SoftShape
+
+# Build rule for target.
+SoftShape: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SoftShape
+.PHONY : SoftShape
+
+# fast build rule for target.
+SoftShape/fast:
+	$(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/build
+.PHONY : SoftShape/fast
+
+#=============================================================================
+# Target rules for targets named Terrain
+
+# Build rule for target.
+Terrain: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Terrain
+.PHONY : Terrain
+
+# fast build rule for target.
+Terrain/fast:
+	$(MAKE) -f Terrain/CMakeFiles/Terrain.dir/build.make Terrain/CMakeFiles/Terrain.dir/build
+.PHONY : Terrain/fast
+
+#=============================================================================
+# Target rules for targets named VideoReader
+
+# Build rule for target.
+VideoReader: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 VideoReader
+.PHONY : VideoReader
+
+# fast build rule for target.
+VideoReader/fast:
+	$(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/build
+.PHONY : VideoReader/fast
+
+#=============================================================================
+# Target rules for targets named WebCam
+
+# Build rule for target.
+WebCam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 WebCam
+.PHONY : WebCam
+
+# fast build rule for target.
+WebCam/fast:
+	$(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/build
+.PHONY : WebCam/fast
 
 #=============================================================================
 # Target rules for targets named KDTree
@@ -213,19 +317,6 @@ Spline2D: cmake_check_build_system
 Spline2D/fast:
 	$(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/build
 .PHONY : Spline2D/fast
-
-#=============================================================================
-# Target rules for targets named Microphone
-
-# Build rule for target.
-Microphone: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Microphone
-.PHONY : Microphone
-
-# fast build rule for target.
-Microphone/fast:
-	$(MAKE) -f Microphone/CMakeFiles/Microphone.dir/build.make Microphone/CMakeFiles/Microphone.dir/build
-.PHONY : Microphone/fast
 
 #=============================================================================
 # Target rules for targets named P2WheelJoint
@@ -291,32 +382,6 @@ NavMesh: cmake_check_build_system
 NavMesh/fast:
 	$(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/build
 .PHONY : NavMesh/fast
-
-#=============================================================================
-# Target rules for targets named Terrain
-
-# Build rule for target.
-Terrain: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Terrain
-.PHONY : Terrain
-
-# fast build rule for target.
-Terrain/fast:
-	$(MAKE) -f Terrain/CMakeFiles/Terrain.dir/build.make Terrain/CMakeFiles/Terrain.dir/build
-.PHONY : Terrain/fast
-
-#=============================================================================
-# Target rules for targets named VideoReader
-
-# Build rule for target.
-VideoReader: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 VideoReader
-.PHONY : VideoReader
-
-# fast build rule for target.
-VideoReader/fast:
-	$(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/build
-.PHONY : VideoReader/fast
 
 #=============================================================================
 # Target rules for targets named Test3DCase1
@@ -445,20 +510,25 @@ help:
 	@echo "... edit_cache"
 	@echo "... Siv3DAppData"
 	@echo "... Main"
+	@echo "... AdditionalEmoji"
 	@echo "... DragDrop"
 	@echo "... EmpoweredAudio"
+	@echo "... Microphone"
+	@echo "... MaterialIcon"
+	@echo "... QrReader"
+	@echo "... SoftShape"
+	@echo "... Terrain"
+	@echo "... VideoReader"
+	@echo "... WebCam"
 	@echo "... KDTree"
 	@echo "... GeoJson"
 	@echo "... GrabCut"
 	@echo "... Spline2D"
-	@echo "... Microphone"
 	@echo "... P2WheelJoint"
 	@echo "... PackRectangles"
 	@echo "... PolygonOutline"
 	@echo "... QRCode"
 	@echo "... NavMesh"
-	@echo "... Terrain"
-	@echo "... VideoReader"
 	@echo "... Test3DCase1"
 	@echo "... Test3DCase2"
 	@echo "... Test3DCase3"
