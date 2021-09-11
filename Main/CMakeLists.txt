@@ -8,3 +8,9 @@ target_sources(Main
     PRIVATE
         Main.cpp
 )
+
+set(MainBundledFilesPath
+    /example/windmill.png
+)
+
+Siv3DAppProjectDataBundle(Main "${MainBundledFilesPath}")
