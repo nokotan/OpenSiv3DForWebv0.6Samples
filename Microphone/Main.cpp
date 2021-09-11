@@ -2,17 +2,17 @@
 
 void Main()
 {
-	if (System::EnumerateMicrophones().isEmpty())
-	{
-		throw Error{ U"No microphone is connected" };
-	}
+	// if (System::EnumerateMicrophones().isEmpty())
+	// {
+	// 	throw Error{ U"No microphone is connected" };
+	// }
 
 	const Microphone mic{ StartImmediately::Yes };
 
-	if (!mic.isRecording())
-	{
-		throw Error{ U"Failed to start recording" };
-	}
+	// if (!mic.isRecording())
+	// {
+	// 	throw Error{ U"Failed to start recording" };
+	// }
 
 	FFTResult fft;
 
