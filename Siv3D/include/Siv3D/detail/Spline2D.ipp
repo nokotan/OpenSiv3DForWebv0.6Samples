@@ -41,6 +41,14 @@ namespace s3d
 		m_isRing = false;
 	}
 
+	inline void Spline2D::swap(Spline2D& other) noexcept
+	{
+		m_splinesBuffer.swap(other.m_splinesBuffer);
+		std::swap(m_offset, other.m_offset);
+		std::swap(m_size, other.m_size);
+		std::swap(m_isRing, other.m_isRing);
+	}
+
 	inline Vec2 Spline2D::position(const SplineIndex si) const
 	{
 		return position(si.i, si.t);
@@ -60,4 +68,10 @@ namespace s3d
 	{
 		return curvature(si.i, si.t);
 	}
+}
+
+template <>
+void std::swap(s3d::Spline2D& a, s3d::Spline2D& b) noexcept
+{
+	a.swap(b);
 }

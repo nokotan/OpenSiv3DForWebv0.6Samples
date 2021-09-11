@@ -93,10 +93,39 @@ namespace s3d
 		Vec2 fastToVec2() const noexcept;
 
 		[[nodiscard]]
+		position_type toPosition() const noexcept;
+
+		[[nodiscard]]
 		operator position_type() const noexcept;
 
 		[[nodiscard]]
 		size_t hash() const noexcept;
+		
+		template <class CharType>
+		friend std::basic_ostream<CharType>& operator <<(std::basic_ostream<CharType>& output, const OffsetCircularBase& value)
+		{
+			return output << CharType('(')
+				<< value.center.x << CharType(',') << CharType(' ')
+				<< value.center.y << CharType(',') << CharType(' ')
+				<< value.r << CharType(',') << CharType(' ')
+				<< value.theta << CharType(')');
+		}
+
+		template <class CharType>
+		friend std::basic_istream<CharType>& operator >>(std::basic_istream<CharType>& input, OffsetCircularBase& value)
+		{
+			CharType unused;
+			return input >> unused
+				>> value.center.x >> unused
+				>> value.center.y >> unused
+				>> value.r >> unused
+				>> value.theta >> unused;
+		}
+
+		friend void Formatter(FormatData& formatData, const OffsetCircularBase& value)
+		{
+			Formatter(formatData, Vector4D<value_type>(value.center, value.r, value.theta));
+		}
 
 	private:
 

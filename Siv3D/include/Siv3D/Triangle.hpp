@@ -139,7 +139,7 @@ namespace s3d
 		Triangle rotatedAt(value_type x, value_type y, value_type angle) const noexcept;
 
 		[[nodiscard]]
-		Triangle rotatedAt(const position_type& pos, value_type angle) const noexcept;
+		Triangle rotatedAt(position_type pos, value_type angle) const noexcept;
 
 		[[nodiscard]]
 		constexpr Triangle scaled(double s) const noexcept;
@@ -285,12 +285,7 @@ namespace s3d
 				>> value.p2 >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Triangle& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Triangle& value);
+		friend void Formatter(FormatData& formatData, const Triangle& value);
 	};
 }
 

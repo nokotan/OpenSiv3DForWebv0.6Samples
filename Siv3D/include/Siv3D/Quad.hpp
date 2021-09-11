@@ -106,7 +106,7 @@ namespace s3d
 		Quad rotatedAt(value_type x, value_type y, value_type angle) const noexcept;
 
 		[[nodiscard]]
-		Quad rotatedAt(const position_type& pos, value_type angle) const noexcept;
+		Quad rotatedAt(position_type pos, value_type angle) const noexcept;
 
 		[[nodiscard]]
 		constexpr Quad scaled(double s) const noexcept;
@@ -259,12 +259,7 @@ namespace s3d
 				>> value.p3 >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Quad& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Quad& value);
+		friend void Formatter(FormatData& formatData, const Quad& value);
 	};
 }
 

@@ -24,6 +24,7 @@ namespace s3d
 	struct OrientedBox;
 	class ViewFrustum;
 	struct Ray;
+	struct PhongMaterial;
 
 	struct Sphere
 	{
@@ -205,6 +206,20 @@ namespace s3d
 		const Sphere& draw(const Mat4x4& mat, const Texture& texture, const ColorF& color = Palette::White) const;
 
 
+		const Sphere& draw(const PhongMaterial& material) const;
+
+		const Sphere& draw(const Texture& texture, const PhongMaterial& material) const;
+
+		const Sphere& draw(const Quaternion& rotation, const PhongMaterial& material) const;
+
+		const Sphere& draw(const Quaternion& rotation, const Texture& texture, const PhongMaterial& material) const;
+
+		const Sphere& draw(const Mat4x4& mat, const PhongMaterial& material) const;
+
+		const Sphere& draw(const Mat4x4& mat, const Texture& texture, const PhongMaterial& material) const;
+
+
+
 		template <class CharType>
 		friend std::basic_ostream<CharType>& operator <<(std::basic_ostream<CharType>& output, const Sphere& value)
 		{
@@ -222,12 +237,7 @@ namespace s3d
 				>> value.r >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Sphere& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Sphere& value);
+		friend void Formatter(FormatData& formatData, const Sphere& value);
 	};
 }
 

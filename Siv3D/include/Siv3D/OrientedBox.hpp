@@ -268,6 +268,20 @@ namespace s3d
 		const OrientedBox& draw(const Mat4x4 & mat, const Texture & texture, const ColorF & color = Palette::White) const;
 
 
+		const OrientedBox& draw(const PhongMaterial& material) const;
+
+		const OrientedBox& draw(const Texture& texture, const PhongMaterial& material) const;
+
+		const OrientedBox& draw(const Quaternion& rotation, const PhongMaterial& material) const;
+
+		const OrientedBox& draw(const Quaternion& rotation, const Texture& texture, const PhongMaterial& material) const;
+
+		const OrientedBox& draw(const Mat4x4& mat, const PhongMaterial& material) const;
+
+		const OrientedBox& draw(const Mat4x4& mat, const Texture& texture, const PhongMaterial& material) const;
+
+
+
 		const OrientedBox& drawFrame(const ColorF & color = Palette::White) const;
 
 
@@ -291,12 +305,7 @@ namespace s3d
 				>> value.orientation >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const OrientedBox& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const OrientedBox& value);
+		friend void Formatter(FormatData& formatData, const OrientedBox& value);
 	};
 }
 

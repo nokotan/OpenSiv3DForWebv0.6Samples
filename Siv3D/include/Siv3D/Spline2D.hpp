@@ -43,13 +43,7 @@ namespace s3d
 		explicit Spline2D(const Array<Vec2>& points, double tension = 0.0);
 
 		SIV3D_NODISCARD_CXX20
-		explicit Spline2D(const LineString& points, double tension = 0.0);
-
-		SIV3D_NODISCARD_CXX20
 		Spline2D(const Array<Vec2>& points, CloseRing closeRing, double tension = 0.0);
-
-		SIV3D_NODISCARD_CXX20
-		Spline2D(const LineString& points, CloseRing closeRing, double tension = 0.0);
 
 		[[nodiscard]]
 		size_t size() const noexcept;
@@ -64,6 +58,8 @@ namespace s3d
 		bool isRing() const noexcept;
 
 		void clear() noexcept;
+
+		void swap(Spline2D& other) noexcept;
 
 		[[nodiscard]]
 		RectF fastBoundingRect(size_t i) const;
@@ -146,5 +142,8 @@ namespace s3d
 		bool m_isRing = false;
 	};
 }
+
+template <>
+inline void std::swap(s3d::Spline2D& a, s3d::Spline2D& b) noexcept;
 
 # include "detail/Spline2D.ipp"

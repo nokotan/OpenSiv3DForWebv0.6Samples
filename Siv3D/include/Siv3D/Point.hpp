@@ -15,6 +15,8 @@
 # include "FormatLiteral.hpp"
 # include "CommonFloat.hpp"
 # include "Hash.hpp"
+# include "MathConstants.hpp"
+# include "2DShapesFwd.hpp"
 
 namespace s3d
 {
@@ -22,6 +24,8 @@ namespace s3d
 	using Float2	= Vector2D<float>;
 	using Vec2		= Vector2D<double>;
 	struct Circle;
+	struct Color;
+	class Image;
 
 	/// @brief 2 次元のベクトル（整数）
 	struct Point
@@ -174,7 +178,7 @@ namespace s3d
 
 		constexpr Point& set(int32 _x, int32 _y) noexcept;
 
-		constexpr Point& set(const Point p) noexcept;
+		constexpr Point& set(Point p) noexcept;
 
 		[[nodiscard]]
 		constexpr Point movedBy(int32 _x, int32 _y) const noexcept;
@@ -215,7 +219,7 @@ namespace s3d
 
 		template <class Type>
 		[[nodiscard]]
-		Type distanceFrom(Vector2D<Type> p) const noexcept;
+		double distanceFrom(Vector2D<Type> p) const noexcept;
 
 		[[nodiscard]]
 		constexpr double distanceFromSq(double _x, double _y) const noexcept;
@@ -225,7 +229,7 @@ namespace s3d
 
 		template <class Type>
 		[[nodiscard]]
-		constexpr Type distanceFromSq(Vector2D<Type> p) const noexcept;
+		constexpr double distanceFromSq(Vector2D<Type> p) const noexcept;
 
 		[[nodiscard]]
 		constexpr int32 area() const noexcept;
@@ -292,9 +296,9 @@ namespace s3d
 		[[nodiscard]]
 		bool mouseOver() const noexcept;
 
-		//const Point& paint(Image& dst, const Color& color) const;
+		const Point& paint(Image& dst, const Color& color) const;
 
-		//const Point& overwrite(Image& dst, const Color& color) const;
+		const Point& overwrite(Image& dst, const Color& color) const;
 
 		[[nodiscard]]
 		size_t hash() const noexcept;
@@ -407,12 +411,7 @@ namespace s3d
 				>> value.y >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Point& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Point& value);
+		friend void Formatter(FormatData& formatData, const Point& value);
 	};
 
 	using Size = Point;

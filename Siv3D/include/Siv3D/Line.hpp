@@ -159,7 +159,7 @@ namespace s3d
 		const position_type& p(size_t index) const noexcept;
 
 		[[nodiscard]]
-		constexpr position_type point(size_t index);
+		constexpr position_type point(size_t index) const;
 
 		[[nodiscard]]
 		constexpr position_type position(double t) const noexcept;
@@ -211,9 +211,13 @@ namespace s3d
 
 		const Line& overwrite(Image& dst, int32 thickness, const Color& color, Antialiased antialiased = Antialiased::Yes) const;
 
-		//const Line& paintArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
+		const Line& paintArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
 
-		//const Line& overwriteArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
+		const Line& overwriteArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
+
+		const Line& paintDoubleHeadedArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
+
+		const Line& overwriteDoubleHeadedArrow(Image& dst, double width, const Vec2& headSize, const Color& color) const;
 
 		
 		const Line& draw(const ColorF& color = Palette::White) const;
@@ -250,12 +254,7 @@ namespace s3d
 				>> value.end >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Line& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Line& value);
+		friend void Formatter(FormatData& formatData, const Line& value);
 	};
 }
 

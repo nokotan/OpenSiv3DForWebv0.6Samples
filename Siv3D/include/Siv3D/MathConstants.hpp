@@ -109,6 +109,15 @@ namespace s3d
 			/// @brief (float) 1/√π
 			inline constexpr float InvSqrtPiF	= InvSqrtPi_v<float>;
 
+			/// @brief Quiet NaN
+			inline constexpr float QNaNF		= QNaN_v<float>;
+
+			/// @brief Signaling NaN
+			inline constexpr float NaNF			= NaN_v<float>;
+
+			/// @brief +Inf
+			inline constexpr float InfF			= Inf_v<float>;
+
 
 			/// @brief 自然対数の底 | Euler's number
 			inline constexpr double E			= E_v<double>;
@@ -187,6 +196,12 @@ namespace s3d
 
 			[[nodiscard]]
 			inline constexpr double operator ""_pi(unsigned long long x) noexcept;
+
+			[[nodiscard]] 
+			inline constexpr float operator ""_piF(long double x) noexcept;
+
+			[[nodiscard]]
+			inline constexpr float operator ""_piF(unsigned long long x) noexcept;
 
 			[[nodiscard]]
 			inline constexpr double operator ""_deg(long double deg) noexcept;

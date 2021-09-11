@@ -181,10 +181,10 @@ namespace s3d
 		constexpr Color toColor() const noexcept;
 
 		[[nodiscard]]
-		constexpr Float4 toFloat4() const;
+		constexpr Float4 toFloat4() const noexcept;
 
 		[[nodiscard]]
-		constexpr Vec4 toVec4() const;
+		constexpr Vec4 toVec4() const noexcept;
 
 		[[nodiscard]]
 		constexpr Vec2 rg() const noexcept;
@@ -266,10 +266,7 @@ namespace s3d
 		[[nodiscard]]
 		static constexpr ColorF One() noexcept;
 
-		friend void Formatter(FormatData& formatData, const ColorF& value)
-		{
-			Formatter(formatData, value.toVec4());
-		}
+		friend void Formatter(FormatData& formatData, const ColorF& value);
 	};
 
 	[[nodiscard]]

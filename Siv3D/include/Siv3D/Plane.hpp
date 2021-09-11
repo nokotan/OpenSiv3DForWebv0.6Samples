@@ -21,6 +21,7 @@ namespace s3d
 	struct Quaternion;
 	struct Mat4x4;
 	struct Ray;
+	struct PhongMaterial;
 
 	struct Plane
 	{
@@ -202,6 +203,20 @@ namespace s3d
 		const Plane& draw(const Mat4x4& mat, const Texture& texture, const ColorF& color = Palette::White) const;
 
 
+		const Plane& draw(const PhongMaterial& material) const;
+
+		const Plane& draw(const Texture& texture, const PhongMaterial& material) const;
+
+		const Plane& draw(const Quaternion& rotation, const PhongMaterial& material) const;
+
+		const Plane& draw(const Quaternion& rotation, const Texture& texture, const PhongMaterial& material) const;
+
+		const Plane& draw(const Mat4x4& mat, const PhongMaterial& material) const;
+
+		const Plane& draw(const Mat4x4& mat, const Texture& texture, const PhongMaterial& material) const;
+
+
+
 		template <class CharType>
 		friend std::basic_ostream<CharType>& operator <<(std::basic_ostream<CharType>& output, const Plane& value)
 		{
@@ -219,12 +234,7 @@ namespace s3d
 				>> value.size >> unused;
 		}
 
-		friend void Formatter(FormatData& formatData, const Plane& value)
-		{
-			_Formatter(formatData, value);
-		}
-
-		static void _Formatter(FormatData& formatData, const Plane& value);
+		friend void Formatter(FormatData& formatData, const Plane& value);
 	};
 }
 

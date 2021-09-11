@@ -87,6 +87,8 @@ namespace s3d
 
 			Additive,
 
+			AdditiveRGB,
+
 			Subtractive,
 
 			Multiplicative,
@@ -94,6 +96,8 @@ namespace s3d
 			Multiplicative2X,
 
 			OpaqueAlphaToCoverage,
+
+			MaxAlpha,
 
 			Default2D = NonPremultiplied,
 
@@ -172,6 +176,10 @@ namespace s3d
 		/// @remark BlendState{ true, Blend::SrcAlpha, Blend::One, BlendOp::Add, Blend::Zero, Blend::One, BlendOp::Add }
 		static constexpr Predefined Additive = Predefined::Additive;
 
+		/// @brief 加算ブレンド (RGB)
+		/// @remark BlendState{ true, Blend::One, Blend::One, BlendOp::Add, Blend::Zero, Blend::One, BlendOp::Add }
+		static constexpr Predefined AdditiveRGB = Predefined::AdditiveRGB;
+
 		/// @brief 減算ブレンド
 		/// @remark BlendState{ true, Blend::SrcAlpha, Blend::One, BlendOp::RevSubtract, Blend::Zero, Blend::One, BlendOp::Add }
 		static constexpr Predefined Subtractive = Predefined::Subtractive;
@@ -187,6 +195,10 @@ namespace s3d
 		/// @brief Alpha to Coverage
 		/// @remark BlendState{ false, .alphaToCoverageEnable = true }	
 		static constexpr Predefined OpaqueAlphaToCoverage = Predefined::OpaqueAlphaToCoverage;
+
+		/// @brief アルファの最大値のみ更新
+		/// @remark BlendState{ true, Blend::Zero, Blend::One, BlendOp::Add, Blend::SrcAlpha, Blend::DestAlpha, BlendOp::Max }
+		static constexpr Predefined MaxAlpha = Predefined::MaxAlpha;
 
 		/// @brief デフォルトのブレンド
 		/// @remark BlendState{ true }	

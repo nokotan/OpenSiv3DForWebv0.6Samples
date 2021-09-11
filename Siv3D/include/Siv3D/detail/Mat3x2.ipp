@@ -43,8 +43,8 @@ namespace s3d
 	inline constexpr Mat3x2 Mat3x2::translated(const X x, const Y y) const noexcept
 	{
 		Mat3x2 mat = *this;
-		mat._31 += x;
-		mat._32 += y;
+		mat._31 += static_cast<value_type>(x);
+		mat._32 += static_cast<value_type>(y);
 		return mat;
 	}
 
@@ -264,16 +264,5 @@ namespace s3d
 		return{ (2.0f / static_cast<value_type>(width)), 0.0f,
 				0.0f, (-2.0f / static_cast<value_type>(height)),
 				-1.0f, 1.0f };
-	}
-
-	inline void Mat3x2::_Formatter(FormatData& formatData, const Mat3x2& value)
-	{
-		formatData.string.push_back(U'(');
-		Formatter(formatData, Float2{ value._11, value._12 });
-		formatData.string.push_back(U',');
-		Formatter(formatData, Float2{ value._21, value._22 });
-		formatData.string.push_back(U',');
-		Formatter(formatData, Float2{ value._31, value._32 });
-		formatData.string.push_back(U')');
 	}
 }

@@ -318,6 +318,18 @@ namespace s3d
 	/// @param pred 条件
 	template <class Container, class Pred>
 	inline void EraseNodes_if(Container& c, Pred pred);
+
+	template <class T, class U>
+	[[nodiscard]]
+	inline constexpr bool CmpEqual(T lhs, U rhs) noexcept;
+
+	template <class T, class U>
+	[[nodiscard]]
+	inline constexpr bool CmpNotEqual(T lhs, U rhs) noexcept;
+
+	template <class T, class U>
+	[[nodiscard]]
+	inline constexpr bool CmpLess(T lhs, U rhs) noexcept;
 }
 
 # include "detail/Utility.ipp"
