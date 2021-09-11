@@ -137,6 +137,19 @@ Main/fast:
 .PHONY : Main/fast
 
 #=============================================================================
+# Target rules for targets named DragDrop
+
+# Build rule for target.
+DragDrop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DragDrop
+.PHONY : DragDrop
+
+# fast build rule for target.
+DragDrop/fast:
+	$(MAKE) -f DragDrop/CMakeFiles/DragDrop.dir/build.make DragDrop/CMakeFiles/DragDrop.dir/build
+.PHONY : DragDrop/fast
+
+#=============================================================================
 # Target rules for targets named EmpoweredAudio
 
 # Build rule for target.
@@ -202,6 +215,19 @@ Spline2D/fast:
 .PHONY : Spline2D/fast
 
 #=============================================================================
+# Target rules for targets named Microphone
+
+# Build rule for target.
+Microphone: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Microphone
+.PHONY : Microphone
+
+# fast build rule for target.
+Microphone/fast:
+	$(MAKE) -f Microphone/CMakeFiles/Microphone.dir/build.make Microphone/CMakeFiles/Microphone.dir/build
+.PHONY : Microphone/fast
+
+#=============================================================================
 # Target rules for targets named P2WheelJoint
 
 # Build rule for target.
@@ -265,6 +291,19 @@ NavMesh: cmake_check_build_system
 NavMesh/fast:
 	$(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/build
 .PHONY : NavMesh/fast
+
+#=============================================================================
+# Target rules for targets named Terrain
+
+# Build rule for target.
+Terrain: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Terrain
+.PHONY : Terrain
+
+# fast build rule for target.
+Terrain/fast:
+	$(MAKE) -f Terrain/CMakeFiles/Terrain.dir/build.make Terrain/CMakeFiles/Terrain.dir/build
+.PHONY : Terrain/fast
 
 #=============================================================================
 # Target rules for targets named VideoReader
@@ -406,16 +445,19 @@ help:
 	@echo "... edit_cache"
 	@echo "... Siv3DAppData"
 	@echo "... Main"
+	@echo "... DragDrop"
 	@echo "... EmpoweredAudio"
 	@echo "... KDTree"
 	@echo "... GeoJson"
 	@echo "... GrabCut"
 	@echo "... Spline2D"
+	@echo "... Microphone"
 	@echo "... P2WheelJoint"
 	@echo "... PackRectangles"
 	@echo "... PolygonOutline"
 	@echo "... QRCode"
 	@echo "... NavMesh"
+	@echo "... Terrain"
 	@echo "... VideoReader"
 	@echo "... Test3DCase1"
 	@echo "... Test3DCase2"
