@@ -436,6 +436,214 @@ ViewFrustum/fast:
 .PHONY : ViewFrustum/fast
 
 #=============================================================================
+# Target rules for targets named TestShaderDefault2D
+
+# Build rule for target.
+TestShaderDefault2D: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault2D
+.PHONY : TestShaderDefault2D
+
+# fast build rule for target.
+TestShaderDefault2D/fast:
+	$(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build
+.PHONY : TestShaderDefault2D/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderDefault3D
+
+# Build rule for target.
+TestShaderDefault3D: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault3D
+.PHONY : TestShaderDefault3D
+
+# fast build rule for target.
+TestShaderDefault3D/fast:
+	$(MAKE) -f TestShaderDefault3D/CMakeFiles/TestShaderDefault3D.dir/build.make TestShaderDefault3D/CMakeFiles/TestShaderDefault3D.dir/build
+.PHONY : TestShaderDefault3D/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderBlockGame
+
+# Build rule for target.
+TestShaderBlockGame: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderBlockGame
+.PHONY : TestShaderBlockGame
+
+# fast build rule for target.
+TestShaderBlockGame/fast:
+	$(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build
+.PHONY : TestShaderBlockGame/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderExtractBright
+
+# Build rule for target.
+TestShaderExtractBright: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderExtractBright
+.PHONY : TestShaderExtractBright
+
+# fast build rule for target.
+TestShaderExtractBright/fast:
+	$(MAKE) -f TestShaderExtractBright/CMakeFiles/TestShaderExtractBright.dir/build.make TestShaderExtractBright/CMakeFiles/TestShaderExtractBright.dir/build
+.PHONY : TestShaderExtractBright/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderForwardFog
+
+# Build rule for target.
+TestShaderForwardFog: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardFog
+.PHONY : TestShaderForwardFog
+
+# fast build rule for target.
+TestShaderForwardFog/fast:
+	$(MAKE) -f TestShaderForwardFog/CMakeFiles/TestShaderForwardFog.dir/build.make TestShaderForwardFog/CMakeFiles/TestShaderForwardFog.dir/build
+.PHONY : TestShaderForwardFog/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderForwardTriplanar
+
+# Build rule for target.
+TestShaderForwardTriplanar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardTriplanar
+.PHONY : TestShaderForwardTriplanar
+
+# fast build rule for target.
+TestShaderForwardTriplanar/fast:
+	$(MAKE) -f TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanar.dir/build.make TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanar.dir/build
+.PHONY : TestShaderForwardTriplanar/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderGameOfLife
+
+# Build rule for target.
+TestShaderGameOfLife: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGameOfLife
+.PHONY : TestShaderGameOfLife
+
+# fast build rule for target.
+TestShaderGameOfLife/fast:
+	$(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build
+.PHONY : TestShaderGameOfLife/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderGrayScale
+
+# Build rule for target.
+TestShaderGrayScale: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGrayScale
+.PHONY : TestShaderGrayScale
+
+# fast build rule for target.
+TestShaderGrayScale/fast:
+	$(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build
+.PHONY : TestShaderGrayScale/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderMultiTextureBlend
+
+# Build rule for target.
+TestShaderMultiTextureBlend: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiTextureBlend
+.PHONY : TestShaderMultiTextureBlend
+
+# fast build rule for target.
+TestShaderMultiTextureBlend/fast:
+	$(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build
+.PHONY : TestShaderMultiTextureBlend/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderMultiShaderMask
+
+# Build rule for target.
+TestShaderMultiShaderMask: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiShaderMask
+.PHONY : TestShaderMultiShaderMask
+
+# fast build rule for target.
+TestShaderMultiShaderMask/fast:
+	$(MAKE) -f TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMask.dir/build.make TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMask.dir/build
+.PHONY : TestShaderMultiShaderMask/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderPoissonDisk
+
+# Build rule for target.
+TestShaderPoissonDisk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPoissonDisk
+.PHONY : TestShaderPoissonDisk
+
+# fast build rule for target.
+TestShaderPoissonDisk/fast:
+	$(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build
+.PHONY : TestShaderPoissonDisk/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderPosterize
+
+# Build rule for target.
+TestShaderPosterize: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPosterize
+.PHONY : TestShaderPosterize
+
+# fast build rule for target.
+TestShaderPosterize/fast:
+	$(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build
+.PHONY : TestShaderPosterize/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderRGBShift
+
+# Build rule for target.
+TestShaderRGBShift: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBShift
+.PHONY : TestShaderRGBShift
+
+# fast build rule for target.
+TestShaderRGBShift/fast:
+	$(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build
+.PHONY : TestShaderRGBShift/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderRGBToBGR
+
+# Build rule for target.
+TestShaderRGBToBGR: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBToBGR
+.PHONY : TestShaderRGBToBGR
+
+# fast build rule for target.
+TestShaderRGBToBGR/fast:
+	$(MAKE) -f TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGR.dir/build.make TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGR.dir/build
+.PHONY : TestShaderRGBToBGR/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderSwirl
+
+# Build rule for target.
+TestShaderSwirl: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderSwirl
+.PHONY : TestShaderSwirl
+
+# fast build rule for target.
+TestShaderSwirl/fast:
+	$(MAKE) -f TestShaderSwirl/CMakeFiles/TestShaderSwirl.dir/build.make TestShaderSwirl/CMakeFiles/TestShaderSwirl.dir/build
+.PHONY : TestShaderSwirl/fast
+
+#=============================================================================
+# Target rules for targets named TestShaderTerrainNormal
+
+# Build rule for target.
+TestShaderTerrainNormal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderTerrainNormal
+.PHONY : TestShaderTerrainNormal
+
+# fast build rule for target.
+TestShaderTerrainNormal/fast:
+	$(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build
+.PHONY : TestShaderTerrainNormal/fast
+
+#=============================================================================
 # Target rules for targets named Test3DCase1
 
 # Build rule for target.
@@ -585,6 +793,22 @@ help:
 	@echo "... NavMesh"
 	@echo "... SoftShape"
 	@echo "... ViewFrustum"
+	@echo "... TestShaderDefault2D"
+	@echo "... TestShaderDefault3D"
+	@echo "... TestShaderBlockGame"
+	@echo "... TestShaderExtractBright"
+	@echo "... TestShaderForwardFog"
+	@echo "... TestShaderForwardTriplanar"
+	@echo "... TestShaderGameOfLife"
+	@echo "... TestShaderGrayScale"
+	@echo "... TestShaderMultiTextureBlend"
+	@echo "... TestShaderMultiShaderMask"
+	@echo "... TestShaderPoissonDisk"
+	@echo "... TestShaderPosterize"
+	@echo "... TestShaderRGBShift"
+	@echo "... TestShaderRGBToBGR"
+	@echo "... TestShaderSwirl"
+	@echo "... TestShaderTerrainNormal"
 	@echo "... Test3DCase1"
 	@echo "... Test3DCase2"
 	@echo "... Test3DCase3"
