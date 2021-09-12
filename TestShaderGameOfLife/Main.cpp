@@ -15,7 +15,7 @@ void Main()
 	constexpr Size FieldSize{ 1280, 720 };
 
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/game_of_life.hlsl", U"PS" }
-		| GLSL{ U"example/shader/glsl/game_of_life.frag", {{U"PSConstants2D", 0}, {U"GameOfLife", 1}} };
+		| GLSL{ U"example/shader/glsl/game_of_life.frag", {{U"PSConstants2D", 0}, {U"GameOfLife", 1}} }
 		| ESSL{ U"example/shader/essl/game_of_life.frag", {{U"PSConstants2D", 0}, {U"GameOfLife", 1}} };
 
 	if (not ps)
