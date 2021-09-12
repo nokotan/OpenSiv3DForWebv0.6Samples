@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 
-add_executable(QrReader)
+add_executable(QRReader)
 
-Siv3DAppSetProjectDefaultConfig(QrReader)
+Siv3DAppSetProjectDefaultConfig(QRReader)
 
-target_sources(QrReader
+target_sources(QRReader
     PRIVATE
         Main.cpp
 )
