@@ -436,6 +436,19 @@ ViewFrustum/fast:
 .PHONY : ViewFrustum/fast
 
 #=============================================================================
+# Target rules for targets named TCPonWebSocket
+
+# Build rule for target.
+TCPonWebSocket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TCPonWebSocket
+.PHONY : TCPonWebSocket
+
+# fast build rule for target.
+TCPonWebSocket/fast:
+	$(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build
+.PHONY : TCPonWebSocket/fast
+
+#=============================================================================
 # Target rules for targets named TestShaderDefault2D
 
 # Build rule for target.
@@ -793,6 +806,7 @@ help:
 	@echo "... NavMesh"
 	@echo "... SoftShape"
 	@echo "... ViewFrustum"
+	@echo "... TCPonWebSocket"
 	@echo "... TestShaderDefault2D"
 	@echo "... TestShaderDefault3D"
 	@echo "... TestShaderBlockGame"
