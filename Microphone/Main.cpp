@@ -7,7 +7,7 @@ void Main()
 	// 	throw Error{ U"No microphone is connected" };
 	// }
 
-	const Microphone mic{ StartImmediately::Yes };
+	Microphone mic{ StartImmediately::Yes };
 
 	// if (!mic.isRecording())
 	// {

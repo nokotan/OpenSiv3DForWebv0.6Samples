@@ -1,5 +1,4 @@
 # include <Siv3D.hpp>
-# include <emscripten.h>
 
 void Main()
 {
