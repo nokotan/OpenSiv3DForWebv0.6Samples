@@ -229,6 +229,7 @@ add_subdirectory(RayIntersection)
 add_subdirectory(NavMesh)
 add_subdirectory(SoftShape)
 add_subdirectory(ViewFrustum)
+add_subdirectory(TCPonWebSocket)
 
 add_subdirectory(TestShaderDefault2D)
 add_subdirectory(TestShaderDefault3D)
