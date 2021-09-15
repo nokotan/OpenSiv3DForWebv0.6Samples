@@ -2,7 +2,7 @@ name: App Deploy
 
 on:
   push: 
-    branches: [ '*' ]
+    branches: [ 'main' ]
 
 jobs:
   build:
@@ -333,21 +333,6 @@ jobs:
         working-directory: Build
         run: |
             make -j4 TCPonWebSocket
-
-      - name: Cache Templates
-        id: cache_Templates
-        uses: actions/cache@v1
-        env:
-            cache-name: cache-Templates
-        with:
-            path: Build/Templates
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*') }}
-
-      - name: Build Templates
-        if: ${{ !steps.cache_Templates.outputs.cache-hit }}
-        working-directory: Build
-        run: |
-            make -j4 Templates
 
       - name: Cache Terrain
         id: cache_Terrain
@@ -783,6 +768,8 @@ jobs:
         working-directory: Build
         run: |
             make -j4 WebCam
+
+
 
       - name: Pre Deploy
         run: |
