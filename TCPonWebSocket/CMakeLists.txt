@@ -11,5 +11,5 @@ target_sources(TCPonWebSocket
 
 target_link_options(TCPonWebSocket
     PRIVATE
-        "SHELL:-s WEBSOCKET_URL=\"wss://wss-sample-server.herokuapp.com\""
+        "SHELL:-s WEBSOCKET_URL=\"wss:#wss-sample-server.herokuapp.com\""
 )
