@@ -3,10 +3,11 @@
 void Main()
 {
     // 接続先の IPv4 アドレス（今回は自身の PC なので Localhost）
+    // -s WEBSOCKET_URL オプションによって、このアドレスを上書きすることができる
 	const IPv4Address ip = IPv4Address::Localhost();
 
 	// ポート番号
-	constexpr uint16 port = 28080;
+	constexpr uint16 port = 443;
 
 	bool connected = false;
 
