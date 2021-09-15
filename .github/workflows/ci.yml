@@ -18,7 +18,786 @@ jobs:
         run: |
           mkdir Build && cd Build
           emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL
-          make -j4
+
+      - name: Cache AdditionalEmoji
+        id: cache_AdditionalEmoji
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-AdditionalEmoji
+        with:
+            path: Build/AdditionalEmoji
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "AdditionalEmoji/**/*.*") }}
+
+      - name: Build AdditionalEmoji
+        if: ${{ !steps.cache_AdditionalEmoji.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 AdditionalEmoji
+
+      - name: Cache AsyncFileDownload
+        id: cache_AsyncFileDownload
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-AsyncFileDownload
+        with:
+            path: Build/AsyncFileDownload
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "AsyncFileDownload/**/*.*") }}
+
+      - name: Build AsyncFileDownload
+        if: ${{ !steps.cache_AsyncFileDownload.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 AsyncFileDownload
+
+      - name: Cache DragDrop
+        id: cache_DragDrop
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-DragDrop
+        with:
+            path: Build/DragDrop
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "DragDrop/**/*.*") }}
+
+      - name: Build DragDrop
+        if: ${{ !steps.cache_DragDrop.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 DragDrop
+
+      - name: Cache EmpoweredAudio
+        id: cache_EmpoweredAudio
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-EmpoweredAudio
+        with:
+            path: Build/EmpoweredAudio
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "EmpoweredAudio/**/*.*") }}
+
+      - name: Build EmpoweredAudio
+        if: ${{ !steps.cache_EmpoweredAudio.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 EmpoweredAudio
+
+      - name: Cache GeoJson
+        id: cache_GeoJson
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-GeoJson
+        with:
+            path: Build/GeoJson
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "GeoJson/**/*.*") }}
+
+      - name: Build GeoJson
+        if: ${{ !steps.cache_GeoJson.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 GeoJson
+
+      - name: Cache GrabCut
+        id: cache_GrabCut
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-GrabCut
+        with:
+            path: Build/GrabCut
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "GrabCut/**/*.*") }}
+
+      - name: Build GrabCut
+        if: ${{ !steps.cache_GrabCut.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 GrabCut
+
+      - name: Cache KDTree
+        id: cache_KDTree
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-KDTree
+        with:
+            path: Build/KDTree
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "KDTree/**/*.*") }}
+
+      - name: Build KDTree
+        if: ${{ !steps.cache_KDTree.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 KDTree
+
+      - name: Cache Main
+        id: cache_Main
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Main
+        with:
+            path: Build/Main
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Main/**/*.*") }}
+
+      - name: Build Main
+        if: ${{ !steps.cache_Main.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Main
+
+      - name: Cache Main3D
+        id: cache_Main3D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Main3D
+        with:
+            path: Build/Main3D
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Main3D/**/*.*") }}
+
+      - name: Build Main3D
+        if: ${{ !steps.cache_Main3D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Main3D
+
+      - name: Cache MaterialIcon
+        id: cache_MaterialIcon
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-MaterialIcon
+        with:
+            path: Build/MaterialIcon
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "MaterialIcon/**/*.*") }}
+
+      - name: Build MaterialIcon
+        if: ${{ !steps.cache_MaterialIcon.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 MaterialIcon
+
+      - name: Cache Microphone
+        id: cache_Microphone
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Microphone
+        with:
+            path: Build/Microphone
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Microphone/**/*.*") }}
+
+      - name: Build Microphone
+        if: ${{ !steps.cache_Microphone.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Microphone
+
+      - name: Cache NavMesh
+        id: cache_NavMesh
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-NavMesh
+        with:
+            path: Build/NavMesh
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "NavMesh/**/*.*") }}
+
+      - name: Build NavMesh
+        if: ${{ !steps.cache_NavMesh.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 NavMesh
+
+      - name: Cache P2WheelJoint
+        id: cache_P2WheelJoint
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-P2WheelJoint
+        with:
+            path: Build/P2WheelJoint
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "P2WheelJoint/**/*.*") }}
+
+      - name: Build P2WheelJoint
+        if: ${{ !steps.cache_P2WheelJoint.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 P2WheelJoint
+
+      - name: Cache PackRectangles
+        id: cache_PackRectangles
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PackRectangles
+        with:
+            path: Build/PackRectangles
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "PackRectangles/**/*.*") }}
+
+      - name: Build PackRectangles
+        if: ${{ !steps.cache_PackRectangles.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PackRectangles
+
+      - name: Cache PerlinNoise
+        id: cache_PerlinNoise
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PerlinNoise
+        with:
+            path: Build/PerlinNoise
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "PerlinNoise/**/*.*") }}
+
+      - name: Build PerlinNoise
+        if: ${{ !steps.cache_PerlinNoise.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PerlinNoise
+
+      - name: Cache PolygonOutline
+        id: cache_PolygonOutline
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PolygonOutline
+        with:
+            path: Build/PolygonOutline
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "PolygonOutline/**/*.*") }}
+
+      - name: Build PolygonOutline
+        if: ${{ !steps.cache_PolygonOutline.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PolygonOutline
+
+      - name: Cache QRCode
+        id: cache_QRCode
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-QRCode
+        with:
+            path: Build/QRCode
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "QRCode/**/*.*") }}
+
+      - name: Build QRCode
+        if: ${{ !steps.cache_QRCode.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 QRCode
+
+      - name: Cache QRReader
+        id: cache_QRReader
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-QRReader
+        with:
+            path: Build/QRReader
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "QRReader/**/*.*") }}
+
+      - name: Build QRReader
+        if: ${{ !steps.cache_QRReader.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 QRReader
+
+      - name: Cache RayIntersection
+        id: cache_RayIntersection
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-RayIntersection
+        with:
+            path: Build/RayIntersection
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "RayIntersection/**/*.*") }}
+
+      - name: Build RayIntersection
+        if: ${{ !steps.cache_RayIntersection.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 RayIntersection
+
+      - name: Cache SoftShape
+        id: cache_SoftShape
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-SoftShape
+        with:
+            path: Build/SoftShape
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "SoftShape/**/*.*") }}
+
+      - name: Build SoftShape
+        if: ${{ !steps.cache_SoftShape.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 SoftShape
+
+      - name: Cache Spline2D
+        id: cache_Spline2D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Spline2D
+        with:
+            path: Build/Spline2D
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Spline2D/**/*.*") }}
+
+      - name: Build Spline2D
+        if: ${{ !steps.cache_Spline2D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Spline2D
+
+      - name: Cache TCPonWebSocket
+        id: cache_TCPonWebSocket
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TCPonWebSocket
+        with:
+            path: Build/TCPonWebSocket
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TCPonWebSocket/**/*.*") }}
+
+      - name: Build TCPonWebSocket
+        if: ${{ !steps.cache_TCPonWebSocket.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TCPonWebSocket
+
+      - name: Cache Templates
+        id: cache_Templates
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Templates
+        with:
+            path: Build/Templates
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Templates/**/*.*") }}
+
+      - name: Build Templates
+        if: ${{ !steps.cache_Templates.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Templates
+
+      - name: Cache Terrain
+        id: cache_Terrain
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Terrain
+        with:
+            path: Build/Terrain
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Terrain/**/*.*") }}
+
+      - name: Build Terrain
+        if: ${{ !steps.cache_Terrain.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Terrain
+
+      - name: Cache Test3DCase1
+        id: cache_Test3DCase1
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DCase1
+        with:
+            path: Build/Test3DCase1
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DCase1/**/*.*") }}
+
+      - name: Build Test3DCase1
+        if: ${{ !steps.cache_Test3DCase1.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DCase1
+
+      - name: Cache Test3DCase2
+        id: cache_Test3DCase2
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DCase2
+        with:
+            path: Build/Test3DCase2
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DCase2/**/*.*") }}
+
+      - name: Build Test3DCase2
+        if: ${{ !steps.cache_Test3DCase2.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DCase2
+
+      - name: Cache Test3DCase3
+        id: cache_Test3DCase3
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DCase3
+        with:
+            path: Build/Test3DCase3
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DCase3/**/*.*") }}
+
+      - name: Build Test3DCase3
+        if: ${{ !steps.cache_Test3DCase3.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DCase3
+
+      - name: Cache Test3DCase4
+        id: cache_Test3DCase4
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DCase4
+        with:
+            path: Build/Test3DCase4
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DCase4/**/*.*") }}
+
+      - name: Build Test3DCase4
+        if: ${{ !steps.cache_Test3DCase4.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DCase4
+
+      - name: Cache Test3DShading
+        id: cache_Test3DShading
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DShading
+        with:
+            path: Build/Test3DShading
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DShading/**/*.*") }}
+
+      - name: Build Test3DShading
+        if: ${{ !steps.cache_Test3DShading.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DShading
+
+      - name: Cache Test3DSky
+        id: cache_Test3DSky
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Test3DSky
+        with:
+            path: Build/Test3DSky
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "Test3DSky/**/*.*") }}
+
+      - name: Build Test3DSky
+        if: ${{ !steps.cache_Test3DSky.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Test3DSky
+
+      - name: Cache TestSRGBCase1
+        id: cache_TestSRGBCase1
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestSRGBCase1
+        with:
+            path: Build/TestSRGBCase1
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestSRGBCase1/**/*.*") }}
+
+      - name: Build TestSRGBCase1
+        if: ${{ !steps.cache_TestSRGBCase1.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestSRGBCase1
+
+      - name: Cache TestSRGBCase2
+        id: cache_TestSRGBCase2
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestSRGBCase2
+        with:
+            path: Build/TestSRGBCase2
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestSRGBCase2/**/*.*") }}
+
+      - name: Build TestSRGBCase2
+        if: ${{ !steps.cache_TestSRGBCase2.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestSRGBCase2
+
+      - name: Cache TestSRGBCase3
+        id: cache_TestSRGBCase3
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestSRGBCase3
+        with:
+            path: Build/TestSRGBCase3
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestSRGBCase3/**/*.*") }}
+
+      - name: Build TestSRGBCase3
+        if: ${{ !steps.cache_TestSRGBCase3.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestSRGBCase3
+
+      - name: Cache TestShaderBlockGame
+        id: cache_TestShaderBlockGame
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderBlockGame
+        with:
+            path: Build/TestShaderBlockGame
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderBlockGame/**/*.*") }}
+
+      - name: Build TestShaderBlockGame
+        if: ${{ !steps.cache_TestShaderBlockGame.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderBlockGame
+
+      - name: Cache TestShaderDefault2D
+        id: cache_TestShaderDefault2D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderDefault2D
+        with:
+            path: Build/TestShaderDefault2D
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderDefault2D/**/*.*") }}
+
+      - name: Build TestShaderDefault2D
+        if: ${{ !steps.cache_TestShaderDefault2D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderDefault2D
+
+      - name: Cache TestShaderDefault3D
+        id: cache_TestShaderDefault3D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderDefault3D
+        with:
+            path: Build/TestShaderDefault3D
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderDefault3D/**/*.*") }}
+
+      - name: Build TestShaderDefault3D
+        if: ${{ !steps.cache_TestShaderDefault3D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderDefault3D
+
+      - name: Cache TestShaderExtractBright
+        id: cache_TestShaderExtractBright
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderExtractBright
+        with:
+            path: Build/TestShaderExtractBright
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderExtractBright/**/*.*") }}
+
+      - name: Build TestShaderExtractBright
+        if: ${{ !steps.cache_TestShaderExtractBright.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderExtractBright
+
+      - name: Cache TestShaderForwardFog
+        id: cache_TestShaderForwardFog
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderForwardFog
+        with:
+            path: Build/TestShaderForwardFog
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderForwardFog/**/*.*") }}
+
+      - name: Build TestShaderForwardFog
+        if: ${{ !steps.cache_TestShaderForwardFog.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderForwardFog
+
+      - name: Cache TestShaderForwardTriplanar
+        id: cache_TestShaderForwardTriplanar
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderForwardTriplanar
+        with:
+            path: Build/TestShaderForwardTriplanar
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderForwardTriplanar/**/*.*") }}
+
+      - name: Build TestShaderForwardTriplanar
+        if: ${{ !steps.cache_TestShaderForwardTriplanar.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderForwardTriplanar
+
+      - name: Cache TestShaderGameOfLife
+        id: cache_TestShaderGameOfLife
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderGameOfLife
+        with:
+            path: Build/TestShaderGameOfLife
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderGameOfLife/**/*.*") }}
+
+      - name: Build TestShaderGameOfLife
+        if: ${{ !steps.cache_TestShaderGameOfLife.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderGameOfLife
+
+      - name: Cache TestShaderGrayScale
+        id: cache_TestShaderGrayScale
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderGrayScale
+        with:
+            path: Build/TestShaderGrayScale
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderGrayScale/**/*.*") }}
+
+      - name: Build TestShaderGrayScale
+        if: ${{ !steps.cache_TestShaderGrayScale.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderGrayScale
+
+      - name: Cache TestShaderMultiShaderMask
+        id: cache_TestShaderMultiShaderMask
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderMultiShaderMask
+        with:
+            path: Build/TestShaderMultiShaderMask
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderMultiShaderMask/**/*.*") }}
+
+      - name: Build TestShaderMultiShaderMask
+        if: ${{ !steps.cache_TestShaderMultiShaderMask.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderMultiShaderMask
+
+      - name: Cache TestShaderMultiTextureBlend
+        id: cache_TestShaderMultiTextureBlend
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderMultiTextureBlend
+        with:
+            path: Build/TestShaderMultiTextureBlend
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderMultiTextureBlend/**/*.*") }}
+
+      - name: Build TestShaderMultiTextureBlend
+        if: ${{ !steps.cache_TestShaderMultiTextureBlend.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderMultiTextureBlend
+
+      - name: Cache TestShaderPoissonDisk
+        id: cache_TestShaderPoissonDisk
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderPoissonDisk
+        with:
+            path: Build/TestShaderPoissonDisk
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderPoissonDisk/**/*.*") }}
+
+      - name: Build TestShaderPoissonDisk
+        if: ${{ !steps.cache_TestShaderPoissonDisk.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderPoissonDisk
+
+      - name: Cache TestShaderPosterize
+        id: cache_TestShaderPosterize
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderPosterize
+        with:
+            path: Build/TestShaderPosterize
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderPosterize/**/*.*") }}
+
+      - name: Build TestShaderPosterize
+        if: ${{ !steps.cache_TestShaderPosterize.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderPosterize
+
+      - name: Cache TestShaderRGBShift
+        id: cache_TestShaderRGBShift
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderRGBShift
+        with:
+            path: Build/TestShaderRGBShift
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderRGBShift/**/*.*") }}
+
+      - name: Build TestShaderRGBShift
+        if: ${{ !steps.cache_TestShaderRGBShift.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderRGBShift
+
+      - name: Cache TestShaderRGBToBGR
+        id: cache_TestShaderRGBToBGR
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderRGBToBGR
+        with:
+            path: Build/TestShaderRGBToBGR
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderRGBToBGR/**/*.*") }}
+
+      - name: Build TestShaderRGBToBGR
+        if: ${{ !steps.cache_TestShaderRGBToBGR.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderRGBToBGR
+
+      - name: Cache TestShaderSwirl
+        id: cache_TestShaderSwirl
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderSwirl
+        with:
+            path: Build/TestShaderSwirl
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderSwirl/**/*.*") }}
+
+      - name: Build TestShaderSwirl
+        if: ${{ !steps.cache_TestShaderSwirl.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderSwirl
+
+      - name: Cache TestShaderTerrainNormal
+        id: cache_TestShaderTerrainNormal
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TestShaderTerrainNormal
+        with:
+            path: Build/TestShaderTerrainNormal
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "TestShaderTerrainNormal/**/*.*") }}
+
+      - name: Build TestShaderTerrainNormal
+        if: ${{ !steps.cache_TestShaderTerrainNormal.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TestShaderTerrainNormal
+
+      - name: Cache VideoReader
+        id: cache_VideoReader
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-VideoReader
+        with:
+            path: Build/VideoReader
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "VideoReader/**/*.*") }}
+
+      - name: Build VideoReader
+        if: ${{ !steps.cache_VideoReader.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 VideoReader
+
+      - name: Cache ViewFrustum
+        id: cache_ViewFrustum
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-ViewFrustum
+        with:
+            path: Build/ViewFrustum
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "ViewFrustum/**/*.*") }}
+
+      - name: Build ViewFrustum
+        if: ${{ !steps.cache_ViewFrustum.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 ViewFrustum
+
+      - name: Cache WebCam
+        id: cache_WebCam
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-WebCam
+        with:
+            path: Build/WebCam
+            key: ${{ env.cache-name }}-${{ hashFiles("CMakeLists.txt", "Siv3D/**/*.*", "WebCam/**/*.*") }}
+
+      - name: Build WebCam
+        if: ${{ !steps.cache_WebCam.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 WebCam
 
       - name: Pre Deploy
         run: |
