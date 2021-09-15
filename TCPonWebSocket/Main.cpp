@@ -63,7 +63,7 @@ void Main()
                     std::basic_string_view<char8> slice { receivedBytes.begin().base(), static_cast<size_t>(pos - receivedBytes.begin()) };
                     auto data = JSON::Parse(Unicode::FromUTF8(slice));
                     auto messageType = data[U"type"].getString();
-                    auto playerID = data[U"id"].get<uint32>();
+                    auto playerID = data[U"playerId"].get<uint32>();
 
                     if (messageType == U"updatePos")
                     {
