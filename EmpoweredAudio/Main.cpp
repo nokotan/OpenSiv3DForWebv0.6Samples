@@ -231,7 +231,7 @@ void Main()
 		bool updateEcho = false;
 		bool updateReverb = false;
 
-		if (SimpleGUI::CheckBox(pitch, U"Pitch", Vec2{ 600, 240 }, 120))
+		if (SimpleGUI::CheckBox(pitch, U"Pitch", Vec2{ 600, 240 }, 120, GlobalAudio::SupportsPitchShift()))
 		{
 			if (pitch)
 			{

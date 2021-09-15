@@ -72,9 +72,9 @@
 | [Test3DCase4](./Test3DCase4/Test3DCase4.html) ||
 | [Test3DShading](./Test3DShading/Test3DShading.html) ||
 | [Test3DSky](./Test3DSky/Test3DSky.html) ||
-| [Test3DSRGB1](./Test3DSRGB1/Test3DSRGB1.html) ||
-| [Test3DSRGB2](./Test3DSRGB2/Test3DSRGB2.html) ||
-| [Test3DSRGB3](./Test3DSRGB3/Test3DSRGB3.html) ||
+| [TestSRGBCase1](./TestSRGBCase1/TestSRGBCase1.html) ||
+| [TestSRGBCase2](./TestSRGBCase2/TestSRGBCase2.html) ||
+| [TestSRGBCase3](./TestSRGBCase3/TestSRGBCase3.html) ||
 
 ## Shader Tests
 
