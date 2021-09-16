@@ -56,6 +56,22 @@ mergeInto(LibraryManager.library, {
     },
     siv3dSetCursorStyle__sig: "vi",
 
+    siv3dRequestFullscreen: function() {
+        siv3dRegisterUserAction(function () {
+            Browser.requestFullscreen();
+        });
+    },
+    siv3dRequestFullscreen__sig: "v",
+    siv3dRequestFullscreen__deps: [ "$siv3dRegisterUserAction", "$Browser" ],
+
+    siv3dExitFullscreen: function() {
+        siv3dRegisterUserAction(function () {
+            Browser.exitFullscreen();
+        });
+    },
+    siv3dExitFullscreen__sig: "v",
+    siv3dExitFullscreen__deps: [ "$siv3dRegisterUserAction", "$Browser" ],
+
     //
     // MessageBox
     //
@@ -221,6 +237,8 @@ mergeInto(LibraryManager.library, {
                 const video = document.createElement("video");
 
                 video["playsInline"] = true;
+                video["autoplay"] = true;
+                
                 video.addEventListener('loadedmetadata', function onLoaded() {
                     const idx = GL.getNewId(videoElements);
 
@@ -230,7 +248,7 @@ mergeInto(LibraryManager.library, {
                     if (callback) {{{ makeDynCall('vii', 'callback') }}}(idx, callbackArg);
                 });
 
-                video.srcObject = stream;                      
+                video.srcObject = stream;
             }
         ).catch(_ => {
             if (callback) {{{ makeDynCall('vii', 'callback') }}}(0, callbackArg);
@@ -359,17 +377,14 @@ mergeInto(LibraryManager.library, {
     
     $siv3dOnTouchStart: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
-        e.preventDefault();
     },
 
     $siv3dOnTouchEnd: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
-        e.preventDefault();
     },
 
     $siv3dOnTouchMove: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
-        e.preventDefault();
     },
 
     siv3dRegisterTouchCallback: function() {
