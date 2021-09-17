@@ -8,7 +8,7 @@ void Main()
 	Webcam webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 
 	Image image;
-	DynamicTexture texture { 1280, 720 };;
+	DynamicTexture texture;
 	QRScanner qrScanner;
 	Array<QRContent> contents;
 
@@ -22,6 +22,10 @@ void Main()
 			{
 				webcam = Webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 			}
+		}
+		else
+		{
+			Scene::Resize(webcam.getResolution());
 		}
 		
 		if (webcam.hasNewFrame())
