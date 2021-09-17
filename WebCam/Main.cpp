@@ -3,11 +3,11 @@
 void Main()
 {
 	Scene::SetResizeMode(ResizeMode::Keep);
-    Scene::Resize(720, 1280);
+    Scene::Resize(1280, 720);
 
-	Webcam webcam{ 0, Size{ 720, 1280 }, StartImmediately::Yes };
+	Webcam webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 
-	DynamicTexture texture { 720, 1280 };
+	DynamicTexture texture;
 
     Platform::Web::System::SetMainLoop([&]()
     {
@@ -19,6 +19,10 @@ void Main()
 			{
 				webcam = Webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 			}
+		}
+		else
+		{
+			Scene::Resize(webcam.getResolution());
 		}
 		
 		if (webcam.hasNewFrame())
