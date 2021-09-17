@@ -377,14 +377,17 @@ mergeInto(LibraryManager.library, {
     
     $siv3dOnTouchStart: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
+        e.preventDefault()
     },
 
     $siv3dOnTouchEnd: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
+        e.stopPropagation();
     },
 
     $siv3dOnTouchMove: function(e) {
         siv3dActiveTouches = Array.from(e.touches);
+        e.stopPropagation();
     },
 
     siv3dRegisterTouchCallback: function() {
@@ -500,7 +503,7 @@ mergeInto(LibraryManager.library, {
     $siv3dUserActionHookCallBack__deps: [ "$siv3dHasUserActionTriggered", "$siv3dTriggerUserAction" ],
 
     siv3dStartUserActionHook: function() {
-        Module["canvas"].addEventListener('touchstart', siv3dUserActionHookCallBack);
+        Module["canvas"].addEventListener('touchend', siv3dUserActionHookCallBack);
         Module["canvas"].addEventListener('mousedown', siv3dUserActionHookCallBack);
         window.addEventListener('keydown', siv3dUserActionHookCallBack);
     },
@@ -508,7 +511,7 @@ mergeInto(LibraryManager.library, {
     siv3dStartUserActionHook__deps: [ "$siv3dUserActionHookCallBack", "$siv3dHasUserActionTriggered" ],
 
     siv3dStopUserActionHook: function() {
-        Module["canvas"].removeEventListener('touchstart', siv3dUserActionHookCallBack);
+        Module["canvas"].removeEventListener('touchend', siv3dUserActionHookCallBack);
         Module["canvas"].removeEventListener('mousedown', siv3dUserActionHookCallBack);
         window.removeEventListener('keydown', siv3dUserActionHookCallBack);
     },
