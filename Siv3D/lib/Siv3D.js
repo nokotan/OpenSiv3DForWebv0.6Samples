@@ -228,7 +228,10 @@ mergeInto(LibraryManager.library, {
 
     siv3dOpenCamera: function(width, height, callback, callbackArg) {
         const constraint = {
-            video: { width, height },
+            video: { 
+                width : width > 0 ? width : undefined, 
+                height: height > 0 ? height : undefined 
+            },
             audio: false
         };
 
@@ -236,9 +239,7 @@ mergeInto(LibraryManager.library, {
             stream => {
                 const video = document.createElement("video");
 
-                video["playsInline"] = true;
-                video["autoplay"] = true;
-                
+                video["playsInline"] = true;          
                 video.addEventListener('loadedmetadata', function onLoaded() {
                     const idx = GL.getNewId(videoElements);
 
@@ -256,6 +257,26 @@ mergeInto(LibraryManager.library, {
     },
     siv3dOpenCamera__sig: "viiii",
     siv3dOpenCamera__deps: ["$videoElements"],
+
+    siv3dSetCameraResolution: function(idx, width, height, callback, callbackArg) {
+        /** @type { HTMLVideoElement } */
+        const video = videoElements[idx];
+        /** @type { MediaStreamTrack } */
+        const stream = video.srcObject.getVideoTracks()[0];
+
+        const constraint = {
+            video: { width, height },
+            audio: false
+        };
+
+        stream.applyConstraints(constraint).then(
+            () => {
+                if (callback) {{{ makeDynCall('vii', 'callback') }}}(idx, callbackArg);
+            }
+        );
+    },
+    siv3dSetCameraResolution__sig: "viiiii",
+    siv3dSetCameraResolution__deps: ["$videoElements"],
 
     siv3dQueryCameraAvailability: function () {
         return !!navigator.getUserMedia;
