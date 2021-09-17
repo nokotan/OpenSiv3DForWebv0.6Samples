@@ -2,7 +2,8 @@
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	const PixelShader ps3D = HLSL{ U"example/shader/hlsl/forward_triplanar.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/forward_triplanar.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} }

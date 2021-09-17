@@ -2,7 +2,8 @@
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	const VertexShader vs3D = HLSL{ U"example/shader/hlsl/default3d_forward.hlsl", U"VS" }
 		| GLSL{ U"example/shader/glsl/default3d_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} }

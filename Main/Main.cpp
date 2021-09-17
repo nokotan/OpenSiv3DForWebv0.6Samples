@@ -2,6 +2,8 @@
 
 void Main()
 {
+    Scene::SetResizeMode(ResizeMode::Keep);
+
     // Set background color to sky blue
     Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 

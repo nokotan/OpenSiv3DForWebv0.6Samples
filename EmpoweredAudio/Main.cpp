@@ -5,7 +5,8 @@ SIV3D_SET(EngineOption::Renderer::WebGL2)
 
 void Main()
 {
-	Window::Resize(1280, 720);
+	Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	Audio audio;
 	double posSec = 0.0;

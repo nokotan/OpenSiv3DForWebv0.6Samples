@@ -2,7 +2,8 @@
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	Webcam webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 

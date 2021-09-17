@@ -2,7 +2,8 @@
 
 void Main()
 {
-   Scene::SetBackground(ColorF{ 0.4, 0.5, 0.6 });
+	Scene::SetResizeMode(ResizeMode::Keep);
+   	Scene::SetBackground(ColorF{ 0.4, 0.5, 0.6 });
 
 	const Texture e0{ U"🪨"_emoji };
 	const Texture e1{ U"🧋"_emoji };

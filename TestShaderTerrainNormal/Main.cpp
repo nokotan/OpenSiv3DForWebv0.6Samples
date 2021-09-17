@@ -2,7 +2,8 @@
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	const VertexShader vsTerrain = HLSL{ U"example/shader/hlsl/terrain_forward.hlsl", U"VS" }
 		| GLSL{ U"example/shader/glsl/terrain_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} }

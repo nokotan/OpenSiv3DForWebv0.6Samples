@@ -2,11 +2,12 @@
 
 void Main()
 {
-    Window::Resize(1280, 720);
+	Scene::SetResizeMode(ResizeMode::Keep);
+    Scene::Resize(720, 1280);
 
-	Webcam webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
+	Webcam webcam{ 0, Size{ 720, 1280 }, StartImmediately::Yes };
 
-	DynamicTexture texture { 1280, 720 };
+	DynamicTexture texture { 720, 1280 };
 
     Platform::Web::System::SetMainLoop([&]()
     {

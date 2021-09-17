@@ -34,7 +34,8 @@ void DrawMillModel(const Model& model, const Mat4x4& mat)
 
 void Main()
 {
-	Window::Resize(1280, 720);
+	Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	const Mesh groundPlane{ MeshData::OneSidedPlane(2000, { 400, 400 }) };
 	const Texture groundTexture{ U"example/texture/ground.jpg", TextureDesc::MippedSRGB };

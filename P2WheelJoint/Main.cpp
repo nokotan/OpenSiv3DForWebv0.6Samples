@@ -2,8 +2,9 @@
 
 void Main()
 {
+	Scene::SetResizeMode(ResizeMode::Keep);
 	// ウィンドウを 1280x720 にリサイズ
-	Window::Resize(1280, 720);
+	Scene::Resize(1280, 720);
 
 	// 背景色を設定
 	Scene::SetBackground(ColorF{ 0.2 });

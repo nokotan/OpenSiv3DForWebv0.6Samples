@@ -10,6 +10,8 @@ struct Swirl
 
 void Main()
 {
+	Scene::SetResizeMode(ResizeMode::Keep);
+	
     // ゲームの描画用のレンダーテクスチャ
 	MSRenderTexture renderTexture{ Scene::Size() };
 

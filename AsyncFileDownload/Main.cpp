@@ -2,6 +2,8 @@
 
 void Main()
 {
+	Scene::SetResizeMode(ResizeMode::Keep);
+
     const URL url = U"https://raw.githubusercontent.com/Siv3D/siv3d.docs.images/master/logo/logo.png";
 	const FilePath saveFilePath = U"logo2.png";
 	AsyncHTTPTask task = SimpleHTTP::SaveAsync(url, saveFilePath);

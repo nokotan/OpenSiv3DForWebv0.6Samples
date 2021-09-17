@@ -2,6 +2,8 @@
 
 void Main()
 {
+	Scene::SetResizeMode(ResizeMode::Keep);
+	
     const Texture emoji{ U"🐈"_emoji };
 	const Texture windmill{ U"example/windmill.png", TextureDesc::Mipped };
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/multi_texture_blend.hlsl", U"PS" }

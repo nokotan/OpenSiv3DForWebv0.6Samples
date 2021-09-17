@@ -20,7 +20,8 @@ void DrawScene(const ViewFrustum& frustum, const Texture& groundTexture)
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.5 });
 
 	const ColorF backgroundColor = ColorF{ 0.4, 0.6, 0.8 }.removeSRGBCurve();

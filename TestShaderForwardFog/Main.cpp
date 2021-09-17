@@ -8,7 +8,8 @@ struct PSFog
 
 void Main()
 {
-    Window::Resize(1280, 720);
+    Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(1280, 720);
 
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/forward_fog.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/forward_fog.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }, { U"PSFog", 4 }} }
