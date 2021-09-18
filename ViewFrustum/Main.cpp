@@ -20,8 +20,7 @@ void DrawScene(const ViewFrustum& frustum, const Texture& groundTexture)
 
 void Main()
 {
-    Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+    Window::SetStyle(WindowStyle::Sizable);
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.5 });
 
 	const ColorF backgroundColor = ColorF{ 0.4, 0.6, 0.8 }.removeSRGBCurve();
@@ -34,8 +33,11 @@ void Main()
     Platform::Web::System::SetMainLoop([&]()
     {
         System::Update();
+		
+		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
         
         camera1.update(4.0);
+		camera1.updateTouchUI(uiPosition, 1.0f);
 		const Vec3 camera2Pos = Cylindrical{ 18, (Scene::Time() * 10_deg), (2 + Periodic::Sine0_1(4s) * 10) };
 		camera2.setView(camera2Pos, Vec3::Zero());
 		const Vec3 upDirection = Vec3{ Math::Sin(Scene::Time() * 0.2), 1, 0 }.normalized() * camera2.getLookAtOrientation();
@@ -68,5 +70,7 @@ void Main()
 			RectF{ 360,240 }.drawShadow({ 0,0 }, 8, 3);
 			Shader::LinearToScreen(renderTexture2, Vec2{ 0,0 });
 		}
+
+		camera1.drawTouchUI(Scene::Size() - Vec2(100, 100));
     });
 }

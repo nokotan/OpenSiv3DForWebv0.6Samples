@@ -3,8 +3,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
 	Window::SetStyle(WindowStyle::Sizable);
 
 	const Texture windmillTexture{ U"example/windmill.png", TextureDesc::MippedSRGB };

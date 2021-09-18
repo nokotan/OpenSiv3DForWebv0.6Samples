@@ -62,7 +62,11 @@ void Main()
 
 		// 3D
 		{
+			const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
+
 			camera.update(4.0);
+			camera.updateTouchUI(uiPosition, 1.0f);
+
 			Graphics3D::SetCameraTransform(camera);
 			renderTexture.clear(ColorF{ 0.0 });
 			const ScopedRenderTarget3D target{ renderTexture };
@@ -174,5 +178,7 @@ void Main()
 
 		SimpleGUI::CheckBox(showUI, U"UI", Vec2{ 20, Scene::Height() - 100 });
 		SimpleGUI::Slider(U"time: {:.2f}"_fmt(skyTime), skyTime, -2.0, 4.0, Vec2{ 20, Scene::Height() - 60 }, 120, Scene::Width() - 160);
+
+		camera.drawTouchUI(uiPosition, 1.0f);
 	});
 }

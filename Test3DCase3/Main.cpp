@@ -3,8 +3,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
 	Window::SetStyle(WindowStyle::Sizable);
 	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 

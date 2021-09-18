@@ -34,8 +34,7 @@ void DrawMillModel(const Model& model, const Mat4x4& mat)
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::SetStyle(WindowStyle::Sizable);
 
 	const Mesh groundPlane{ MeshData::OneSidedPlane(2000, { 400, 400 }) };
 	const Texture groundTexture{ U"example/texture/ground.jpg", TextureDesc::MippedSRGB };
@@ -55,9 +54,12 @@ void Main()
 	{
 		System::Update();
 
+		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
+		
 		// 3D
 		{
 			camera.update(4.0);
+			camera.updateTouchUI(uiPosition, 1.0f);
 			Graphics3D::SetCameraTransform(camera);
 			renderTexture.clear(ColorF{ 0.4, 0.6, 0.8 }.removeSRGBCurve());
 			const ScopedRenderTarget3D target{ renderTexture };
@@ -91,5 +93,7 @@ void Main()
 			renderTexture.resolve();
 			Shader::LinearToScreen(renderTexture);
 		}
+
+		camera.drawTouchUI(uiPosition, 1.0f);
 	});
 }

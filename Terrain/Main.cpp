@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::SetStyle(WindowStyle::Sizable);
 
 	const VertexShader vsTerrain = HLSL{ U"example/shader/hlsl/terrain_forward.hlsl", U"VS" }
 		| GLSL{ U"example/shader/glsl/terrain_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} }
@@ -35,8 +34,11 @@ void Main()
 	Platform::Web::System::SetMainLoop([&]
 	{
 		System::Update();
+		
+		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
 
 		camera.update(2.0);
+		camera.updateTouchUI(uiPosition, 1.0f);
 
 		// 3D
 		{
@@ -93,5 +95,7 @@ void Main()
 
 		heightmap.draw(ColorF{ 0.1 });
 		normalmap.draw(0, 260);
+
+		camera.drawTouchUI(uiPosition, 1.0f);
 	});
 }

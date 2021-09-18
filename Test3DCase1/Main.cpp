@@ -34,8 +34,7 @@ void DrawMillModel(const Model& model, const Mat4x4& mat)
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::SetStyle(WindowStyle::Sizable);
 	Scene::SetBackground(ColorF{ 0.4, 0.6, 0.8 });
 
 	const Mesh groundPlane{ MeshData::OneSidedPlane(2000, { 400, 400 }) };
@@ -55,9 +54,12 @@ void Main()
 	{
 		System::Update();
 
+		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
+		
 		// 3D
 		{
 			camera.update(4.0);
+			camera.updateTouchUI(uiPosition, 1.0f);
 			Graphics3D::SetCameraTransform(camera);
 
 			// draw models
@@ -82,5 +84,7 @@ void Main()
 				}
 			}
 		}
+
+		camera.drawTouchUI(uiPosition, 1.0f);
 	});
 }
