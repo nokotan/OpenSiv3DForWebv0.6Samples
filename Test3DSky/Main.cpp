@@ -57,13 +57,13 @@ void Main()
 	{
 		System::Update();
 
+		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
+
 		ClearPrint();
 		Print << Profiler::FPS();
 
 		// 3D
 		{
-			const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
-
 			camera.update(4.0);
 			camera.updateTouchUI(uiPosition, 1.0f);
 
