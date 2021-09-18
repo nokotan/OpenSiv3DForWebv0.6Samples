@@ -3,6 +3,7 @@
 void Main()
 {
 	Scene::SetResizeMode(ResizeMode::Keep);
+	Scene::Resize(820, 860);
 	DynamicTexture qrTexture { Size(800, 800) };
 
 	TextEditState text;
