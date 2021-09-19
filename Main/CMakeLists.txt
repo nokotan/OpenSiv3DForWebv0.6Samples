@@ -10,6 +10,7 @@ target_sources(Main
 )
 
 set(MainBundledFilesPath
+    /resources/engine/font/mplus/mplus-1p-regular.ttf.zstdcmp
     /example/windmill.png
 )
 
