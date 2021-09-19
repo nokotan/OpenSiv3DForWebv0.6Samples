@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
+title: Short describe the bug | バグの内容
 labels: ''
 assignees: ''
 
@@ -10,7 +10,7 @@ assignees: ''
 ** Sample name that has bug | バグのあるサンプル名 **
 A sample name or url.
 
-**Describe the bug | バグの内容**
+**Describe the bug (optional) | 詳細なバグの内容 (省略可能)**
 A clear and concise description of what the bug is.
 
 **Desktop (please complete the following information) | 発生環境(デスクトップの場合):**
