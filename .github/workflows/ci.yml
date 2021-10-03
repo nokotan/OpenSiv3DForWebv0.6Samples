@@ -26,7 +26,7 @@ jobs:
             cache-name: cache-AdditionalEmoji
         with:
             path: Build/AdditionalEmoji
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'AdditionalEmoji/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AdditionalEmoji/**/*.*') }}
 
       - name: Build AdditionalEmoji
         if: ${{ !steps.cache_AdditionalEmoji.outputs.cache-hit }}
@@ -41,7 +41,7 @@ jobs:
             cache-name: cache-AsyncFileDownload
         with:
             path: Build/AsyncFileDownload
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'AsyncFileDownload/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AsyncFileDownload/**/*.*') }}
 
       - name: Build AsyncFileDownload
         if: ${{ !steps.cache_AsyncFileDownload.outputs.cache-hit }}
@@ -56,7 +56,7 @@ jobs:
             cache-name: cache-DragDrop
         with:
             path: Build/DragDrop
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'DragDrop/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'DragDrop/**/*.*') }}
 
       - name: Build DragDrop
         if: ${{ !steps.cache_DragDrop.outputs.cache-hit }}
@@ -71,7 +71,7 @@ jobs:
             cache-name: cache-EmpoweredAudio
         with:
             path: Build/EmpoweredAudio
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'EmpoweredAudio/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'EmpoweredAudio/**/*.*') }}
 
       - name: Build EmpoweredAudio
         if: ${{ !steps.cache_EmpoweredAudio.outputs.cache-hit }}
@@ -86,7 +86,7 @@ jobs:
             cache-name: cache-GeoJson
         with:
             path: Build/GeoJson
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'GeoJson/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'GeoJson/**/*.*') }}
 
       - name: Build GeoJson
         if: ${{ !steps.cache_GeoJson.outputs.cache-hit }}
@@ -101,7 +101,7 @@ jobs:
             cache-name: cache-GrabCut
         with:
             path: Build/GrabCut
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'GrabCut/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'GrabCut/**/*.*') }}
 
       - name: Build GrabCut
         if: ${{ !steps.cache_GrabCut.outputs.cache-hit }}
@@ -116,7 +116,7 @@ jobs:
             cache-name: cache-KDTree
         with:
             path: Build/KDTree
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'KDTree/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'KDTree/**/*.*') }}
 
       - name: Build KDTree
         if: ${{ !steps.cache_KDTree.outputs.cache-hit }}
@@ -131,7 +131,7 @@ jobs:
             cache-name: cache-Main
         with:
             path: Build/Main
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Main/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Main/**/*.*') }}
 
       - name: Build Main
         if: ${{ !steps.cache_Main.outputs.cache-hit }}
@@ -146,7 +146,7 @@ jobs:
             cache-name: cache-MaterialIcon
         with:
             path: Build/MaterialIcon
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'MaterialIcon/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'MaterialIcon/**/*.*') }}
 
       - name: Build MaterialIcon
         if: ${{ !steps.cache_MaterialIcon.outputs.cache-hit }}
@@ -161,7 +161,7 @@ jobs:
             cache-name: cache-Microphone
         with:
             path: Build/Microphone
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Microphone/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Microphone/**/*.*') }}
 
       - name: Build Microphone
         if: ${{ !steps.cache_Microphone.outputs.cache-hit }}
@@ -176,7 +176,7 @@ jobs:
             cache-name: cache-NavMesh
         with:
             path: Build/NavMesh
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'NavMesh/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NavMesh/**/*.*') }}
 
       - name: Build NavMesh
         if: ${{ !steps.cache_NavMesh.outputs.cache-hit }}
@@ -191,7 +191,7 @@ jobs:
             cache-name: cache-P2WheelJoint
         with:
             path: Build/P2WheelJoint
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'P2WheelJoint/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'P2WheelJoint/**/*.*') }}
 
       - name: Build P2WheelJoint
         if: ${{ !steps.cache_P2WheelJoint.outputs.cache-hit }}
@@ -206,7 +206,7 @@ jobs:
             cache-name: cache-PackRectangles
         with:
             path: Build/PackRectangles
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'PackRectangles/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PackRectangles/**/*.*') }}
 
       - name: Build PackRectangles
         if: ${{ !steps.cache_PackRectangles.outputs.cache-hit }}
@@ -221,7 +221,7 @@ jobs:
             cache-name: cache-PerlinNoise
         with:
             path: Build/PerlinNoise
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'PerlinNoise/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PerlinNoise/**/*.*') }}
 
       - name: Build PerlinNoise
         if: ${{ !steps.cache_PerlinNoise.outputs.cache-hit }}
@@ -236,7 +236,7 @@ jobs:
             cache-name: cache-PolygonOutline
         with:
             path: Build/PolygonOutline
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'PolygonOutline/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PolygonOutline/**/*.*') }}
 
       - name: Build PolygonOutline
         if: ${{ !steps.cache_PolygonOutline.outputs.cache-hit }}
@@ -251,7 +251,7 @@ jobs:
             cache-name: cache-QRCode
         with:
             path: Build/QRCode
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'QRCode/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'QRCode/**/*.*') }}
 
       - name: Build QRCode
         if: ${{ !steps.cache_QRCode.outputs.cache-hit }}
@@ -266,7 +266,7 @@ jobs:
             cache-name: cache-QRReader
         with:
             path: Build/QRReader
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'QRReader/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'QRReader/**/*.*') }}
 
       - name: Build QRReader
         if: ${{ !steps.cache_QRReader.outputs.cache-hit }}
@@ -281,7 +281,7 @@ jobs:
             cache-name: cache-RayIntersection
         with:
             path: Build/RayIntersection
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'RayIntersection/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'RayIntersection/**/*.*') }}
 
       - name: Build RayIntersection
         if: ${{ !steps.cache_RayIntersection.outputs.cache-hit }}
@@ -296,7 +296,7 @@ jobs:
             cache-name: cache-SoftShape
         with:
             path: Build/SoftShape
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'SoftShape/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'SoftShape/**/*.*') }}
 
       - name: Build SoftShape
         if: ${{ !steps.cache_SoftShape.outputs.cache-hit }}
@@ -311,7 +311,7 @@ jobs:
             cache-name: cache-Spline2D
         with:
             path: Build/Spline2D
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Spline2D/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Spline2D/**/*.*') }}
 
       - name: Build Spline2D
         if: ${{ !steps.cache_Spline2D.outputs.cache-hit }}
@@ -326,7 +326,7 @@ jobs:
             cache-name: cache-TCPonWebSocket
         with:
             path: Build/TCPonWebSocket
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TCPonWebSocket/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TCPonWebSocket/**/*.*') }}
 
       - name: Build TCPonWebSocket
         if: ${{ !steps.cache_TCPonWebSocket.outputs.cache-hit }}
@@ -341,7 +341,7 @@ jobs:
             cache-name: cache-Terrain
         with:
             path: Build/Terrain
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Terrain/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Terrain/**/*.*') }}
 
       - name: Build Terrain
         if: ${{ !steps.cache_Terrain.outputs.cache-hit }}
@@ -356,7 +356,7 @@ jobs:
             cache-name: cache-Test3DCase1
         with:
             path: Build/Test3DCase1
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DCase1/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase1/**/*.*') }}
 
       - name: Build Test3DCase1
         if: ${{ !steps.cache_Test3DCase1.outputs.cache-hit }}
@@ -371,7 +371,7 @@ jobs:
             cache-name: cache-Test3DCase2
         with:
             path: Build/Test3DCase2
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DCase2/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase2/**/*.*') }}
 
       - name: Build Test3DCase2
         if: ${{ !steps.cache_Test3DCase2.outputs.cache-hit }}
@@ -386,7 +386,7 @@ jobs:
             cache-name: cache-Test3DCase3
         with:
             path: Build/Test3DCase3
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DCase3/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase3/**/*.*') }}
 
       - name: Build Test3DCase3
         if: ${{ !steps.cache_Test3DCase3.outputs.cache-hit }}
@@ -401,7 +401,7 @@ jobs:
             cache-name: cache-Test3DCase4
         with:
             path: Build/Test3DCase4
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DCase4/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase4/**/*.*') }}
 
       - name: Build Test3DCase4
         if: ${{ !steps.cache_Test3DCase4.outputs.cache-hit }}
@@ -416,7 +416,7 @@ jobs:
             cache-name: cache-Test3DShading
         with:
             path: Build/Test3DShading
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DShading/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DShading/**/*.*') }}
 
       - name: Build Test3DShading
         if: ${{ !steps.cache_Test3DShading.outputs.cache-hit }}
@@ -431,7 +431,7 @@ jobs:
             cache-name: cache-Test3DSky
         with:
             path: Build/Test3DSky
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Test3DSky/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DSky/**/*.*') }}
 
       - name: Build Test3DSky
         if: ${{ !steps.cache_Test3DSky.outputs.cache-hit }}
@@ -446,7 +446,7 @@ jobs:
             cache-name: cache-TestSRGBCase1
         with:
             path: Build/TestSRGBCase1
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestSRGBCase1/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase1/**/*.*') }}
 
       - name: Build TestSRGBCase1
         if: ${{ !steps.cache_TestSRGBCase1.outputs.cache-hit }}
@@ -461,7 +461,7 @@ jobs:
             cache-name: cache-TestSRGBCase2
         with:
             path: Build/TestSRGBCase2
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestSRGBCase2/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase2/**/*.*') }}
 
       - name: Build TestSRGBCase2
         if: ${{ !steps.cache_TestSRGBCase2.outputs.cache-hit }}
@@ -476,7 +476,7 @@ jobs:
             cache-name: cache-TestSRGBCase3
         with:
             path: Build/TestSRGBCase3
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestSRGBCase3/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase3/**/*.*') }}
 
       - name: Build TestSRGBCase3
         if: ${{ !steps.cache_TestSRGBCase3.outputs.cache-hit }}
@@ -491,7 +491,7 @@ jobs:
             cache-name: cache-TestShaderBlockGame
         with:
             path: Build/TestShaderBlockGame
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderBlockGame/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderBlockGame/**/*.*') }}
 
       - name: Build TestShaderBlockGame
         if: ${{ !steps.cache_TestShaderBlockGame.outputs.cache-hit }}
@@ -506,7 +506,7 @@ jobs:
             cache-name: cache-TestShaderDefault2D
         with:
             path: Build/TestShaderDefault2D
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderDefault2D/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderDefault2D/**/*.*') }}
 
       - name: Build TestShaderDefault2D
         if: ${{ !steps.cache_TestShaderDefault2D.outputs.cache-hit }}
@@ -521,7 +521,7 @@ jobs:
             cache-name: cache-TestShaderDefault3D
         with:
             path: Build/TestShaderDefault3D
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderDefault3D/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderDefault3D/**/*.*') }}
 
       - name: Build TestShaderDefault3D
         if: ${{ !steps.cache_TestShaderDefault3D.outputs.cache-hit }}
@@ -536,7 +536,7 @@ jobs:
             cache-name: cache-TestShaderExtractBright
         with:
             path: Build/TestShaderExtractBright
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderExtractBright/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderExtractBright/**/*.*') }}
 
       - name: Build TestShaderExtractBright
         if: ${{ !steps.cache_TestShaderExtractBright.outputs.cache-hit }}
@@ -551,7 +551,7 @@ jobs:
             cache-name: cache-TestShaderForwardFog
         with:
             path: Build/TestShaderForwardFog
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderForwardFog/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderForwardFog/**/*.*') }}
 
       - name: Build TestShaderForwardFog
         if: ${{ !steps.cache_TestShaderForwardFog.outputs.cache-hit }}
@@ -566,7 +566,7 @@ jobs:
             cache-name: cache-TestShaderForwardTriplanar
         with:
             path: Build/TestShaderForwardTriplanar
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderForwardTriplanar/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderForwardTriplanar/**/*.*') }}
 
       - name: Build TestShaderForwardTriplanar
         if: ${{ !steps.cache_TestShaderForwardTriplanar.outputs.cache-hit }}
@@ -581,7 +581,7 @@ jobs:
             cache-name: cache-TestShaderGameOfLife
         with:
             path: Build/TestShaderGameOfLife
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderGameOfLife/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderGameOfLife/**/*.*') }}
 
       - name: Build TestShaderGameOfLife
         if: ${{ !steps.cache_TestShaderGameOfLife.outputs.cache-hit }}
@@ -596,7 +596,7 @@ jobs:
             cache-name: cache-TestShaderGrayScale
         with:
             path: Build/TestShaderGrayScale
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderGrayScale/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderGrayScale/**/*.*') }}
 
       - name: Build TestShaderGrayScale
         if: ${{ !steps.cache_TestShaderGrayScale.outputs.cache-hit }}
@@ -611,7 +611,7 @@ jobs:
             cache-name: cache-TestShaderMultiShaderMask
         with:
             path: Build/TestShaderMultiShaderMask
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderMultiShaderMask/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderMultiShaderMask/**/*.*') }}
 
       - name: Build TestShaderMultiShaderMask
         if: ${{ !steps.cache_TestShaderMultiShaderMask.outputs.cache-hit }}
@@ -626,7 +626,7 @@ jobs:
             cache-name: cache-TestShaderMultiTextureBlend
         with:
             path: Build/TestShaderMultiTextureBlend
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderMultiTextureBlend/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderMultiTextureBlend/**/*.*') }}
 
       - name: Build TestShaderMultiTextureBlend
         if: ${{ !steps.cache_TestShaderMultiTextureBlend.outputs.cache-hit }}
@@ -641,7 +641,7 @@ jobs:
             cache-name: cache-TestShaderPoissonDisk
         with:
             path: Build/TestShaderPoissonDisk
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderPoissonDisk/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderPoissonDisk/**/*.*') }}
 
       - name: Build TestShaderPoissonDisk
         if: ${{ !steps.cache_TestShaderPoissonDisk.outputs.cache-hit }}
@@ -656,7 +656,7 @@ jobs:
             cache-name: cache-TestShaderPosterize
         with:
             path: Build/TestShaderPosterize
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderPosterize/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderPosterize/**/*.*') }}
 
       - name: Build TestShaderPosterize
         if: ${{ !steps.cache_TestShaderPosterize.outputs.cache-hit }}
@@ -671,7 +671,7 @@ jobs:
             cache-name: cache-TestShaderRGBShift
         with:
             path: Build/TestShaderRGBShift
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderRGBShift/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderRGBShift/**/*.*') }}
 
       - name: Build TestShaderRGBShift
         if: ${{ !steps.cache_TestShaderRGBShift.outputs.cache-hit }}
@@ -686,7 +686,7 @@ jobs:
             cache-name: cache-TestShaderRGBToBGR
         with:
             path: Build/TestShaderRGBToBGR
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderRGBToBGR/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderRGBToBGR/**/*.*') }}
 
       - name: Build TestShaderRGBToBGR
         if: ${{ !steps.cache_TestShaderRGBToBGR.outputs.cache-hit }}
@@ -701,7 +701,7 @@ jobs:
             cache-name: cache-TestShaderSwirl
         with:
             path: Build/TestShaderSwirl
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderSwirl/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderSwirl/**/*.*') }}
 
       - name: Build TestShaderSwirl
         if: ${{ !steps.cache_TestShaderSwirl.outputs.cache-hit }}
@@ -716,7 +716,7 @@ jobs:
             cache-name: cache-TestShaderTerrainNormal
         with:
             path: Build/TestShaderTerrainNormal
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'TestShaderTerrainNormal/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderTerrainNormal/**/*.*') }}
 
       - name: Build TestShaderTerrainNormal
         if: ${{ !steps.cache_TestShaderTerrainNormal.outputs.cache-hit }}
@@ -731,7 +731,7 @@ jobs:
             cache-name: cache-VideoReader
         with:
             path: Build/VideoReader
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'VideoReader/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'VideoReader/**/*.*') }}
 
       - name: Build VideoReader
         if: ${{ !steps.cache_VideoReader.outputs.cache-hit }}
@@ -746,7 +746,7 @@ jobs:
             cache-name: cache-ViewFrustum
         with:
             path: Build/ViewFrustum
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'ViewFrustum/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'ViewFrustum/**/*.*') }}
 
       - name: Build ViewFrustum
         if: ${{ !steps.cache_ViewFrustum.outputs.cache-hit }}
@@ -761,7 +761,7 @@ jobs:
             cache-name: cache-WebCam
         with:
             path: Build/WebCam
-            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'WebCam/**/*.*') }}
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'WebCam/**/*.*') }}
 
       - name: Build WebCam
         if: ${{ !steps.cache_WebCam.outputs.cache-hit }}

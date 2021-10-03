@@ -47,9 +47,10 @@ set(Siv3DAppLinkerFlags
     "--closure 1"
 
     "-s ENVIRONMENT='web'"
+    "-s MODULARIZE=1"
     "-s ALLOW_MEMORY_GROWTH=1"
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
-    "-s DECLARE_ASM_MODULE_EXPORTS=0"
+    #"-s DECLARE_ASM_MODULE_EXPORTS=0"
 
     "-s USE_SDL=2"
     "-s USE_LIBPNG=1"
