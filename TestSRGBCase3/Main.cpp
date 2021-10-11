@@ -12,7 +12,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		texture.draw(0, 0);
 		textureSRGB.draw(400, 0);

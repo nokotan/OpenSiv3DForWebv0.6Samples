@@ -14,14 +14,14 @@ void Main()
 		throw Error{ U"Failed to load a shader file" };
 	}
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         {
 			// R と B を入れ替えるピクセルシェーダを開始
 			const ScopedCustomShader2D shader{ ps };
 			windmill.draw(10, 10);
 		}
-    });
+    }
 }

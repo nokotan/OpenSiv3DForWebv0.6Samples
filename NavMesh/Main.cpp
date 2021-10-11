@@ -37,7 +37,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		for (const auto& facetPolygon : facetPolygons)
 		{

@@ -15,7 +15,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		{
 			const ScopedViewport3D viewPort{ Rect{ 0, 0, 300, 600 } };

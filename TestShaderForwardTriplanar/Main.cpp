@@ -26,9 +26,9 @@ void Main()
 
 	bool triplanar = true;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         camera.update(2.0);
 
@@ -59,5 +59,5 @@ void Main()
 		}
 
 		SimpleGUI::CheckBox(triplanar, U"triplanar", Vec2{ 20,20 });
-    });
+    }
 }

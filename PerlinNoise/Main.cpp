@@ -15,9 +15,9 @@ void Main()
 	double persistence = 0.5;
 	const Array<String> options = Range(1, 6).map(Format);
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         SimpleGUI::RadioButtons(oct, options, Vec2{ 1040, 40 });
 
@@ -42,5 +42,5 @@ void Main()
 
 		texture1.draw();
 		texture2.draw(512, 0);
-    });
+    }
 }

@@ -24,9 +24,9 @@ void Main()
 	
     HashTable<uint32, Point> serverCatPositions;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         const Point clientPlayerPos = Cursor::Pos();
 
@@ -100,5 +100,5 @@ void Main()
         {
 		    Circle{ second, 30 }.draw(Palette::Orange);
         }
-    });
+    }
 }

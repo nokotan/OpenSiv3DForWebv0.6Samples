@@ -18,9 +18,9 @@ void Main()
 	const Texture e10{ U"🪑"_emoji };
 	const Texture e11{ U"🧊"_emoji };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         e0.drawAt(100, 100);
 		e1.drawAt(300, 100);
@@ -34,5 +34,5 @@ void Main()
 		e9.drawAt(300, 500);
 		e10.drawAt(500, 500);
 		e11.drawAt(700, 500);
-    });
+    }
 }

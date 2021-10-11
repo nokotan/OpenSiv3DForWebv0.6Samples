@@ -74,9 +74,9 @@ void Main()
 	double paddleCenter = 400;
 	double randomOffset = 0.0;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         // 自動プレイ
 		paddleCenter = Math::Damp(paddleCenter, ball.x + ballVelocity.x * 1.2 + randomOffset, 0.9, Scene::DeltaTime());
@@ -195,5 +195,5 @@ void Main()
 
 		// エフェクトの種類の選択
 		SimpleGUI::RadioButtons(effectIndex, { U"Default", U"Grayscale", U"Swirl", U"GaussianBlur" }, Vec2{ 10, 10 });
-    });
+    }
 }

@@ -26,7 +26,7 @@ void Main()
 	
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		if (!classTexture || MouseL.up() || MouseR.up())
 		{

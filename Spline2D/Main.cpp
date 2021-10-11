@@ -15,7 +15,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		// 制御点の追加
 		if (MouseL.down())

@@ -11,7 +11,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		if (SimpleGUI::TextBox(text, Vec2(10, 10), 800))
 		{

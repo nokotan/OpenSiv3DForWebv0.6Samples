@@ -12,9 +12,9 @@ void Main()
 	QRScanner qrScanner;
 	Array<QRContent> contents;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         if (!webcam)
 		{
@@ -55,5 +55,5 @@ void Main()
 
 			PutText(content.text, Arg::topLeft = content.quad.p0);
 		}
-    });
+    }
 }

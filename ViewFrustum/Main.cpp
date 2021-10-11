@@ -30,9 +30,9 @@ void Main()
 	DebugCamera3D camera1{ renderTexture.size(), 25_deg, Vec3{ 10, 16, -32 } };
 	BasicCamera3D camera2{ renderTexture2.size(), 25_deg };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
 		
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
         
@@ -72,5 +72,5 @@ void Main()
 		}
 
 		camera1.drawTouchUI(Scene::Size() - Vec2(100, 100));
-    });
+    }
 }

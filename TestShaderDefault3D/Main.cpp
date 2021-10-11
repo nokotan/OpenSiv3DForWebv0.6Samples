@@ -22,9 +22,9 @@ void Main()
 	const MSRenderTexture renderTexture{ Scene::Size(), TextureFormat::R8G8B8A8_Unorm_SRGB, HasDepth::Yes };
 	DebugCamera3D camera{ renderTexture.size(), 30_deg, Vec3{ 10, 16, -32 } };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
 
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
         
@@ -52,5 +52,5 @@ void Main()
 		}
 
 		camera.drawTouchUI(uiPosition, 1.0f);
-    });
+    }
 }

@@ -48,9 +48,9 @@ void Main()
 
 	AsyncTask<Audio> nextAudio;
 
-	Platform::Web::System::SetMainLoop([&]()
+	while (System::Update())
 	{
-		System::Update();
+		
 
 		ClearPrint();
 		Print << U"GlobalAudio::GetActiveVoiceCount(): " << GlobalAudio::GetActiveVoiceCount();

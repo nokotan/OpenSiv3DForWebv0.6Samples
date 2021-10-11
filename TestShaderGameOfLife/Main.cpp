@@ -33,9 +33,9 @@ void Main()
 	// レンダーテクスチャ 1
 	RenderTexture renderTexture1{ FieldSize, ColorF{0.0} };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         {
 			// テクスチャフィルタなし
@@ -57,5 +57,5 @@ void Main()
 
 		// rt0 と rt1 を入れ替える
 		std::swap(renderTexture0, renderTexture1);
-    });
+    }
 }

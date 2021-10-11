@@ -28,9 +28,9 @@ void Main()
 	double fogParam = 0.6;
 	ConstantBuffer<PSFog> cb{ { backgroundColor.rgb(), 0.0f } };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         camera.update(2.0);
 
@@ -64,5 +64,5 @@ void Main()
 		}
 
 		SimpleGUI::Slider(U"fogCoefficient: {:.3f}"_fmt(fogCoefficient), fogParam, Vec2{ 20, 20 }, 200, 160);
-    });
+    }
 }

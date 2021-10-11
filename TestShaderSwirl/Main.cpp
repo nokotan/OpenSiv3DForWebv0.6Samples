@@ -24,9 +24,9 @@ void Main()
 	// 定数バッファ
 	ConstantBuffer<Swirl> cb;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         cb->angle = static_cast<float>(Math::Sin(Scene::Time()) * 720_deg);
 
@@ -38,5 +38,5 @@ void Main()
 			const ScopedCustomShader2D shader{ ps };
 			windmill.draw(10, 10);
 		}
-    });
+    }
 }

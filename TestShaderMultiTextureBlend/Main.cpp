@@ -15,9 +15,9 @@ void Main()
 		throw Error{ U"Failed to load a shader file" };
 	}
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         // windmill をピクセルシェーダのテクスチャスロット [1] にセット 
 		Graphics2D::SetPSTexture(1, windmill);
@@ -26,5 +26,5 @@ void Main()
 			const ScopedCustomShader2D shader{ ps };
 			emoji.scaled(2).drawAt(Scene::Center());
 		}
-    });
+    }
 }

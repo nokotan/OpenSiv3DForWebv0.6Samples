@@ -20,7 +20,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		// FFT の結果を取得
 		mic.fft(fft);

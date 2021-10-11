@@ -12,7 +12,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		const double t = (Scene::Time() * 720);
 

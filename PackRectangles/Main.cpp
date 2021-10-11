@@ -27,7 +27,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
     {
-		System::Update();
+		
 
 		if (!s.isStarted() || s > 1.8s)
         {

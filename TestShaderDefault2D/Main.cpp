@@ -23,9 +23,9 @@ void Main()
 
     const Texture texure{ U"example/windmill.png" };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         {
 			const ScopedCustomShader2D shader{ vs2D, ps2DShape };
@@ -36,5 +36,5 @@ void Main()
 			const ScopedCustomShader2D shader{ vs2D, ps2DTexture };
 			texure.draw();
 		}
-    });
+    }
 }

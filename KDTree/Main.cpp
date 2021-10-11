@@ -52,7 +52,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		const Vec2 cursorPos = Cursor::PosF();
 

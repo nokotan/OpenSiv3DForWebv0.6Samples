@@ -9,9 +9,9 @@ void Main()
 
 	DynamicTexture texture;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         if (!webcam)
 		{
@@ -34,5 +34,5 @@ void Main()
 		{
 			texture.draw();
 		}
-    });
+    }
 }

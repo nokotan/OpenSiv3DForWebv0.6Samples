@@ -24,9 +24,9 @@ void Main()
 
 	bool glowEffect = true;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         camera.update(2.0);
 
@@ -103,5 +103,5 @@ void Main()
 		}
 
 		SimpleGUI::CheckBox(glowEffect, U"Glow", Vec2{ 20,20 });
-    });
+    }
 }

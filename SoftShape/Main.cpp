@@ -18,9 +18,9 @@ void Main()
 
     ConstantBuffer<float> cb;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
           cb = static_cast<float>(Scene::Time());
         Graphics2D::SetConstantBuffer(ShaderStage::Vertex, 1, cb);

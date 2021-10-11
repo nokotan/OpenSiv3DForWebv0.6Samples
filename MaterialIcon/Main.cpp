@@ -15,9 +15,9 @@ void Main()
       U"\xF173B  操作方法"
     };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         for (auto [i, item] : Indexed(items))
 		{
@@ -28,5 +28,5 @@ void Main()
 			font(item)
 				.draw(55, 48 + i * 80.0, ColorF{ 0.25 });
 		}
-    });
+    }
 }

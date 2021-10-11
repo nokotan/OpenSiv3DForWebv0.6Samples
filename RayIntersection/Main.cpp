@@ -30,9 +30,9 @@ void Main()
 	const Cylinder cy1{ {-8,2,4},{-4, 5,6}, 1 };
 	const Cylinder cy2{ {-10,2,1},{-6, 3,-2}, 0.5 };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         camera.update(2.0);
 
@@ -62,5 +62,5 @@ void Main()
 			renderTexture.resolve();
 			Shader::LinearToScreen(renderTexture);
 		}
-    });
+    }
 }

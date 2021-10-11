@@ -24,9 +24,9 @@ void Main()
 	// レンダーテクスチャを作成
 	const RenderTexture renderTexture{ 480, 320 };
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-		System::Update();
+		
 
         // レンダーテクスチャをクリア
 		renderTexture.clear(ColorF(0.0, 1.0));
@@ -46,5 +46,5 @@ void Main()
 			const ScopedCustomShader2D shader{ ps };
 			windmill.draw(480, 140);
 		}
-    });
+    }
 }

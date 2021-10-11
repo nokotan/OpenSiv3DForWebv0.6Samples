@@ -22,7 +22,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		const double t = Scene::Time();
 		constexpr double verticlaFOV = 30_deg;

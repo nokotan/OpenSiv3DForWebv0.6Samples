@@ -9,9 +9,9 @@ void Main()
 	AsyncHTTPTask task = SimpleHTTP::SaveAsync(url, saveFilePath);
 	Texture texture;
 
-    Platform::Web::System::SetMainLoop([&]()
+    while (System::Update())
     {
-        System::Update();
+        
         
         if (task.isReady())
 		{
@@ -29,5 +29,5 @@ void Main()
 		{
 			texture.draw();
 		}
-    });
+    }
 }

@@ -9,7 +9,7 @@ void Main()
 
 	Platform::Web::System::SetMainLoop([&]
 	{
-		System::Update();
+		
 
 		// ファイルパスがドロップされた
 		if (DragDrop::HasNewFilePaths())
