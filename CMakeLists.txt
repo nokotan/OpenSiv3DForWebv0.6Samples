@@ -50,7 +50,7 @@ set(Siv3DAppLinkerFlags
     "-s MODULARIZE=1"
     "-s ALLOW_MEMORY_GROWTH=1"
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
-    #"-s DECLARE_ASM_MODULE_EXPORTS=0"
+    # "-s DECLARE_ASM_MODULE_EXPORTS=0"
 
     "-s USE_SDL=2"
     "-s USE_LIBPNG=1"
@@ -61,6 +61,11 @@ set(Siv3DAppLinkerFlags
     "-s USE_GLFW=3"
     "-s MIN_WEBGL_VERSION=2"
     "-s MAX_WEBGL_VERSION=2"
+
+    "-s ASYNCIFY=1"
+    "-s ASYNCIFY_IGNORE_INDIRECT=1"
+    "-s ASYNCIFY_IMPORTS=\"[ 'siv3dRequestAnimationFrame', 'siv3dOpenDialog', 'siv3dDecodeAudioFromFile', 'siv3dGetClipboardText' ]\""
+    "-s ASYNCIFY_ADD=\"[ 'main', 'Main()', 's3d::System::Update()', 's3d::AACDecoder::decode(*) const', 's3d::MP3Decoder::decode(*) const', 's3d::CAudioDecoder::decode(*)', 's3d::AudioDecoder::Decode(*)', 's3d::Wave::Wave(*)', 's3d::Audio::Audio(*)', 's3d::Clipboard::GetText(*)', 's3d::CClipboard::getText(*)' ]\""
 
     "-s LZ4=1"
 
