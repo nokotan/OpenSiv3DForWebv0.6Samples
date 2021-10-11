@@ -17,8 +17,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         SimpleGUI::RadioButtons(oct, options, Vec2{ 1040, 40 });
 
 		SimpleGUI::Slider(U"{:.2f}"_fmt(persistence), persistence, Vec2{ 1040, 280 });

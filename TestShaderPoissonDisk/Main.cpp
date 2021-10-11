@@ -33,8 +33,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         // サンプリング半径をスライダーで変更
 		if (SimpleGUI::Slider(U"diskRadius", diskRadius, 0.0, 8.0, Vec2{ 10, 340 }, 120, 200))
 		{

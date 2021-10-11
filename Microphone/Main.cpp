@@ -18,10 +18,8 @@ void Main()
 
 	FFTResult fft;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		// FFT の結果を取得
 		mic.fft(fft);
 
@@ -36,5 +34,5 @@ void Main()
 		Rect{ Cursor::Pos().x, 0, 1, Scene::Height() }.draw();
 		ClearPrint();
 		Print << U"{} Hz"_fmt(Cursor::Pos().x * fft.resolution);
-	});
+    }
 }

@@ -35,10 +35,8 @@ void Main()
 	const Vec2 goal{ 1100, 300 };
 	const Polygon goalDiamond = RectF{ Arg::center = goal, 48 }.rotated(45_deg).calculateRoundBuffer(3);
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		for (const auto& facetPolygon : facetPolygons)
 		{
 			facetPolygon
@@ -81,5 +79,5 @@ void Main()
 		pathS.draw(6, ColorF{ 0.2, 0.3, 0.5 });
 
 		goalDiamond.draw(ColorF{ 0.9, 0.2, 0.0 });
-	});
+    }
 }

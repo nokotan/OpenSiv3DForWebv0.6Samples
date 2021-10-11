@@ -11,8 +11,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         if (!webcam)
 		{
 			if (SimpleGUI::Button(U"Retry", Vec2{ 20, 20 }))

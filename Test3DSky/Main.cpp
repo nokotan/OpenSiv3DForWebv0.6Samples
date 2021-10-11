@@ -53,10 +53,8 @@ void Main()
 	double skyTime = 0.5;
 	bool showUI = true;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
 
 		ClearPrint();
@@ -180,5 +178,5 @@ void Main()
 		SimpleGUI::Slider(U"time: {:.2f}"_fmt(skyTime), skyTime, -2.0, 4.0, Vec2{ 20, Scene::Height() - 60 }, 120, Scene::Width() - 160);
 
 		camera.drawTouchUI(uiPosition, 1.0f);
-	});
+    }
 }

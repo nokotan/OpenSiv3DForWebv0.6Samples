@@ -24,8 +24,6 @@ void Main()
 
     while (System::Update())
     {
-        
-
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
         
         camera.update(2.0);

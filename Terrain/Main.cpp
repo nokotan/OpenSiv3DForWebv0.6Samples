@@ -31,10 +31,8 @@ void Main()
 	RenderTexture heightmap{ Size{ 256, 256 }, ColorF{0.0}, TextureFormat::R16G16_Float };
 	RenderTexture normalmap{ Size{ 256, 256 }, ColorF{0.0, 0.0, 0.0}, TextureFormat::R16G16_Float };
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-		
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
 
 		camera.update(2.0);
@@ -97,5 +95,5 @@ void Main()
 		normalmap.draw(0, 260);
 
 		camera.drawTouchUI(uiPosition, 1.0f);
-	});
+    }
 }

@@ -17,16 +17,14 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         for (auto [i, item] : Indexed(items))
-		{
-			const RoundRect rect{ 40, 40 + i * 80.0, 320, 60, 8 };
+        {
+            const RoundRect rect{ 40, 40 + i * 80.0, 320, 60, 8 };
 
-			rect.draw(ColorF{ 0.99, 0.96, 0.93 });
+            rect.draw(ColorF{ 0.99, 0.96, 0.93 });
 
-			font(item)
-				.draw(55, 48 + i * 80.0, ColorF{ 0.25 });
-		}
+            font(item)
+              .draw(55, 48 + i * 80.0, ColorF{ 0.25 });
+        }
     }
 }

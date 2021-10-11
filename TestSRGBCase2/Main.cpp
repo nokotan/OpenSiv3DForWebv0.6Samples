@@ -10,10 +10,8 @@ void Main()
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 1.0 });
 	Graphics3D::SetSunColor(ColorF{ 0.0 });
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		// 3D
 		{
 			renderTexture.clear(ColorF{ 0.8, 0.9, 1.0 }.removeSRGBCurve());
@@ -51,5 +49,5 @@ void Main()
 		}
 
 		PutText(U"色見本と球の色が一致すれば OK です。", Scene::Center());
-	});
+    }
 }

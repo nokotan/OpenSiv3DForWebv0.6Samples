@@ -25,8 +25,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         {
 			const ScopedCustomShader2D shader{ vs2D, ps2DShape };
 			Circle{ 600, 400, 100 }.draw(Palette::Orange);

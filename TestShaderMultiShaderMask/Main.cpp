@@ -26,8 +26,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         // レンダーテクスチャをクリア
 		renderTexture.clear(ColorF(0.0, 1.0));
 		{

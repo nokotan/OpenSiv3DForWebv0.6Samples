@@ -40,10 +40,8 @@ void Main()
 	// 2D カメラ
 	Camera2D camera{ Vec2{ 0, -150 } };
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		for (accumulatorSec += Scene::DeltaTime(); stepSec <= accumulatorSec; accumulatorSec -= stepSec)
 		{
 			world.update(stepSec);
@@ -98,5 +96,5 @@ void Main()
 
 		// 2D カメラの操作を描画
 		camera.draw(Palette::Orange);
-	});
+    }
 }

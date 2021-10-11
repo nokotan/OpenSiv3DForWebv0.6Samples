@@ -50,10 +50,8 @@ void Main()
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.5 });
 	Graphics3D::SetSunColor(ColorF{ 0.5 });
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const Vec2 uiPosition{ Scene::Size() - Vec2(210, 250) };
 		
 		// 3D
@@ -86,5 +84,5 @@ void Main()
 		}
 
 		camera.drawTouchUI(uiPosition, 1.0f);
-	});
+    }
 }

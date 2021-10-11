@@ -20,14 +20,12 @@ void Main()
 
     while (System::Update())
     {
-        
-        
-          cb = static_cast<float>(Scene::Time());
+        cb = static_cast<float>(Scene::Time());
         Graphics2D::SetConstantBuffer(ShaderStage::Vertex, 1, cb);
         
         {
           ScopedCustomShader2D shader{ vs };
           Graphics2D::DrawTriangles(360);
         }
-  });
+    }
 }

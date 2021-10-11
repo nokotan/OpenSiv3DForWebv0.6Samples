@@ -50,10 +50,8 @@ void Main()
 	// radius search する際の探索距離
 	constexpr double searchDistance = 80.0;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const Vec2 cursorPos = Cursor::PosF();
 
 		Circle{ cursorPos, searchDistance }.draw(ColorF{ 1.0, 0.2 });
@@ -69,5 +67,5 @@ void Main()
 		{
 			unit.draw();
 		}
-	});
+    }
 }

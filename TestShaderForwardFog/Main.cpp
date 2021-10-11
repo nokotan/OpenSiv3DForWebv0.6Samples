@@ -30,8 +30,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         camera.update(2.0);
 
 		const double fogCoefficient = Math::Eerp(0.001, 0.25, fogParam);

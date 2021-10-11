@@ -13,10 +13,8 @@ void Main()
 	const MSRenderTexture renderTexture16{ 300, 600, TextureFormat::R16G16B16A16_Float, HasDepth::Yes };
 	DebugCamera3D camera{ Size{ 300, 600 }, 45_deg, Vec3{ -12, 3, -12 } };
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		{
 			const ScopedViewport3D viewPort{ Rect{ 0, 0, 300, 600 } };
 			Graphics3D::SetCameraTransform(camera);
@@ -48,5 +46,5 @@ void Main()
 		}
 
 		PutText(U"中央と右（リニアレンダリング）はライトのエッジがはっきりする", Scene::Center().movedBy(0, 80));
-	});
+    }
 }

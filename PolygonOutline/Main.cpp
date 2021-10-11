@@ -10,10 +10,8 @@ void Main()
 	const Polygon polygon1 = Shape2D::Heart(180, Scene::Center().movedBy(0, 120));
 	const Polygon polygon2 = Shape2D::NStar(8, 180, 140, Scene::Center().movedBy(350, -120));
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const double t = (Scene::Time() * 720);
 
 		polygon0.draw(ColorF{ 0.4 });
@@ -24,5 +22,5 @@ void Main()
 		
 		polygon2.draw(ColorF{ 0.4 });
 		polygon2.outline(t, 200).draw(LineStyle::RoundCap, 8, ColorF{ 0, 1, 0.5 });
-	});
+	}
 }

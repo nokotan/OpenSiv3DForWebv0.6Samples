@@ -50,8 +50,6 @@ void Main()
 
 	while (System::Update())
 	{
-		
-
 		ClearPrint();
 		Print << U"GlobalAudio::GetActiveVoiceCount(): " << GlobalAudio::GetActiveVoiceCount();
 		Print << U"isEmpty : " << audio.isEmpty();
@@ -331,5 +329,5 @@ void Main()
 		{
 			GlobalAudio::BusSetReverbFilter(MixBus0, 4, freeze, roomSize, damp, width, reverbWet);
 		}
-	});
+	}
 }

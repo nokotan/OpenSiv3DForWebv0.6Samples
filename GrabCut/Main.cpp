@@ -24,10 +24,8 @@ void Main()
 	constexpr Color BackgroundColor{ 0, 0, 255 };
 	constexpr Color ForegroundColor{ 250, 100, 50 };
 	
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		if (!classTexture || MouseL.up() || MouseR.up())
 		{
 			grabcut.update(mask, ForegroundColor, BackgroundColor);
@@ -88,5 +86,5 @@ void Main()
 			Transformer2D t{ Mat3x2::Scale(1.1, Vec2{640, 520}.movedBy(0, image.height() / 2)).translated((Scene::Center() - Cursor::Pos()) * 0.04) };
 			foregroundTexture.drawAt(640, 520);
 		}
-	});
+    }
 }

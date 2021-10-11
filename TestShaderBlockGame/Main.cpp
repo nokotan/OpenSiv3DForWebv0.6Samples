@@ -76,8 +76,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         // 自動プレイ
 		paddleCenter = Math::Damp(paddleCenter, ball.x + ballVelocity.x * 1.2 + randomOffset, 0.9, Scene::DeltaTime());
 

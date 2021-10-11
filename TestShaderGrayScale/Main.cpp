@@ -16,8 +16,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         {
 			// R と B を入れ替えるピクセルシェーダを開始
 			const ScopedCustomShader2D shader{ ps };

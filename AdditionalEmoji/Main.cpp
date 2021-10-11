@@ -20,8 +20,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         e0.drawAt(100, 100);
 		e1.drawAt(300, 100);
 		e2.drawAt(500, 100);

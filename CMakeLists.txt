@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(Siv3DApp)
+project(Siv3DApp C CXX)
+
+set(CMAKE_C_FLAGS_RELEASE "-O2 -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 
 
 
@@ -44,7 +47,7 @@ set(Siv3DAppCompileFlags
 )
 
 set(Siv3DAppLinkerFlags
-    "--closure 1"
+    # "--closure 1"
 
     "-s ENVIRONMENT='web'"
     "-s MODULARIZE=1"
@@ -64,8 +67,8 @@ set(Siv3DAppLinkerFlags
 
     "-s ASYNCIFY=1"
     "-s ASYNCIFY_IGNORE_INDIRECT=1"
-    "-s ASYNCIFY_IMPORTS=\"[ 'siv3dRequestAnimationFrame', 'siv3dOpenDialog', 'siv3dDecodeAudioFromFile', 'siv3dGetClipboardText' ]\""
-    "-s ASYNCIFY_ADD=\"[ 'main', 'Main()', 's3d::System::Update()', 's3d::AACDecoder::decode(*) const', 's3d::MP3Decoder::decode(*) const', 's3d::CAudioDecoder::decode(*)', 's3d::AudioDecoder::Decode(*)', 's3d::Wave::Wave(*)', 's3d::Audio::Audio(*)', 's3d::Clipboard::GetText(*)', 's3d::CClipboard::getText(*)' ]\""
+    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
+    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
 
     "-s LZ4=1"
 
@@ -75,13 +78,17 @@ set(Siv3DAppLinkerFlags
     "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
 )
 
+if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
+  list(APPEND Siv3DAppCompileFlags
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+  )
+  list(APPEND Siv3DAppLinkerFlags
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+  )
+endif()
+
 string (REPLACE ";" " " Siv3DAppCompileFlags "${Siv3DAppCompileFlags}")
 string (REPLACE ";" " " Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags}")
-
-if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
-  set(Siv3DAppCompileFlags "${Siv3DAppCompileFlags} -s EXCEPTION_CATCHING_ALLOWED=[\"InitSiv3D\"]")
-  set(Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags} -s EXCEPTION_CATCHING_ALLOWED=[\"InitSiv3D\"]")
-endif()
 
 if ("${CMAKE_C_FLAGS}" STREQUAL "" OR NOT ${CMAKE_C_FLAGS} MATCHES "-msimd128")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_XM_NO_INTRINSICS_")

@@ -26,8 +26,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         const Point clientPlayerPos = Cursor::Pos();
 
 		if (client.isConnected())

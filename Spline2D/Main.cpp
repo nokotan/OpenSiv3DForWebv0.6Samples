@@ -13,10 +13,8 @@ void Main()
 	Stopwatch stopwatch;
 	SplineIndex si;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		// 制御点の追加
 		if (MouseL.down())
 		{
@@ -61,5 +59,5 @@ void Main()
 			si = spline.advanceWrap(si, Scene::DeltaTime() * 400);
 			Circle{ spline.position(si), 20 }.draw(HSV{ 145, 0.9, 0.95 });
 		}
-	});
+    }
 }

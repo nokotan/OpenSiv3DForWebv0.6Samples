@@ -11,10 +11,8 @@ void Main()
 	Camera2D camera{ Vec2{ 0, 0 }, 2.0, Camera2DParameters{.maxScale = 4096.0 } };
 	Optional<size_t> selected;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		ClearPrint();
 
 		camera.update();
@@ -47,5 +45,5 @@ void Main()
 			}
 		}
 		camera.draw(Palette::Orange);
-	});
+    }
 }

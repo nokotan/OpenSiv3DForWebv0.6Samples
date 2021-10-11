@@ -44,10 +44,8 @@ void Main()
 	DynamicTexture dtexture{ image };
 	Optional<Vec2> previousPenPos;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const double t = Scene::Time();
 		constexpr double verticlaFOV = 30_deg;
 		const Vec3 eyePosition = Cylindrical{ 20, (t * 2_deg), (8 + Periodic::Sine0_1(40s) * 8) };
@@ -102,5 +100,5 @@ void Main()
 		ballMesh.draw(2, (1 + Periodic::Jump0_1(2s, t + 0.6) * 4), 8, ColorF{ 0.4, 0.5, 0.8 });
 
 		emoji.draw(Cursor::Pos());
-	});
+    }
 }

@@ -11,8 +11,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         if (task.isReady())
 		{
 			if (task.getResponse().isOK())

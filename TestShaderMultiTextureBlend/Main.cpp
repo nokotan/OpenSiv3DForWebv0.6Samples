@@ -17,8 +17,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         // windmill をピクセルシェーダのテクスチャスロット [1] にセット 
 		Graphics2D::SetPSTexture(1, windmill);
 		{

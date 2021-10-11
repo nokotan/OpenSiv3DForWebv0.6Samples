@@ -7,10 +7,8 @@ void Main()
 	bool acceptFiles = true;
 	bool acceptText = false; // デフォルトではテキストのドロップは受け付けない
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		// ファイルパスがドロップされた
 		if (DragDrop::HasNewFilePaths())
 		{
@@ -62,5 +60,5 @@ void Main()
 		{
 			DragDrop::AcceptText(acceptText);
 		}
-	});
+    }
 }

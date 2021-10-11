@@ -26,8 +26,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         cb->angle = static_cast<float>(Math::Sin(Scene::Time()) * 720_deg);
 
 		{

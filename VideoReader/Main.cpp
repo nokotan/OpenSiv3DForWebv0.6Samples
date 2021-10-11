@@ -33,10 +33,8 @@ void Main()
 	double frameTimeSec = 0.0;
 	bool playing = true;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		ClearPrint();
 		ShowStatus(video);
 
@@ -67,5 +65,5 @@ void Main()
 			playing = !playing;
 			frameTimeSec = 0.0;
 		}
-	});
+    }
 }

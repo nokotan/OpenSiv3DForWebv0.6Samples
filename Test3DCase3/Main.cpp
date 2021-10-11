@@ -20,10 +20,8 @@ void Main()
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.6 });
 	Graphics3D::SetSunColor(ColorF{ 0.4 });
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
 	{
-		
-
 		const double t = Scene::Time();
 		constexpr double verticlaFOV = 30_deg;
 		const Vec3 eyePosition = Cylindrical{ 20, (t * 1_deg), (8 + Periodic::Sine0_1(40s) * 8) };
@@ -92,5 +90,5 @@ void Main()
 			.draw(Quaternion::RotateY(t * -15_deg), earthTexture);
 
 		emoji.draw(Cursor::Pos());
-	});
+    }
 }

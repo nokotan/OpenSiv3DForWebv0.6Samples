@@ -32,8 +32,6 @@ void Main()
 
     while (System::Update())
     {
-        
-        
         camera.update(2.0);
 
 		// 3D

@@ -25,10 +25,8 @@ void Main()
     Point offset{ 0, 0 };
     Stopwatch s;
 
-	Platform::Web::System::SetMainLoop([&]
+	while (System::Update())
     {
-		
-
 		if (!s.isStarted() || s > 1.8s)
         {
             input = GenerateRandomRects();
@@ -72,5 +70,5 @@ void Main()
                 .draw(HSV{ i * 25.0, 0.65, 0.9 })
                 .drawFrame(2, 0, ColorF{ 0.25 });
         }
-	});
+    }
 }

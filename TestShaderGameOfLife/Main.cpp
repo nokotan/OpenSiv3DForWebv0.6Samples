@@ -35,8 +35,6 @@ void Main()
 
     while (System::Update())
     {
-		
-
         {
 			// テクスチャフィルタなし
 			const ScopedRenderStates2D sampler(SamplerState::ClampNearest);
