@@ -139,6 +139,21 @@ jobs:
         run: |
             make -j4 Main
 
+      - name: Cache Main3D
+        id: cache_Main3D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-Main3D
+        with:
+            path: Build/Main3D
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Main3D/**/*.*') }}
+
+      - name: Build Main3D
+        if: ${{ !steps.cache_Main3D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 Main3D
+
       - name: Cache MaterialIcon
         id: cache_MaterialIcon
         uses: actions/cache@v1
