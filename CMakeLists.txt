@@ -104,8 +104,8 @@ endif ()
 
 set(Siv3DAppBundledFilesPath
     /resources/engine/font/noto-cjk/LICENSE
-    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
-    /resources/engine/font/noto-emoji
+    /resources/engine/font/noto-emoji/LICENSE
+    /resources/engine/font/noto-emoji/NotoEmoji-Regular.ttf.zstdcmp
     /resources/engine/shader/glsl
     /resources/engine/texture/box-shadow
 )

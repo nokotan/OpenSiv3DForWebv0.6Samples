@@ -10,6 +10,7 @@ target_sources(TestShaderMultiTextureBlend
 )
 
 set(TestShaderMultiTextureBlendBundledFilesPath
+    /resources/engine/font/noto-emoji/NotoColorEmoji.ttf.zstdcmp
     /example/shader/
     /example/windmill.png
 )

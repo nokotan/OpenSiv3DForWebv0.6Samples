@@ -10,6 +10,7 @@ target_sources(TestShaderBlockGame
 )
 
 set(TestShaderBlockGameBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/
     /example/windmill.png
 )

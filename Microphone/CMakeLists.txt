@@ -8,3 +8,9 @@ target_sources(Microphone
     PRIVATE
         Main.cpp
 )
+
+set(MicrophoneBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
+)
+
+Siv3DAppProjectDataBundle(Microphone "${MicrophoneBundledFilesPath}")

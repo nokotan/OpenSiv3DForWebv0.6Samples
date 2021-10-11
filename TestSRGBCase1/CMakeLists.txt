@@ -8,3 +8,9 @@ target_sources(TestSRGBCase1
     PRIVATE
         Main.cpp
 )
+
+set(TestSRGBCase1BundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
+)
+
+Siv3DAppProjectDataBundle(TestSRGBCase1 "${TestSRGBCase1BundledFilesPath}")

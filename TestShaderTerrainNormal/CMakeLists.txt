@@ -10,6 +10,7 @@ target_sources(TestShaderTerrainNormal
 )
 
 set(TestShaderTerrainNormalBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/
     /example/texture/uv.png
     /example/texture/grass.jpg

@@ -10,6 +10,7 @@ target_sources(TestShaderExtractBright
 )
 
 set(TestShaderExtractBrightBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/
 )
 

@@ -10,6 +10,7 @@ target_sources(TestShaderPoissonDisk
 )
 
 set(TestShaderPoissonDiskBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/
     /example/windmill.png
 )

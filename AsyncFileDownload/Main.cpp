@@ -11,7 +11,7 @@ void Main()
 
     while (System::Update())
     {
-        if (task.isReady())
+        if (not texture && task.isReady())
 		{
 			if (task.getResponse().isOK())
 			{

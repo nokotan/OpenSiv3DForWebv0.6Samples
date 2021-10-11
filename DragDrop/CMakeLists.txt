@@ -8,3 +8,9 @@ target_sources(DragDrop
     PRIVATE
         Main.cpp
 )
+
+set(DragDropBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
+)
+
+Siv3DAppProjectDataBundle(DragDrop "${DragDropBundledFilesPath}")

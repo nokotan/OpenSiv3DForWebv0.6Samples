@@ -10,6 +10,7 @@ target_sources(TestShaderForwardTriplanar
 )
 
 set(TestShaderForwardTriplanarBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/
     /example/texture/uv.png
     /example/texture/wood.jpg

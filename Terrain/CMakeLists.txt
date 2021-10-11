@@ -10,6 +10,7 @@ target_sources(Terrain
 )
 
 set(TerrainBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/shader/essl/
     /example/texture/
     /example/particle.png

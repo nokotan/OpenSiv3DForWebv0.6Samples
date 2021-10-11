@@ -10,6 +10,7 @@ target_sources(Test3DCase3
 )
 
 set(Test3DCase3BundledFilesPath
+    /resources/engine/font/noto-emoji/NotoColorEmoji.ttf.zstdcmp
     /example/windmill.png
     /example/texture/earth.jpg
 )

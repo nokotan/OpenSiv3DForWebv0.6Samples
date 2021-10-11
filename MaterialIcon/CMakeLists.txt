@@ -10,7 +10,8 @@ target_sources(MaterialIcon
 )
 
 set(MaterialIconBundledFilesPath
-    /resources/engine/font/
+    /resources/engine/font/materialdesignicons/materialdesignicons-webfont.ttf.zstdcmp
+    /resources/engine/font/mplus/mplus-1p-medium.ttf.zstdcmp
 )
 
 Siv3DAppProjectDataBundle(MaterialIcon "${MaterialIconBundledFilesPath}")

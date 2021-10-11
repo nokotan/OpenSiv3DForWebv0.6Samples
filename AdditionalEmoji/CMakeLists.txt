@@ -10,7 +10,7 @@ target_sources(AdditionalEmoji
 )
 
 set(AdditionalEmojiBundledFilesPath
-    /example/windmill.png
+    /resources/engine/font/noto-emoji/NotoColorEmoji.ttf.zstdcmp
 )
 
 Siv3DAppProjectDataBundle(AdditionalEmoji "${AdditionalEmojiBundledFilesPath}")

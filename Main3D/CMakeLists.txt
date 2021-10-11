@@ -10,6 +10,7 @@ target_sources(Main3D
 )
 
 set(Main3DBundledFilesPath
+    /resources/engine/font/noto-emoji/NotoColorEmoji.ttf.zstdcmp
     /example/windmill.png
     /example/earth.jpg
 )

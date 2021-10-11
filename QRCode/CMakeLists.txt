@@ -8,3 +8,9 @@ target_sources(QRCode
     PRIVATE
         Main.cpp
 )
+
+set(QRCodeBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
+)
+
+Siv3DAppProjectDataBundle(QRCode "${QRCodeBundledFilesPath}")

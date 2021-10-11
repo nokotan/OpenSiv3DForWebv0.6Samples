@@ -10,6 +10,7 @@ target_sources(VideoReader
 )
 
 set(VideoReaderBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/video/river.mp4
 )
 

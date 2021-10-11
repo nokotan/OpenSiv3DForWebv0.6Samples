@@ -10,6 +10,7 @@ target_sources(GeoJson
 )
 
 set(GeoJsonBundledFilesPath
+    /resources/engine/font/noto-cjk/NotoSansJP-Regular.otf.zstdcmp
     /example/geojson/countries.geojson
 )
 
