@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/rule
+.PHONY : TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/rule
+
+# Convenience name for target.
+TestShaderGrayScaleWebGPU: TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/rule
+
+.PHONY : TestShaderGrayScaleWebGPU
+
+# fast build rule for target.
+TestShaderGrayScaleWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build
+.PHONY : TestShaderGrayScaleWebGPU/fast
+
+# Convenience name for target.
 TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/rule
 .PHONY : TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... TestShaderGrayScaleWebGPU"
 	@echo "... TestShaderGrayScale"
 	@echo "... Main.o"
 	@echo "... Main.i"

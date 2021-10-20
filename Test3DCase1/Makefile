@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/rule
+.PHONY : Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/rule
+
+# Convenience name for target.
+Test3DCase1WebGPU: Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/rule
+
+.PHONY : Test3DCase1WebGPU
+
+# fast build rule for target.
+Test3DCase1WebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build
+.PHONY : Test3DCase1WebGPU/fast
+
+# Convenience name for target.
 Test3DCase1/CMakeFiles/Test3DCase1.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DCase1/CMakeFiles/Test3DCase1.dir/rule
 .PHONY : Test3DCase1/CMakeFiles/Test3DCase1.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Test3DCase1WebGPU"
 	@echo "... Test3DCase1"
 	@echo "... Main.o"
 	@echo "... Main.i"

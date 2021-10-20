@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/rule
+.PHONY : MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/rule
+
+# Convenience name for target.
+MaterialIconWebGPU: MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/rule
+
+.PHONY : MaterialIconWebGPU
+
+# fast build rule for target.
+MaterialIconWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build.make MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build
+.PHONY : MaterialIconWebGPU/fast
+
+# Convenience name for target.
 MaterialIcon/CMakeFiles/MaterialIcon.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 MaterialIcon/CMakeFiles/MaterialIcon.dir/rule
 .PHONY : MaterialIcon/CMakeFiles/MaterialIcon.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build.make MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIcon.dir/build.make MaterialIcon/CMakeFiles/MaterialIcon.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build.make MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIcon.dir/build.make MaterialIcon/CMakeFiles/MaterialIcon.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build.make MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f MaterialIcon/CMakeFiles/MaterialIcon.dir/build.make MaterialIcon/CMakeFiles/MaterialIcon.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... MaterialIconWebGPU"
 	@echo "... MaterialIcon"
 	@echo "... Main.o"
 	@echo "... Main.i"

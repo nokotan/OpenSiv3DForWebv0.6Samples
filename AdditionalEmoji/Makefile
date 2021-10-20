@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/rule
+.PHONY : AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/rule
+
+# Convenience name for target.
+AdditionalEmojiWebGPU: AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/rule
+
+.PHONY : AdditionalEmojiWebGPU
+
+# fast build rule for target.
+AdditionalEmojiWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build
+.PHONY : AdditionalEmojiWebGPU/fast
+
+# Convenience name for target.
 AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/rule
 .PHONY : AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... AdditionalEmojiWebGPU"
 	@echo "... AdditionalEmoji"
 	@echo "... Main.o"
 	@echo "... Main.i"

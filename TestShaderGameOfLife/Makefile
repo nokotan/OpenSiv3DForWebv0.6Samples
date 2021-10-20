@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/rule
+.PHONY : TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/rule
+
+# Convenience name for target.
+TestShaderGameOfLifeWebGPU: TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/rule
+
+.PHONY : TestShaderGameOfLifeWebGPU
+
+# fast build rule for target.
+TestShaderGameOfLifeWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build
+.PHONY : TestShaderGameOfLifeWebGPU/fast
+
+# Convenience name for target.
 TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/rule
 .PHONY : TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... TestShaderGameOfLifeWebGPU"
 	@echo "... TestShaderGameOfLife"
 	@echo "... Main.o"
 	@echo "... Main.i"

@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+GeoJson/CMakeFiles/GeoJsonWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 GeoJson/CMakeFiles/GeoJsonWebGPU.dir/rule
+.PHONY : GeoJson/CMakeFiles/GeoJsonWebGPU.dir/rule
+
+# Convenience name for target.
+GeoJsonWebGPU: GeoJson/CMakeFiles/GeoJsonWebGPU.dir/rule
+
+.PHONY : GeoJsonWebGPU
+
+# fast build rule for target.
+GeoJsonWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build.make GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build
+.PHONY : GeoJsonWebGPU/fast
+
+# Convenience name for target.
 GeoJson/CMakeFiles/GeoJson.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 GeoJson/CMakeFiles/GeoJson.dir/rule
 .PHONY : GeoJson/CMakeFiles/GeoJson.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build.make GeoJson/CMakeFiles/GeoJsonWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJson.dir/build.make GeoJson/CMakeFiles/GeoJson.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build.make GeoJson/CMakeFiles/GeoJsonWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJson.dir/build.make GeoJson/CMakeFiles/GeoJson.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build.make GeoJson/CMakeFiles/GeoJsonWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GeoJson/CMakeFiles/GeoJson.dir/build.make GeoJson/CMakeFiles/GeoJson.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... GeoJsonWebGPU"
 	@echo "... GeoJson"
 	@echo "... Main.o"
 	@echo "... Main.i"

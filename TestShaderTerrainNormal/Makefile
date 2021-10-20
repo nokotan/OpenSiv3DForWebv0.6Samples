@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/rule
+.PHONY : TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/rule
+
+# Convenience name for target.
+TestShaderTerrainNormalWebGPU: TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/rule
+
+.PHONY : TestShaderTerrainNormalWebGPU
+
+# fast build rule for target.
+TestShaderTerrainNormalWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build
+.PHONY : TestShaderTerrainNormalWebGPU/fast
+
+# Convenience name for target.
 TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/rule
 .PHONY : TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... TestShaderTerrainNormalWebGPU"
 	@echo "... TestShaderTerrainNormal"
 	@echo "... Main.o"
 	@echo "... Main.i"

@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+KDTree/CMakeFiles/KDTreeWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 KDTree/CMakeFiles/KDTreeWebGPU.dir/rule
+.PHONY : KDTree/CMakeFiles/KDTreeWebGPU.dir/rule
+
+# Convenience name for target.
+KDTreeWebGPU: KDTree/CMakeFiles/KDTreeWebGPU.dir/rule
+
+.PHONY : KDTreeWebGPU
+
+# fast build rule for target.
+KDTreeWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTreeWebGPU.dir/build.make KDTree/CMakeFiles/KDTreeWebGPU.dir/build
+.PHONY : KDTreeWebGPU/fast
+
+# Convenience name for target.
 KDTree/CMakeFiles/KDTree.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 KDTree/CMakeFiles/KDTree.dir/rule
 .PHONY : KDTree/CMakeFiles/KDTree.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTreeWebGPU.dir/build.make KDTree/CMakeFiles/KDTreeWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTree.dir/build.make KDTree/CMakeFiles/KDTree.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTreeWebGPU.dir/build.make KDTree/CMakeFiles/KDTreeWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTree.dir/build.make KDTree/CMakeFiles/KDTree.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTreeWebGPU.dir/build.make KDTree/CMakeFiles/KDTreeWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f KDTree/CMakeFiles/KDTree.dir/build.make KDTree/CMakeFiles/KDTree.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... KDTreeWebGPU"
 	@echo "... KDTree"
 	@echo "... Main.o"
 	@echo "... Main.i"

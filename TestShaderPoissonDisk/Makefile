@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Bu
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/rule
+.PHONY : TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/rule
+
+# Convenience name for target.
+TestShaderPoissonDiskWebGPU: TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/rule
+
+.PHONY : TestShaderPoissonDiskWebGPU
+
+# fast build rule for target.
+TestShaderPoissonDiskWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build
+.PHONY : TestShaderPoissonDiskWebGPU/fast
+
+# Convenience name for target.
 TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/rule
 .PHONY : TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -158,8 +176,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... TestShaderPoissonDiskWebGPU"
 	@echo "... TestShaderPoissonDisk"
 	@echo "... Main.o"
 	@echo "... Main.i"

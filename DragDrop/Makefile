@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+DragDrop/CMakeFiles/DragDropWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 DragDrop/CMakeFiles/DragDropWebGPU.dir/rule
+.PHONY : DragDrop/CMakeFiles/DragDropWebGPU.dir/rule
+
+# Convenience name for target.
+DragDropWebGPU: DragDrop/CMakeFiles/DragDropWebGPU.dir/rule
+
+.PHONY : DragDropWebGPU
+
+# fast build rule for target.
+DragDropWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDropWebGPU.dir/build.make DragDrop/CMakeFiles/DragDropWebGPU.dir/build
+.PHONY : DragDropWebGPU/fast
+
+# Convenience name for target.
 DragDrop/CMakeFiles/DragDrop.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 DragDrop/CMakeFiles/DragDrop.dir/rule
 .PHONY : DragDrop/CMakeFiles/DragDrop.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDropWebGPU.dir/build.make DragDrop/CMakeFiles/DragDropWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDrop.dir/build.make DragDrop/CMakeFiles/DragDrop.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDropWebGPU.dir/build.make DragDrop/CMakeFiles/DragDropWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDrop.dir/build.make DragDrop/CMakeFiles/DragDrop.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDropWebGPU.dir/build.make DragDrop/CMakeFiles/DragDropWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f DragDrop/CMakeFiles/DragDrop.dir/build.make DragDrop/CMakeFiles/DragDrop.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... DragDropWebGPU"
 	@echo "... DragDrop"
 	@echo "... Main.o"
 	@echo "... Main.i"

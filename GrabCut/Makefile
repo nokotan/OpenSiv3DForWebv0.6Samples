@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+GrabCut/CMakeFiles/GrabCutWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 GrabCut/CMakeFiles/GrabCutWebGPU.dir/rule
+.PHONY : GrabCut/CMakeFiles/GrabCutWebGPU.dir/rule
+
+# Convenience name for target.
+GrabCutWebGPU: GrabCut/CMakeFiles/GrabCutWebGPU.dir/rule
+
+.PHONY : GrabCutWebGPU
+
+# fast build rule for target.
+GrabCutWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCutWebGPU.dir/build.make GrabCut/CMakeFiles/GrabCutWebGPU.dir/build
+.PHONY : GrabCutWebGPU/fast
+
+# Convenience name for target.
 GrabCut/CMakeFiles/GrabCut.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 GrabCut/CMakeFiles/GrabCut.dir/rule
 .PHONY : GrabCut/CMakeFiles/GrabCut.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCutWebGPU.dir/build.make GrabCut/CMakeFiles/GrabCutWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCut.dir/build.make GrabCut/CMakeFiles/GrabCut.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCutWebGPU.dir/build.make GrabCut/CMakeFiles/GrabCutWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCut.dir/build.make GrabCut/CMakeFiles/GrabCut.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCutWebGPU.dir/build.make GrabCut/CMakeFiles/GrabCutWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f GrabCut/CMakeFiles/GrabCut.dir/build.make GrabCut/CMakeFiles/GrabCut.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... GrabCutWebGPU"
 	@echo "... GrabCut"
 	@echo "... Main.o"
 	@echo "... Main.i"

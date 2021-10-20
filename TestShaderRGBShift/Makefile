@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/rule
+.PHONY : TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/rule
+
+# Convenience name for target.
+TestShaderRGBShiftWebGPU: TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/rule
+
+.PHONY : TestShaderRGBShiftWebGPU
+
+# fast build rule for target.
+TestShaderRGBShiftWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build
+.PHONY : TestShaderRGBShiftWebGPU/fast
+
+# Convenience name for target.
 TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/rule:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/rule
 .PHONY : TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/rule
@@ -131,6 +146,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/Main.cpp.o
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
@@ -140,6 +156,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/Main.cpp.i
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
@@ -149,6 +166,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/Main.cpp.s
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
@@ -160,6 +178,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... TestShaderRGBShiftWebGPU"
 	@echo "... TestShaderRGBShift"
 	@echo "... Main.o"
 	@echo "... Main.i"
