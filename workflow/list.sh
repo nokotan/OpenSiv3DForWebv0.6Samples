@@ -1,6 +1,7 @@
 #/usr/bin/bash
 
-find .. -type d -depth 1    \
+find .. -maxdepth 1 -type d  \
+    | sort                   \
     | sed 's|../||g'         \
     | grep -Ev "^\.|^Siv3D\$|^Web\$|^workflow\$|^Main3D\$|^Templates\$" \
     | xargs -I{} sed -e "s/{name}/{}/g" projectTask.tpl > tmp.txt
