@@ -1,8 +1,6 @@
 # include <Siv3D.hpp>
 # include <emscripten.h>
 
-SIV3D_SET(EngineOption::Renderer::WebGL2)
-
 void Main()
 {
 	Scene::SetResizeMode(ResizeMode::Keep);

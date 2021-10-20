@@ -1,7 +1,5 @@
 # include <Siv3D.hpp>
 
-SIV3D_SET(EngineOption::Renderer::WebGL2)
-
 void ShowStatus(const VideoReader& video)
 {
 	Print << U"file: " << FileSystem::FileName(video.path());

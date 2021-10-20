@@ -78,6 +78,37 @@ set(Siv3DAppLinkerFlags
     "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
 )
 
+set(Siv3DAppWebGPULinkerFlags
+    # "--closure 1"
+
+    "-s ENVIRONMENT='web'"
+    "-s MODULARIZE=1"
+    "-s ALLOW_MEMORY_GROWTH=1"
+    "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
+    # "-s DECLARE_ASM_MODULE_EXPORTS=0"
+
+    "-s USE_SDL=2"
+    "-s USE_LIBPNG=1"
+    "-s USE_OGG=1"
+    "-s USE_VORBIS=1"
+
+    "-s USE_WEBGPU=1"
+    "-s USE_GLFW=3"
+
+    "-s ASYNCIFY=1"
+    "-s ASYNCIFY_IGNORE_INDIRECT=1"
+    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
+    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
+
+    "-s LZ4=1"
+
+    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
+    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.post.js'"
+    "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
+)
+
 if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
   list(APPEND Siv3DAppCompileFlags
     "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
@@ -85,10 +116,14 @@ if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
   list(APPEND Siv3DAppLinkerFlags
     "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
   )
+  list(APPEND Siv3DAppWebGPULinkerFlags
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+  )
 endif()
 
 string (REPLACE ";" " " Siv3DAppCompileFlags "${Siv3DAppCompileFlags}")
 string (REPLACE ";" " " Siv3DAppLinkerFlags "${Siv3DAppLinkerFlags}")
+string (REPLACE ";" " " Siv3DAppWebGPULinkerFlags "${Siv3DAppWebGPULinkerFlags}")
 
 if ("${CMAKE_C_FLAGS}" STREQUAL "" OR NOT ${CMAKE_C_FLAGS} MATCHES "-msimd128")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_XM_NO_INTRINSICS_")
@@ -103,10 +138,11 @@ endif ()
 # Packaging Files
 
 set(Siv3DAppBundledFilesPath
-    /resources/engine/font/noto-cjk/LICENSE
+    /resources/engine/font/min/siv3d-min.woff
     /resources/engine/font/noto-emoji/LICENSE
     /resources/engine/font/noto-emoji/NotoEmoji-Regular.ttf.zstdcmp
     /resources/engine/shader/glsl
+    /resources/engine/shader/wgsl
     /resources/engine/texture/box-shadow
 )
 
@@ -190,6 +226,72 @@ function(Siv3DAppSetProjectDefaultConfig ProjectName)
             "${ProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
     )
 
+    Siv3DAppWebGPUSetProjectDefaultConfig(${ProjectName}WebGPU)
+
+endfunction()
+
+function(Siv3DAppWebGPUSetProjectDefaultConfig ProjectName)
+
+    add_executable(${ProjectName})
+
+    target_sources(${ProjectName}
+        PRIVATE
+            Main.cpp
+    )
+
+    target_include_directories(${ProjectName}
+        PUBLIC
+            "${Siv3DAppIncludeDirectories}"
+    )
+
+    target_link_directories(${ProjectName}
+        PUBLIC
+            "${Siv3DAppLibraryDirectories}"
+    )
+
+    target_link_libraries(${ProjectName}
+        "${Siv3DAppLibraries}"
+    )
+
+    set(Siv3DAppWebGPUCompileFlags "${Siv3DAppCompileFlags} -include '${CMAKE_CURRENT_SOURCE_DIR}/../Siv3D/Siv3D.WebGPU.forced.hpp'")
+
+    set_target_properties(${ProjectName}
+        PROPERTIES COMPILE_FLAGS 
+            "${Siv3DAppWebGPUCompileFlags}"
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES 
+            RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/WebGPU/${ProjectName}"
+            LINK_FLAGS "${Siv3DAppWebGPULinkerFlags}"
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES 
+            CXX_STANDARD 20
+            SUFFIX ".html"
+            LINK_DEPENDS "Siv3DApp.data.js"
+    )
+
+    add_custom_command(
+        TARGET ${ProjectName}
+        PRE_LINK
+        COMMAND cp ${CMAKE_BINARY_DIR}/Siv3DApp.data ${CMAKE_BINARY_DIR}/WebGPU/${ProjectName}
+    )
+
+    add_dependencies(${ProjectName}
+        Siv3DAppData
+    )
+
+    get_target_property(WebGPUProjectLinkFlag
+        ${ProjectName} LINK_FLAGS
+    )
+
+    set_target_properties(${ProjectName}
+        PROPERTIES LINK_FLAGS 
+            "${WebGPUProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
+    )
+
 endfunction()
 
 function(Siv3DAppProjectDataBundle ProjectName FilesPath)
@@ -210,6 +312,15 @@ function(Siv3DAppProjectDataBundle ProjectName FilesPath)
     set_target_properties(${ProjectName}
         PROPERTIES LINK_FLAGS 
             "${ProjectLinkFlag} ${BundledFilesFlags}"
+    )
+
+    get_target_property(WebGPUProjectLinkFlag
+        ${ProjectName}WebGPU LINK_FLAGS
+    )
+
+    set_target_properties(${ProjectName}WebGPU
+        PROPERTIES LINK_FLAGS 
+            "${WebGPUProjectLinkFlag} ${BundledFilesFlags}"
     )
     
 endfunction()
