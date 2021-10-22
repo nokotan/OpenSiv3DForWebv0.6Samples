@@ -44,8 +44,6 @@ void Main()
 	double width = 0.5;
 	double reverbWet = 0.5;
 
-	AsyncTask<Audio> nextAudio;
-
 	while (System::Update())
 	{
 		ClearPrint();
@@ -71,12 +69,7 @@ void Main()
 		if (SimpleGUI::Button(U"Open audio file", Vec2{ 60, 560 }))
 		{
 			audio.stop(0.5s);
-			nextAudio = Platform::Web::Dialog::OpenAudio();
-		}
-
-		if (nextAudio.isReady())
-		{
-			audio = nextAudio.get();
+			audio = Dialog::OpenAudio();
 		}
 
 		{
