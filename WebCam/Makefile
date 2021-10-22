@@ -125,21 +125,6 @@ WebCamWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCamWebGPU.dir/build.make WebCam/CMakeFiles/WebCamWebGPU.dir/build
 .PHONY : WebCamWebGPU/fast
 
-# Convenience name for target.
-WebCam/CMakeFiles/WebCam.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 WebCam/CMakeFiles/WebCam.dir/rule
-.PHONY : WebCam/CMakeFiles/WebCam.dir/rule
-
-# Convenience name for target.
-WebCam: WebCam/CMakeFiles/WebCam.dir/rule
-
-.PHONY : WebCam
-
-# fast build rule for target.
-WebCam/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/build
-.PHONY : WebCam/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCamWebGPU.dir/build.make WebCam/CMakeFiles/WebCamWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCamWebGPU.dir/build.make WebCam/CMakeFiles/WebCamWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCamWebGPU.dir/build.make WebCam/CMakeFiles/WebCamWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... WebCamWebGPU"
-	@echo "... WebCam"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

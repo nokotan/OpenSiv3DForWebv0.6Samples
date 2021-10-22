@@ -221,6 +221,9 @@ EMSCRIPTEN_FORCE_COMPILERS:BOOL=ON
 // If disabled (default), UNIX ar archives (.a) are generated.
 EMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES:BOOL=OFF
 
+//No help, variable specified on the command line.
+SIV3D_WEBGPU_BACKEND:UNINITIALIZED=ON
+
 //Value Computed by CMake
 Siv3DApp_BINARY_DIR:STATIC=/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build
 

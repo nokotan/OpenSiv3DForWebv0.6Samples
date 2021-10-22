@@ -125,21 +125,6 @@ NavMeshWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMeshWebGPU.dir/build.make NavMesh/CMakeFiles/NavMeshWebGPU.dir/build
 .PHONY : NavMeshWebGPU/fast
 
-# Convenience name for target.
-NavMesh/CMakeFiles/NavMesh.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 NavMesh/CMakeFiles/NavMesh.dir/rule
-.PHONY : NavMesh/CMakeFiles/NavMesh.dir/rule
-
-# Convenience name for target.
-NavMesh: NavMesh/CMakeFiles/NavMesh.dir/rule
-
-.PHONY : NavMesh
-
-# fast build rule for target.
-NavMesh/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/build
-.PHONY : NavMesh/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMeshWebGPU.dir/build.make NavMesh/CMakeFiles/NavMeshWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMeshWebGPU.dir/build.make NavMesh/CMakeFiles/NavMeshWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMeshWebGPU.dir/build.make NavMesh/CMakeFiles/NavMeshWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... NavMeshWebGPU"
-	@echo "... NavMesh"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

@@ -125,21 +125,6 @@ PackRectanglesWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build.make PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build
 .PHONY : PackRectanglesWebGPU/fast
 
-# Convenience name for target.
-PackRectangles/CMakeFiles/PackRectangles.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 PackRectangles/CMakeFiles/PackRectangles.dir/rule
-.PHONY : PackRectangles/CMakeFiles/PackRectangles.dir/rule
-
-# Convenience name for target.
-PackRectangles: PackRectangles/CMakeFiles/PackRectangles.dir/rule
-
-.PHONY : PackRectangles
-
-# fast build rule for target.
-PackRectangles/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectangles.dir/build.make PackRectangles/CMakeFiles/PackRectangles.dir/build
-.PHONY : PackRectangles/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build.make PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectangles.dir/build.make PackRectangles/CMakeFiles/PackRectangles.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build.make PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectangles.dir/build.make PackRectangles/CMakeFiles/PackRectangles.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build.make PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PackRectangles/CMakeFiles/PackRectangles.dir/build.make PackRectangles/CMakeFiles/PackRectangles.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... PackRectanglesWebGPU"
-	@echo "... PackRectangles"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

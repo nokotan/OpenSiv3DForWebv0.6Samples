@@ -125,21 +125,6 @@ QRCodeWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCodeWebGPU.dir/build.make QRCode/CMakeFiles/QRCodeWebGPU.dir/build
 .PHONY : QRCodeWebGPU/fast
 
-# Convenience name for target.
-QRCode/CMakeFiles/QRCode.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 QRCode/CMakeFiles/QRCode.dir/rule
-.PHONY : QRCode/CMakeFiles/QRCode.dir/rule
-
-# Convenience name for target.
-QRCode: QRCode/CMakeFiles/QRCode.dir/rule
-
-.PHONY : QRCode
-
-# fast build rule for target.
-QRCode/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCode.dir/build.make QRCode/CMakeFiles/QRCode.dir/build
-.PHONY : QRCode/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCodeWebGPU.dir/build.make QRCode/CMakeFiles/QRCodeWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCode.dir/build.make QRCode/CMakeFiles/QRCode.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCodeWebGPU.dir/build.make QRCode/CMakeFiles/QRCodeWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCode.dir/build.make QRCode/CMakeFiles/QRCode.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCodeWebGPU.dir/build.make QRCode/CMakeFiles/QRCodeWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f QRCode/CMakeFiles/QRCode.dir/build.make QRCode/CMakeFiles/QRCode.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... QRCodeWebGPU"
-	@echo "... QRCode"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

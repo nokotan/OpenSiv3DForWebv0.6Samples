@@ -125,21 +125,6 @@ VideoReaderWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build.make VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build
 .PHONY : VideoReaderWebGPU/fast
 
-# Convenience name for target.
-VideoReader/CMakeFiles/VideoReader.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 VideoReader/CMakeFiles/VideoReader.dir/rule
-.PHONY : VideoReader/CMakeFiles/VideoReader.dir/rule
-
-# Convenience name for target.
-VideoReader: VideoReader/CMakeFiles/VideoReader.dir/rule
-
-.PHONY : VideoReader
-
-# fast build rule for target.
-VideoReader/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/build
-.PHONY : VideoReader/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build.make VideoReader/CMakeFiles/VideoReaderWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build.make VideoReader/CMakeFiles/VideoReaderWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build.make VideoReader/CMakeFiles/VideoReaderWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... VideoReaderWebGPU"
-	@echo "... VideoReader"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

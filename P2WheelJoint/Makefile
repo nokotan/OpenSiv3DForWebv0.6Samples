@@ -125,21 +125,6 @@ P2WheelJointWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build
 .PHONY : P2WheelJointWebGPU/fast
 
-# Convenience name for target.
-P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
-.PHONY : P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
-
-# Convenience name for target.
-P2WheelJoint: P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
-
-.PHONY : P2WheelJoint
-
-# fast build rule for target.
-P2WheelJoint/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build
-.PHONY : P2WheelJoint/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... P2WheelJointWebGPU"
-	@echo "... P2WheelJoint"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

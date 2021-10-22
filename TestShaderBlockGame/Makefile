@@ -125,21 +125,6 @@ TestShaderBlockGameWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build
 .PHONY : TestShaderBlockGameWebGPU/fast
 
-# Convenience name for target.
-TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/rule
-.PHONY : TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/rule
-
-# Convenience name for target.
-TestShaderBlockGame: TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/rule
-
-.PHONY : TestShaderBlockGame
-
-# fast build rule for target.
-TestShaderBlockGame/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build
-.PHONY : TestShaderBlockGame/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TestShaderBlockGameWebGPU"
-	@echo "... TestShaderBlockGame"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

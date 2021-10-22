@@ -125,21 +125,6 @@ TestShaderMultiTextureBlendWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build
 .PHONY : TestShaderMultiTextureBlendWebGPU/fast
 
-# Convenience name for target.
-TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/rule
-.PHONY : TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/rule
-
-# Convenience name for target.
-TestShaderMultiTextureBlend: TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/rule
-
-.PHONY : TestShaderMultiTextureBlend
-
-# fast build rule for target.
-TestShaderMultiTextureBlend/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build
-.PHONY : TestShaderMultiTextureBlend/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TestShaderMultiTextureBlendWebGPU"
-	@echo "... TestShaderMultiTextureBlend"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

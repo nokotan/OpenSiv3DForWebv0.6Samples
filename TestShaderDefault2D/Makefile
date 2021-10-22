@@ -125,21 +125,6 @@ TestShaderDefault2DWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build
 .PHONY : TestShaderDefault2DWebGPU/fast
 
-# Convenience name for target.
-TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/rule
-.PHONY : TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/rule
-
-# Convenience name for target.
-TestShaderDefault2D: TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/rule
-
-.PHONY : TestShaderDefault2D
-
-# fast build rule for target.
-TestShaderDefault2D/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build
-.PHONY : TestShaderDefault2D/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TestShaderDefault2DWebGPU"
-	@echo "... TestShaderDefault2D"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

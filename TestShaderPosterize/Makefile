@@ -125,21 +125,6 @@ TestShaderPosterizeWebGPU/fast:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build
 .PHONY : TestShaderPosterizeWebGPU/fast
 
-# Convenience name for target.
-TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/rule
-.PHONY : TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/rule
-
-# Convenience name for target.
-TestShaderPosterize: TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/rule
-
-.PHONY : TestShaderPosterize
-
-# fast build rule for target.
-TestShaderPosterize/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build
-.PHONY : TestShaderPosterize/fast
-
 Main.o: Main.cpp.o
 
 .PHONY : Main.o
@@ -147,7 +132,6 @@ Main.o: Main.cpp.o
 # target to build an object file
 Main.cpp.o:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/Main.cpp.o
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -157,7 +141,6 @@ Main.i: Main.cpp.i
 # target to preprocess a source file
 Main.cpp.i:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/Main.cpp.i
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -167,7 +150,6 @@ Main.s: Main.cpp.s
 # target to generate assembly for a file
 Main.cpp.s:
 	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/Main.cpp.s
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -179,7 +161,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TestShaderPosterizeWebGPU"
-	@echo "... TestShaderPosterize"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
