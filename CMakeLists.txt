@@ -226,47 +226,50 @@ function(Siv3DAppSetProjectDefaultConfig ProjectName)
             "${ProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
     )
 
-    Siv3DAppWebGPUSetProjectDefaultConfig(${ProjectName}WebGPU)
+    Siv3DAppWebGPUSetProjectDefaultConfig(${ProjectName})
 
 endfunction()
 
 function(Siv3DAppWebGPUSetProjectDefaultConfig ProjectName)
 
-    add_executable(${ProjectName})
+    set(WebGPUProjectName ${ProjectName}WebGPU)
 
-    target_sources(${ProjectName}
+    add_executable(${WebGPUProjectName})
+
+    target_sources(${WebGPUProjectName}
         PRIVATE
             Main.cpp
     )
 
-    target_include_directories(${ProjectName}
+    target_include_directories(${WebGPUProjectName}
         PUBLIC
             "${Siv3DAppIncludeDirectories}"
     )
 
-    target_link_directories(${ProjectName}
+    target_link_directories(${WebGPUProjectName}
         PUBLIC
             "${Siv3DAppLibraryDirectories}"
     )
 
-    target_link_libraries(${ProjectName}
+    target_link_libraries(${WebGPUProjectName}
         "${Siv3DAppLibraries}"
     )
 
     set(Siv3DAppWebGPUCompileFlags "${Siv3DAppCompileFlags} -include '${CMAKE_CURRENT_SOURCE_DIR}/../Siv3D/Siv3D.WebGPU.forced.hpp'")
 
-    set_target_properties(${ProjectName}
+    set_target_properties(${WebGPUProjectName}
         PROPERTIES COMPILE_FLAGS 
             "${Siv3DAppWebGPUCompileFlags}"
     )
 
-    set_target_properties(${ProjectName}
+    set_target_properties(${WebGPUProjectName}
         PROPERTIES 
+            OUTPUT_NAME ${ProjectName}
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/WebGPU/${ProjectName}"
             LINK_FLAGS "${Siv3DAppWebGPULinkerFlags}"
     )
 
-    set_target_properties(${ProjectName}
+    set_target_properties(${WebGPUProjectName}
         PROPERTIES 
             CXX_STANDARD 20
             SUFFIX ".html"
@@ -274,20 +277,20 @@ function(Siv3DAppWebGPUSetProjectDefaultConfig ProjectName)
     )
 
     add_custom_command(
-        TARGET ${ProjectName}
+        TARGET ${WebGPUProjectName}
         PRE_LINK
         COMMAND cp ${CMAKE_BINARY_DIR}/Siv3DApp.data ${CMAKE_BINARY_DIR}/WebGPU/${ProjectName}
     )
 
-    add_dependencies(${ProjectName}
+    add_dependencies(${WebGPUProjectName}
         Siv3DAppData
     )
 
     get_target_property(WebGPUProjectLinkFlag
-        ${ProjectName} LINK_FLAGS
+        ${WebGPUProjectName} LINK_FLAGS
     )
 
-    set_target_properties(${ProjectName}
+    set_target_properties(${WebGPUProjectName}
         PROPERTIES LINK_FLAGS 
             "${WebGPUProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
     )
