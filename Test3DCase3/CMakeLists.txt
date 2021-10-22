@@ -1,13 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-add_executable(Test3DCase3)
-
 Siv3DAppSetProjectDefaultConfig(Test3DCase3)
-
-target_sources(Test3DCase3
-    PRIVATE
-        Main.cpp
-)
 
 set(Test3DCase3BundledFilesPath
     /resources/engine/font/noto-emoji/NotoColorEmoji.ttf.zstdcmp

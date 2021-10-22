@@ -176,6 +176,25 @@ add_custom_target(
 
 function(Siv3DAppSetProjectDefaultConfig ProjectName)
 
+    if(SIV3D_WEBGL_BACKEND)
+        Siv3DAppWebGLSetProjectDefaultConfig(${ProjectName})
+    endif()
+
+    if(SIV3D_WEBGPU_BACKEND)
+        Siv3DAppWebGPUSetProjectDefaultConfig(${ProjectName})
+    endif()
+
+endfunction()
+
+function(Siv3DAppWebGLSetProjectDefaultConfig ProjectName)
+
+    add_executable(${ProjectName})
+
+    target_sources(${ProjectName}
+        PRIVATE
+            Main.cpp
+    )
+
     target_include_directories(${ProjectName}
         PUBLIC
             "${Siv3DAppIncludeDirectories}"
@@ -225,8 +244,6 @@ function(Siv3DAppSetProjectDefaultConfig ProjectName)
         PROPERTIES LINK_FLAGS 
             "${ProjectLinkFlag} --pre-js '${CMAKE_BINARY_DIR}/Siv3DApp.data.js' -s FORCE_FILESYSTEM=1"
     )
-
-    Siv3DAppWebGPUSetProjectDefaultConfig(${ProjectName})
 
 endfunction()
 
@@ -308,23 +325,31 @@ function(Siv3DAppProjectDataBundle ProjectName FilesPath)
 
     string (REPLACE ";" " " BundledFilesFlags "${BundledFilesFlags}")
 
-    get_target_property(ProjectLinkFlag
-        ${ProjectName} LINK_FLAGS
-    )
+    if(SIV3D_WEBGL_BACKEND)
 
-    set_target_properties(${ProjectName}
-        PROPERTIES LINK_FLAGS 
-            "${ProjectLinkFlag} ${BundledFilesFlags}"
-    )
+        get_target_property(ProjectLinkFlag
+            ${ProjectName} LINK_FLAGS
+        )
 
-    get_target_property(WebGPUProjectLinkFlag
-        ${ProjectName}WebGPU LINK_FLAGS
-    )
+        set_target_properties(${ProjectName}
+            PROPERTIES LINK_FLAGS 
+                "${ProjectLinkFlag} ${BundledFilesFlags}"
+        )
 
-    set_target_properties(${ProjectName}WebGPU
-        PROPERTIES LINK_FLAGS 
-            "${WebGPUProjectLinkFlag} ${BundledFilesFlags}"
-    )
+    endif()
+
+    if(SIV3D_WEBGPU_BACKEND)
+
+        get_target_property(WebGPUProjectLinkFlag
+            ${ProjectName}WebGPU LINK_FLAGS
+        )
+
+        set_target_properties(${ProjectName}WebGPU
+            PROPERTIES LINK_FLAGS 
+                "${WebGPUProjectLinkFlag} ${BundledFilesFlags}"
+        )
+
+    endif()
     
 endfunction()
 
