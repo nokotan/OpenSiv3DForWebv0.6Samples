@@ -1,4 +1,4 @@
-name: App Deploy
+name: App Deploy (WebGPU)
 
 on:
   push: 
@@ -17,757 +17,757 @@ jobs:
       - name: Build Project
         run: |
           mkdir Build && cd Build
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL -DSIV3D_WEBGL_BACKEND=ON
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL -DSIV3D_WEBGPU_BACKEND=ON
 
-      - name: Cache AdditionalEmoji
-        id: cache_AdditionalEmoji
+      - name: Cache AdditionalEmojiWebGPU
+        id: cache_AdditionalEmojiWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-AdditionalEmoji
+            cache-name: cache-AdditionalEmojiWebGPU
         with:
             path: Build/AdditionalEmoji
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AdditionalEmoji/**/*.*') }}
 
-      - name: Build AdditionalEmoji
-        if: ${{ !steps.cache_AdditionalEmoji.outputs.cache-hit }}
+      - name: Build AdditionalEmojiWebGPU
+        if: ${{ !steps.cache_AdditionalEmojiWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 AdditionalEmoji
+            make -j4 AdditionalEmojiWebGPU
 
-      - name: Cache AsyncFileDownload
-        id: cache_AsyncFileDownload
+      - name: Cache AsyncFileDownloadWebGPU
+        id: cache_AsyncFileDownloadWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-AsyncFileDownload
+            cache-name: cache-AsyncFileDownloadWebGPU
         with:
             path: Build/AsyncFileDownload
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AsyncFileDownload/**/*.*') }}
 
-      - name: Build AsyncFileDownload
-        if: ${{ !steps.cache_AsyncFileDownload.outputs.cache-hit }}
+      - name: Build AsyncFileDownloadWebGPU
+        if: ${{ !steps.cache_AsyncFileDownloadWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 AsyncFileDownload
+            make -j4 AsyncFileDownloadWebGPU
 
-      - name: Cache DragDrop
-        id: cache_DragDrop
+      - name: Cache DragDropWebGPU
+        id: cache_DragDropWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-DragDrop
+            cache-name: cache-DragDropWebGPU
         with:
             path: Build/DragDrop
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'DragDrop/**/*.*') }}
 
-      - name: Build DragDrop
-        if: ${{ !steps.cache_DragDrop.outputs.cache-hit }}
+      - name: Build DragDropWebGPU
+        if: ${{ !steps.cache_DragDropWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 DragDrop
+            make -j4 DragDropWebGPU
 
-      - name: Cache EmpoweredAudio
-        id: cache_EmpoweredAudio
+      - name: Cache EmpoweredAudioWebGPU
+        id: cache_EmpoweredAudioWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-EmpoweredAudio
+            cache-name: cache-EmpoweredAudioWebGPU
         with:
             path: Build/EmpoweredAudio
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'EmpoweredAudio/**/*.*') }}
 
-      - name: Build EmpoweredAudio
-        if: ${{ !steps.cache_EmpoweredAudio.outputs.cache-hit }}
+      - name: Build EmpoweredAudioWebGPU
+        if: ${{ !steps.cache_EmpoweredAudioWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 EmpoweredAudio
+            make -j4 EmpoweredAudioWebGPU
 
-      - name: Cache GeoJson
-        id: cache_GeoJson
+      - name: Cache GeoJsonWebGPU
+        id: cache_GeoJsonWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-GeoJson
+            cache-name: cache-GeoJsonWebGPU
         with:
             path: Build/GeoJson
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'GeoJson/**/*.*') }}
 
-      - name: Build GeoJson
-        if: ${{ !steps.cache_GeoJson.outputs.cache-hit }}
+      - name: Build GeoJsonWebGPU
+        if: ${{ !steps.cache_GeoJsonWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 GeoJson
+            make -j4 GeoJsonWebGPU
 
-      - name: Cache GrabCut
-        id: cache_GrabCut
+      - name: Cache GrabCutWebGPU
+        id: cache_GrabCutWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-GrabCut
+            cache-name: cache-GrabCutWebGPU
         with:
             path: Build/GrabCut
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'GrabCut/**/*.*') }}
 
-      - name: Build GrabCut
-        if: ${{ !steps.cache_GrabCut.outputs.cache-hit }}
+      - name: Build GrabCutWebGPU
+        if: ${{ !steps.cache_GrabCutWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 GrabCut
+            make -j4 GrabCutWebGPU
 
-      - name: Cache KDTree
-        id: cache_KDTree
+      - name: Cache KDTreeWebGPU
+        id: cache_KDTreeWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-KDTree
+            cache-name: cache-KDTreeWebGPU
         with:
             path: Build/KDTree
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'KDTree/**/*.*') }}
 
-      - name: Build KDTree
-        if: ${{ !steps.cache_KDTree.outputs.cache-hit }}
+      - name: Build KDTreeWebGPU
+        if: ${{ !steps.cache_KDTreeWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 KDTree
+            make -j4 KDTreeWebGPU
 
-      - name: Cache Main
-        id: cache_Main
+      - name: Cache MainWebGPU
+        id: cache_MainWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Main
+            cache-name: cache-MainWebGPU
         with:
             path: Build/Main
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Main/**/*.*') }}
 
-      - name: Build Main
-        if: ${{ !steps.cache_Main.outputs.cache-hit }}
+      - name: Build MainWebGPU
+        if: ${{ !steps.cache_MainWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Main
+            make -j4 MainWebGPU
 
-      - name: Cache MaterialIcon
-        id: cache_MaterialIcon
+      - name: Cache MaterialIconWebGPU
+        id: cache_MaterialIconWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-MaterialIcon
+            cache-name: cache-MaterialIconWebGPU
         with:
             path: Build/MaterialIcon
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'MaterialIcon/**/*.*') }}
 
-      - name: Build MaterialIcon
-        if: ${{ !steps.cache_MaterialIcon.outputs.cache-hit }}
+      - name: Build MaterialIconWebGPU
+        if: ${{ !steps.cache_MaterialIconWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 MaterialIcon
+            make -j4 MaterialIconWebGPU
 
-      - name: Cache Microphone
-        id: cache_Microphone
+      - name: Cache MicrophoneWebGPU
+        id: cache_MicrophoneWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Microphone
+            cache-name: cache-MicrophoneWebGPU
         with:
             path: Build/Microphone
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Microphone/**/*.*') }}
 
-      - name: Build Microphone
-        if: ${{ !steps.cache_Microphone.outputs.cache-hit }}
+      - name: Build MicrophoneWebGPU
+        if: ${{ !steps.cache_MicrophoneWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Microphone
+            make -j4 MicrophoneWebGPU
 
-      - name: Cache NavMesh
-        id: cache_NavMesh
+      - name: Cache NavMeshWebGPU
+        id: cache_NavMeshWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-NavMesh
+            cache-name: cache-NavMeshWebGPU
         with:
             path: Build/NavMesh
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NavMesh/**/*.*') }}
 
-      - name: Build NavMesh
-        if: ${{ !steps.cache_NavMesh.outputs.cache-hit }}
+      - name: Build NavMeshWebGPU
+        if: ${{ !steps.cache_NavMeshWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 NavMesh
+            make -j4 NavMeshWebGPU
 
-      - name: Cache P2WheelJoint
-        id: cache_P2WheelJoint
+      - name: Cache P2WheelJointWebGPU
+        id: cache_P2WheelJointWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-P2WheelJoint
+            cache-name: cache-P2WheelJointWebGPU
         with:
             path: Build/P2WheelJoint
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'P2WheelJoint/**/*.*') }}
 
-      - name: Build P2WheelJoint
-        if: ${{ !steps.cache_P2WheelJoint.outputs.cache-hit }}
+      - name: Build P2WheelJointWebGPU
+        if: ${{ !steps.cache_P2WheelJointWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 P2WheelJoint
+            make -j4 P2WheelJointWebGPU
 
-      - name: Cache PackRectangles
-        id: cache_PackRectangles
+      - name: Cache PackRectanglesWebGPU
+        id: cache_PackRectanglesWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-PackRectangles
+            cache-name: cache-PackRectanglesWebGPU
         with:
             path: Build/PackRectangles
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PackRectangles/**/*.*') }}
 
-      - name: Build PackRectangles
-        if: ${{ !steps.cache_PackRectangles.outputs.cache-hit }}
+      - name: Build PackRectanglesWebGPU
+        if: ${{ !steps.cache_PackRectanglesWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 PackRectangles
+            make -j4 PackRectanglesWebGPU
 
-      - name: Cache PerlinNoise
-        id: cache_PerlinNoise
+      - name: Cache PerlinNoiseWebGPU
+        id: cache_PerlinNoiseWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-PerlinNoise
+            cache-name: cache-PerlinNoiseWebGPU
         with:
             path: Build/PerlinNoise
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PerlinNoise/**/*.*') }}
 
-      - name: Build PerlinNoise
-        if: ${{ !steps.cache_PerlinNoise.outputs.cache-hit }}
+      - name: Build PerlinNoiseWebGPU
+        if: ${{ !steps.cache_PerlinNoiseWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 PerlinNoise
+            make -j4 PerlinNoiseWebGPU
 
-      - name: Cache PolygonOutline
-        id: cache_PolygonOutline
+      - name: Cache PolygonOutlineWebGPU
+        id: cache_PolygonOutlineWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-PolygonOutline
+            cache-name: cache-PolygonOutlineWebGPU
         with:
             path: Build/PolygonOutline
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PolygonOutline/**/*.*') }}
 
-      - name: Build PolygonOutline
-        if: ${{ !steps.cache_PolygonOutline.outputs.cache-hit }}
+      - name: Build PolygonOutlineWebGPU
+        if: ${{ !steps.cache_PolygonOutlineWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 PolygonOutline
+            make -j4 PolygonOutlineWebGPU
 
-      - name: Cache QRCode
-        id: cache_QRCode
+      - name: Cache QRCodeWebGPU
+        id: cache_QRCodeWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-QRCode
+            cache-name: cache-QRCodeWebGPU
         with:
             path: Build/QRCode
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'QRCode/**/*.*') }}
 
-      - name: Build QRCode
-        if: ${{ !steps.cache_QRCode.outputs.cache-hit }}
+      - name: Build QRCodeWebGPU
+        if: ${{ !steps.cache_QRCodeWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 QRCode
+            make -j4 QRCodeWebGPU
 
-      - name: Cache QRReader
-        id: cache_QRReader
+      - name: Cache QRReaderWebGPU
+        id: cache_QRReaderWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-QRReader
+            cache-name: cache-QRReaderWebGPU
         with:
             path: Build/QRReader
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'QRReader/**/*.*') }}
 
-      - name: Build QRReader
-        if: ${{ !steps.cache_QRReader.outputs.cache-hit }}
+      - name: Build QRReaderWebGPU
+        if: ${{ !steps.cache_QRReaderWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 QRReader
+            make -j4 QRReaderWebGPU
 
-      - name: Cache RayIntersection
-        id: cache_RayIntersection
+      - name: Cache RayIntersectionWebGPU
+        id: cache_RayIntersectionWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-RayIntersection
+            cache-name: cache-RayIntersectionWebGPU
         with:
             path: Build/RayIntersection
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'RayIntersection/**/*.*') }}
 
-      - name: Build RayIntersection
-        if: ${{ !steps.cache_RayIntersection.outputs.cache-hit }}
+      - name: Build RayIntersectionWebGPU
+        if: ${{ !steps.cache_RayIntersectionWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 RayIntersection
+            make -j4 RayIntersectionWebGPU
 
-      - name: Cache SoftShape
-        id: cache_SoftShape
+      - name: Cache SoftShapeWebGPU
+        id: cache_SoftShapeWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-SoftShape
+            cache-name: cache-SoftShapeWebGPU
         with:
             path: Build/SoftShape
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'SoftShape/**/*.*') }}
 
-      - name: Build SoftShape
-        if: ${{ !steps.cache_SoftShape.outputs.cache-hit }}
+      - name: Build SoftShapeWebGPU
+        if: ${{ !steps.cache_SoftShapeWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 SoftShape
+            make -j4 SoftShapeWebGPU
 
-      - name: Cache Spline2D
-        id: cache_Spline2D
+      - name: Cache Spline2DWebGPU
+        id: cache_Spline2DWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Spline2D
+            cache-name: cache-Spline2DWebGPU
         with:
             path: Build/Spline2D
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Spline2D/**/*.*') }}
 
-      - name: Build Spline2D
-        if: ${{ !steps.cache_Spline2D.outputs.cache-hit }}
+      - name: Build Spline2DWebGPU
+        if: ${{ !steps.cache_Spline2DWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Spline2D
+            make -j4 Spline2DWebGPU
 
-      - name: Cache TCPonWebSocket
-        id: cache_TCPonWebSocket
+      - name: Cache TCPonWebSocketWebGPU
+        id: cache_TCPonWebSocketWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TCPonWebSocket
+            cache-name: cache-TCPonWebSocketWebGPU
         with:
             path: Build/TCPonWebSocket
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TCPonWebSocket/**/*.*') }}
 
-      - name: Build TCPonWebSocket
-        if: ${{ !steps.cache_TCPonWebSocket.outputs.cache-hit }}
+      - name: Build TCPonWebSocketWebGPU
+        if: ${{ !steps.cache_TCPonWebSocketWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TCPonWebSocket
+            make -j4 TCPonWebSocketWebGPU
 
-      - name: Cache Terrain
-        id: cache_Terrain
+      - name: Cache TerrainWebGPU
+        id: cache_TerrainWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Terrain
+            cache-name: cache-TerrainWebGPU
         with:
             path: Build/Terrain
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Terrain/**/*.*') }}
 
-      - name: Build Terrain
-        if: ${{ !steps.cache_Terrain.outputs.cache-hit }}
+      - name: Build TerrainWebGPU
+        if: ${{ !steps.cache_TerrainWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Terrain
+            make -j4 TerrainWebGPU
 
-      - name: Cache Test3DCase1
-        id: cache_Test3DCase1
+      - name: Cache Test3DCase1WebGPU
+        id: cache_Test3DCase1WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DCase1
+            cache-name: cache-Test3DCase1WebGPU
         with:
             path: Build/Test3DCase1
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase1/**/*.*') }}
 
-      - name: Build Test3DCase1
-        if: ${{ !steps.cache_Test3DCase1.outputs.cache-hit }}
+      - name: Build Test3DCase1WebGPU
+        if: ${{ !steps.cache_Test3DCase1WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DCase1
+            make -j4 Test3DCase1WebGPU
 
-      - name: Cache Test3DCase2
-        id: cache_Test3DCase2
+      - name: Cache Test3DCase2WebGPU
+        id: cache_Test3DCase2WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DCase2
+            cache-name: cache-Test3DCase2WebGPU
         with:
             path: Build/Test3DCase2
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase2/**/*.*') }}
 
-      - name: Build Test3DCase2
-        if: ${{ !steps.cache_Test3DCase2.outputs.cache-hit }}
+      - name: Build Test3DCase2WebGPU
+        if: ${{ !steps.cache_Test3DCase2WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DCase2
+            make -j4 Test3DCase2WebGPU
 
-      - name: Cache Test3DCase3
-        id: cache_Test3DCase3
+      - name: Cache Test3DCase3WebGPU
+        id: cache_Test3DCase3WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DCase3
+            cache-name: cache-Test3DCase3WebGPU
         with:
             path: Build/Test3DCase3
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase3/**/*.*') }}
 
-      - name: Build Test3DCase3
-        if: ${{ !steps.cache_Test3DCase3.outputs.cache-hit }}
+      - name: Build Test3DCase3WebGPU
+        if: ${{ !steps.cache_Test3DCase3WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DCase3
+            make -j4 Test3DCase3WebGPU
 
-      - name: Cache Test3DCase4
-        id: cache_Test3DCase4
+      - name: Cache Test3DCase4WebGPU
+        id: cache_Test3DCase4WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DCase4
+            cache-name: cache-Test3DCase4WebGPU
         with:
             path: Build/Test3DCase4
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DCase4/**/*.*') }}
 
-      - name: Build Test3DCase4
-        if: ${{ !steps.cache_Test3DCase4.outputs.cache-hit }}
+      - name: Build Test3DCase4WebGPU
+        if: ${{ !steps.cache_Test3DCase4WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DCase4
+            make -j4 Test3DCase4WebGPU
 
-      - name: Cache Test3DShading
-        id: cache_Test3DShading
+      - name: Cache Test3DShadingWebGPU
+        id: cache_Test3DShadingWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DShading
+            cache-name: cache-Test3DShadingWebGPU
         with:
             path: Build/Test3DShading
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DShading/**/*.*') }}
 
-      - name: Build Test3DShading
-        if: ${{ !steps.cache_Test3DShading.outputs.cache-hit }}
+      - name: Build Test3DShadingWebGPU
+        if: ${{ !steps.cache_Test3DShadingWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DShading
+            make -j4 Test3DShadingWebGPU
 
-      - name: Cache Test3DSky
-        id: cache_Test3DSky
+      - name: Cache Test3DSkyWebGPU
+        id: cache_Test3DSkyWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-Test3DSky
+            cache-name: cache-Test3DSkyWebGPU
         with:
             path: Build/Test3DSky
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'Test3DSky/**/*.*') }}
 
-      - name: Build Test3DSky
-        if: ${{ !steps.cache_Test3DSky.outputs.cache-hit }}
+      - name: Build Test3DSkyWebGPU
+        if: ${{ !steps.cache_Test3DSkyWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 Test3DSky
+            make -j4 Test3DSkyWebGPU
 
-      - name: Cache TestSRGBCase1
-        id: cache_TestSRGBCase1
+      - name: Cache TestSRGBCase1WebGPU
+        id: cache_TestSRGBCase1WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestSRGBCase1
+            cache-name: cache-TestSRGBCase1WebGPU
         with:
             path: Build/TestSRGBCase1
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase1/**/*.*') }}
 
-      - name: Build TestSRGBCase1
-        if: ${{ !steps.cache_TestSRGBCase1.outputs.cache-hit }}
+      - name: Build TestSRGBCase1WebGPU
+        if: ${{ !steps.cache_TestSRGBCase1WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestSRGBCase1
+            make -j4 TestSRGBCase1WebGPU
 
-      - name: Cache TestSRGBCase2
-        id: cache_TestSRGBCase2
+      - name: Cache TestSRGBCase2WebGPU
+        id: cache_TestSRGBCase2WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestSRGBCase2
+            cache-name: cache-TestSRGBCase2WebGPU
         with:
             path: Build/TestSRGBCase2
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase2/**/*.*') }}
 
-      - name: Build TestSRGBCase2
-        if: ${{ !steps.cache_TestSRGBCase2.outputs.cache-hit }}
+      - name: Build TestSRGBCase2WebGPU
+        if: ${{ !steps.cache_TestSRGBCase2WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestSRGBCase2
+            make -j4 TestSRGBCase2WebGPU
 
-      - name: Cache TestSRGBCase3
-        id: cache_TestSRGBCase3
+      - name: Cache TestSRGBCase3WebGPU
+        id: cache_TestSRGBCase3WebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestSRGBCase3
+            cache-name: cache-TestSRGBCase3WebGPU
         with:
             path: Build/TestSRGBCase3
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestSRGBCase3/**/*.*') }}
 
-      - name: Build TestSRGBCase3
-        if: ${{ !steps.cache_TestSRGBCase3.outputs.cache-hit }}
+      - name: Build TestSRGBCase3WebGPU
+        if: ${{ !steps.cache_TestSRGBCase3WebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestSRGBCase3
+            make -j4 TestSRGBCase3WebGPU
 
-      - name: Cache TestShaderBlockGame
-        id: cache_TestShaderBlockGame
+      - name: Cache TestShaderBlockGameWebGPU
+        id: cache_TestShaderBlockGameWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderBlockGame
+            cache-name: cache-TestShaderBlockGameWebGPU
         with:
             path: Build/TestShaderBlockGame
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderBlockGame/**/*.*') }}
 
-      - name: Build TestShaderBlockGame
-        if: ${{ !steps.cache_TestShaderBlockGame.outputs.cache-hit }}
+      - name: Build TestShaderBlockGameWebGPU
+        if: ${{ !steps.cache_TestShaderBlockGameWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderBlockGame
+            make -j4 TestShaderBlockGameWebGPU
 
-      - name: Cache TestShaderDefault2D
-        id: cache_TestShaderDefault2D
+      - name: Cache TestShaderDefault2DWebGPU
+        id: cache_TestShaderDefault2DWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderDefault2D
+            cache-name: cache-TestShaderDefault2DWebGPU
         with:
             path: Build/TestShaderDefault2D
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderDefault2D/**/*.*') }}
 
-      - name: Build TestShaderDefault2D
-        if: ${{ !steps.cache_TestShaderDefault2D.outputs.cache-hit }}
+      - name: Build TestShaderDefault2DWebGPU
+        if: ${{ !steps.cache_TestShaderDefault2DWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderDefault2D
+            make -j4 TestShaderDefault2DWebGPU
 
-      - name: Cache TestShaderDefault3D
-        id: cache_TestShaderDefault3D
+      - name: Cache TestShaderDefault3DWebGPU
+        id: cache_TestShaderDefault3DWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderDefault3D
+            cache-name: cache-TestShaderDefault3DWebGPU
         with:
             path: Build/TestShaderDefault3D
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderDefault3D/**/*.*') }}
 
-      - name: Build TestShaderDefault3D
-        if: ${{ !steps.cache_TestShaderDefault3D.outputs.cache-hit }}
+      - name: Build TestShaderDefault3DWebGPU
+        if: ${{ !steps.cache_TestShaderDefault3DWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderDefault3D
+            make -j4 TestShaderDefault3DWebGPU
 
-      - name: Cache TestShaderExtractBright
-        id: cache_TestShaderExtractBright
+      - name: Cache TestShaderExtractBrightWebGPU
+        id: cache_TestShaderExtractBrightWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderExtractBright
+            cache-name: cache-TestShaderExtractBrightWebGPU
         with:
             path: Build/TestShaderExtractBright
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderExtractBright/**/*.*') }}
 
-      - name: Build TestShaderExtractBright
-        if: ${{ !steps.cache_TestShaderExtractBright.outputs.cache-hit }}
+      - name: Build TestShaderExtractBrightWebGPU
+        if: ${{ !steps.cache_TestShaderExtractBrightWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderExtractBright
+            make -j4 TestShaderExtractBrightWebGPU
 
-      - name: Cache TestShaderForwardFog
-        id: cache_TestShaderForwardFog
+      - name: Cache TestShaderForwardFogWebGPU
+        id: cache_TestShaderForwardFogWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderForwardFog
+            cache-name: cache-TestShaderForwardFogWebGPU
         with:
             path: Build/TestShaderForwardFog
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderForwardFog/**/*.*') }}
 
-      - name: Build TestShaderForwardFog
-        if: ${{ !steps.cache_TestShaderForwardFog.outputs.cache-hit }}
+      - name: Build TestShaderForwardFogWebGPU
+        if: ${{ !steps.cache_TestShaderForwardFogWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderForwardFog
+            make -j4 TestShaderForwardFogWebGPU
 
-      - name: Cache TestShaderForwardTriplanar
-        id: cache_TestShaderForwardTriplanar
+      - name: Cache TestShaderForwardTriplanarWebGPU
+        id: cache_TestShaderForwardTriplanarWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderForwardTriplanar
+            cache-name: cache-TestShaderForwardTriplanarWebGPU
         with:
             path: Build/TestShaderForwardTriplanar
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderForwardTriplanar/**/*.*') }}
 
-      - name: Build TestShaderForwardTriplanar
-        if: ${{ !steps.cache_TestShaderForwardTriplanar.outputs.cache-hit }}
+      - name: Build TestShaderForwardTriplanarWebGPU
+        if: ${{ !steps.cache_TestShaderForwardTriplanarWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderForwardTriplanar
+            make -j4 TestShaderForwardTriplanarWebGPU
 
-      - name: Cache TestShaderGameOfLife
-        id: cache_TestShaderGameOfLife
+      - name: Cache TestShaderGameOfLifeWebGPU
+        id: cache_TestShaderGameOfLifeWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderGameOfLife
+            cache-name: cache-TestShaderGameOfLifeWebGPU
         with:
             path: Build/TestShaderGameOfLife
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderGameOfLife/**/*.*') }}
 
-      - name: Build TestShaderGameOfLife
-        if: ${{ !steps.cache_TestShaderGameOfLife.outputs.cache-hit }}
+      - name: Build TestShaderGameOfLifeWebGPU
+        if: ${{ !steps.cache_TestShaderGameOfLifeWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderGameOfLife
+            make -j4 TestShaderGameOfLifeWebGPU
 
-      - name: Cache TestShaderGrayScale
-        id: cache_TestShaderGrayScale
+      - name: Cache TestShaderGrayScaleWebGPU
+        id: cache_TestShaderGrayScaleWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderGrayScale
+            cache-name: cache-TestShaderGrayScaleWebGPU
         with:
             path: Build/TestShaderGrayScale
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderGrayScale/**/*.*') }}
 
-      - name: Build TestShaderGrayScale
-        if: ${{ !steps.cache_TestShaderGrayScale.outputs.cache-hit }}
+      - name: Build TestShaderGrayScaleWebGPU
+        if: ${{ !steps.cache_TestShaderGrayScaleWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderGrayScale
+            make -j4 TestShaderGrayScaleWebGPU
 
-      - name: Cache TestShaderMultiShaderMask
-        id: cache_TestShaderMultiShaderMask
+      - name: Cache TestShaderMultiShaderMaskWebGPU
+        id: cache_TestShaderMultiShaderMaskWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderMultiShaderMask
+            cache-name: cache-TestShaderMultiShaderMaskWebGPU
         with:
             path: Build/TestShaderMultiShaderMask
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderMultiShaderMask/**/*.*') }}
 
-      - name: Build TestShaderMultiShaderMask
-        if: ${{ !steps.cache_TestShaderMultiShaderMask.outputs.cache-hit }}
+      - name: Build TestShaderMultiShaderMaskWebGPU
+        if: ${{ !steps.cache_TestShaderMultiShaderMaskWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderMultiShaderMask
+            make -j4 TestShaderMultiShaderMaskWebGPU
 
-      - name: Cache TestShaderMultiTextureBlend
-        id: cache_TestShaderMultiTextureBlend
+      - name: Cache TestShaderMultiTextureBlendWebGPU
+        id: cache_TestShaderMultiTextureBlendWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderMultiTextureBlend
+            cache-name: cache-TestShaderMultiTextureBlendWebGPU
         with:
             path: Build/TestShaderMultiTextureBlend
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderMultiTextureBlend/**/*.*') }}
 
-      - name: Build TestShaderMultiTextureBlend
-        if: ${{ !steps.cache_TestShaderMultiTextureBlend.outputs.cache-hit }}
+      - name: Build TestShaderMultiTextureBlendWebGPU
+        if: ${{ !steps.cache_TestShaderMultiTextureBlendWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderMultiTextureBlend
+            make -j4 TestShaderMultiTextureBlendWebGPU
 
-      - name: Cache TestShaderPoissonDisk
-        id: cache_TestShaderPoissonDisk
+      - name: Cache TestShaderPoissonDiskWebGPU
+        id: cache_TestShaderPoissonDiskWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderPoissonDisk
+            cache-name: cache-TestShaderPoissonDiskWebGPU
         with:
             path: Build/TestShaderPoissonDisk
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderPoissonDisk/**/*.*') }}
 
-      - name: Build TestShaderPoissonDisk
-        if: ${{ !steps.cache_TestShaderPoissonDisk.outputs.cache-hit }}
+      - name: Build TestShaderPoissonDiskWebGPU
+        if: ${{ !steps.cache_TestShaderPoissonDiskWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderPoissonDisk
+            make -j4 TestShaderPoissonDiskWebGPU
 
-      - name: Cache TestShaderPosterize
-        id: cache_TestShaderPosterize
+      - name: Cache TestShaderPosterizeWebGPU
+        id: cache_TestShaderPosterizeWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderPosterize
+            cache-name: cache-TestShaderPosterizeWebGPU
         with:
             path: Build/TestShaderPosterize
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderPosterize/**/*.*') }}
 
-      - name: Build TestShaderPosterize
-        if: ${{ !steps.cache_TestShaderPosterize.outputs.cache-hit }}
+      - name: Build TestShaderPosterizeWebGPU
+        if: ${{ !steps.cache_TestShaderPosterizeWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderPosterize
+            make -j4 TestShaderPosterizeWebGPU
 
-      - name: Cache TestShaderRGBShift
-        id: cache_TestShaderRGBShift
+      - name: Cache TestShaderRGBShiftWebGPU
+        id: cache_TestShaderRGBShiftWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderRGBShift
+            cache-name: cache-TestShaderRGBShiftWebGPU
         with:
             path: Build/TestShaderRGBShift
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderRGBShift/**/*.*') }}
 
-      - name: Build TestShaderRGBShift
-        if: ${{ !steps.cache_TestShaderRGBShift.outputs.cache-hit }}
+      - name: Build TestShaderRGBShiftWebGPU
+        if: ${{ !steps.cache_TestShaderRGBShiftWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderRGBShift
+            make -j4 TestShaderRGBShiftWebGPU
 
-      - name: Cache TestShaderRGBToBGR
-        id: cache_TestShaderRGBToBGR
+      - name: Cache TestShaderRGBToBGRWebGPU
+        id: cache_TestShaderRGBToBGRWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderRGBToBGR
+            cache-name: cache-TestShaderRGBToBGRWebGPU
         with:
             path: Build/TestShaderRGBToBGR
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderRGBToBGR/**/*.*') }}
 
-      - name: Build TestShaderRGBToBGR
-        if: ${{ !steps.cache_TestShaderRGBToBGR.outputs.cache-hit }}
+      - name: Build TestShaderRGBToBGRWebGPU
+        if: ${{ !steps.cache_TestShaderRGBToBGRWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderRGBToBGR
+            make -j4 TestShaderRGBToBGRWebGPU
 
-      - name: Cache TestShaderSwirl
-        id: cache_TestShaderSwirl
+      - name: Cache TestShaderSwirlWebGPU
+        id: cache_TestShaderSwirlWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderSwirl
+            cache-name: cache-TestShaderSwirlWebGPU
         with:
             path: Build/TestShaderSwirl
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderSwirl/**/*.*') }}
 
-      - name: Build TestShaderSwirl
-        if: ${{ !steps.cache_TestShaderSwirl.outputs.cache-hit }}
+      - name: Build TestShaderSwirlWebGPU
+        if: ${{ !steps.cache_TestShaderSwirlWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderSwirl
+            make -j4 TestShaderSwirlWebGPU
 
-      - name: Cache TestShaderTerrainNormal
-        id: cache_TestShaderTerrainNormal
+      - name: Cache TestShaderTerrainNormalWebGPU
+        id: cache_TestShaderTerrainNormalWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-TestShaderTerrainNormal
+            cache-name: cache-TestShaderTerrainNormalWebGPU
         with:
             path: Build/TestShaderTerrainNormal
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TestShaderTerrainNormal/**/*.*') }}
 
-      - name: Build TestShaderTerrainNormal
-        if: ${{ !steps.cache_TestShaderTerrainNormal.outputs.cache-hit }}
+      - name: Build TestShaderTerrainNormalWebGPU
+        if: ${{ !steps.cache_TestShaderTerrainNormalWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 TestShaderTerrainNormal
+            make -j4 TestShaderTerrainNormalWebGPU
 
-      - name: Cache VideoReader
-        id: cache_VideoReader
+      - name: Cache VideoReaderWebGPU
+        id: cache_VideoReaderWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-VideoReader
+            cache-name: cache-VideoReaderWebGPU
         with:
             path: Build/VideoReader
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'VideoReader/**/*.*') }}
 
-      - name: Build VideoReader
-        if: ${{ !steps.cache_VideoReader.outputs.cache-hit }}
+      - name: Build VideoReaderWebGPU
+        if: ${{ !steps.cache_VideoReaderWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 VideoReader
+            make -j4 VideoReaderWebGPU
 
-      - name: Cache ViewFrustum
-        id: cache_ViewFrustum
+      - name: Cache ViewFrustumWebGPU
+        id: cache_ViewFrustumWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-ViewFrustum
+            cache-name: cache-ViewFrustumWebGPU
         with:
             path: Build/ViewFrustum
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'ViewFrustum/**/*.*') }}
 
-      - name: Build ViewFrustum
-        if: ${{ !steps.cache_ViewFrustum.outputs.cache-hit }}
+      - name: Build ViewFrustumWebGPU
+        if: ${{ !steps.cache_ViewFrustumWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 ViewFrustum
+            make -j4 ViewFrustumWebGPU
 
-      - name: Cache WebCam
-        id: cache_WebCam
+      - name: Cache WebCamWebGPU
+        id: cache_WebCamWebGPU
         uses: actions/cache@v1
         env:
-            cache-name: cache-WebCam
+            cache-name: cache-WebCamWebGPU
         with:
             path: Build/WebCam
             key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'WebCam/**/*.*') }}
 
-      - name: Build WebCam
-        if: ${{ !steps.cache_WebCam.outputs.cache-hit }}
+      - name: Build WebCamWebGPU
+        if: ${{ !steps.cache_WebCamWebGPU.outputs.cache-hit }}
         working-directory: Build
         run: |
-            make -j4 WebCam
+            make -j4 WebCamWebGPU
 
 
 

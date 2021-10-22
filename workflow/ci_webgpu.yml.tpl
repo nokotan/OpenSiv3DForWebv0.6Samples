@@ -1,4 +1,4 @@
-name: App Deploy
+name: App Deploy (WebGPU)
 
 on:
   push: 
@@ -17,7 +17,7 @@ jobs:
       - name: Build Project
         run: |
           mkdir Build && cd Build
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL -DSIV3D_WEBGL_BACKEND=ON
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=MINSIZEREL -DSIV3D_WEBGPU_BACKEND=ON
 
 {tasks}
 
