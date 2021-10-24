@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Spline2D/CMakeFiles/Spline2D.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Spline2D/CMakeFiles/Spline2D.dir/rule
-.PHONY : Spline2D/CMakeFiles/Spline2D.dir/rule
+Spline2D/CMakeFiles/Spline2DWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Spline2D/CMakeFiles/Spline2DWebGPU.dir/rule
+.PHONY : Spline2D/CMakeFiles/Spline2DWebGPU.dir/rule
 
 # Convenience name for target.
-Spline2D: Spline2D/CMakeFiles/Spline2D.dir/rule
+Spline2DWebGPU: Spline2D/CMakeFiles/Spline2DWebGPU.dir/rule
 
-.PHONY : Spline2D
+.PHONY : Spline2DWebGPU
 
 # fast build rule for target.
-Spline2D/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/build
-.PHONY : Spline2D/fast
+Spline2DWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2DWebGPU.dir/build.make Spline2D/CMakeFiles/Spline2DWebGPU.dir/build
+.PHONY : Spline2DWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2DWebGPU.dir/build.make Spline2D/CMakeFiles/Spline2DWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2DWebGPU.dir/build.make Spline2D/CMakeFiles/Spline2DWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Spline2D/CMakeFiles/Spline2DWebGPU.dir/build.make Spline2D/CMakeFiles/Spline2DWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Spline2D"
+	@echo "... Spline2DWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
