@@ -24,6 +24,7 @@ set(Siv3DAppLibraryDirectories
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/webp
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/opus
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/tiff
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/SDL2
 )
 
 set(Siv3DAppLibraries
@@ -40,6 +41,7 @@ set(Siv3DAppLibraries
     opusfile 
     opus
     tiff
+    SDL2
 )
 
 set(Siv3DAppCompileFlags 
@@ -55,7 +57,7 @@ set(Siv3DAppLinkerFlags
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
     # "-s DECLARE_ASM_MODULE_EXPORTS=0"
 
-    "-s USE_SDL=2"
+    #"-s USE_SDL=2"
     "-s USE_LIBPNG=1"
     "-s USE_OGG=1"
     "-s USE_VORBIS=1"
