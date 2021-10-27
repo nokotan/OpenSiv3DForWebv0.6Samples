@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-RayIntersection/CMakeFiles/RayIntersection.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 RayIntersection/CMakeFiles/RayIntersection.dir/rule
-.PHONY : RayIntersection/CMakeFiles/RayIntersection.dir/rule
+RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/rule
+.PHONY : RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/rule
 
 # Convenience name for target.
-RayIntersection: RayIntersection/CMakeFiles/RayIntersection.dir/rule
+RayIntersectionWebGPU: RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/rule
 
-.PHONY : RayIntersection
+.PHONY : RayIntersectionWebGPU
 
 # fast build rule for target.
-RayIntersection/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersection.dir/build.make RayIntersection/CMakeFiles/RayIntersection.dir/build
-.PHONY : RayIntersection/fast
+RayIntersectionWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build.make RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build
+.PHONY : RayIntersectionWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersection.dir/build.make RayIntersection/CMakeFiles/RayIntersection.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build.make RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersection.dir/build.make RayIntersection/CMakeFiles/RayIntersection.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build.make RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersection.dir/build.make RayIntersection/CMakeFiles/RayIntersection.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build.make RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... RayIntersection"
+	@echo "... RayIntersectionWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
