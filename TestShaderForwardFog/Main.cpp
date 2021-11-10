@@ -13,7 +13,8 @@ void Main()
 
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/forward_fog.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/forward_fog.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }, { U"PSFog", 4 }} }
-		| ESSL{ U"example/shader/essl/forward_fog.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }, { U"PSFog", 4 }} };
+		| ESSL{ U"example/shader/essl/forward_fog.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }, { U"PSFog", 4 }} }
+		| WGSL{ U"example/shader/wgsl/forward_fog.frag.wgsl", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }, { U"PSFog", 4 }} };
 
 	if (not ps)
 	{

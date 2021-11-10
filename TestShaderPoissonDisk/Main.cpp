@@ -17,7 +17,8 @@ void Main()
     const Texture windmill{ U"example/windmill.png" };
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/poisson_disk.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/poisson_disk.frag", {{U"PSConstants2D", 0}, {U"PoissonDisk", 1}} }
-		| ESSL{ U"example/shader/essl/poisson_disk.frag", {{U"PSConstants2D", 0}, {U"PoissonDisk", 1}} };
+		| ESSL{ U"example/shader/essl/poisson_disk.frag", {{U"PSConstants2D", 0}, {U"PoissonDisk", 1}} }
+		| WGSL{ U"example/shader/wgsl/poisson_disk.frag.wgsl", {{U"PSConstants2D", 0}, {U"PoissonDisk", 1}} };
 
 	if (not ps)
 	{

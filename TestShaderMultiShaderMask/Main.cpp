@@ -14,7 +14,8 @@ void Main()
 
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/multi_texture_mask.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/multi_texture_mask.frag", {{U"PSConstants2D", 0}} }
-		| ESSL{ U"example/shader/essl/multi_texture_mask.frag", {{U"PSConstants2D", 0}} };
+		| ESSL{ U"example/shader/essl/multi_texture_mask.frag", {{U"PSConstants2D", 0}} }
+		| WGSL{ U"example/shader/wgsl/multi_texture_mask.frag.wgsl", {{U"PSConstants2D", 0}} };
 
 	if (not ps)
 	{

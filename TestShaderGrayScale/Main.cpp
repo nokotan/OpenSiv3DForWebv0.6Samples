@@ -7,7 +7,8 @@ void Main()
     const Texture windmill{ U"example/windmill.png" };
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/rgb_to_bgr.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/rgb_to_bgr.frag", {{U"PSConstants2D", 0}} }
-		| ESSL{ U"example/shader/essl/rgb_to_bgr.frag", {{U"PSConstants2D", 0}} };
+		| ESSL{ U"example/shader/essl/rgb_to_bgr.frag", {{U"PSConstants2D", 0}} }
+		| WGSL{ U"example/shader/wgsl/rgb_to_bgr.frag.wgsl", {{U"PSConstants2D", 0}} };
 
 	if (not ps)
 	{

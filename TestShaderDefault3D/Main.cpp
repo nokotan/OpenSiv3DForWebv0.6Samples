@@ -6,11 +6,13 @@ void Main()
 
 	const VertexShader vs3D = HLSL{ U"example/shader/hlsl/default3d_forward.hlsl", U"VS" }
 		| GLSL{ U"example/shader/glsl/default3d_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} }
-		| ESSL{ U"example/shader/essl/default3d_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} };
+		| ESSL{ U"example/shader/essl/default3d_forward.vert", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} }
+		| WGSL{ U"example/shader/wgsl/default3d_forward.vert.wgsl", {{ U"VSPerView", 1 }, { U"VSPerObject", 2 }} };
 
 	const PixelShader ps3D = HLSL{ U"example/shader/hlsl/default3d_forward.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/default3d_forward.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} }
-		| ESSL{ U"example/shader/essl/default3d_forward.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} };
+		| ESSL{ U"example/shader/essl/default3d_forward.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} }
+		| WGSL{ U"example/shader/wgsl/default3d_forward.frag.wgsl", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} };
 
 	if ((not vs3D) || (not ps3D))
 	{

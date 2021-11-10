@@ -7,7 +7,8 @@ void Main()
 
 	const PixelShader ps3D = HLSL{ U"example/shader/hlsl/forward_triplanar.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/forward_triplanar.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} }
-		| ESSL{ U"example/shader/essl/forward_triplanar.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} };
+		| ESSL{ U"example/shader/essl/forward_triplanar.frag", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} }
+		| WGSL{ U"example/shader/wgsl/forward_triplanar.frag.wgsl", {{ U"PSPerFrame", 0 }, { U"PSPerView", 1 }, { U"PSPerMaterial", 3 }} };
 
 	if (not ps3D)
 	{

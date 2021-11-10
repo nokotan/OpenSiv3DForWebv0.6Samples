@@ -9,7 +9,8 @@ void Main()
     const VertexShader vs
         = HLSL{ U"example/shader/hlsl/soft_shape.hlsl" }
         | GLSL{ U"example/shader/glsl/soft_shape.vert", { { U"VSConstants2D", 0 }, { U"SoftShape", 1 } }}
-        | ESSL{ U"example/shader/essl/soft_shape.vert", { { U"VSConstants2D", 0 }, { U"SoftShape", 1 } }};
+        | ESSL{ U"example/shader/essl/soft_shape.vert", { { U"VSConstants2D", 0 }, { U"SoftShape", 1 } }}
+        | WGSL{ U"example/shader/wgsl/soft_shape.vert.wgsl", { { U"VSConstants2D", 0 }, { U"SoftShape", 1 } }};
 
     if (!vs)
     {

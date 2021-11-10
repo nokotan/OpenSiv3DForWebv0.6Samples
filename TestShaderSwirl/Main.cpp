@@ -14,7 +14,8 @@ void Main()
     const Texture windmill{ U"example/windmill.png" };
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/swirl.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} }
-		| ESSL{ U"example/shader/essl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} };
+		| ESSL{ U"example/shader/essl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} }
+		| WGSL{ U"example/shader/wgsl/swirl.frag.wgsl", {{U"PSConstants2D", 0}, {U"Swirl", 1}} };
 
 	if (not ps)
 	{

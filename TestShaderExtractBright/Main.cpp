@@ -8,7 +8,8 @@ void Main()
 
 	const PixelShader psBright = HLSL{ U"example/shader/hlsl/extract_bright_linear.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/extract_bright_linear.frag", {{U"PSConstants2D", 0}} }
-		| ESSL{ U"example/shader/essl/extract_bright_linear.frag", {{U"PSConstants2D", 0}} };
+		| ESSL{ U"example/shader/essl/extract_bright_linear.frag", {{U"PSConstants2D", 0}} }
+		| WGSL{ U"example/shader/wgsl/extract_bright_linear.frag.wgsl", {{U"PSConstants2D", 0}} };
 
 	if (not psBright)
 	{

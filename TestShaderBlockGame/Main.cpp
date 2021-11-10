@@ -18,7 +18,8 @@ void Main()
 	// グレースケール化するピクセルシェーダ
 	const PixelShader psGrayscale = HLSL{ U"example/shader/hlsl/grayscale.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/grayscale.frag", {{U"PSConstants2D", 0}} }
-		| ESSL{ U"example/shader/essl/grayscale.frag", {{U"PSConstants2D", 0}} };
+		| ESSL{ U"example/shader/essl/grayscale.frag", {{U"PSConstants2D", 0}} }
+		| WGSL{ U"example/shader/wgsl/grayscale.frag.wgsl", {{U"PSConstants2D", 0}} };
 
 	if (not psGrayscale)
 	{
@@ -28,7 +29,8 @@ void Main()
 	// 渦巻き効果のピクセルシェーダ
 	const PixelShader psSwirl = HLSL{ U"example/shader/hlsl/swirl.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} }
-		| ESSL{ U"example/shader/essl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} };
+		| ESSL{ U"example/shader/essl/swirl.frag", {{U"PSConstants2D", 0}, {U"Swirl", 1}} }
+		| WGSL{ U"example/shader/wgsl/swirl.frag.wgsl", {{U"PSConstants2D", 0}, {U"Swirl", 1}} };
 
 	if (not psSwirl)
 	{
