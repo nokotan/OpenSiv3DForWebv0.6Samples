@@ -274,7 +274,7 @@
           Options["setStatus"].last.text = text;
           if (m) {
             text = m[1];
-            progressElement.style.width = `${parseInt(m[2]) * 100 / parseInt(m[4])}%`;
+            progressElement.style.width = (parseInt(m[2]) * 100 / parseInt(m[4])) + "%";
             progressElement.hidden = false;   
           } else if (!hasRaiseRuntimeError) { 
             progressElement.hidden = true;
@@ -312,6 +312,11 @@
         }
       }
       Options["setStatus"]("Downloading...");
+
+      if (typeof(WebAssembly)=="undefined") {
+        alert("Your browser does not support WebAssembly. Please use the browser that supports WebAssembly.");
+        onRuntimeError();
+      } 
     </script>
     {{{ SCRIPT }}}
     <script>
@@ -327,10 +332,17 @@
           Module(Options);
         });
       } else {
-        document.querySelector("script[async]").addEventListener('load', function() {
-          Options.canvas.hidden = false;
+        if (typeof(Module) == "undefined")
+        {
+          document.querySelector("script[async]").addEventListener('load', function() {
+            Options.canvas.hidden = false;
+            Module(Options);
+          });
+        }
+        else
+        {
           Module(Options);
-        });
+        }
       }
     </script>
   </body>

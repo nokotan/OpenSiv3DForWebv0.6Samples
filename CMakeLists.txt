@@ -143,7 +143,7 @@ set(Siv3DAppBundledFilesPath
     /resources/engine/font/min/siv3d-min.woff
     /resources/engine/font/noto-emoji/LICENSE
     /resources/engine/font/noto-emoji/NotoEmoji-Regular.ttf.zstdcmp
-    /resources/engine/shader/glsl
+    /resources/engine/shader/essl
     /resources/engine/shader/wgsl
     /resources/engine/texture/box-shadow
 )
