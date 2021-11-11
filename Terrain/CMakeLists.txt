@@ -4,6 +4,7 @@ Siv3DAppSetProjectDefaultConfig(Terrain)
 
 set(TerrainBundledFilesPath
     /example/shader/essl/
+    /example/shader/wgsl/
     /example/texture/
     /example/particle.png
 )
