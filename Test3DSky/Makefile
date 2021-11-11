@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/rule
-.PHONY : Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/rule
+Test3DSky/CMakeFiles/Test3DSky.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DSky/CMakeFiles/Test3DSky.dir/rule
+.PHONY : Test3DSky/CMakeFiles/Test3DSky.dir/rule
 
 # Convenience name for target.
-Test3DSkyWebGPU: Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/rule
+Test3DSky: Test3DSky/CMakeFiles/Test3DSky.dir/rule
 
-.PHONY : Test3DSkyWebGPU
+.PHONY : Test3DSky
 
 # fast build rule for target.
-Test3DSkyWebGPU/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build.make Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build
-.PHONY : Test3DSkyWebGPU/fast
+Test3DSky/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/build
+.PHONY : Test3DSky/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build.make Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build.make Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build.make Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Test3DSkyWebGPU"
+	@echo "... Test3DSky"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
