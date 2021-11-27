@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-SoftShape/CMakeFiles/SoftShape.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 SoftShape/CMakeFiles/SoftShape.dir/rule
-.PHONY : SoftShape/CMakeFiles/SoftShape.dir/rule
+SoftShape/CMakeFiles/SoftShapeWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 SoftShape/CMakeFiles/SoftShapeWebGPU.dir/rule
+.PHONY : SoftShape/CMakeFiles/SoftShapeWebGPU.dir/rule
 
 # Convenience name for target.
-SoftShape: SoftShape/CMakeFiles/SoftShape.dir/rule
+SoftShapeWebGPU: SoftShape/CMakeFiles/SoftShapeWebGPU.dir/rule
 
-.PHONY : SoftShape
+.PHONY : SoftShapeWebGPU
 
 # fast build rule for target.
-SoftShape/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/build
-.PHONY : SoftShape/fast
+SoftShapeWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build.make SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build
+.PHONY : SoftShapeWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build.make SoftShape/CMakeFiles/SoftShapeWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build.make SoftShape/CMakeFiles/SoftShapeWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build.make SoftShape/CMakeFiles/SoftShapeWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... SoftShape"
+	@echo "... SoftShapeWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

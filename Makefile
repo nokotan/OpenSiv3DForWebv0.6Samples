@@ -124,654 +124,654 @@ Siv3DAppData/fast:
 .PHONY : Siv3DAppData/fast
 
 #=============================================================================
-# Target rules for targets named Main
+# Target rules for targets named MainWebGPU
 
 # Build rule for target.
-Main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Main
-.PHONY : Main
+MainWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MainWebGPU
+.PHONY : MainWebGPU
 
 # fast build rule for target.
-Main/fast:
-	$(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/build
-.PHONY : Main/fast
+MainWebGPU/fast:
+	$(MAKE) -f Main/CMakeFiles/MainWebGPU.dir/build.make Main/CMakeFiles/MainWebGPU.dir/build
+.PHONY : MainWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named AsyncFileDownload
+# Target rules for targets named AsyncFileDownloadWebGPU
 
 # Build rule for target.
-AsyncFileDownload: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AsyncFileDownload
-.PHONY : AsyncFileDownload
+AsyncFileDownloadWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AsyncFileDownloadWebGPU
+.PHONY : AsyncFileDownloadWebGPU
 
 # fast build rule for target.
-AsyncFileDownload/fast:
-	$(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build
-.PHONY : AsyncFileDownload/fast
+AsyncFileDownloadWebGPU/fast:
+	$(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build
+.PHONY : AsyncFileDownloadWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named DragDrop
+# Target rules for targets named DragDropWebGPU
 
 # Build rule for target.
-DragDrop: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 DragDrop
-.PHONY : DragDrop
+DragDropWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DragDropWebGPU
+.PHONY : DragDropWebGPU
 
 # fast build rule for target.
-DragDrop/fast:
-	$(MAKE) -f DragDrop/CMakeFiles/DragDrop.dir/build.make DragDrop/CMakeFiles/DragDrop.dir/build
-.PHONY : DragDrop/fast
+DragDropWebGPU/fast:
+	$(MAKE) -f DragDrop/CMakeFiles/DragDropWebGPU.dir/build.make DragDrop/CMakeFiles/DragDropWebGPU.dir/build
+.PHONY : DragDropWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Microphone
+# Target rules for targets named MicrophoneWebGPU
 
 # Build rule for target.
-Microphone: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Microphone
-.PHONY : Microphone
+MicrophoneWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MicrophoneWebGPU
+.PHONY : MicrophoneWebGPU
 
 # fast build rule for target.
-Microphone/fast:
-	$(MAKE) -f Microphone/CMakeFiles/Microphone.dir/build.make Microphone/CMakeFiles/Microphone.dir/build
-.PHONY : Microphone/fast
+MicrophoneWebGPU/fast:
+	$(MAKE) -f Microphone/CMakeFiles/MicrophoneWebGPU.dir/build.make Microphone/CMakeFiles/MicrophoneWebGPU.dir/build
+.PHONY : MicrophoneWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named MaterialIcon
+# Target rules for targets named MaterialIconWebGPU
 
 # Build rule for target.
-MaterialIcon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MaterialIcon
-.PHONY : MaterialIcon
+MaterialIconWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MaterialIconWebGPU
+.PHONY : MaterialIconWebGPU
 
 # fast build rule for target.
-MaterialIcon/fast:
-	$(MAKE) -f MaterialIcon/CMakeFiles/MaterialIcon.dir/build.make MaterialIcon/CMakeFiles/MaterialIcon.dir/build
-.PHONY : MaterialIcon/fast
+MaterialIconWebGPU/fast:
+	$(MAKE) -f MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build.make MaterialIcon/CMakeFiles/MaterialIconWebGPU.dir/build
+.PHONY : MaterialIconWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named QRReader
+# Target rules for targets named QRReaderWebGPU
 
 # Build rule for target.
-QRReader: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QRReader
-.PHONY : QRReader
+QRReaderWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QRReaderWebGPU
+.PHONY : QRReaderWebGPU
 
 # fast build rule for target.
-QRReader/fast:
-	$(MAKE) -f QRReader/CMakeFiles/QRReader.dir/build.make QRReader/CMakeFiles/QRReader.dir/build
-.PHONY : QRReader/fast
+QRReaderWebGPU/fast:
+	$(MAKE) -f QRReader/CMakeFiles/QRReaderWebGPU.dir/build.make QRReader/CMakeFiles/QRReaderWebGPU.dir/build
+.PHONY : QRReaderWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Terrain
+# Target rules for targets named TerrainWebGPU
 
 # Build rule for target.
-Terrain: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Terrain
-.PHONY : Terrain
+TerrainWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TerrainWebGPU
+.PHONY : TerrainWebGPU
 
 # fast build rule for target.
-Terrain/fast:
-	$(MAKE) -f Terrain/CMakeFiles/Terrain.dir/build.make Terrain/CMakeFiles/Terrain.dir/build
-.PHONY : Terrain/fast
+TerrainWebGPU/fast:
+	$(MAKE) -f Terrain/CMakeFiles/TerrainWebGPU.dir/build.make Terrain/CMakeFiles/TerrainWebGPU.dir/build
+.PHONY : TerrainWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named VideoReader
+# Target rules for targets named VideoReaderWebGPU
 
 # Build rule for target.
-VideoReader: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 VideoReader
-.PHONY : VideoReader
+VideoReaderWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 VideoReaderWebGPU
+.PHONY : VideoReaderWebGPU
 
 # fast build rule for target.
-VideoReader/fast:
-	$(MAKE) -f VideoReader/CMakeFiles/VideoReader.dir/build.make VideoReader/CMakeFiles/VideoReader.dir/build
-.PHONY : VideoReader/fast
+VideoReaderWebGPU/fast:
+	$(MAKE) -f VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build.make VideoReader/CMakeFiles/VideoReaderWebGPU.dir/build
+.PHONY : VideoReaderWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named WebCam
+# Target rules for targets named WebCamWebGPU
 
 # Build rule for target.
-WebCam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 WebCam
-.PHONY : WebCam
+WebCamWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 WebCamWebGPU
+.PHONY : WebCamWebGPU
 
 # fast build rule for target.
-WebCam/fast:
-	$(MAKE) -f WebCam/CMakeFiles/WebCam.dir/build.make WebCam/CMakeFiles/WebCam.dir/build
-.PHONY : WebCam/fast
+WebCamWebGPU/fast:
+	$(MAKE) -f WebCam/CMakeFiles/WebCamWebGPU.dir/build.make WebCam/CMakeFiles/WebCamWebGPU.dir/build
+.PHONY : WebCamWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named AdditionalEmoji
+# Target rules for targets named AdditionalEmojiWebGPU
 
 # Build rule for target.
-AdditionalEmoji: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AdditionalEmoji
-.PHONY : AdditionalEmoji
+AdditionalEmojiWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AdditionalEmojiWebGPU
+.PHONY : AdditionalEmojiWebGPU
 
 # fast build rule for target.
-AdditionalEmoji/fast:
-	$(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmoji.dir/build
-.PHONY : AdditionalEmoji/fast
+AdditionalEmojiWebGPU/fast:
+	$(MAKE) -f AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build.make AdditionalEmoji/CMakeFiles/AdditionalEmojiWebGPU.dir/build
+.PHONY : AdditionalEmojiWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named EmpoweredAudio
+# Target rules for targets named EmpoweredAudioWebGPU
 
 # Build rule for target.
-EmpoweredAudio: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EmpoweredAudio
-.PHONY : EmpoweredAudio
+EmpoweredAudioWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EmpoweredAudioWebGPU
+.PHONY : EmpoweredAudioWebGPU
 
 # fast build rule for target.
-EmpoweredAudio/fast:
-	$(MAKE) -f EmpoweredAudio/CMakeFiles/EmpoweredAudio.dir/build.make EmpoweredAudio/CMakeFiles/EmpoweredAudio.dir/build
-.PHONY : EmpoweredAudio/fast
+EmpoweredAudioWebGPU/fast:
+	$(MAKE) -f EmpoweredAudio/CMakeFiles/EmpoweredAudioWebGPU.dir/build.make EmpoweredAudio/CMakeFiles/EmpoweredAudioWebGPU.dir/build
+.PHONY : EmpoweredAudioWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named KDTree
+# Target rules for targets named KDTreeWebGPU
 
 # Build rule for target.
-KDTree: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 KDTree
-.PHONY : KDTree
+KDTreeWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 KDTreeWebGPU
+.PHONY : KDTreeWebGPU
 
 # fast build rule for target.
-KDTree/fast:
-	$(MAKE) -f KDTree/CMakeFiles/KDTree.dir/build.make KDTree/CMakeFiles/KDTree.dir/build
-.PHONY : KDTree/fast
+KDTreeWebGPU/fast:
+	$(MAKE) -f KDTree/CMakeFiles/KDTreeWebGPU.dir/build.make KDTree/CMakeFiles/KDTreeWebGPU.dir/build
+.PHONY : KDTreeWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named GeoJson
+# Target rules for targets named GeoJsonWebGPU
 
 # Build rule for target.
-GeoJson: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GeoJson
-.PHONY : GeoJson
+GeoJsonWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GeoJsonWebGPU
+.PHONY : GeoJsonWebGPU
 
 # fast build rule for target.
-GeoJson/fast:
-	$(MAKE) -f GeoJson/CMakeFiles/GeoJson.dir/build.make GeoJson/CMakeFiles/GeoJson.dir/build
-.PHONY : GeoJson/fast
+GeoJsonWebGPU/fast:
+	$(MAKE) -f GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build.make GeoJson/CMakeFiles/GeoJsonWebGPU.dir/build
+.PHONY : GeoJsonWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named GrabCut
+# Target rules for targets named GrabCutWebGPU
 
 # Build rule for target.
-GrabCut: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GrabCut
-.PHONY : GrabCut
+GrabCutWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GrabCutWebGPU
+.PHONY : GrabCutWebGPU
 
 # fast build rule for target.
-GrabCut/fast:
-	$(MAKE) -f GrabCut/CMakeFiles/GrabCut.dir/build.make GrabCut/CMakeFiles/GrabCut.dir/build
-.PHONY : GrabCut/fast
+GrabCutWebGPU/fast:
+	$(MAKE) -f GrabCut/CMakeFiles/GrabCutWebGPU.dir/build.make GrabCut/CMakeFiles/GrabCutWebGPU.dir/build
+.PHONY : GrabCutWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Spline2D
+# Target rules for targets named Spline2DWebGPU
 
 # Build rule for target.
-Spline2D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Spline2D
-.PHONY : Spline2D
+Spline2DWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Spline2DWebGPU
+.PHONY : Spline2DWebGPU
 
 # fast build rule for target.
-Spline2D/fast:
-	$(MAKE) -f Spline2D/CMakeFiles/Spline2D.dir/build.make Spline2D/CMakeFiles/Spline2D.dir/build
-.PHONY : Spline2D/fast
+Spline2DWebGPU/fast:
+	$(MAKE) -f Spline2D/CMakeFiles/Spline2DWebGPU.dir/build.make Spline2D/CMakeFiles/Spline2DWebGPU.dir/build
+.PHONY : Spline2DWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named P2WheelJoint
+# Target rules for targets named P2WheelJointWebGPU
 
 # Build rule for target.
-P2WheelJoint: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 P2WheelJoint
-.PHONY : P2WheelJoint
+P2WheelJointWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 P2WheelJointWebGPU
+.PHONY : P2WheelJointWebGPU
 
 # fast build rule for target.
-P2WheelJoint/fast:
-	$(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build
-.PHONY : P2WheelJoint/fast
+P2WheelJointWebGPU/fast:
+	$(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build
+.PHONY : P2WheelJointWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named PackRectangles
+# Target rules for targets named PackRectanglesWebGPU
 
 # Build rule for target.
-PackRectangles: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PackRectangles
-.PHONY : PackRectangles
+PackRectanglesWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PackRectanglesWebGPU
+.PHONY : PackRectanglesWebGPU
 
 # fast build rule for target.
-PackRectangles/fast:
-	$(MAKE) -f PackRectangles/CMakeFiles/PackRectangles.dir/build.make PackRectangles/CMakeFiles/PackRectangles.dir/build
-.PHONY : PackRectangles/fast
+PackRectanglesWebGPU/fast:
+	$(MAKE) -f PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build.make PackRectangles/CMakeFiles/PackRectanglesWebGPU.dir/build
+.PHONY : PackRectanglesWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named PolygonOutline
+# Target rules for targets named PolygonOutlineWebGPU
 
 # Build rule for target.
-PolygonOutline: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PolygonOutline
-.PHONY : PolygonOutline
+PolygonOutlineWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PolygonOutlineWebGPU
+.PHONY : PolygonOutlineWebGPU
 
 # fast build rule for target.
-PolygonOutline/fast:
-	$(MAKE) -f PolygonOutline/CMakeFiles/PolygonOutline.dir/build.make PolygonOutline/CMakeFiles/PolygonOutline.dir/build
-.PHONY : PolygonOutline/fast
+PolygonOutlineWebGPU/fast:
+	$(MAKE) -f PolygonOutline/CMakeFiles/PolygonOutlineWebGPU.dir/build.make PolygonOutline/CMakeFiles/PolygonOutlineWebGPU.dir/build
+.PHONY : PolygonOutlineWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named PerlinNoise
+# Target rules for targets named PerlinNoiseWebGPU
 
 # Build rule for target.
-PerlinNoise: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PerlinNoise
-.PHONY : PerlinNoise
+PerlinNoiseWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PerlinNoiseWebGPU
+.PHONY : PerlinNoiseWebGPU
 
 # fast build rule for target.
-PerlinNoise/fast:
-	$(MAKE) -f PerlinNoise/CMakeFiles/PerlinNoise.dir/build.make PerlinNoise/CMakeFiles/PerlinNoise.dir/build
-.PHONY : PerlinNoise/fast
+PerlinNoiseWebGPU/fast:
+	$(MAKE) -f PerlinNoise/CMakeFiles/PerlinNoiseWebGPU.dir/build.make PerlinNoise/CMakeFiles/PerlinNoiseWebGPU.dir/build
+.PHONY : PerlinNoiseWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named QRCode
+# Target rules for targets named QRCodeWebGPU
 
 # Build rule for target.
-QRCode: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QRCode
-.PHONY : QRCode
+QRCodeWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QRCodeWebGPU
+.PHONY : QRCodeWebGPU
 
 # fast build rule for target.
-QRCode/fast:
-	$(MAKE) -f QRCode/CMakeFiles/QRCode.dir/build.make QRCode/CMakeFiles/QRCode.dir/build
-.PHONY : QRCode/fast
+QRCodeWebGPU/fast:
+	$(MAKE) -f QRCode/CMakeFiles/QRCodeWebGPU.dir/build.make QRCode/CMakeFiles/QRCodeWebGPU.dir/build
+.PHONY : QRCodeWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named RayIntersection
+# Target rules for targets named RayIntersectionWebGPU
 
 # Build rule for target.
-RayIntersection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 RayIntersection
-.PHONY : RayIntersection
+RayIntersectionWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RayIntersectionWebGPU
+.PHONY : RayIntersectionWebGPU
 
 # fast build rule for target.
-RayIntersection/fast:
-	$(MAKE) -f RayIntersection/CMakeFiles/RayIntersection.dir/build.make RayIntersection/CMakeFiles/RayIntersection.dir/build
-.PHONY : RayIntersection/fast
+RayIntersectionWebGPU/fast:
+	$(MAKE) -f RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build.make RayIntersection/CMakeFiles/RayIntersectionWebGPU.dir/build
+.PHONY : RayIntersectionWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named NavMesh
+# Target rules for targets named NavMeshWebGPU
 
 # Build rule for target.
-NavMesh: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NavMesh
-.PHONY : NavMesh
+NavMeshWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NavMeshWebGPU
+.PHONY : NavMeshWebGPU
 
 # fast build rule for target.
-NavMesh/fast:
-	$(MAKE) -f NavMesh/CMakeFiles/NavMesh.dir/build.make NavMesh/CMakeFiles/NavMesh.dir/build
-.PHONY : NavMesh/fast
+NavMeshWebGPU/fast:
+	$(MAKE) -f NavMesh/CMakeFiles/NavMeshWebGPU.dir/build.make NavMesh/CMakeFiles/NavMeshWebGPU.dir/build
+.PHONY : NavMeshWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named SoftShape
+# Target rules for targets named SoftShapeWebGPU
 
 # Build rule for target.
-SoftShape: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SoftShape
-.PHONY : SoftShape
+SoftShapeWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SoftShapeWebGPU
+.PHONY : SoftShapeWebGPU
 
 # fast build rule for target.
-SoftShape/fast:
-	$(MAKE) -f SoftShape/CMakeFiles/SoftShape.dir/build.make SoftShape/CMakeFiles/SoftShape.dir/build
-.PHONY : SoftShape/fast
+SoftShapeWebGPU/fast:
+	$(MAKE) -f SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build.make SoftShape/CMakeFiles/SoftShapeWebGPU.dir/build
+.PHONY : SoftShapeWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named ViewFrustum
+# Target rules for targets named ViewFrustumWebGPU
 
 # Build rule for target.
-ViewFrustum: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ViewFrustum
-.PHONY : ViewFrustum
+ViewFrustumWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ViewFrustumWebGPU
+.PHONY : ViewFrustumWebGPU
 
 # fast build rule for target.
-ViewFrustum/fast:
-	$(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustum.dir/build.make ViewFrustum/CMakeFiles/ViewFrustum.dir/build
-.PHONY : ViewFrustum/fast
+ViewFrustumWebGPU/fast:
+	$(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build.make ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build
+.PHONY : ViewFrustumWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TCPonWebSocket
+# Target rules for targets named TCPonWebSocketWebGPU
 
 # Build rule for target.
-TCPonWebSocket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TCPonWebSocket
-.PHONY : TCPonWebSocket
+TCPonWebSocketWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TCPonWebSocketWebGPU
+.PHONY : TCPonWebSocketWebGPU
 
 # fast build rule for target.
-TCPonWebSocket/fast:
-	$(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build
-.PHONY : TCPonWebSocket/fast
+TCPonWebSocketWebGPU/fast:
+	$(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build
+.PHONY : TCPonWebSocketWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderDefault2D
+# Target rules for targets named TestShaderDefault2DWebGPU
 
 # Build rule for target.
-TestShaderDefault2D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault2D
-.PHONY : TestShaderDefault2D
+TestShaderDefault2DWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault2DWebGPU
+.PHONY : TestShaderDefault2DWebGPU
 
 # fast build rule for target.
-TestShaderDefault2D/fast:
-	$(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2D.dir/build
-.PHONY : TestShaderDefault2D/fast
+TestShaderDefault2DWebGPU/fast:
+	$(MAKE) -f TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build.make TestShaderDefault2D/CMakeFiles/TestShaderDefault2DWebGPU.dir/build
+.PHONY : TestShaderDefault2DWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderDefault3D
+# Target rules for targets named TestShaderDefault3DWebGPU
 
 # Build rule for target.
-TestShaderDefault3D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault3D
-.PHONY : TestShaderDefault3D
+TestShaderDefault3DWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderDefault3DWebGPU
+.PHONY : TestShaderDefault3DWebGPU
 
 # fast build rule for target.
-TestShaderDefault3D/fast:
-	$(MAKE) -f TestShaderDefault3D/CMakeFiles/TestShaderDefault3D.dir/build.make TestShaderDefault3D/CMakeFiles/TestShaderDefault3D.dir/build
-.PHONY : TestShaderDefault3D/fast
+TestShaderDefault3DWebGPU/fast:
+	$(MAKE) -f TestShaderDefault3D/CMakeFiles/TestShaderDefault3DWebGPU.dir/build.make TestShaderDefault3D/CMakeFiles/TestShaderDefault3DWebGPU.dir/build
+.PHONY : TestShaderDefault3DWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderBlockGame
+# Target rules for targets named TestShaderBlockGameWebGPU
 
 # Build rule for target.
-TestShaderBlockGame: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderBlockGame
-.PHONY : TestShaderBlockGame
+TestShaderBlockGameWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderBlockGameWebGPU
+.PHONY : TestShaderBlockGameWebGPU
 
 # fast build rule for target.
-TestShaderBlockGame/fast:
-	$(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGame.dir/build
-.PHONY : TestShaderBlockGame/fast
+TestShaderBlockGameWebGPU/fast:
+	$(MAKE) -f TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build.make TestShaderBlockGame/CMakeFiles/TestShaderBlockGameWebGPU.dir/build
+.PHONY : TestShaderBlockGameWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderExtractBright
+# Target rules for targets named TestShaderExtractBrightWebGPU
 
 # Build rule for target.
-TestShaderExtractBright: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderExtractBright
-.PHONY : TestShaderExtractBright
+TestShaderExtractBrightWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderExtractBrightWebGPU
+.PHONY : TestShaderExtractBrightWebGPU
 
 # fast build rule for target.
-TestShaderExtractBright/fast:
-	$(MAKE) -f TestShaderExtractBright/CMakeFiles/TestShaderExtractBright.dir/build.make TestShaderExtractBright/CMakeFiles/TestShaderExtractBright.dir/build
-.PHONY : TestShaderExtractBright/fast
+TestShaderExtractBrightWebGPU/fast:
+	$(MAKE) -f TestShaderExtractBright/CMakeFiles/TestShaderExtractBrightWebGPU.dir/build.make TestShaderExtractBright/CMakeFiles/TestShaderExtractBrightWebGPU.dir/build
+.PHONY : TestShaderExtractBrightWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderForwardFog
+# Target rules for targets named TestShaderForwardFogWebGPU
 
 # Build rule for target.
-TestShaderForwardFog: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardFog
-.PHONY : TestShaderForwardFog
+TestShaderForwardFogWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardFogWebGPU
+.PHONY : TestShaderForwardFogWebGPU
 
 # fast build rule for target.
-TestShaderForwardFog/fast:
-	$(MAKE) -f TestShaderForwardFog/CMakeFiles/TestShaderForwardFog.dir/build.make TestShaderForwardFog/CMakeFiles/TestShaderForwardFog.dir/build
-.PHONY : TestShaderForwardFog/fast
+TestShaderForwardFogWebGPU/fast:
+	$(MAKE) -f TestShaderForwardFog/CMakeFiles/TestShaderForwardFogWebGPU.dir/build.make TestShaderForwardFog/CMakeFiles/TestShaderForwardFogWebGPU.dir/build
+.PHONY : TestShaderForwardFogWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderForwardTriplanar
+# Target rules for targets named TestShaderForwardTriplanarWebGPU
 
 # Build rule for target.
-TestShaderForwardTriplanar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardTriplanar
-.PHONY : TestShaderForwardTriplanar
+TestShaderForwardTriplanarWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderForwardTriplanarWebGPU
+.PHONY : TestShaderForwardTriplanarWebGPU
 
 # fast build rule for target.
-TestShaderForwardTriplanar/fast:
-	$(MAKE) -f TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanar.dir/build.make TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanar.dir/build
-.PHONY : TestShaderForwardTriplanar/fast
+TestShaderForwardTriplanarWebGPU/fast:
+	$(MAKE) -f TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanarWebGPU.dir/build.make TestShaderForwardTriplanar/CMakeFiles/TestShaderForwardTriplanarWebGPU.dir/build
+.PHONY : TestShaderForwardTriplanarWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderGameOfLife
+# Target rules for targets named TestShaderGameOfLifeWebGPU
 
 # Build rule for target.
-TestShaderGameOfLife: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGameOfLife
-.PHONY : TestShaderGameOfLife
+TestShaderGameOfLifeWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGameOfLifeWebGPU
+.PHONY : TestShaderGameOfLifeWebGPU
 
 # fast build rule for target.
-TestShaderGameOfLife/fast:
-	$(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLife.dir/build
-.PHONY : TestShaderGameOfLife/fast
+TestShaderGameOfLifeWebGPU/fast:
+	$(MAKE) -f TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build.make TestShaderGameOfLife/CMakeFiles/TestShaderGameOfLifeWebGPU.dir/build
+.PHONY : TestShaderGameOfLifeWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderGrayScale
+# Target rules for targets named TestShaderGrayScaleWebGPU
 
 # Build rule for target.
-TestShaderGrayScale: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGrayScale
-.PHONY : TestShaderGrayScale
+TestShaderGrayScaleWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderGrayScaleWebGPU
+.PHONY : TestShaderGrayScaleWebGPU
 
 # fast build rule for target.
-TestShaderGrayScale/fast:
-	$(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScale.dir/build
-.PHONY : TestShaderGrayScale/fast
+TestShaderGrayScaleWebGPU/fast:
+	$(MAKE) -f TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build.make TestShaderGrayScale/CMakeFiles/TestShaderGrayScaleWebGPU.dir/build
+.PHONY : TestShaderGrayScaleWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderMultiTextureBlend
+# Target rules for targets named TestShaderMultiTextureBlendWebGPU
 
 # Build rule for target.
-TestShaderMultiTextureBlend: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiTextureBlend
-.PHONY : TestShaderMultiTextureBlend
+TestShaderMultiTextureBlendWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiTextureBlendWebGPU
+.PHONY : TestShaderMultiTextureBlendWebGPU
 
 # fast build rule for target.
-TestShaderMultiTextureBlend/fast:
-	$(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlend.dir/build
-.PHONY : TestShaderMultiTextureBlend/fast
+TestShaderMultiTextureBlendWebGPU/fast:
+	$(MAKE) -f TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build.make TestShaderMultiTextureBlend/CMakeFiles/TestShaderMultiTextureBlendWebGPU.dir/build
+.PHONY : TestShaderMultiTextureBlendWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderMultiShaderMask
+# Target rules for targets named TestShaderMultiShaderMaskWebGPU
 
 # Build rule for target.
-TestShaderMultiShaderMask: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiShaderMask
-.PHONY : TestShaderMultiShaderMask
+TestShaderMultiShaderMaskWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderMultiShaderMaskWebGPU
+.PHONY : TestShaderMultiShaderMaskWebGPU
 
 # fast build rule for target.
-TestShaderMultiShaderMask/fast:
-	$(MAKE) -f TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMask.dir/build.make TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMask.dir/build
-.PHONY : TestShaderMultiShaderMask/fast
+TestShaderMultiShaderMaskWebGPU/fast:
+	$(MAKE) -f TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMaskWebGPU.dir/build.make TestShaderMultiShaderMask/CMakeFiles/TestShaderMultiShaderMaskWebGPU.dir/build
+.PHONY : TestShaderMultiShaderMaskWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderPoissonDisk
+# Target rules for targets named TestShaderPoissonDiskWebGPU
 
 # Build rule for target.
-TestShaderPoissonDisk: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPoissonDisk
-.PHONY : TestShaderPoissonDisk
+TestShaderPoissonDiskWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPoissonDiskWebGPU
+.PHONY : TestShaderPoissonDiskWebGPU
 
 # fast build rule for target.
-TestShaderPoissonDisk/fast:
-	$(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDisk.dir/build
-.PHONY : TestShaderPoissonDisk/fast
+TestShaderPoissonDiskWebGPU/fast:
+	$(MAKE) -f TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build.make TestShaderPoissonDisk/CMakeFiles/TestShaderPoissonDiskWebGPU.dir/build
+.PHONY : TestShaderPoissonDiskWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderPosterize
+# Target rules for targets named TestShaderPosterizeWebGPU
 
 # Build rule for target.
-TestShaderPosterize: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPosterize
-.PHONY : TestShaderPosterize
+TestShaderPosterizeWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderPosterizeWebGPU
+.PHONY : TestShaderPosterizeWebGPU
 
 # fast build rule for target.
-TestShaderPosterize/fast:
-	$(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterize.dir/build
-.PHONY : TestShaderPosterize/fast
+TestShaderPosterizeWebGPU/fast:
+	$(MAKE) -f TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build.make TestShaderPosterize/CMakeFiles/TestShaderPosterizeWebGPU.dir/build
+.PHONY : TestShaderPosterizeWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderRGBShift
+# Target rules for targets named TestShaderRGBShiftWebGPU
 
 # Build rule for target.
-TestShaderRGBShift: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBShift
-.PHONY : TestShaderRGBShift
+TestShaderRGBShiftWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBShiftWebGPU
+.PHONY : TestShaderRGBShiftWebGPU
 
 # fast build rule for target.
-TestShaderRGBShift/fast:
-	$(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShift.dir/build
-.PHONY : TestShaderRGBShift/fast
+TestShaderRGBShiftWebGPU/fast:
+	$(MAKE) -f TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build.make TestShaderRGBShift/CMakeFiles/TestShaderRGBShiftWebGPU.dir/build
+.PHONY : TestShaderRGBShiftWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderRGBToBGR
+# Target rules for targets named TestShaderRGBToBGRWebGPU
 
 # Build rule for target.
-TestShaderRGBToBGR: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBToBGR
-.PHONY : TestShaderRGBToBGR
+TestShaderRGBToBGRWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderRGBToBGRWebGPU
+.PHONY : TestShaderRGBToBGRWebGPU
 
 # fast build rule for target.
-TestShaderRGBToBGR/fast:
-	$(MAKE) -f TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGR.dir/build.make TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGR.dir/build
-.PHONY : TestShaderRGBToBGR/fast
+TestShaderRGBToBGRWebGPU/fast:
+	$(MAKE) -f TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGRWebGPU.dir/build.make TestShaderRGBToBGR/CMakeFiles/TestShaderRGBToBGRWebGPU.dir/build
+.PHONY : TestShaderRGBToBGRWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderSwirl
+# Target rules for targets named TestShaderSwirlWebGPU
 
 # Build rule for target.
-TestShaderSwirl: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderSwirl
-.PHONY : TestShaderSwirl
+TestShaderSwirlWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderSwirlWebGPU
+.PHONY : TestShaderSwirlWebGPU
 
 # fast build rule for target.
-TestShaderSwirl/fast:
-	$(MAKE) -f TestShaderSwirl/CMakeFiles/TestShaderSwirl.dir/build.make TestShaderSwirl/CMakeFiles/TestShaderSwirl.dir/build
-.PHONY : TestShaderSwirl/fast
+TestShaderSwirlWebGPU/fast:
+	$(MAKE) -f TestShaderSwirl/CMakeFiles/TestShaderSwirlWebGPU.dir/build.make TestShaderSwirl/CMakeFiles/TestShaderSwirlWebGPU.dir/build
+.PHONY : TestShaderSwirlWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestShaderTerrainNormal
+# Target rules for targets named TestShaderTerrainNormalWebGPU
 
 # Build rule for target.
-TestShaderTerrainNormal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestShaderTerrainNormal
-.PHONY : TestShaderTerrainNormal
+TestShaderTerrainNormalWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestShaderTerrainNormalWebGPU
+.PHONY : TestShaderTerrainNormalWebGPU
 
 # fast build rule for target.
-TestShaderTerrainNormal/fast:
-	$(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormal.dir/build
-.PHONY : TestShaderTerrainNormal/fast
+TestShaderTerrainNormalWebGPU/fast:
+	$(MAKE) -f TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build.make TestShaderTerrainNormal/CMakeFiles/TestShaderTerrainNormalWebGPU.dir/build
+.PHONY : TestShaderTerrainNormalWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DCase1
+# Target rules for targets named Test3DCase1WebGPU
 
 # Build rule for target.
-Test3DCase1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase1
-.PHONY : Test3DCase1
+Test3DCase1WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase1WebGPU
+.PHONY : Test3DCase1WebGPU
 
 # fast build rule for target.
-Test3DCase1/fast:
-	$(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1.dir/build
-.PHONY : Test3DCase1/fast
+Test3DCase1WebGPU/fast:
+	$(MAKE) -f Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build.make Test3DCase1/CMakeFiles/Test3DCase1WebGPU.dir/build
+.PHONY : Test3DCase1WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DCase2
+# Target rules for targets named Test3DCase2WebGPU
 
 # Build rule for target.
-Test3DCase2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase2
-.PHONY : Test3DCase2
+Test3DCase2WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase2WebGPU
+.PHONY : Test3DCase2WebGPU
 
 # fast build rule for target.
-Test3DCase2/fast:
-	$(MAKE) -f Test3DCase2/CMakeFiles/Test3DCase2.dir/build.make Test3DCase2/CMakeFiles/Test3DCase2.dir/build
-.PHONY : Test3DCase2/fast
+Test3DCase2WebGPU/fast:
+	$(MAKE) -f Test3DCase2/CMakeFiles/Test3DCase2WebGPU.dir/build.make Test3DCase2/CMakeFiles/Test3DCase2WebGPU.dir/build
+.PHONY : Test3DCase2WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DCase3
+# Target rules for targets named Test3DCase3WebGPU
 
 # Build rule for target.
-Test3DCase3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase3
-.PHONY : Test3DCase3
+Test3DCase3WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase3WebGPU
+.PHONY : Test3DCase3WebGPU
 
 # fast build rule for target.
-Test3DCase3/fast:
-	$(MAKE) -f Test3DCase3/CMakeFiles/Test3DCase3.dir/build.make Test3DCase3/CMakeFiles/Test3DCase3.dir/build
-.PHONY : Test3DCase3/fast
+Test3DCase3WebGPU/fast:
+	$(MAKE) -f Test3DCase3/CMakeFiles/Test3DCase3WebGPU.dir/build.make Test3DCase3/CMakeFiles/Test3DCase3WebGPU.dir/build
+.PHONY : Test3DCase3WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DCase4
+# Target rules for targets named Test3DCase4WebGPU
 
 # Build rule for target.
-Test3DCase4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase4
-.PHONY : Test3DCase4
+Test3DCase4WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DCase4WebGPU
+.PHONY : Test3DCase4WebGPU
 
 # fast build rule for target.
-Test3DCase4/fast:
-	$(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/build
-.PHONY : Test3DCase4/fast
+Test3DCase4WebGPU/fast:
+	$(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build
+.PHONY : Test3DCase4WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DShading
+# Target rules for targets named Test3DShadingWebGPU
 
 # Build rule for target.
-Test3DShading: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DShading
-.PHONY : Test3DShading
+Test3DShadingWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DShadingWebGPU
+.PHONY : Test3DShadingWebGPU
 
 # fast build rule for target.
-Test3DShading/fast:
-	$(MAKE) -f Test3DShading/CMakeFiles/Test3DShading.dir/build.make Test3DShading/CMakeFiles/Test3DShading.dir/build
-.PHONY : Test3DShading/fast
+Test3DShadingWebGPU/fast:
+	$(MAKE) -f Test3DShading/CMakeFiles/Test3DShadingWebGPU.dir/build.make Test3DShading/CMakeFiles/Test3DShadingWebGPU.dir/build
+.PHONY : Test3DShadingWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named Test3DSky
+# Target rules for targets named Test3DSkyWebGPU
 
 # Build rule for target.
-Test3DSky: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test3DSky
-.PHONY : Test3DSky
+Test3DSkyWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test3DSkyWebGPU
+.PHONY : Test3DSkyWebGPU
 
 # fast build rule for target.
-Test3DSky/fast:
-	$(MAKE) -f Test3DSky/CMakeFiles/Test3DSky.dir/build.make Test3DSky/CMakeFiles/Test3DSky.dir/build
-.PHONY : Test3DSky/fast
+Test3DSkyWebGPU/fast:
+	$(MAKE) -f Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build.make Test3DSky/CMakeFiles/Test3DSkyWebGPU.dir/build
+.PHONY : Test3DSkyWebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestSRGBCase1
+# Target rules for targets named TestSRGBCase1WebGPU
 
 # Build rule for target.
-TestSRGBCase1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase1
-.PHONY : TestSRGBCase1
+TestSRGBCase1WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase1WebGPU
+.PHONY : TestSRGBCase1WebGPU
 
 # fast build rule for target.
-TestSRGBCase1/fast:
-	$(MAKE) -f TestSRGBCase1/CMakeFiles/TestSRGBCase1.dir/build.make TestSRGBCase1/CMakeFiles/TestSRGBCase1.dir/build
-.PHONY : TestSRGBCase1/fast
+TestSRGBCase1WebGPU/fast:
+	$(MAKE) -f TestSRGBCase1/CMakeFiles/TestSRGBCase1WebGPU.dir/build.make TestSRGBCase1/CMakeFiles/TestSRGBCase1WebGPU.dir/build
+.PHONY : TestSRGBCase1WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestSRGBCase2
+# Target rules for targets named TestSRGBCase2WebGPU
 
 # Build rule for target.
-TestSRGBCase2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase2
-.PHONY : TestSRGBCase2
+TestSRGBCase2WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase2WebGPU
+.PHONY : TestSRGBCase2WebGPU
 
 # fast build rule for target.
-TestSRGBCase2/fast:
-	$(MAKE) -f TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build.make TestSRGBCase2/CMakeFiles/TestSRGBCase2.dir/build
-.PHONY : TestSRGBCase2/fast
+TestSRGBCase2WebGPU/fast:
+	$(MAKE) -f TestSRGBCase2/CMakeFiles/TestSRGBCase2WebGPU.dir/build.make TestSRGBCase2/CMakeFiles/TestSRGBCase2WebGPU.dir/build
+.PHONY : TestSRGBCase2WebGPU/fast
 
 #=============================================================================
-# Target rules for targets named TestSRGBCase3
+# Target rules for targets named TestSRGBCase3WebGPU
 
 # Build rule for target.
-TestSRGBCase3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase3
-.PHONY : TestSRGBCase3
+TestSRGBCase3WebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestSRGBCase3WebGPU
+.PHONY : TestSRGBCase3WebGPU
 
 # fast build rule for target.
-TestSRGBCase3/fast:
-	$(MAKE) -f TestSRGBCase3/CMakeFiles/TestSRGBCase3.dir/build.make TestSRGBCase3/CMakeFiles/TestSRGBCase3.dir/build
-.PHONY : TestSRGBCase3/fast
+TestSRGBCase3WebGPU/fast:
+	$(MAKE) -f TestSRGBCase3/CMakeFiles/TestSRGBCase3WebGPU.dir/build.make TestSRGBCase3/CMakeFiles/TestSRGBCase3WebGPU.dir/build
+.PHONY : TestSRGBCase3WebGPU/fast
 
 # Help Target
 help:
@@ -782,56 +782,56 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Siv3DAppData"
-	@echo "... Main"
-	@echo "... AsyncFileDownload"
-	@echo "... DragDrop"
-	@echo "... Microphone"
-	@echo "... MaterialIcon"
-	@echo "... QRReader"
-	@echo "... Terrain"
-	@echo "... VideoReader"
-	@echo "... WebCam"
-	@echo "... AdditionalEmoji"
-	@echo "... EmpoweredAudio"
-	@echo "... KDTree"
-	@echo "... GeoJson"
-	@echo "... GrabCut"
-	@echo "... Spline2D"
-	@echo "... P2WheelJoint"
-	@echo "... PackRectangles"
-	@echo "... PolygonOutline"
-	@echo "... PerlinNoise"
-	@echo "... QRCode"
-	@echo "... RayIntersection"
-	@echo "... NavMesh"
-	@echo "... SoftShape"
-	@echo "... ViewFrustum"
-	@echo "... TCPonWebSocket"
-	@echo "... TestShaderDefault2D"
-	@echo "... TestShaderDefault3D"
-	@echo "... TestShaderBlockGame"
-	@echo "... TestShaderExtractBright"
-	@echo "... TestShaderForwardFog"
-	@echo "... TestShaderForwardTriplanar"
-	@echo "... TestShaderGameOfLife"
-	@echo "... TestShaderGrayScale"
-	@echo "... TestShaderMultiTextureBlend"
-	@echo "... TestShaderMultiShaderMask"
-	@echo "... TestShaderPoissonDisk"
-	@echo "... TestShaderPosterize"
-	@echo "... TestShaderRGBShift"
-	@echo "... TestShaderRGBToBGR"
-	@echo "... TestShaderSwirl"
-	@echo "... TestShaderTerrainNormal"
-	@echo "... Test3DCase1"
-	@echo "... Test3DCase2"
-	@echo "... Test3DCase3"
-	@echo "... Test3DCase4"
-	@echo "... Test3DShading"
-	@echo "... Test3DSky"
-	@echo "... TestSRGBCase1"
-	@echo "... TestSRGBCase2"
-	@echo "... TestSRGBCase3"
+	@echo "... MainWebGPU"
+	@echo "... AsyncFileDownloadWebGPU"
+	@echo "... DragDropWebGPU"
+	@echo "... MicrophoneWebGPU"
+	@echo "... MaterialIconWebGPU"
+	@echo "... QRReaderWebGPU"
+	@echo "... TerrainWebGPU"
+	@echo "... VideoReaderWebGPU"
+	@echo "... WebCamWebGPU"
+	@echo "... AdditionalEmojiWebGPU"
+	@echo "... EmpoweredAudioWebGPU"
+	@echo "... KDTreeWebGPU"
+	@echo "... GeoJsonWebGPU"
+	@echo "... GrabCutWebGPU"
+	@echo "... Spline2DWebGPU"
+	@echo "... P2WheelJointWebGPU"
+	@echo "... PackRectanglesWebGPU"
+	@echo "... PolygonOutlineWebGPU"
+	@echo "... PerlinNoiseWebGPU"
+	@echo "... QRCodeWebGPU"
+	@echo "... RayIntersectionWebGPU"
+	@echo "... NavMeshWebGPU"
+	@echo "... SoftShapeWebGPU"
+	@echo "... ViewFrustumWebGPU"
+	@echo "... TCPonWebSocketWebGPU"
+	@echo "... TestShaderDefault2DWebGPU"
+	@echo "... TestShaderDefault3DWebGPU"
+	@echo "... TestShaderBlockGameWebGPU"
+	@echo "... TestShaderExtractBrightWebGPU"
+	@echo "... TestShaderForwardFogWebGPU"
+	@echo "... TestShaderForwardTriplanarWebGPU"
+	@echo "... TestShaderGameOfLifeWebGPU"
+	@echo "... TestShaderGrayScaleWebGPU"
+	@echo "... TestShaderMultiTextureBlendWebGPU"
+	@echo "... TestShaderMultiShaderMaskWebGPU"
+	@echo "... TestShaderPoissonDiskWebGPU"
+	@echo "... TestShaderPosterizeWebGPU"
+	@echo "... TestShaderRGBShiftWebGPU"
+	@echo "... TestShaderRGBToBGRWebGPU"
+	@echo "... TestShaderSwirlWebGPU"
+	@echo "... TestShaderTerrainNormalWebGPU"
+	@echo "... Test3DCase1WebGPU"
+	@echo "... Test3DCase2WebGPU"
+	@echo "... Test3DCase3WebGPU"
+	@echo "... Test3DCase4WebGPU"
+	@echo "... Test3DShadingWebGPU"
+	@echo "... Test3DSkyWebGPU"
+	@echo "... TestSRGBCase1WebGPU"
+	@echo "... TestSRGBCase2WebGPU"
+	@echo "... TestSRGBCase3WebGPU"
 .PHONY : help
 
 
