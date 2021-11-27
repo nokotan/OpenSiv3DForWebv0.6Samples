@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/rule
-.PHONY : ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/rule
+ViewFrustum/CMakeFiles/ViewFrustum.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 ViewFrustum/CMakeFiles/ViewFrustum.dir/rule
+.PHONY : ViewFrustum/CMakeFiles/ViewFrustum.dir/rule
 
 # Convenience name for target.
-ViewFrustumWebGPU: ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/rule
+ViewFrustum: ViewFrustum/CMakeFiles/ViewFrustum.dir/rule
 
-.PHONY : ViewFrustumWebGPU
+.PHONY : ViewFrustum
 
 # fast build rule for target.
-ViewFrustumWebGPU/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build.make ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build
-.PHONY : ViewFrustumWebGPU/fast
+ViewFrustum/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustum.dir/build.make ViewFrustum/CMakeFiles/ViewFrustum.dir/build
+.PHONY : ViewFrustum/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build.make ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustum.dir/build.make ViewFrustum/CMakeFiles/ViewFrustum.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build.make ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustum.dir/build.make ViewFrustum/CMakeFiles/ViewFrustum.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/build.make ViewFrustum/CMakeFiles/ViewFrustumWebGPU.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f ViewFrustum/CMakeFiles/ViewFrustum.dir/build.make ViewFrustum/CMakeFiles/ViewFrustum.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ViewFrustumWebGPU"
+	@echo "... ViewFrustum"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
