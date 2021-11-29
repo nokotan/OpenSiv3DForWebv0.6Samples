@@ -1040,7 +1040,7 @@ mergeInto(LibraryManager.library, {
         const dataPos = (Module["_malloc"](4 * (paramStrs.length + 1))) / 4;
         HEAPU32.fill(0, dataPos, dataPos + paramStrs.length + 1);
 
-        for (let i = 0; i < paramStrs.length; i++)
+        for (var i = 0; i < paramStrs.length; i++)
         {
             HEAP32[dataPos + i] = allocate(intArrayFromString(paramStrs[i]), ALLOC_NORMAL);
         }
