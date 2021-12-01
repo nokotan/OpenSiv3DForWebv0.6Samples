@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/rule
-.PHONY : TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/rule
+TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/rule
+.PHONY : TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/rule
 
 # Convenience name for target.
-TCPonWebSocket: TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/rule
+TCPonWebSocketWebGPU: TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/rule
 
-.PHONY : TCPonWebSocket
+.PHONY : TCPonWebSocketWebGPU
 
 # fast build rule for target.
-TCPonWebSocket/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build
-.PHONY : TCPonWebSocket/fast
+TCPonWebSocketWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build
+.PHONY : TCPonWebSocketWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocket.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/build.make TCPonWebSocket/CMakeFiles/TCPonWebSocketWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TCPonWebSocket"
+	@echo "... TCPonWebSocketWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
