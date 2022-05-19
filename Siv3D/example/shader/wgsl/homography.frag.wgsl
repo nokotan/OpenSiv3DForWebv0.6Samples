@@ -1,34 +1,34 @@
-//	Copyright (c) 2008-2021 Ryo Suzuki.
-//	Copyright (c) 2016-2021 OpenSiv3D Project.
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
 
 //
 //	Textures
 //
-[[group(2), binding(0)]] var Sampler0: sampler;
-[[group(2), binding(1)]] var Texture0: texture_2d<f32>;
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
 
 //
 //	Constant Buffer
 //
-[[block]] struct PSConstants2DStruct
+struct PSConstants2DStruct
 {
-	colorAdd: vec4<f32>;
-	sdfParam: vec4<f32>;
-	sdfOutlineColor: vec4<f32>;
-	sdfShadowColor: vec4<f32>;
-	unused: vec4<f32>;
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
 };
 
-[[group(1), binding(0)]]
+@group(1) @binding(0)
 var<uniform> PSConstants2D: PSConstants2DStruct;
 
-[[block]] struct PSHomographyStruct
+struct PSHomographyStruct
 {
 	mat3x3<f32> invHomography;
 };
 
-[[group(1), binding(1)]]
+@group(1) @binding(1)
 var<uniform> PSHomography: PSHomographyStruct;
 
 //
@@ -42,12 +42,12 @@ fn Transform(pos: vec3<f32>, mat: mat3x3<f32>) -> vec2<f32>
 	return vec2<f32>(x, y);
 }
 
-[[stage(fragment)]]
+@stage(fragment)
 fn main(
-	[[builtin(position)]] Position: vec4<f32>,
-	[[location(0)]] Color: vec4<f32>,
-	[[location(1)]] UV: vec2<f32>
-) -> [[location(0)]] vec4<f32> 
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
 {
 	var uv: vec2<f32> = Transform(UV, PSHomography.invHomography);
 	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, uv);

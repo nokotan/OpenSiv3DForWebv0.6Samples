@@ -70,9 +70,10 @@ set(Siv3DAppLinkerFlags
     "-s ASYNCIFY=1"
     "-s ASYNCIFY_IGNORE_INDIRECT=1"
     "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
-    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
+    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::CSystem::init(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
 
-    "-s LZ4=1"
+    # "-s LZ4=1"
+    "-Wl,--allow-undefined"
 
     "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
     "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
@@ -102,7 +103,8 @@ set(Siv3DAppWebGPULinkerFlags
     "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
     "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
 
-    "-s LZ4=1"
+    # "-s LZ4=1"
+    "-Wl,--allow-undefined"
 
     "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
     "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
@@ -163,7 +165,7 @@ add_custom_command(
         Siv3DApp.data
         --js-output=Siv3DApp.data.js
         ${Siv3DAppBundledFilesFlags}
-        --lz4
+        # --lz4
         --from-emcc
 )
 

@@ -1,16 +1,16 @@
-//	Copyright (c) 2008-2021 Ryo Suzuki.
-//	Copyright (c) 2016-2021 OpenSiv3D Project.
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
 
 struct VertexOutput
 {
-	[[builtin(position)]] Position: vec4<f32>;
-   	[[location(0)]] UV: vec2<f32>;
+	@builtin(position) Position: vec4<f32>,
+   	@location(0) UV: vec2<f32>,
 };
 
-[[stage(vertex)]]
+@stage(vertex)
 fn main(
-   [[builtin(vertex_index)]] VertexIndex: u32,
+   @builtin(vertex_index) VertexIndex: u32,
 ) -> VertexOutput
 {
 	var output: VertexOutput;

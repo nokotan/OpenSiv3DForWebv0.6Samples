@@ -1,7 +1,7 @@
 #version 300 es
 
-//	Copyright (c) 2008-2021 Ryo Suzuki.
-//	Copyright (c) 2016-2021 OpenSiv3D Project.
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
 
 //
@@ -31,6 +31,11 @@ layout(std140) uniform VSPerObject
 	mat4x4 g_localToWorld;
 };
 
+layout(std140) uniform VSPerMaterial
+{
+	vec4 g_uvTransform;
+};
+
 //
 //	Functions
 //
@@ -40,6 +45,6 @@ void main()
 
 	gl_Position		= worldPosition * g_worldToProjected;
 	WorldPosition	= worldPosition.xyz;
-	UV				= VertexUV;
+	UV				= (VertexUV * g_uvTransform.xy + g_uvTransform.zw);
 	Normal			= VertexNormal * mat3x3(g_localToWorld);
 }

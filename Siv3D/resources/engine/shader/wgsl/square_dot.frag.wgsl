@@ -1,31 +1,31 @@
-//	Copyright (c) 2008-2021 Ryo Suzuki.
-//	Copyright (c) 2016-2021 OpenSiv3D Project.
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
 
 //
 //	Constant Buffer
 //
-[[block]] struct PSConstants2DStruct
+struct PSConstants2DStruct
 {
-	colorAdd: vec4<f32>;
-	sdfParam: vec4<f32>;
-	sdfOutlineColor: vec4<f32>;
-	sdfShadowColor: vec4<f32>;
-	unused: vec4<f32>;
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
 };
 
-[[group(1), binding(0)]]
+@group(1) @binding(0)
 var<uniform> PSConstants2D: PSConstants2DStruct;
 
 //
 //	Functions
 //
-[[stage(fragment)]]
+@stage(fragment)
 fn main(
-	[[builtin(position)]] Position: vec4<f32>,
-	[[location(0)]] Color: vec4<f32>,
-	[[location(1)]] UV: vec2<f32>
-) -> [[location(0)]] vec4<f32> 
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
 {
 	var tr: f32 = UV.y;
 	var d: f32 = abs(UV.x % 3.0 - 1.0);
@@ -36,7 +36,7 @@ fn main(
 	{
 		color.a = color.a * 1.0;
 	} 
-	elseif (d < 1.0)
+	else if (d < 1.0)
 	{
 		color.a = color.a * (1.0 - d) / tr;
 	}

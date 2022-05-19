@@ -2,8 +2,8 @@
 //
 //	This file is part of the Siv3D Engine.
 //
-//	Copyright (c) 2008-2021 Ryo Suzuki
-//	Copyright (c) 2016-2021 OpenSiv3D Project
+//	Copyright (c) 2008-2022 Ryo Suzuki
+//	Copyright (c) 2016-2022 OpenSiv3D Project
 //
 //	Licensed under the MIT License.
 //
@@ -202,10 +202,10 @@ namespace s3d
 
 		Array& operator =(container_type&& other);
 
-		Array& operator=(std::initializer_list<value_type> ilist);
+		Array& operator =(std::initializer_list<value_type> ilist);
 
 		template <class ArrayIsh, std::enable_if_t<Meta::HasAsArray<ArrayIsh>::value>* = nullptr>
-		Array& operator=(const ArrayIsh& a);
+		Array& operator =(const ArrayIsh& a);
 
 		Array& assign(size_type count, const value_type & value);
 
@@ -238,13 +238,13 @@ namespace s3d
 		/// @param index 要素へのインデックス
 		/// @return 要素への参照
 		[[nodiscard]]
-		const value_type& operator[](size_t index) const;
+		const value_type& operator [](size_t index) const;
 
 		/// @brief 要素にアクセスします。
 		/// @param index 要素へのインデックス
 		/// @return 要素への参照
 		[[nodiscard]]
-		value_type& operator[](size_t index);
+		value_type& operator [](size_t index);
 
 		[[nodiscard]]
 		reference front();
