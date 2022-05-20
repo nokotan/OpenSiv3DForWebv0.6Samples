@@ -95,3 +95,18 @@
 | TestShaderRGBToBGR | [TestShaderRGBToBGR](./TestShaderRGBToBGR/TestShaderRGBToBGR.html) | [TestShaderRGBToBGR](./WebGPU/TestShaderRGBToBGR/TestShaderRGBToBGR.html) |
 | TestShaderSwirl | [TestShaderSwirl](./TestShaderSwirl/TestShaderSwirl.html) | [TestShaderSwirl](./WebGPU/TestShaderSwirl/TestShaderSwirl.html) |
 | TestShaderTerrainNormal | [TestShaderTerrainNormal](./TestShaderTerrainNormal/TestShaderTerrainNormal.html) | [TestShaderTerrainNormal](./WebGPU/TestShaderTerrainNormal/TestShaderTerrainNormal.html) |
+
+## OpenSiv3D v0.6.4
+
+| Name | WebGL backend | WebGPU backend |
+| :--: | :--: | :--: |
+| UVTransform3D | [UVTransform3D](./UVTransform3D/UVTransform3D.html) | [UVTransform3D](./WebGPU/UVTransform3D/UVTransform3D.html) |
+| TextRegature | [TextRegature](./TextRegature/TextRegature.html) | [TextRegature](./WebGPU/TextRegature/TextRegature.html) |
+| PolygonHole | [PolygonHole](./PolygonHole/PolygonHole.html) | [PolygonHole](./WebGPU/PolygonHole/PolygonHole.html) |
+| NavMeshSimplified | [NavMeshSimplified](./NavMeshSimplified/NavMeshSimplified.html) | [NavMeshSimplified](./WebGPU/NavMeshSimplified/NavMeshSimplified.html) |
+| PeriodicMinusToPlus | [PeriodicMinusToPlus](./PeriodicMinusToPlus/PeriodicMinusToPlus.html) | [PeriodicMinusToPlus](./WebGPU/PeriodicMinusToPlus/PeriodicMinusToPlus.html) |
+| RoundedBox | [RoundedBox](./RoundedBox/RoundedBox.html) | [RoundedBox](./WebGPU/RoundedBox/RoundedBox.html) |
+| NearestClamped3D | [NearestClamped3D](./NearestClamped3D/NearestClamped3D.html) | [NearestClamped3D](./WebGPU/NearestClamped3D/NearestClamped3D.html) |
+| DisjointSet | [DisjointSet](./DisjointSet/DisjointSet.html) | [DisjointSet](./WebGPU/DisjointSet/DisjointSet.html) |
+| AudioStreamSine | [AudioStreamSine](./AudioStreamSine/AudioStreamSine.html) | [AudioStreamSine](./WebGPU/AudioStreamSine/AudioStreamSine.html) |
+| AudioStreamMic | [AudioStreamMic](./AudioStreamMic/AudioStreamMic.html) | [AudioStreamMic](./WebGPU/AudioStreamMic/AudioStreamMic.html) |

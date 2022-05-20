@@ -768,6 +768,141 @@ jobs:
         working-directory: Build
         run: |
             make -j4 WebCam
+      
+      - name: Cache UVTransform3D
+        id: cache_UVTransform3D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-UVTransform3D
+        with:
+            path: Build/UVTransform3D
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'UVTransform3D/**/*.*') }}
+
+      - name: Build UVTransform3D
+        if: ${{ !steps.cache_UVTransform3D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 UVTransform3D
+
+      - name: Cache TextRegature
+        id: cache_TextRegature
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TextRegature
+        with:
+            path: Build/TextRegature
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TextRegature/**/*.*') }}
+
+      - name: Build TextRegature
+        if: ${{ !steps.cache_TextRegature.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TextRegature
+
+      - name: Cache PolygonHole
+        id: cache_PolygonHole
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PolygonHole
+        with:
+            path: Build/PolygonHole
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PolygonHole/**/*.*') }}
+
+      - name: Build PolygonHole
+        if: ${{ !steps.cache_PolygonHole.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PolygonHole
+
+      - name: Cache NavMeshSimplified
+        id: cache_NavMeshSimplified
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-NavMeshSimplified
+        with:
+            path: Build/NavMeshSimplified
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NavMeshSimplified/**/*.*') }}
+
+      - name: Build NavMeshSimplified
+        if: ${{ !steps.cache_NavMeshSimplified.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 NavMeshSimplified
+
+      - name: Cache PeriodicMinusToPlus
+        id: cache_PeriodicMinusToPlus
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PeriodicMinusToPlus
+        with:
+            path: Build/PeriodicMinusToPlus
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PeriodicMinusToPlus/**/*.*') }}
+
+      - name: Build PeriodicMinusToPlus
+        if: ${{ !steps.cache_PeriodicMinusToPlus.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PeriodicMinusToPlus
+
+      - name: Cache RoundedBox
+        id: cache_RoundedBox
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-RoundedBox
+        with:
+            path: Build/RoundedBox
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'RoundedBox/**/*.*') }}
+
+      - name: Build RoundedBox
+        if: ${{ !steps.cache_RoundedBox.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 RoundedBox
+
+      - name: Cache NearestClamped3D
+        id: cache_NearestClamped3D
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-NearestClamped3D
+        with:
+            path: Build/NearestClamped3D
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NearestClamped3D/**/*.*') }}
+
+      - name: Build NearestClamped3D
+        if: ${{ !steps.cache_NearestClamped3D.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 NearestClamped3D
+
+      - name: Cache DisjointSet
+        id: cache_DisjointSet
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-DisjointSet
+        with:
+            path: Build/DisjointSet
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'DisjointSet/**/*.*') }}
+
+      - name: Build DisjointSet
+        if: ${{ !steps.cache_DisjointSet.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 DisjointSet
+
+      - name: Cache AudioStreamSine
+        id: cache_AudioStreamSine
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-AudioStreamSine
+        with:
+            path: Build/AudioStreamSine
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AudioStreamSine/**/*.*') }}
+
+      - name: Build AudioStreamSine
+        if: ${{ !steps.cache_AudioStreamSine.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 AudioStreamSine
 
 
 

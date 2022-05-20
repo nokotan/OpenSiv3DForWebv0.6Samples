@@ -769,6 +769,141 @@ jobs:
         run: |
             make -j4 WebCamWebGPU
 
+      - name: Cache UVTransform3DWebGPU
+        id: cache_UVTransform3DWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-UVTransform3DWebGPU
+        with:
+            path: Build/UVTransform3D
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'UVTransform3D/**/*.*') }}
+
+      - name: Build UVTransform3DWebGPU
+        if: ${{ !steps.cache_UVTransform3DWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 UVTransform3DWebGPU
+
+      - name: Cache TextRegatureWebGPU
+        id: cache_TextRegatureWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-TextRegatureWebGPU
+        with:
+            path: Build/TextRegature
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'TextRegature/**/*.*') }}
+
+      - name: Build TextRegatureWebGPU
+        if: ${{ !steps.cache_TextRegatureWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 TextRegatureWebGPU
+
+      - name: Cache PolygonHoleWebGPU
+        id: cache_PolygonHoleWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PolygonHoleWebGPU
+        with:
+            path: Build/PolygonHole
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PolygonHole/**/*.*') }}
+
+      - name: Build PolygonHoleWebGPU
+        if: ${{ !steps.cache_PolygonHoleWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PolygonHoleWebGPU
+
+      - name: Cache NavMeshSimplifiedWebGPU
+        id: cache_NavMeshSimplifiedWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-NavMeshSimplifiedWebGPU
+        with:
+            path: Build/NavMeshSimplified
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NavMeshSimplified/**/*.*') }}
+
+      - name: Build NavMeshSimplifiedWebGPU
+        if: ${{ !steps.cache_NavMeshSimplifiedWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 NavMeshSimplifiedWebGPU
+
+      - name: Cache PeriodicMinusToPlusWebGPU
+        id: cache_PeriodicMinusToPlusWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-PeriodicMinusToPlusWebGPU
+        with:
+            path: Build/PeriodicMinusToPlus
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'PeriodicMinusToPlus/**/*.*') }}
+
+      - name: Build PeriodicMinusToPlusWebGPU
+        if: ${{ !steps.cache_PeriodicMinusToPlusWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 PeriodicMinusToPlusWebGPU
+
+      - name: Cache RoundedBoxWebGPU
+        id: cache_RoundedBoxWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-RoundedBoxWebGPU
+        with:
+            path: Build/RoundedBox
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'RoundedBox/**/*.*') }}
+
+      - name: Build RoundedBoxWebGPU
+        if: ${{ !steps.cache_RoundedBoxWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 RoundedBoxWebGPU
+
+      - name: Cache NearestClamped3DWebGPU
+        id: cache_NearestClamped3DWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-NearestClamped3DWebGPU
+        with:
+            path: Build/NearestClamped3D
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'NearestClamped3D/**/*.*') }}
+
+      - name: Build NearestClamped3DWebGPU
+        if: ${{ !steps.cache_NearestClamped3DWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 NearestClamped3DWebGPU
+
+      - name: Cache DisjointSetWebGPU
+        id: cache_DisjointSetWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-DisjointSetWebGPU
+        with:
+            path: Build/DisjointSet
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'DisjointSet/**/*.*') }}
+
+      - name: Build DisjointSetWebGPU
+        if: ${{ !steps.cache_DisjointSetWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 DisjointSetWebGPU
+
+      - name: Cache AudioStreamSineWebGPU
+        id: cache_AudioStreamSineWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-AudioStreamSineWebGPU
+        with:
+            path: Build/AudioStreamSine
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AudioStreamSine/**/*.*') }}
+
+      - name: Build AudioStreamSineWebGPU
+        if: ${{ !steps.cache_AudioStreamSineWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 AudioStreamSineWebGPU
+
 
 
       - name: Pre Deploy
