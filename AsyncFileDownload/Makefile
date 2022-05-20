@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/rule
-.PHONY : AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/rule
+AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/rule
+.PHONY : AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/rule
 
 # Convenience name for target.
-AsyncFileDownload: AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/rule
+AsyncFileDownloadWebGPU: AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/rule
 
-.PHONY : AsyncFileDownload
+.PHONY : AsyncFileDownloadWebGPU
 
 # fast build rule for target.
-AsyncFileDownload/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build
-.PHONY : AsyncFileDownload/fast
+AsyncFileDownloadWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build
+.PHONY : AsyncFileDownloadWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownload.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/build.make AsyncFileDownload/CMakeFiles/AsyncFileDownloadWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... AsyncFileDownload"
+	@echo "... AsyncFileDownloadWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
