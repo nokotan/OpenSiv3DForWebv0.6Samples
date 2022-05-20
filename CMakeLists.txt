@@ -274,6 +274,7 @@ function(Siv3DAppWebGPUSetProjectDefaultConfig ProjectName)
 
     target_link_libraries(${WebGPUProjectName}
         "${Siv3DAppLibraries}"
+        Siv3DWebGPU
     )
 
     set(Siv3DAppWebGPUCompileFlags "${Siv3DAppCompileFlags} -include '${CMAKE_CURRENT_SOURCE_DIR}/../Siv3D/Siv3D.WebGPU.forced.hpp'")

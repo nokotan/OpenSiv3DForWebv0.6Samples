@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: 'emscripten/emsdk:2.0.22'
+      image: 'emscripten/emsdk:3.1.8'
     
     steps:
       - name: Checkout Code
