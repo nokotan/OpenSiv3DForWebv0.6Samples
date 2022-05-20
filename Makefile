@@ -773,6 +773,123 @@ TestSRGBCase3WebGPU/fast:
 	$(MAKE) -f TestSRGBCase3/CMakeFiles/TestSRGBCase3WebGPU.dir/build.make TestSRGBCase3/CMakeFiles/TestSRGBCase3WebGPU.dir/build
 .PHONY : TestSRGBCase3WebGPU/fast
 
+#=============================================================================
+# Target rules for targets named UVTransform3DWebGPU
+
+# Build rule for target.
+UVTransform3DWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 UVTransform3DWebGPU
+.PHONY : UVTransform3DWebGPU
+
+# fast build rule for target.
+UVTransform3DWebGPU/fast:
+	$(MAKE) -f UVTransform3D/CMakeFiles/UVTransform3DWebGPU.dir/build.make UVTransform3D/CMakeFiles/UVTransform3DWebGPU.dir/build
+.PHONY : UVTransform3DWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named TextRegatureWebGPU
+
+# Build rule for target.
+TextRegatureWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TextRegatureWebGPU
+.PHONY : TextRegatureWebGPU
+
+# fast build rule for target.
+TextRegatureWebGPU/fast:
+	$(MAKE) -f TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build.make TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build
+.PHONY : TextRegatureWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named PolygonHoleWebGPU
+
+# Build rule for target.
+PolygonHoleWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PolygonHoleWebGPU
+.PHONY : PolygonHoleWebGPU
+
+# fast build rule for target.
+PolygonHoleWebGPU/fast:
+	$(MAKE) -f PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build.make PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build
+.PHONY : PolygonHoleWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named NavMeshSimplifiedWebGPU
+
+# Build rule for target.
+NavMeshSimplifiedWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NavMeshSimplifiedWebGPU
+.PHONY : NavMeshSimplifiedWebGPU
+
+# fast build rule for target.
+NavMeshSimplifiedWebGPU/fast:
+	$(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build
+.PHONY : NavMeshSimplifiedWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named PeriodicMinusToPlusWebGPU
+
+# Build rule for target.
+PeriodicMinusToPlusWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PeriodicMinusToPlusWebGPU
+.PHONY : PeriodicMinusToPlusWebGPU
+
+# fast build rule for target.
+PeriodicMinusToPlusWebGPU/fast:
+	$(MAKE) -f PeriodicMinusToPlus/CMakeFiles/PeriodicMinusToPlusWebGPU.dir/build.make PeriodicMinusToPlus/CMakeFiles/PeriodicMinusToPlusWebGPU.dir/build
+.PHONY : PeriodicMinusToPlusWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named RoundedBoxWebGPU
+
+# Build rule for target.
+RoundedBoxWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RoundedBoxWebGPU
+.PHONY : RoundedBoxWebGPU
+
+# fast build rule for target.
+RoundedBoxWebGPU/fast:
+	$(MAKE) -f RoundedBox/CMakeFiles/RoundedBoxWebGPU.dir/build.make RoundedBox/CMakeFiles/RoundedBoxWebGPU.dir/build
+.PHONY : RoundedBoxWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named NearestClamped3DWebGPU
+
+# Build rule for target.
+NearestClamped3DWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NearestClamped3DWebGPU
+.PHONY : NearestClamped3DWebGPU
+
+# fast build rule for target.
+NearestClamped3DWebGPU/fast:
+	$(MAKE) -f NearestClamped3D/CMakeFiles/NearestClamped3DWebGPU.dir/build.make NearestClamped3D/CMakeFiles/NearestClamped3DWebGPU.dir/build
+.PHONY : NearestClamped3DWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named DisjointSetWebGPU
+
+# Build rule for target.
+DisjointSetWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DisjointSetWebGPU
+.PHONY : DisjointSetWebGPU
+
+# fast build rule for target.
+DisjointSetWebGPU/fast:
+	$(MAKE) -f DisjointSet/CMakeFiles/DisjointSetWebGPU.dir/build.make DisjointSet/CMakeFiles/DisjointSetWebGPU.dir/build
+.PHONY : DisjointSetWebGPU/fast
+
+#=============================================================================
+# Target rules for targets named AudioStreamSineWebGPU
+
+# Build rule for target.
+AudioStreamSineWebGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AudioStreamSineWebGPU
+.PHONY : AudioStreamSineWebGPU
+
+# fast build rule for target.
+AudioStreamSineWebGPU/fast:
+	$(MAKE) -f AudioStreamSine/CMakeFiles/AudioStreamSineWebGPU.dir/build.make AudioStreamSine/CMakeFiles/AudioStreamSineWebGPU.dir/build
+.PHONY : AudioStreamSineWebGPU/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -832,6 +949,15 @@ help:
 	@echo "... TestSRGBCase1WebGPU"
 	@echo "... TestSRGBCase2WebGPU"
 	@echo "... TestSRGBCase3WebGPU"
+	@echo "... UVTransform3DWebGPU"
+	@echo "... TextRegatureWebGPU"
+	@echo "... PolygonHoleWebGPU"
+	@echo "... NavMeshSimplifiedWebGPU"
+	@echo "... PeriodicMinusToPlusWebGPU"
+	@echo "... RoundedBoxWebGPU"
+	@echo "... NearestClamped3DWebGPU"
+	@echo "... DisjointSetWebGPU"
+	@echo "... AudioStreamSineWebGPU"
 .PHONY : help
 
 
