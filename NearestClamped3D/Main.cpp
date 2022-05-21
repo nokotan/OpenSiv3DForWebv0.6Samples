@@ -32,7 +32,7 @@ void Main()
 			}
 
 			{
-				const ScopedRenderStates3D sampler{ SamplerState::ClampNearest, BlendState::OpaqueAlphaToCoverage };
+				const ScopedRenderStates3D sampler{ SamplerState::ClampNearest, BlendState::Default2D };
 				spriteMesh.draw(Vec3{ 0, 1.6, -4 }, siv3dKun);
 			}
 		}

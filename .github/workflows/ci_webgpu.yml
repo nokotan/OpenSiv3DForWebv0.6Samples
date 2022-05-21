@@ -904,6 +904,21 @@ jobs:
         run: |
             make -j4 AudioStreamSineWebGPU
 
+      - name: Cache AudioStreamMicWebGPU
+        id: AudioStreamMicWebGPU
+        uses: actions/cache@v1
+        env:
+            cache-name: cache-AudioStreamMicWebGPU
+        with:
+            path: Build/AudioStreamMic
+            key: ${{ env.cache-name }}-${{ hashFiles('CMakeLists.txt', 'Siv3D/**/*.*', 'Templates/**/*.*', 'AudioStreamMic/**/*.*') }}
+
+      - name: Build AudioStreamMicWebGPU
+        if: ${{ !steps.cache_AudioStreamMicWebGPU.outputs.cache-hit }}
+        working-directory: Build
+        run: |
+            make -j4 AudioStreamMicWebGPU
+
 
 
       - name: Pre Deploy
