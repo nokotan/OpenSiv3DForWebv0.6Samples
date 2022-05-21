@@ -361,7 +361,6 @@ endfunction()
 
 add_subdirectory(Main)
 
-# add_subdirectory(Main3D)
 add_subdirectory(AsyncFileDownload)
 add_subdirectory(DragDrop)
 add_subdirectory(Microphone)
