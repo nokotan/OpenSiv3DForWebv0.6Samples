@@ -93,6 +93,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/NearestClamped3D/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/DisjointSet/cmake_install.cmake")
   include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/AudioStreamSine/cmake_install.cmake")
+  include("/__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build/AudioStreamMic/cmake_install.cmake")
 
 endif()
 

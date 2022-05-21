@@ -890,6 +890,19 @@ AudioStreamSine/fast:
 	$(MAKE) -f AudioStreamSine/CMakeFiles/AudioStreamSine.dir/build.make AudioStreamSine/CMakeFiles/AudioStreamSine.dir/build
 .PHONY : AudioStreamSine/fast
 
+#=============================================================================
+# Target rules for targets named AudioStreamMic
+
+# Build rule for target.
+AudioStreamMic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AudioStreamMic
+.PHONY : AudioStreamMic
+
+# fast build rule for target.
+AudioStreamMic/fast:
+	$(MAKE) -f AudioStreamMic/CMakeFiles/AudioStreamMic.dir/build.make AudioStreamMic/CMakeFiles/AudioStreamMic.dir/build
+.PHONY : AudioStreamMic/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -958,6 +971,7 @@ help:
 	@echo "... NearestClamped3D"
 	@echo "... DisjointSet"
 	@echo "... AudioStreamSine"
+	@echo "... AudioStreamMic"
 .PHONY : help
 
 
