@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/rule
-.PHONY : NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/rule
+NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/rule
+.PHONY : NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/rule
 
 # Convenience name for target.
-NavMeshSimplified: NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/rule
+NavMeshSimplifiedWebGPU: NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/rule
 
-.PHONY : NavMeshSimplified
+.PHONY : NavMeshSimplifiedWebGPU
 
 # fast build rule for target.
-NavMeshSimplified/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/build
-.PHONY : NavMeshSimplified/fast
+NavMeshSimplifiedWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build
+.PHONY : NavMeshSimplifiedWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplified.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/build.make NavMeshSimplified/CMakeFiles/NavMeshSimplifiedWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... NavMeshSimplified"
+	@echo "... NavMeshSimplifiedWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"

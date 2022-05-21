@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Bu
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
-.PHONY : P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
+P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/rule
+.PHONY : P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/rule
 
 # Convenience name for target.
-P2WheelJoint: P2WheelJoint/CMakeFiles/P2WheelJoint.dir/rule
+P2WheelJointWebGPU: P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/rule
 
-.PHONY : P2WheelJoint
+.PHONY : P2WheelJointWebGPU
 
 # fast build rule for target.
-P2WheelJoint/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build
-.PHONY : P2WheelJoint/fast
+P2WheelJointWebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build
+.PHONY : P2WheelJointWebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJoint.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJoint.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/build.make P2WheelJoint/CMakeFiles/P2WheelJointWebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -158,9 +158,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... P2WheelJoint"
+	@echo "... rebuild_cache"
+	@echo "... P2WheelJointWebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
