@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-TextRegature/CMakeFiles/TextRegatureWebGPU.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TextRegature/CMakeFiles/TextRegatureWebGPU.dir/rule
-.PHONY : TextRegature/CMakeFiles/TextRegatureWebGPU.dir/rule
+TextRegature/CMakeFiles/TextRegature.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 TextRegature/CMakeFiles/TextRegature.dir/rule
+.PHONY : TextRegature/CMakeFiles/TextRegature.dir/rule
 
 # Convenience name for target.
-TextRegatureWebGPU: TextRegature/CMakeFiles/TextRegatureWebGPU.dir/rule
+TextRegature: TextRegature/CMakeFiles/TextRegature.dir/rule
 
-.PHONY : TextRegatureWebGPU
+.PHONY : TextRegature
 
 # fast build rule for target.
-TextRegatureWebGPU/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build.make TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build
-.PHONY : TextRegatureWebGPU/fast
+TextRegature/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegature.dir/build.make TextRegature/CMakeFiles/TextRegature.dir/build
+.PHONY : TextRegature/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build.make TextRegature/CMakeFiles/TextRegatureWebGPU.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegature.dir/build.make TextRegature/CMakeFiles/TextRegature.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build.make TextRegature/CMakeFiles/TextRegatureWebGPU.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegature.dir/build.make TextRegature/CMakeFiles/TextRegature.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegatureWebGPU.dir/build.make TextRegature/CMakeFiles/TextRegatureWebGPU.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f TextRegature/CMakeFiles/TextRegature.dir/build.make TextRegature/CMakeFiles/TextRegature.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TextRegatureWebGPU"
+	@echo "... TextRegature"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
