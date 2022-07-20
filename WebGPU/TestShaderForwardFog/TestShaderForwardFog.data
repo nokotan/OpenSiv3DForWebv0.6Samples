@@ -1,3 +1,321 @@
+﻿//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSOutput
+//
+struct VertexOutput
+{
+	@builtin(position) Position: vec4<f32>,
+   	@location(0) Color: vec4<f32>,
+   	@location(1) UV: vec2<f32>,
+};
+
+//
+//	Siv3D Functions
+//
+fn s3d_Transform2D(pos: vec2<f32>, t0: vec4<f32>, t1: vec4<f32>) -> vec4<f32>
+{
+	return vec4<f32>(t0.zw + (pos.x * t0.xy) + (pos.y * t1.xy), t1.zw);
+}
+
+//
+//	Constant Buffer
+//
+struct VSConstants2DStruct
+{
+	transform0: vec4<f32>,
+	transform1: vec4<f32>,
+    colorMul: vec4<f32>,
+};
+
+@group(0) @binding(0)
+var<uniform> VSConstants2D: VSConstants2DStruct;
+
+struct SoftShapeStruct
+{
+	t: f32;
+};
+
+@group(0) @binding(1)
+var<uniform> SoftShape: SoftShapeStruct;
+
+//
+//	Functions
+//
+fn Circular(r: f32, theta: f32) -> vec2<f32>
+{
+	return vec2<f32>(sin(theta), -cos(theta)) * r;
+}
+
+@stage(vertex)
+fn main(
+	@builtin(vertex_index) VertexIndex: u32
+) -> VertexOutput
+{
+	var output: VertexOutput;
+	let PI: f32 = 3.14159265;
+
+	output.Color = vec4<f32>(0.2, 0.7, 0.4, 1.0);
+	output.UV = vec2<f32>(0.0, 0.0);
+
+	var pos: vec2<f32>;
+
+	if (VertexIndex % 3u == 0u)
+	{
+		pos = vec2<f32>(640.0, 360.0);
+	}
+	else
+	{
+		var angle: f32 = PI * (f32((VertexIndex / 3u) + ((VertexIndex % 3u) - 1u))) / 180.0;
+		var r: f32 = 200.0
+			+ cos((angle * 2.0) + sin(SoftShape.t * 1.5)) * 40.0
+			+ sin((angle * 2.0) + sin(SoftShape.t * 2.0)) * 30.0
+			+ cos((angle * 3.0) + sin(SoftShape.t * 3.5)) * 20.0
+			+ sin((angle * 3.0) + sin(SoftShape.t * 4.0)) * 10.0;
+		pos = vec2<f32>(640.0, 360.0) + Circular(r, angle);
+		output.Color.a = (1.0 - r / 360.0);
+	}
+
+	output.Position = s3d_Transform2D(pos, VSConstants2D.transform0, VSConstants2D.transform1);
+
+	return output;	
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSOutput
+//
+struct VertexOutput
+{
+	@builtin(position) Position: vec4<f32>,
+	@location(0) WorldPosition: vec3<f32>,
+   	@location(1) UV: vec2<f32>,
+   	@location(2) Normal: vec3<f32>,
+};
+
+//
+//	Constant Buffer
+//
+struct VSPerViewStruct
+{
+	worldToProjected: mat4x4<f32>,
+};
+
+@group(0) @binding(0)
+var<uniform> VSPerView: VSPerViewStruct;
+
+struct VSPerObjectStruct
+{
+	localToWorld: mat4x4<f32>,
+};
+
+@group(0) @binding(1)
+var<uniform> VSPerObject: VSPerObjectStruct;
+
+struct VSPerMaterialStruct
+{
+	uvTransform: vec4<f32>,
+};
+
+@group(0) @binding(2)
+var<uniform> VSPerMaterial: VSPerMaterialStruct;
+
+//
+//	Functions
+//
+@stage(vertex)
+fn main(
+	@location(0) VertexPosition: vec3<f32>,
+	@location(1) VertexNormal: vec3<f32>,
+	@location(2) VertexUV: vec2<f32>,
+) -> VertexOutput
+{
+	var output: VertexOutput;
+	var worldPosition: vec4<f32> = vec4<f32>(VertexPosition, 1.0) * VSPerObject.localToWorld;
+
+	output.Position			= worldPosition * VSPerView.worldToProjected;
+	output.WorldPosition	= worldPosition.xyz;
+	output.UV				= VertexUV * VSPerMaterial.uvTransform.xy + VSPerMaterial.uvTransform.zw;
+	output.Normal			= (vec4<f32>(VertexNormal, 0.0) * VSPerObject.localToWorld).xyz;
+
+	return output;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+@group(2) @binding(2) var Sampler1: sampler;
+@group(2) @binding(3) var Texture1: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
+	
+	var mask: f32 = textureSample(Texture1, Sampler1, UV).r;
+
+	texColor.a = texColor.a * mask;
+
+	return (texColor * Color) + PSConstants2D.colorAdd;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+// PS_1
+struct GameOfLifeStruct
+{
+	pixelSize: vec2<f32>,
+};
+
+@group(1) @binding(1)
+var<uniform> GameOfLife: GameOfLifeStruct;
+// [C++]
+//struct GameOfLife
+//{
+//	Float2 pixelSize;
+//};
+
+let offsets: array<vec2<f32>, 8> = array<vec2<f32>, 8>(
+       vec2<f32>(-1.0, -1.0),
+       vec2<f32>(0.0, -1.0),
+       vec2<f32>(1.0, -1.0),
+       vec2<f32>(-1.0, 0.0),
+       vec2<f32>(1.0, 0.0),
+       vec2<f32>(-1.0, 1.0),
+       vec2<f32>(0.0, 1.0),
+       vec2<f32>(1.0, 1.0)
+);
+		
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var c: f32 = textureSample(Texture0, Sampler0, UV).r;
+
+	var n: f32 = 0.0;
+	
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[0] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[1] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[2] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[3] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[4] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[5] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[6] * GameOfLife.pixelSize).r;
+	n = n + textureSample(Texture0, Sampler0, UV + offsets[7] * GameOfLife.pixelSize).r;
+	
+	if((c == 0.0 && n == 3.0) || (c == 1.0 && (n == 2.0 || n == 3.0)))
+	{
+		return vec4<f32>(1.0, 1.0, 1.0, 1.0);
+	}
+	
+	return vec4<f32>(0.0, 0.0, 0.0, 1.0);
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+@group(2) @binding(2) var Sampler1: sampler;
+@group(2) @binding(3) var Texture1: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var texColor0: vec4<f32> = textureSample(Texture0, Sampler0, UV);
+	
+	var texColor1: vec4<f32> = textureSample(Texture1, Sampler1, UV);
+	
+	texColor0 = vec4<f32>(texColor0.rgb * 0.5 + texColor1.rgb * 0.5, texColor0.a);
+
+	return (texColor0 * Color) + PSConstants2D.colorAdd;
+}
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
@@ -61,6 +379,418 @@ fn main(
 	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, uv);
 
 	return (texColor * Color) + PSConstants2D.colorAdd;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+@group(2) @binding(2) var Sampler1: sampler;
+@group(2) @binding(3) var Texture1: texture_2d<f32>;
+
+@group(2) @binding(4) var Sampler2: sampler;
+@group(2) @binding(5) var Texture2: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSPerFrameStruct
+{
+	gloablAmbientColor: vec3<f32>,
+	sunColor: vec3<f32>,
+	sunDirection: vec3<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSPerFrame: PSPerFrameStruct;
+
+struct PSPerViewStruct
+{
+	eyePosition: vec3<f32>,
+};
+
+@group(1) @binding(1)
+var<uniform> PSPerView: PSPerViewStruct;
+
+struct PSPerMaterialStruct
+{
+	amibientColor: vec3<f32>,
+	hasTexture: u32,
+	diffuseColor: vec4<f32>,
+	specularColor: vec3<f32>,
+	shininess: f32,
+	emissionColor: vec3<f32>,
+};
+
+@group(1) @binding(2)
+var<uniform> PSPerMaterial: PSPerMaterialStruct;
+
+//
+//	Functions
+//
+fn CalculateDiffuseReflection(n: vec3<f32>, l: vec3<f32>, lightColor: vec3<f32>, diffuseColor: vec3<f32>, ambientColor: vec3<f32>) -> vec3<f32>
+{
+	var directColor: vec3<f32> = lightColor * max(dot(n, l), 0.0);
+	return ((ambientColor + directColor) * diffuseColor);
+}
+
+fn CalculateSpecularReflection(n: vec3<f32>, h: vec3<f32>, shininess: f32, nl: f32, lightColor: vec3<f32>, specularColor: vec3<f32>) -> vec3<f32>
+{
+	var highlight: f32 = pow(max(dot(n, h), 0.0), shininess) * f32(0.0 < nl);
+	return (lightColor * specularColor * highlight);
+}
+
+fn FetchNormal(uv: vec2<f32>) -> vec3<f32>
+{
+	var m: vec2<f32> = textureSample(Texture1, Sampler0, uv).rg;
+	return vec3<f32>(m.x, sqrt(1.0 - m.x * m.x - m.y * m.y), m.y);
+}
+
+fn TerrainTriplanar(worldPos: vec3<f32>, normal: vec3<f32>, uvScale: f32) -> vec4<f32>
+{
+	var diffuseColor: vec4<f32> = PSPerMaterial.diffuseColor;
+
+	if (PSPerMaterial.hasTexture == 1u)
+	{
+		let powedNormal = vec3<f32>(normal.x, pow(abs(normal.y), 32.0), normal.x); // less grass on slopes
+
+		var blend: vec3<f32> = abs(powedNormal);
+		blend = blend / (blend.x + blend.y + blend.z);
+
+		let scaledSorldPos = worldPos * uvScale;
+
+		var c0: vec4<f32> = textureSample(Texture2, Sampler2, scaledSorldPos.yz);
+		var c1: vec4<f32> = textureSample(Texture0, Sampler0, scaledSorldPos.xz);
+		var c2: vec4<f32> = textureSample(Texture2, Sampler2, scaledSorldPos.xy);
+
+		diffuseColor = diffuseColor * (c0 * blend.x + c1 * blend.y + c2 * blend.z);
+	}
+
+	return diffuseColor;
+}
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) WorldPosition: vec3<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32>
+{
+	var lightColor: vec3<f32>		= PSPerFrame.sunColor;
+	var lightDirection: vec3<f32>	= PSPerFrame.sunDirection;
+
+	var n: vec3<f32> = FetchNormal(UV);
+	var l: vec3<f32> = lightDirection;
+	var diffuseColor: vec4<f32> = TerrainTriplanar(WorldPosition, n, 0.5);
+	var ambientColor: vec3<f32> = (PSPerMaterial.amibientColor * PSPerFrame.gloablAmbientColor);
+
+	// Diffuse
+	var diffuseReflection: vec3<f32> = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
+
+	// Specular
+	var v: vec3<f32> = normalize(PSPerView.eyePosition - WorldPosition);
+	var h: vec3<f32> = normalize(v + lightDirection);
+	var specularReflection: vec3<f32> = CalculateSpecularReflection(n, h, PSPerMaterial.shininess, dot(n, l), lightColor, PSPerMaterial.specularColor);
+
+	return vec4<f32>(diffuseReflection + specularReflection + PSPerMaterial.emissionColor, diffuseColor.a);
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
+
+	texColor = vec4<f32>(vec3<f32>(dot(texColor.rgb, vec3<f32>(0.299, 0.587, 0.114))), texColor.a);
+
+	return (texColor * Color) + PSConstants2D.colorAdd;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSOutput
+//
+struct VertexOutput
+{
+	@builtin(position) Position: vec4<f32>,
+   	@location(0) Color: vec4<f32>,
+   	@location(1) UV: vec2<f32>,
+};
+
+//
+//	Siv3D Functions
+//
+fn s3d_Transform2D(pos: vec2<f32>, t0: vec4<f32>, t1: vec4<f32>) -> vec4<f32>
+{
+	return vec4<f32>(t0.zw + (pos.x * t0.xy) + (pos.y * t1.xy), t1.zw);
+}
+
+//
+//	Constant Buffer
+//
+struct VSConstants2DStruct
+{
+	transform0: vec4<f32>,
+	transform1: vec4<f32>,
+    colorMul: vec4<f32>,
+};
+
+@group(0) @binding(0)
+var<uniform> VSConstants2D: VSConstants2DStruct;
+
+//
+//	Functions
+//
+@stage(vertex)
+fn main(
+	@location(0) VertexPosition: vec2<f32>,
+	@location(1) VertexUV: vec2<f32>,
+	@location(2) VertexColor: vec4<f32>,
+) -> VertexOutput
+{
+	var output: VertexOutput;
+
+	output.Position = s3d_Transform2D(VertexPosition, VSConstants2D.transform0, VSConstants2D.transform1);
+
+	output.Color = (VertexColor * VSConstants2D.colorMul);
+	
+	output.UV = VertexUV;
+
+	return output;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
+
+	texColor = texColor.bgra;
+
+	return (texColor * Color) + PSConstants2D.colorAdd;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec4<f32> 
+{
+	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
+	return ((texColor * Color) + PSConstants2D.colorAdd);
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(3) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	VSOutput
+//
+struct VertexOutput
+{
+	@builtin(position) Position: vec4<f32>,
+	@location(0) WorldPosition: vec3<f32>,
+   	@location(1) UV: vec2<f32>,
+};
+
+//
+//	Constant Buffer
+//
+struct VSPerViewStruct
+{
+	worldToProjected: mat4x4<f32>,
+};
+
+@group(0) @binding(0)
+var<uniform> VSPerView: VSPerViewStruct;
+
+struct VSPerObjectStruct
+{
+	localToWorld: mat4x4<f32>,
+};
+
+@group(0) @binding(1)
+var<uniform> VSPerObject: VSPerObjectStruct;
+
+struct VSPerMaterialStruct
+{
+	uvTransform: vec4<f32>,
+};
+
+@group(0) @binding(2)
+var<uniform> VSPerMaterial: VSPerMaterialStruct;
+
+//
+//	Functions
+//
+@stage(vertex)
+fn main(
+	@location(0) VertexPosition: vec3<f32>,
+	@location(1) VertexNormal: vec3<f32>,
+	@location(2) VertexUV: vec2<f32>,
+) -> VertexOutput
+{
+	var output: VertexOutput;
+	var uv: vec2<f32> = VertexUV * VSPerMaterial.uvTransform.xy + VSPerMaterial.uvTransform.zw;
+	var height: f32 = textureLoad(Texture0, vec2<i32>(vec2<f32>(textureDimensions(Texture0)) * VertexUV), 0).r;
+	var pos: vec4<f32> = vec4<f32>(VertexPosition.x, height, VertexPosition.z, 1.0);
+	var worldPosition: vec4<f32> = pos * VSPerObject.localToWorld;
+
+	output.Position			= worldPosition * VSPerView.worldToProjected;
+	output.WorldPosition	= worldPosition.xyz;
+	output.UV				= uv;
+
+	return output;
+}
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	Textures
+//
+@group(2) @binding(0) var Sampler0: sampler;
+@group(2) @binding(1) var Texture0: texture_2d<f32>;
+
+//
+//	Constant Buffer
+//
+struct PSConstants2DStruct
+{
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
+};
+
+@group(1) @binding(0)
+var<uniform> PSConstants2D: PSConstants2DStruct;
+
+//
+//	Functions
+//
+@stage(fragment)
+fn main(
+	@builtin(position) Position: vec4<f32>,
+	@location(0) Color: vec4<f32>,
+	@location(1) UV: vec2<f32>
+) -> @location(0) vec2<f32> 
+{
+	var size: vec2<f32> = vec2<f32>(textureDimensions(Texture0, 0));
+	var offset: vec2<f32> = vec2<f32>(1.0, 1.0) / size;
+
+	var n: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(0.0, -offset.y)).r;
+	var s: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(0.0,  offset.y)).r;
+	var w: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(-offset.x, 0.0)).r;
+	var e: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>( offset.x, 0.0)).r;
+
+	var normal: vec3<f32> = normalize(vec3<f32>(w - e, 2.0, s - n));
+
+	return normal.xz;
 }
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
@@ -193,251 +923,40 @@ fn main(
 @group(2) @binding(0) var Sampler0: sampler;
 @group(2) @binding(1) var Texture0: texture_2d<f32>;
 
-@group(2) @binding(2) var Sampler1: sampler;
-@group(2) @binding(3) var Texture1: texture_2d<f32>;
-
-@group(2) @binding(4) var Sampler2: sampler;
-@group(2) @binding(5) var Texture2: texture_2d<f32>;
-
 //
 //	Constant Buffer
 //
-struct PSPerFrameStruct
+struct PSConstants2DStruct
 {
-	gloablAmbientColor: vec3<f32>,
-	sunColor: vec3<f32>,
-	sunDirection: vec3<f32>,
+	colorAdd: vec4<f32>,
+	sdfParam: vec4<f32>,
+	sdfOutlineColor: vec4<f32>,
+	sdfShadowColor: vec4<f32>,
+	unused: vec4<f32>,
 };
 
 @group(1) @binding(0)
-var<uniform> PSPerFrame: PSPerFrameStruct;
+var<uniform> PSConstants2D: PSConstants2DStruct;
 
-struct PSPerViewStruct
+struct PSHomographyStruct
 {
-	eyePosition: vec3<f32>,
+	mat3x3<f32> invHomography;
 };
 
 @group(1) @binding(1)
-var<uniform> PSPerView: PSPerViewStruct;
-
-struct PSPerMaterialStruct
-{
-	amibientColor: vec3<f32>,
-	hasTexture: u32,
-	diffuseColor: vec4<f32>,
-	specularColor: vec3<f32>,
-	shininess: f32,
-	emissionColor: vec3<f32>,
-};
-
-@group(1) @binding(2)
-var<uniform> PSPerMaterial: PSPerMaterialStruct;
+var<uniform> PSHomography: PSHomographyStruct;
 
 //
 //	Functions
 //
-fn CalculateDiffuseReflection(n: vec3<f32>, l: vec3<f32>, lightColor: vec3<f32>, diffuseColor: vec3<f32>, ambientColor: vec3<f32>) -> vec3<f32>
+fn Transform(pos: vec3<f32>, mat: mat3x3<f32>) -> vec2<f32>
 {
-	var directColor: vec3<f32> = lightColor * max(dot(n, l), 0.0);
-	return ((ambientColor + directColor) * diffuseColor);
+	var s: f32 = (mat[0][2] * pos.x + mat[1][2] * pos.y + mat[2][2]);
+	var x: f32 = (mat[0][0] * pos.x + mat[1][0] * pos.y + mat[2][0]) / s;
+	var y: f32 = (mat[0][1] * pos.x + mat[1][1] * pos.y + mat[2][1]) / s;
+	return vec2<f32>(x, y);
 }
 
-fn CalculateSpecularReflection(n: vec3<f32>, h: vec3<f32>, shininess: f32, nl: f32, lightColor: vec3<f32>, specularColor: vec3<f32>) -> vec3<f32>
-{
-	var highlight: f32 = pow(max(dot(n, h), 0.0), shininess) * f32(0.0 < nl);
-	return (lightColor * specularColor * highlight);
-}
-
-fn FetchNormal(uv: vec2<f32>) -> vec3<f32>
-{
-	var m: vec2<f32> = textureSample(Texture1, Sampler0, uv).rg;
-	return vec3<f32>(m.x, sqrt(1.0 - m.x * m.x - m.y * m.y), m.y);
-}
-
-fn TerrainTriplanar(worldPos: vec3<f32>, normal: vec3<f32>, uvScale: f32) -> vec4<f32>
-{
-	var diffuseColor: vec4<f32> = PSPerMaterial.diffuseColor;
-
-	if (PSPerMaterial.hasTexture == 1u)
-	{
-		let powedNormal = vec3<f32>(normal.x, pow(abs(normal.y), 32.0), normal.x); // less grass on slopes
-
-		var blend: vec3<f32> = abs(powedNormal);
-		blend = blend / (blend.x + blend.y + blend.z);
-
-		let scaledSorldPos = worldPos * uvScale;
-
-		var c0: vec4<f32> = textureSample(Texture2, Sampler2, scaledSorldPos.yz);
-		var c1: vec4<f32> = textureSample(Texture0, Sampler0, scaledSorldPos.xz);
-		var c2: vec4<f32> = textureSample(Texture2, Sampler2, scaledSorldPos.xy);
-
-		diffuseColor = diffuseColor * (c0 * blend.x + c1 * blend.y + c2 * blend.z);
-	}
-
-	return diffuseColor;
-}
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) WorldPosition: vec3<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32>
-{
-	var lightColor: vec3<f32>		= PSPerFrame.sunColor;
-	var lightDirection: vec3<f32>	= PSPerFrame.sunDirection;
-
-	var n: vec3<f32> = FetchNormal(UV);
-	var l: vec3<f32> = lightDirection;
-	var diffuseColor: vec4<f32> = TerrainTriplanar(WorldPosition, n, 0.5);
-	var ambientColor: vec3<f32> = (PSPerMaterial.amibientColor * PSPerFrame.gloablAmbientColor);
-
-	// Diffuse
-	var diffuseReflection: vec3<f32> = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
-
-	// Specular
-	var v: vec3<f32> = normalize(PSPerView.eyePosition - WorldPosition);
-	var h: vec3<f32> = normalize(v + lightDirection);
-	var specularReflection: vec3<f32> = CalculateSpecularReflection(n, h, PSPerMaterial.shininess, dot(n, l), lightColor, PSPerMaterial.specularColor);
-
-	return vec4<f32>(diffuseReflection + specularReflection + PSPerMaterial.emissionColor, diffuseColor.a);
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec2<f32> 
-{
-	var size: vec2<f32> = vec2<f32>(textureDimensions(Texture0, 0));
-	var offset: vec2<f32> = vec2<f32>(1.0, 1.0) / size;
-
-	var n: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(0.0, -offset.y)).r;
-	var s: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(0.0,  offset.y)).r;
-	var w: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>(-offset.x, 0.0)).r;
-	var e: f32 = textureSample(Texture0, Sampler0, UV + vec2<f32>( offset.x, 0.0)).r;
-
-	var normal: vec3<f32> = normalize(vec3<f32>(w - e, 2.0, s - n));
-
-	return normal.xz;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VSOutput
-//
-struct VertexOutput
-{
-	@builtin(position) Position: vec4<f32>,
-   	@location(0) Color: vec4<f32>,
-   	@location(1) UV: vec2<f32>,
-};
-
-//
-//	Siv3D Functions
-//
-fn s3d_Transform2D(pos: vec2<f32>, t0: vec4<f32>, t1: vec4<f32>) -> vec4<f32>
-{
-	return vec4<f32>(t0.zw + (pos.x * t0.xy) + (pos.y * t1.xy), t1.zw);
-}
-
-//
-//	Constant Buffer
-//
-struct VSConstants2DStruct
-{
-	transform0: vec4<f32>,
-	transform1: vec4<f32>,
-    colorMul: vec4<f32>,
-};
-
-@group(0) @binding(0)
-var<uniform> VSConstants2D: VSConstants2DStruct;
-
-//
-//	Functions
-//
-@stage(vertex)
-fn main(
-	@location(0) VertexPosition: vec2<f32>,
-	@location(1) VertexUV: vec2<f32>,
-	@location(2) VertexColor: vec4<f32>,
-) -> VertexOutput
-{
-	var output: VertexOutput;
-
-	output.Position = s3d_Transform2D(VertexPosition, VSConstants2D.transform0, VSConstants2D.transform1);
-
-	output.Color = (VertexColor * VSConstants2D.colorMul);
-	
-	output.UV = VertexUV;
-
-	return output;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-@group(2) @binding(2) var Sampler1: sampler;
-@group(2) @binding(3) var Texture1: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Functions
-//
 @stage(fragment)
 fn main(
 	@builtin(position) Position: vec4<f32>,
@@ -445,205 +964,10 @@ fn main(
 	@location(1) UV: vec2<f32>
 ) -> @location(0) vec4<f32> 
 {
-	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
-	
-	var mask: f32 = textureSample(Texture1, Sampler1, UV).r;
+	var uv: vec2<f32> = Transform(UV, PSHomography.invHomography);
+	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, uv);
 
-	texColor.a = texColor.a * mask;
-
-	return (texColor * Color) + PSConstants2D.colorAdd;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var step: f32 = 4.0;
-
-	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
-
-	texColor = vec4<f32>(round(texColor.rgb * step) / step, texColor.a);
-
-	return (texColor * Color) + PSConstants2D.colorAdd;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-@group(2) @binding(2) var Sampler1: sampler;
-@group(2) @binding(3) var Texture1: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var texColor0: vec4<f32> = textureSample(Texture0, Sampler0, UV);
-	
-	var texColor1: vec4<f32> = textureSample(Texture1, Sampler1, UV);
-	
-	texColor0 = vec4<f32>(texColor0.rgb * 0.5 + texColor1.rgb * 0.5, texColor0.a);
-
-	return (texColor0 * Color) + PSConstants2D.colorAdd;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
-
-	texColor = vec4<f32>(vec3<f32>(dot(texColor.rgb, vec3<f32>(0.299, 0.587, 0.114))), texColor.a);
-
-	return (texColor * Color) + PSConstants2D.colorAdd;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VSOutput
-//
-struct VertexOutput
-{
-	@builtin(position) Position: vec4<f32>,
-	@location(0) WorldPosition: vec3<f32>,
-   	@location(1) UV: vec2<f32>,
-   	@location(2) Normal: vec3<f32>,
-};
-
-//
-//	Constant Buffer
-//
-struct VSPerViewStruct
-{
-	worldToProjected: mat4x4<f32>,
-};
-
-@group(0) @binding(0)
-var<uniform> VSPerView: VSPerViewStruct;
-
-struct VSPerObjectStruct
-{
-	localToWorld: mat4x4<f32>,
-};
-
-@group(0) @binding(1)
-var<uniform> VSPerObject: VSPerObjectStruct;
-
-struct VSPerMaterialStruct
-{
-	uvTransform: vec4<f32>,
-};
-
-@group(0) @binding(2)
-var<uniform> VSPerMaterial: VSPerMaterialStruct;
-
-//
-//	Functions
-//
-@stage(vertex)
-fn main(
-	@location(0) VertexPosition: vec3<f32>,
-	@location(1) VertexNormal: vec3<f32>,
-	@location(2) VertexUV: vec2<f32>,
-) -> VertexOutput
-{
-	var output: VertexOutput;
-	var worldPosition: vec4<f32> = vec4<f32>(VertexPosition, 1.0) * VSPerObject.localToWorld;
-
-	output.Position			= worldPosition * VSPerView.worldToProjected;
-	output.WorldPosition	= worldPosition.xyz;
-	output.UV				= VertexUV * VSPerMaterial.uvTransform.xy + VSPerMaterial.uvTransform.zw;
-	output.Normal			= (vec4<f32>(VertexNormal, 0.0) * VSPerObject.localToWorld).xyz;
-
-	return output;
+	return ((texColor * Color) + PSConstants2D.colorAdd);
 }
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
@@ -752,60 +1076,6 @@ fn main(
 	var specularReflection: vec3<f32> = CalculateSpecularReflection(n, h, PSPerMaterial.shininess, dot(n, l), lightColor, PSPerMaterial.specularColor);
 
 	return vec4<f32>(diffuseReflection + specularReflection + PSPerMaterial.emissionColor, diffuseColor.a);
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Functions
-//
-fn ApplySRGBCurve_Fast(color: vec3<f32>) -> vec3<f32>
-{
-	return pow(color, vec3<f32>(1.0 / 2.2));
-}
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var texColor: vec3<f32> = textureSample(Texture0, Sampler0, UV).rgb;
-
-	var brightness: f32 = dot(texColor, vec3<f32>(0.2126, 0.7152, 0.0722));
-
-	if (0.25 < brightness)
-	{
-		return vec4<f32>(ApplySRGBCurve_Fast(abs(texColor)) * 0.25, 1.0);
-	}
-	
-	return vec4<f32>(0.0, 0.0, 0.0, 1.0);
 }
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
@@ -942,13 +1212,15 @@ fn main(
 	@location(1) UV: vec2<f32>
 ) -> @location(0) vec4<f32> 
 {
+	var step: f32 = 4.0;
+
 	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
 
-	texColor = texColor.bgra;
+	texColor = vec4<f32>(round(texColor.rgb * step) / step, texColor.a);
 
 	return (texColor * Color) + PSConstants2D.colorAdd;
 }
-﻿//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
 //	Licensed under the MIT License.
 
@@ -983,87 +1255,13 @@ struct VSConstants2DStruct
 @group(0) @binding(0)
 var<uniform> VSConstants2D: VSConstants2DStruct;
 
-struct SoftShapeStruct
+struct VSHomographyStruct
 {
-	t: f32;
+	homography: mat3x3<f32>,
 };
 
 @group(0) @binding(1)
-var<uniform> SoftShape: SoftShapeStruct;
-
-//
-//	Functions
-//
-fn Circular(r: f32, theta: f32) -> vec2<f32>
-{
-	return vec2<f32>(sin(theta), -cos(theta)) * r;
-}
-
-@stage(vertex)
-fn main(
-	@builtin(vertex_index) VertexIndex: u32
-) -> VertexOutput
-{
-	var output: VertexOutput;
-	let PI: f32 = 3.14159265;
-
-	output.Color = vec4<f32>(0.2, 0.7, 0.4, 1.0);
-	output.UV = vec2<f32>(0.0, 0.0);
-
-	var pos: vec2<f32>;
-
-	if (VertexIndex % 3u == 0u)
-	{
-		pos = vec2<f32>(640.0, 360.0);
-	}
-	else
-	{
-		var angle: f32 = PI * (f32((VertexIndex / 3u) + ((VertexIndex % 3u) - 1u))) / 180.0;
-		var r: f32 = 200.0
-			+ cos((angle * 2.0) + sin(SoftShape.t * 1.5)) * 40.0
-			+ sin((angle * 2.0) + sin(SoftShape.t * 2.0)) * 30.0
-			+ cos((angle * 3.0) + sin(SoftShape.t * 3.5)) * 20.0
-			+ sin((angle * 3.0) + sin(SoftShape.t * 4.0)) * 10.0;
-		pos = vec2<f32>(640.0, 360.0) + Circular(r, angle);
-		output.Color.a = (1.0 - r / 360.0);
-	}
-
-	output.Position = s3d_Transform2D(pos, VSConstants2D.transform0, VSConstants2D.transform1);
-
-	return output;	
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-struct PSHomographyStruct
-{
-	mat3x3<f32> invHomography;
-};
-
-@group(1) @binding(1)
-var<uniform> PSHomography: PSHomographyStruct;
+var<uniform> VSHomography: VSHomographyStruct;
 
 //
 //	Functions
@@ -1076,123 +1274,24 @@ fn Transform(pos: vec3<f32>, mat: mat3x3<f32>) -> vec2<f32>
 	return vec2<f32>(x, y);
 }
 
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var uv: vec2<f32> = Transform(UV, PSHomography.invHomography);
-	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, uv);
-
-	return ((texColor * Color) + PSConstants2D.colorAdd);
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Textures
-//
-@group(3) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	VSOutput
-//
-struct VertexOutput
-{
-	@builtin(position) Position: vec4<f32>,
-	@location(0) WorldPosition: vec3<f32>,
-   	@location(1) UV: vec2<f32>,
-};
-
-//
-//	Constant Buffer
-//
-struct VSPerViewStruct
-{
-	worldToProjected: mat4x4<f32>,
-};
-
-@group(0) @binding(0)
-var<uniform> VSPerView: VSPerViewStruct;
-
-struct VSPerObjectStruct
-{
-	localToWorld: mat4x4<f32>,
-};
-
-@group(0) @binding(1)
-var<uniform> VSPerObject: VSPerObjectStruct;
-
-struct VSPerMaterialStruct
-{
-	uvTransform: vec4<f32>,
-};
-
-@group(0) @binding(2)
-var<uniform> VSPerMaterial: VSPerMaterialStruct;
-
 //
 //	Functions
 //
 @stage(vertex)
 fn main(
-	@location(0) VertexPosition: vec3<f32>,
-	@location(1) VertexNormal: vec3<f32>,
-	@location(2) VertexUV: vec2<f32>,
+	@location(0) VertexPosition: vec2<f32>,
+	@location(1) VertexUV: vec2<f32>,
+	@location(2) VertexColor: vec4<f32>,
 ) -> VertexOutput
 {
+	var pos: vec2<f32> = Transform(VertexPosition, VSHomography.homography);
 	var output: VertexOutput;
-	var uv: vec2<f32> = VertexUV * VSPerMaterial.uvTransform.xy + VSPerMaterial.uvTransform.zw;
-	var height: f32 = textureLoad(Texture0, vec2<i32>(vec2<f32>(textureDimensions(Texture0)) * VertexUV), 0).r;
-	var pos: vec4<f32> = vec4<f32>(VertexPosition.x, height, VertexPosition.z, 1.0);
-	var worldPosition: vec4<f32> = pos * VSPerObject.localToWorld;
 
-	output.Position			= worldPosition * VSPerView.worldToProjected;
-	output.WorldPosition	= worldPosition.xyz;
-	output.UV				= uv;
+	output.Position = s3d_Transform2D(pos, VSConstants2D.transform0, VSConstants2D.transform1);
 
-	return output;
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	Constant Buffer
-//
-struct PSConstants2DStruct
-{
-	colorAdd: vec4<f32>,
-	sdfParam: vec4<f32>,
-	sdfOutlineColor: vec4<f32>,
-	sdfShadowColor: vec4<f32>,
-	unused: vec4<f32>,
-};
-
-@group(1) @binding(0)
-var<uniform> PSConstants2D: PSConstants2DStruct;
-
-//
-//	Textures
-//
-@group(2) @binding(0) var Sampler0: sampler;
-@group(2) @binding(1) var Texture0: texture_2d<f32>;
-
-//
-//	Functions
-//
-@stage(fragment)
-fn main(
-	@builtin(position) Position: vec4<f32>,
-	@location(0) Color: vec4<f32>,
-	@location(1) UV: vec2<f32>
-) -> @location(0) vec4<f32> 
-{
-	var texColor: vec4<f32> = textureSample(Texture0, Sampler0, UV);
-	return ((texColor * Color) + PSConstants2D.colorAdd);
+	output.Color = (VertexColor * VSConstants2D.colorMul);
+	
+	output.UV = pos;
 }
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
@@ -1294,31 +1393,14 @@ struct PSConstants2DStruct
 @group(1) @binding(0)
 var<uniform> PSConstants2D: PSConstants2DStruct;
 
-// PS_1
-struct GameOfLifeStruct
+//
+//	Functions
+//
+fn ApplySRGBCurve_Fast(color: vec3<f32>) -> vec3<f32>
 {
-	pixelSize: vec2<f32>,
-};
+	return pow(color, vec3<f32>(1.0 / 2.2));
+}
 
-@group(1) @binding(1)
-var<uniform> GameOfLife: GameOfLifeStruct;
-// [C++]
-//struct GameOfLife
-//{
-//	Float2 pixelSize;
-//};
-
-let offsets: array<vec2<f32>, 8> = array<vec2<f32>, 8>(
-       vec2<f32>(-1.0, -1.0),
-       vec2<f32>(0.0, -1.0),
-       vec2<f32>(1.0, -1.0),
-       vec2<f32>(-1.0, 0.0),
-       vec2<f32>(1.0, 0.0),
-       vec2<f32>(-1.0, 1.0),
-       vec2<f32>(0.0, 1.0),
-       vec2<f32>(1.0, 1.0)
-);
-		
 //
 //	Functions
 //
@@ -1329,98 +1411,16 @@ fn main(
 	@location(1) UV: vec2<f32>
 ) -> @location(0) vec4<f32> 
 {
-	var c: f32 = textureSample(Texture0, Sampler0, UV).r;
+	var texColor: vec3<f32> = textureSample(Texture0, Sampler0, UV).rgb;
 
-	var n: f32 = 0.0;
-	
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[0] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[1] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[2] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[3] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[4] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[5] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[6] * GameOfLife.pixelSize).r;
-	n = n + textureSample(Texture0, Sampler0, UV + offsets[7] * GameOfLife.pixelSize).r;
-	
-	if((c == 0.0 && n == 3.0) || (c == 1.0 && (n == 2.0 || n == 3.0)))
+	var brightness: f32 = dot(texColor, vec3<f32>(0.2126, 0.7152, 0.0722));
+
+	if (0.25 < brightness)
 	{
-		return vec4<f32>(1.0, 1.0, 1.0, 1.0);
+		return vec4<f32>(ApplySRGBCurve_Fast(abs(texColor)) * 0.25, 1.0);
 	}
 	
 	return vec4<f32>(0.0, 0.0, 0.0, 1.0);
-}
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VSOutput
-//
-struct VertexOutput
-{
-	@builtin(position) Position: vec4<f32>,
-   	@location(0) Color: vec4<f32>,
-   	@location(1) UV: vec2<f32>,
-};
-
-//
-//	Siv3D Functions
-//
-fn s3d_Transform2D(pos: vec2<f32>, t0: vec4<f32>, t1: vec4<f32>) -> vec4<f32>
-{
-	return vec4<f32>(t0.zw + (pos.x * t0.xy) + (pos.y * t1.xy), t1.zw);
-}
-
-//
-//	Constant Buffer
-//
-struct VSConstants2DStruct
-{
-	transform0: vec4<f32>,
-	transform1: vec4<f32>,
-    colorMul: vec4<f32>,
-};
-
-@group(0) @binding(0)
-var<uniform> VSConstants2D: VSConstants2DStruct;
-
-struct VSHomographyStruct
-{
-	homography: mat3x3<f32>,
-};
-
-@group(0) @binding(1)
-var<uniform> VSHomography: VSHomographyStruct;
-
-//
-//	Functions
-//
-fn Transform(pos: vec3<f32>, mat: mat3x3<f32>) -> vec2<f32>
-{
-	var s: f32 = (mat[0][2] * pos.x + mat[1][2] * pos.y + mat[2][2]);
-	var x: f32 = (mat[0][0] * pos.x + mat[1][0] * pos.y + mat[2][0]) / s;
-	var y: f32 = (mat[0][1] * pos.x + mat[1][1] * pos.y + mat[2][1]) / s;
-	return vec2<f32>(x, y);
-}
-
-//
-//	Functions
-//
-@stage(vertex)
-fn main(
-	@location(0) VertexPosition: vec2<f32>,
-	@location(1) VertexUV: vec2<f32>,
-	@location(2) VertexColor: vec4<f32>,
-) -> VertexOutput
-{
-	var pos: vec2<f32> = Transform(VertexPosition, VSHomography.homography);
-	var output: VertexOutput;
-
-	output.Position = s3d_Transform2D(pos, VSConstants2D.transform0, VSConstants2D.transform1);
-
-	output.Color = (VertexColor * VSConstants2D.colorMul);
-	
-	output.UV = pos;
 }
 //	Copyright (c) 2008-2022 Ryo Suzuki.
 //	Copyright (c) 2016-2022 OpenSiv3D Project.
@@ -1508,6 +1508,967 @@ fn main(
 	accum = accum / 13.0;
 
 	return (accum * Color) + PSConstants2D.colorAdd;
+}
+﻿# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VS Input (nothing)
+//
+
+//
+//	VS Output
+//
+out vec4 Color;
+out vec2 UV;
+
+//
+//	Siv3D Functions
+//
+vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
+{
+	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
+}
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform VSConstants2D
+{
+	vec4 g_transform[2];
+	vec4 g_colorMul;
+};
+
+layout(std140) uniform SoftShape
+{
+	float g_t;
+};
+
+//
+//	Functions
+//
+vec2 Circular(float r, float theta)
+{
+	return vec2(sin(theta), -cos(theta)) * r;
+}
+
+void main()
+{
+	Color = vec4(0.2f, 0.7f, 0.4f, 1.0f);
+	UV = vec2(0.0f, 0.0f);
+
+	vec2 pos;
+
+	if (gl_VertexID % 3 == 0)
+	{
+		pos = vec2(640.0f, 360.0f);
+	}
+	else
+	{
+		float angle = radians(float((gl_VertexID / 3) + ((gl_VertexID % 3) - 1)));
+		float r = 200.0f
+			+ cos((angle * 2.0f) + sin(g_t * 1.5f)) * 40.0f
+			+ sin((angle * 2.0f) + sin(g_t * 2.0f)) * 30.0f
+			+ cos((angle * 3.0f) + sin(g_t * 3.5f)) * 20.0f
+			+ sin((angle * 3.0f) + sin(g_t * 4.0f)) * 10.0f;
+		pos = vec2(640.0f, 360.0f) + Circular(r, angle);
+		Color.a = (1.0f - r / 360.0f);
+	}
+
+	gl_Position = s3d_Transform2D(pos, g_transform);	
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec4 texColor = texture(Texture0, UV);
+
+	texColor = texColor.bgra;
+
+	FragColor = (texColor * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	float step = 4.0f;
+
+	vec4 texColor = texture(Texture0, UV);
+
+	texColor.rgb = round(texColor.rgb * step) / step;
+
+	FragColor = (texColor * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+uniform sampler2D Texture1;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec4 texColor0 = texture(Texture0, UV);
+	
+	vec4 texColor1 = texture(Texture1, UV);
+	
+	texColor0.rgb = (texColor0.rgb * 0.5f + texColor1.rgb * 0.5f);
+
+	FragColor = (texColor0 * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	VSInput
+//
+layout(location = 0) in vec4 VertexPosition;
+layout(location = 1) in vec3 VertexNormal;
+layout(location = 2) in vec2 VertexUV;
+
+//
+//	VSOutput
+//
+out vec3 WorldPosition;
+out vec2 UV;
+
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform VSPerView // slot 1
+{
+	mat4x4 g_worldToProjected;
+};
+
+layout(std140) uniform VSPerObject // slot 2
+{
+	mat4x4 g_localToWorld;
+};
+
+layout(std140) uniform VSPerMaterial // slot 3
+{
+	vec4 g_uvTransform;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec2 uv =  (VertexUV * g_uvTransform.xy + g_uvTransform.zw);
+	float height = texture(Texture8, uv).r;
+	vec4 pos = vec4(VertexPosition.x, height, VertexPosition.zw);
+	vec4 worldPosition = pos * g_localToWorld;
+
+	gl_Position		= worldPosition * g_worldToProjected;
+	WorldPosition	= worldPosition.xyz;
+	UV				= uv;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec2 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec2 size = vec2(textureSize(Texture0, 0));
+	vec2 offset = vec2(1.0f, 1.0f) / size;
+
+	float n = texture(Texture0, UV + vec2(0.0f, -offset.y)).r;
+	float s = texture(Texture0, UV + vec2(0.0f,  offset.y)).r;
+	float w = texture(Texture0, UV + vec2(-offset.x, 0.0f)).r;
+	float e = texture(Texture0, UV + vec2( offset.x, 0.0f)).r;
+
+	vec3 normal = normalize(vec3(w - e, 2.0f, s - n));
+
+	FragColor = normal.xz;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+// PS_1
+layout(std140) uniform PoissonDisk
+{
+	vec2  g_pixelSize;
+	float g_diskRadius;
+};
+// [C++]
+//struct PoissonDisk
+//{
+//	Float2 pixelSize;
+//	float diskRadius;
+//};
+
+const vec2 poisson[12] = vec2[12](
+       vec2(-0.326212, -0.405805),
+       vec2(-0.840144, -0.07358),
+       vec2(-0.695914, 0.457137),
+       vec2(-0.203345, 0.620716),
+       vec2(0.96234, -0.194983),
+       vec2(0.473434, -0.480026),
+       vec2(0.519456, 0.767022),
+       vec2(0.185461, -0.893124),
+       vec2(0.507431, 0.064425),
+       vec2(0.89642, 0.412458),
+       vec2(-0.32194, -0.932615),
+       vec2(-0.791559, -0.597705)
+);
+
+//
+//	Functions
+//
+void main()
+{
+	vec2 offsetScale = g_pixelSize * g_diskRadius;
+
+	vec4 accum = texture(Texture0, UV);
+
+	for (uint tap = 0u; tap < 12u; ++tap)
+	{
+		vec2 uv = UV + (poisson[tap] * offsetScale);
+
+		accum += texture(Texture0, uv);
+	}
+
+	accum /= 13.0f;
+
+	FragColor = (accum * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+uniform sampler2D Texture1;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec4 texColor = texture(Texture0, UV);
+	
+	float mask = texture(Texture1, UV).r;
+
+	texColor.a *= mask;
+
+	FragColor = (texColor * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+//
+//	PSInput
+//
+in vec4 Color;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	FragColor = (Color + g_colorAdd);
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSInput
+//
+layout(location = 0) in vec2 VertexPosition;
+layout(location = 1) in vec2 VertexUV;
+layout(location = 2) in vec4 VertexColor;
+
+//
+//	VSOutput
+//
+out vec4 Color;
+out vec2 UV;
+
+
+//
+//	Siv3D Functions
+//
+vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
+{
+	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
+}
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform VSConstants2D
+{
+	vec4 g_transform[2];
+	vec4 g_colorMul;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	gl_Position = s3d_Transform2D(VertexPosition, g_transform);
+
+	Color = (VertexColor * g_colorMul);
+	
+	UV = VertexUV;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec2 ra = texture(Texture0, UV + vec2(-0.02, 0.0)).ra;
+	vec2 ga = texture(Texture0, UV).ga;
+	vec2 ba = texture(Texture0, UV + vec2(+0.02, 0.0)).ba;
+
+	float a = (ra.y + ga.y + ba.y) / 3.0f;
+	vec4 texColor = vec4(ra.x, ga.x, ba.x, a);	
+
+	FragColor = (texColor * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec4 texColor = texture(Texture0, UV);
+
+	FragColor = ((texColor * Color) + g_colorAdd);
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+// PS_1
+layout(std140) uniform GameOfLife
+{
+	vec2  g_pixelSize;
+};
+// [C++]
+//struct GameOfLife
+//{
+//	Float2 pixelSize;
+//};
+
+const vec2 offsets[8] = vec2[8](
+       vec2(-1, -1),
+       vec2(0, -1),
+       vec2(1, -1),
+       vec2(-1, 0),
+       vec2(1, 0),
+       vec2(-1, 1),
+       vec2(0, 1),
+       vec2(1, 1)
+);
+		
+void main()
+{
+	float c = texture(Texture0, UV).r;
+
+	float n = 0.0f;
+
+	for (uint i = 0u; i < 8u; ++i)
+	{
+		n += texture(Texture0, UV + offsets[i] * g_pixelSize).r;
+	}
+
+	if((c == 0.0f && n == 3.0f) || (c == 1.0f && (n == 2.0f || n == 3.0f)))
+	{
+		FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	else
+	{
+		FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	}
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec4 Color;
+in vec2 UV;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSConstants2D
+{
+	vec4 g_colorAdd;
+	vec4 g_sdfParam;
+	vec4 g_sdfOutlineColor;
+	vec4 g_sdfShadowColor;
+	vec4 g_internal;
+};
+
+//
+//	Functions
+//
+vec3 ApplySRGBCurve_Fast(vec3 color)
+{
+	return pow(color, vec3(1.0f / 2.2f));
+}
+
+void main()
+{
+	vec3 texColor = texture(Texture0, UV).rgb;
+
+	float brightness = dot(texColor, vec3(0.2126f, 0.7152f, 0.0722f));
+
+	if (0.25f < brightness)
+	{
+		FragColor = vec4(ApplySRGBCurve_Fast(abs(texColor)) * 0.25f, 1.0f);
+	}
+	else
+	{
+		FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	}
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSInput
+//
+layout(location = 0) in vec2 VertexPosition;
+layout(location = 1) in vec2 VertexUV;
+layout(location = 2) in vec4 VertexColor;
+
+//
+//	VSOutput
+//
+out vec4 Color;
+out vec2 UV;
+// out gl_PerVertex
+// {
+//	vec4 gl_Position;
+// };
+
+//
+//	Siv3D Functions
+//
+vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
+{
+	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
+}
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform VSConstants2D
+{
+	vec4 g_transform[2];
+	vec4 g_colorMul;
+};
+
+layout(std140) uniform VSHomography
+{
+	mat3x3 g_homography;
+};
+
+//
+//	Functions
+//
+vec2 Transform(vec2 pos, mat3x3 mat)
+{
+	float s = (mat[0][2] * pos.x + mat[1][2] * pos.y + mat[2][2]);
+	float x = (mat[0][0] * pos.x + mat[1][0] * pos.y + mat[2][0]) / s;
+	float y = (mat[0][1] * pos.x + mat[1][1] * pos.y + mat[2][1]) / s;
+	return vec2(x, y);
+}
+
+void main()
+{
+	vec2 pos = Transform(VertexPosition, g_homography);
+	gl_Position = s3d_Transform2D(pos, g_transform);
+
+	Color = (VertexColor * g_colorMul);
+	
+	UV = pos;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec3 WorldPosition;
+in vec2 UV;
+in vec3 Normal;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSPerFrame // slot 0
+{
+	vec3 g_gloablAmbientColor;
+	vec3 g_sunColor;
+	vec3 g_sunDirection;
+};
+
+layout(std140) uniform PSPerView // slot 1
+{
+	vec3 g_eyePosition;
+};
+
+layout(std140) uniform PSPerMaterial // slot 3
+{
+	vec3  g_amibientColor;
+	uint  g_hasTexture;
+	vec4  g_diffuseColor;
+	vec3  g_specularColor;
+	float g_shininess;
+	vec3  g_emissionColor;
+};
+
+//
+//	Functions
+//
+vec4 Triplanar(vec3 worldPos, vec3 normal, float uvScale)
+{
+	vec4 diffuseColor = g_diffuseColor;
+
+	if (g_hasTexture == 1u)
+	{
+		vec3 blend = abs(normal);
+		blend /= (blend.x + blend.y + blend.z);
+		
+		worldPos *= uvScale;
+		vec4 c0 = texture(Texture0, worldPos.yz);
+		vec4 c1 = texture(Texture0, worldPos.xz);
+		vec4 c2 = texture(Texture0, worldPos.xy);
+
+		diffuseColor *= (c0 * blend.x + c1 * blend.y + c2 * blend.z);
+	}
+
+	return diffuseColor;
+}
+
+vec3 CalculateDiffuseReflection(vec3 n, vec3 l, vec3 lightColor, vec3 diffuseColor, vec3 ambientColor)
+{
+	vec3 directColor = lightColor * max(dot(n, l), 0.0f);
+	return ((ambientColor + directColor) * diffuseColor);
+}
+
+vec3 CalculateSpecularReflection(vec3 n, vec3 h, float shininess, float nl, vec3 lightColor, vec3 specularColor)
+{
+	float highlight = pow(max(dot(n, h), 0.0f), shininess) * float(0.0f < nl);
+	return (lightColor * specularColor * highlight);
+}
+
+void main()
+{
+	vec3 lightColor		= g_sunColor;
+	vec3 lightDirection	= g_sunDirection;
+
+	vec3 n = normalize(Normal);
+	vec3 l = lightDirection;
+	vec4 diffuseColor = Triplanar(WorldPosition, n, 0.25f);
+	vec3 ambientColor = (g_amibientColor * g_gloablAmbientColor);
+
+	// Diffuse
+	vec3 diffuseReflection = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
+
+	// Specular
+	vec3 v = normalize(g_eyePosition - WorldPosition);
+	vec3 h = normalize(v + lightDirection);
+	vec3 specularReflection = CalculateSpecularReflection(n, h, g_shininess, dot(n, l), lightColor, g_specularColor);
+
+	FragColor = vec4(diffuseReflection + specularReflection + g_emissionColor, diffuseColor.a);
 }
 # version 300 es
 
@@ -1644,468 +2605,35 @@ layout(std140) uniform PSConstants2D
 	vec4 g_internal;
 };
 
-//
-//	Functions
-//
-void main()
-{
-	vec2 ra = texture(Texture0, UV + vec2(-0.02, 0.0)).ra;
-	vec2 ga = texture(Texture0, UV).ga;
-	vec2 ba = texture(Texture0, UV + vec2(+0.02, 0.0)).ba;
-
-	float a = (ra.y + ga.y + ba.y) / 3.0f;
-	vec4 texColor = vec4(ra.x, ga.x, ba.x, a);	
-
-	FragColor = (texColor * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec3 WorldPosition;
-in vec2 UV;
-in vec3 Normal;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSPerFrame // slot 0
-{
-	vec3 g_gloablAmbientColor;
-	vec3 g_sunColor;
-	vec3 g_sunDirection;
-};
-
-layout(std140) uniform PSPerView // slot 1
-{
-	vec3 g_eyePosition;
-};
-
-layout(std140) uniform PSPerMaterial // slot 3
-{
-	vec3  g_amibientColor;
-	uint  g_hasTexture;
-	vec4  g_diffuseColor;
-	vec3  g_specularColor;
-	float g_shininess;
-	vec3  g_emissionColor;
-};
-
-layout(std140) uniform PSFog // slot 4
-{
-	vec3 g_fogColor;
-	float g_fogCoefficient;
-};
-// [C++]
-//struct PSFog
-//{
-//	Float3 fogColor;
-//	float fogCoefficient;
-//};
-
-//
-//	Functions
-//
-vec4 GetDiffuseColor(vec2 uv)
-{
-	vec4 diffuseColor = g_diffuseColor;
-
-	if (g_hasTexture == 1u)
-	{
-		diffuseColor *= texture(Texture0, uv);
-	}
-
-	return diffuseColor;
-}
-
-vec3 CalculateDiffuseReflection(vec3 n, vec3 l, vec3 lightColor, vec3 diffuseColor, vec3 ambientColor)
-{
-	vec3 directColor = lightColor * max(dot(n, l), 0.0f);
-	return ((ambientColor + directColor) * diffuseColor);
-}
-
-vec3 CalculateSpecularReflection(vec3 n, vec3 h, float shininess, float nl, vec3 lightColor, vec3 specularColor)
-{
-	float highlight = pow(max(dot(n, h), 0.0f), shininess) * float(0.0f < nl);
-	return (lightColor * specularColor * highlight);
-}
-
-void main()
-{
-	vec3 lightColor		= g_sunColor;
-	vec3 lightDirection	= g_sunDirection;
-
-	vec3 n = normalize(Normal);
-	vec3 l = lightDirection;
-	vec4 diffuseColor = GetDiffuseColor(UV);
-	vec3 ambientColor = (g_amibientColor * g_gloablAmbientColor);
-
-	// Diffuse
-	vec3 diffuseReflection = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
-
-	// Specular
-	vec3 v = normalize(g_eyePosition - WorldPosition);
-	vec3 h = normalize(v + lightDirection);
-	vec3 specularReflection = CalculateSpecularReflection(n, h, g_shininess, dot(n, l), lightColor, g_specularColor);
-
-	// Exponential Fog
-	vec4 surfaceColor = vec4(diffuseReflection + specularReflection + g_emissionColor, diffuseColor.a);
-	float fogFactor = exp(-g_fogCoefficient * distance(g_eyePosition, WorldPosition));
-	surfaceColor.rgb = mix(g_fogColor, surfaceColor.rgb, fogFactor);
-
-	FragColor = surfaceColor;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 texColor = texture(Texture0, UV);
-
-	texColor = texColor.bgra;
-
-	FragColor = (texColor * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
 // PS_1
-layout(std140) uniform GameOfLife
+layout(std140) uniform Swirl
 {
-	vec2  g_pixelSize;
+	float g_angle;
 };
 // [C++]
-//struct GameOfLife
+//struct PoissonDisk
 //{
-//	Float2 pixelSize;
+//	float angle;
 //};
 
-const vec2 offsets[8] = vec2[8](
-       vec2(-1, -1),
-       vec2(0, -1),
-       vec2(1, -1),
-       vec2(-1, 0),
-       vec2(1, 0),
-       vec2(-1, 1),
-       vec2(0, 1),
-       vec2(1, 1)
-);
-		
-void main()
-{
-	float c = texture(Texture0, UV).r;
-
-	float n = 0.0f;
-
-	for (uint i = 0u; i < 8u; ++i)
-	{
-		n += texture(Texture0, UV + offsets[i] * g_pixelSize).r;
-	}
-
-	if((c == 0.0f && n == 3.0f) || (c == 1.0f && (n == 2.0f || n == 3.0f)))
-	{
-		FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	}
-	else
-	{
-		FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	}
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VSInput
-//
-layout(location = 0) in vec2 VertexPosition;
-layout(location = 1) in vec2 VertexUV;
-layout(location = 2) in vec4 VertexColor;
-
-//
-//	VSOutput
-//
-out vec4 Color;
-out vec2 UV;
-
-
-//
-//	Siv3D Functions
-//
-vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
-{
-	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
-}
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform VSConstants2D
-{
-	vec4 g_transform[2];
-	vec4 g_colorMul;
-};
-
 //
 //	Functions
 //
 void main()
 {
-	gl_Position = s3d_Transform2D(VertexPosition, g_transform);
+	vec2 uv = UV - vec2(0.5, 0.5);
 
-	Color = (VertexColor * g_colorMul);
-	
-	UV = VertexUV;
-}
-# version 300 es
+	float distanceFromCenter = length(uv);
 
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
+	float angle = distanceFromCenter * g_angle;
 
-//
-//	VSInput
-//
-layout(location = 0) in vec4 VertexPosition;
-layout(location = 1) in vec3 VertexNormal;
-layout(location = 2) in vec2 VertexUV;
+	float c = cos(angle), s = sin(angle);
 
-//
-//	VSOutput
-//
-out vec3 WorldPosition;
-out vec2 UV;
-out vec3 Normal;
+	uv = mat2x2(c, -s, s, c) * uv + vec2(0.5, 0.5);
 
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform VSPerView // slot 1
-{
-	mat4x4 g_worldToProjected;
-};
-
-layout(std140) uniform VSPerObject // slot 2
-{
-	mat4x4 g_localToWorld;
-};
-
-layout(std140) uniform VSPerMaterial // slot 3
-{
-	vec4 g_uvTransform;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 worldPosition = VertexPosition * g_localToWorld;
-
-	gl_Position		= worldPosition * g_worldToProjected;
-	WorldPosition	= worldPosition.xyz;
-	UV				= (VertexUV * g_uvTransform.xy + g_uvTransform.zw);
-	Normal			= VertexNormal * mat3x3(g_localToWorld);
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 texColor = texture(Texture0, UV);
-
-	texColor.rgb = vec3(dot(texColor.rgb, vec3(0.299, 0.587, 0.114)));
+	vec4 texColor = texture(Texture0, uv);
 
 	FragColor = (texColor * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-vec3 ApplySRGBCurve_Fast(vec3 color)
-{
-	return pow(color, vec3(1.0f / 2.2f));
-}
-
-void main()
-{
-	vec3 texColor = texture(Texture0, UV).rgb;
-
-	float brightness = dot(texColor, vec3(0.2126f, 0.7152f, 0.0722f));
-
-	if (0.25f < brightness)
-	{
-		FragColor = vec4(ApplySRGBCurve_Fast(abs(texColor)) * 0.25f, 1.0f);
-	}
-	else
-	{
-		FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	}
 }
 # version 300 es
 
@@ -2245,53 +2773,6 @@ in vec2 UV;
 //
 //	PSOutput
 //
-layout(location = 0) out vec2 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec2 size = vec2(textureSize(Texture0, 0));
-	vec2 offset = vec2(1.0f, 1.0f) / size;
-
-	float n = texture(Texture0, UV + vec2(0.0f, -offset.y)).r;
-	float s = texture(Texture0, UV + vec2(0.0f,  offset.y)).r;
-	float w = texture(Texture0, UV + vec2(-offset.x, 0.0f)).r;
-	float e = texture(Texture0, UV + vec2( offset.x, 0.0f)).r;
-
-	vec3 normal = normalize(vec3(w - e, 2.0f, s - n));
-
-	FragColor = normal.xz;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-//
-//	PSInput
-//
-in vec4 Color;
-
-//
-//	PSOutput
-//
 layout(location = 0) out vec4 FragColor;
 
 //
@@ -2311,142 +2792,177 @@ layout(std140) uniform PSConstants2D
 //
 void main()
 {
-	FragColor = (Color + g_colorAdd);
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-// PS_1
-layout(std140) uniform PoissonDisk
-{
-	vec2  g_pixelSize;
-	float g_diskRadius;
-};
-// [C++]
-//struct PoissonDisk
-//{
-//	Float2 pixelSize;
-//	float diskRadius;
-//};
-
-const vec2 poisson[12] = vec2[12](
-       vec2(-0.326212, -0.405805),
-       vec2(-0.840144, -0.07358),
-       vec2(-0.695914, 0.457137),
-       vec2(-0.203345, 0.620716),
-       vec2(0.96234, -0.194983),
-       vec2(0.473434, -0.480026),
-       vec2(0.519456, 0.767022),
-       vec2(0.185461, -0.893124),
-       vec2(0.507431, 0.064425),
-       vec2(0.89642, 0.412458),
-       vec2(-0.32194, -0.932615),
-       vec2(-0.791559, -0.597705)
-);
-
-//
-//	Functions
-//
-void main()
-{
-	vec2 offsetScale = g_pixelSize * g_diskRadius;
-
-	vec4 accum = texture(Texture0, UV);
-
-	for (uint tap = 0u; tap < 12u; ++tap)
-	{
-		vec2 uv = UV + (poisson[tap] * offsetScale);
-
-		accum += texture(Texture0, uv);
-	}
-
-	accum /= 13.0f;
-
-	FragColor = (accum * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	float step = 4.0f;
-
 	vec4 texColor = texture(Texture0, UV);
 
-	texColor.rgb = round(texColor.rgb * step) / step;
+	texColor.rgb = vec3(dot(texColor.rgb, vec3(0.299, 0.587, 0.114)));
 
 	FragColor = (texColor * Color) + g_colorAdd;
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+//
+//	VSInput
+//
+layout(location = 0) in vec4 VertexPosition;
+layout(location = 1) in vec3 VertexNormal;
+layout(location = 2) in vec2 VertexUV;
+
+//
+//	VSOutput
+//
+out vec3 WorldPosition;
+out vec2 UV;
+out vec3 Normal;
+
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform VSPerView // slot 1
+{
+	mat4x4 g_worldToProjected;
+};
+
+layout(std140) uniform VSPerObject // slot 2
+{
+	mat4x4 g_localToWorld;
+};
+
+layout(std140) uniform VSPerMaterial // slot 3
+{
+	vec4 g_uvTransform;
+};
+
+//
+//	Functions
+//
+void main()
+{
+	vec4 worldPosition = VertexPosition * g_localToWorld;
+
+	gl_Position		= worldPosition * g_worldToProjected;
+	WorldPosition	= worldPosition.xyz;
+	UV				= (VertexUV * g_uvTransform.xy + g_uvTransform.zw);
+	Normal			= VertexNormal * mat3x3(g_localToWorld);
+}
+# version 300 es
+
+//	Copyright (c) 2008-2022 Ryo Suzuki.
+//	Copyright (c) 2016-2022 OpenSiv3D Project.
+//	Licensed under the MIT License.
+
+precision mediump float;
+
+
+//
+//	Textures
+//
+uniform sampler2D Texture0;
+
+//
+//	PSInput
+//
+in vec3 WorldPosition;
+in vec2 UV;
+in vec3 Normal;
+
+//
+//	PSOutput
+//
+layout(location = 0) out vec4 FragColor;
+
+//
+//	Constant Buffer
+//
+layout(std140) uniform PSPerFrame // slot 0
+{
+	vec3 g_gloablAmbientColor;
+	vec3 g_sunColor;
+	vec3 g_sunDirection;
+};
+
+layout(std140) uniform PSPerView // slot 1
+{
+	vec3 g_eyePosition;
+};
+
+layout(std140) uniform PSPerMaterial // slot 3
+{
+	vec3  g_amibientColor;
+	uint  g_hasTexture;
+	vec4  g_diffuseColor;
+	vec3  g_specularColor;
+	float g_shininess;
+	vec3  g_emissionColor;
+};
+
+layout(std140) uniform PSFog // slot 4
+{
+	vec3 g_fogColor;
+	float g_fogCoefficient;
+};
+// [C++]
+//struct PSFog
+//{
+//	Float3 fogColor;
+//	float fogCoefficient;
+//};
+
+//
+//	Functions
+//
+vec4 GetDiffuseColor(vec2 uv)
+{
+	vec4 diffuseColor = g_diffuseColor;
+
+	if (g_hasTexture == 1u)
+	{
+		diffuseColor *= texture(Texture0, uv);
+	}
+
+	return diffuseColor;
+}
+
+vec3 CalculateDiffuseReflection(vec3 n, vec3 l, vec3 lightColor, vec3 diffuseColor, vec3 ambientColor)
+{
+	vec3 directColor = lightColor * max(dot(n, l), 0.0f);
+	return ((ambientColor + directColor) * diffuseColor);
+}
+
+vec3 CalculateSpecularReflection(vec3 n, vec3 h, float shininess, float nl, vec3 lightColor, vec3 specularColor)
+{
+	float highlight = pow(max(dot(n, h), 0.0f), shininess) * float(0.0f < nl);
+	return (lightColor * specularColor * highlight);
+}
+
+void main()
+{
+	vec3 lightColor		= g_sunColor;
+	vec3 lightDirection	= g_sunDirection;
+
+	vec3 n = normalize(Normal);
+	vec3 l = lightDirection;
+	vec4 diffuseColor = GetDiffuseColor(UV);
+	vec3 ambientColor = (g_amibientColor * g_gloablAmbientColor);
+
+	// Diffuse
+	vec3 diffuseReflection = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
+
+	// Specular
+	vec3 v = normalize(g_eyePosition - WorldPosition);
+	vec3 h = normalize(v + lightDirection);
+	vec3 specularReflection = CalculateSpecularReflection(n, h, g_shininess, dot(n, l), lightColor, g_specularColor);
+
+	// Exponential Fog
+	vec4 surfaceColor = vec4(diffuseReflection + specularReflection + g_emissionColor, diffuseColor.a);
+	float fogFactor = exp(-g_fogCoefficient * distance(g_eyePosition, WorldPosition));
+	surfaceColor.rgb = mix(g_fogColor, surfaceColor.rgb, fogFactor);
+
+	FragColor = surfaceColor;
 }
 # version 300 es
 
@@ -2503,522 +3019,6 @@ void main()
 {
 	vec2 uv = Transform(UV, g_invHomography);
 	vec4 texColor = texture(Texture0, uv);
-
-	FragColor = ((texColor * Color) + g_colorAdd);
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-// PS_1
-layout(std140) uniform Swirl
-{
-	float g_angle;
-};
-// [C++]
-//struct PoissonDisk
-//{
-//	float angle;
-//};
-
-//
-//	Functions
-//
-void main()
-{
-	vec2 uv = UV - vec2(0.5, 0.5);
-
-	float distanceFromCenter = length(uv);
-
-	float angle = distanceFromCenter * g_angle;
-
-	float c = cos(angle), s = sin(angle);
-
-	uv = mat2x2(c, -s, s, c) * uv + vec2(0.5, 0.5);
-
-	vec4 texColor = texture(Texture0, uv);
-
-	FragColor = (texColor * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	VSInput
-//
-layout(location = 0) in vec4 VertexPosition;
-layout(location = 1) in vec3 VertexNormal;
-layout(location = 2) in vec2 VertexUV;
-
-//
-//	VSOutput
-//
-out vec3 WorldPosition;
-out vec2 UV;
-
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform VSPerView // slot 1
-{
-	mat4x4 g_worldToProjected;
-};
-
-layout(std140) uniform VSPerObject // slot 2
-{
-	mat4x4 g_localToWorld;
-};
-
-layout(std140) uniform VSPerMaterial // slot 3
-{
-	vec4 g_uvTransform;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec2 uv =  (VertexUV * g_uvTransform.xy + g_uvTransform.zw);
-	float height = texture(Texture8, uv).r;
-	vec4 pos = vec4(VertexPosition.x, height, VertexPosition.zw);
-	vec4 worldPosition = pos * g_localToWorld;
-
-	gl_Position		= worldPosition * g_worldToProjected;
-	WorldPosition	= worldPosition.xyz;
-	UV				= uv;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-uniform sampler2D Texture1;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 texColor = texture(Texture0, UV);
-	
-	float mask = texture(Texture1, UV).r;
-
-	texColor.a *= mask;
-
-	FragColor = (texColor * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VSInput
-//
-layout(location = 0) in vec2 VertexPosition;
-layout(location = 1) in vec2 VertexUV;
-layout(location = 2) in vec4 VertexColor;
-
-//
-//	VSOutput
-//
-out vec4 Color;
-out vec2 UV;
-// out gl_PerVertex
-// {
-//	vec4 gl_Position;
-// };
-
-//
-//	Siv3D Functions
-//
-vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
-{
-	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
-}
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform VSConstants2D
-{
-	vec4 g_transform[2];
-	vec4 g_colorMul;
-};
-
-layout(std140) uniform VSHomography
-{
-	mat3x3 g_homography;
-};
-
-//
-//	Functions
-//
-vec2 Transform(vec2 pos, mat3x3 mat)
-{
-	float s = (mat[0][2] * pos.x + mat[1][2] * pos.y + mat[2][2]);
-	float x = (mat[0][0] * pos.x + mat[1][0] * pos.y + mat[2][0]) / s;
-	float y = (mat[0][1] * pos.x + mat[1][1] * pos.y + mat[2][1]) / s;
-	return vec2(x, y);
-}
-
-void main()
-{
-	vec2 pos = Transform(VertexPosition, g_homography);
-	gl_Position = s3d_Transform2D(pos, g_transform);
-
-	Color = (VertexColor * g_colorMul);
-	
-	UV = pos;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-uniform sampler2D Texture1;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 texColor0 = texture(Texture0, UV);
-	
-	vec4 texColor1 = texture(Texture1, UV);
-	
-	texColor0.rgb = (texColor0.rgb * 0.5f + texColor1.rgb * 0.5f);
-
-	FragColor = (texColor0 * Color) + g_colorAdd;
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec3 WorldPosition;
-in vec2 UV;
-in vec3 Normal;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSPerFrame // slot 0
-{
-	vec3 g_gloablAmbientColor;
-	vec3 g_sunColor;
-	vec3 g_sunDirection;
-};
-
-layout(std140) uniform PSPerView // slot 1
-{
-	vec3 g_eyePosition;
-};
-
-layout(std140) uniform PSPerMaterial // slot 3
-{
-	vec3  g_amibientColor;
-	uint  g_hasTexture;
-	vec4  g_diffuseColor;
-	vec3  g_specularColor;
-	float g_shininess;
-	vec3  g_emissionColor;
-};
-
-//
-//	Functions
-//
-vec4 Triplanar(vec3 worldPos, vec3 normal, float uvScale)
-{
-	vec4 diffuseColor = g_diffuseColor;
-
-	if (g_hasTexture == 1u)
-	{
-		vec3 blend = abs(normal);
-		blend /= (blend.x + blend.y + blend.z);
-		
-		worldPos *= uvScale;
-		vec4 c0 = texture(Texture0, worldPos.yz);
-		vec4 c1 = texture(Texture0, worldPos.xz);
-		vec4 c2 = texture(Texture0, worldPos.xy);
-
-		diffuseColor *= (c0 * blend.x + c1 * blend.y + c2 * blend.z);
-	}
-
-	return diffuseColor;
-}
-
-vec3 CalculateDiffuseReflection(vec3 n, vec3 l, vec3 lightColor, vec3 diffuseColor, vec3 ambientColor)
-{
-	vec3 directColor = lightColor * max(dot(n, l), 0.0f);
-	return ((ambientColor + directColor) * diffuseColor);
-}
-
-vec3 CalculateSpecularReflection(vec3 n, vec3 h, float shininess, float nl, vec3 lightColor, vec3 specularColor)
-{
-	float highlight = pow(max(dot(n, h), 0.0f), shininess) * float(0.0f < nl);
-	return (lightColor * specularColor * highlight);
-}
-
-void main()
-{
-	vec3 lightColor		= g_sunColor;
-	vec3 lightDirection	= g_sunDirection;
-
-	vec3 n = normalize(Normal);
-	vec3 l = lightDirection;
-	vec4 diffuseColor = Triplanar(WorldPosition, n, 0.25f);
-	vec3 ambientColor = (g_amibientColor * g_gloablAmbientColor);
-
-	// Diffuse
-	vec3 diffuseReflection = CalculateDiffuseReflection(n, l, lightColor, diffuseColor.rgb, ambientColor);
-
-	// Specular
-	vec3 v = normalize(g_eyePosition - WorldPosition);
-	vec3 h = normalize(v + lightDirection);
-	vec3 specularReflection = CalculateSpecularReflection(n, h, g_shininess, dot(n, l), lightColor, g_specularColor);
-
-	FragColor = vec4(diffuseReflection + specularReflection + g_emissionColor, diffuseColor.a);
-}
-﻿# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-//
-//	VS Input (nothing)
-//
-
-//
-//	VS Output
-//
-out vec4 Color;
-out vec2 UV;
-
-//
-//	Siv3D Functions
-//
-vec4 s3d_Transform2D(const vec2 pos, const vec4 t[2])
-{
-	return vec4(t[0].zw + (pos.x * t[0].xy) + (pos.y * t[1].xy), t[1].zw);
-}
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform VSConstants2D
-{
-	vec4 g_transform[2];
-	vec4 g_colorMul;
-};
-
-layout(std140) uniform SoftShape
-{
-	float g_t;
-};
-
-//
-//	Functions
-//
-vec2 Circular(float r, float theta)
-{
-	return vec2(sin(theta), -cos(theta)) * r;
-}
-
-void main()
-{
-	Color = vec4(0.2f, 0.7f, 0.4f, 1.0f);
-	UV = vec2(0.0f, 0.0f);
-
-	vec2 pos;
-
-	if (gl_VertexID % 3 == 0)
-	{
-		pos = vec2(640.0f, 360.0f);
-	}
-	else
-	{
-		float angle = radians(float((gl_VertexID / 3) + ((gl_VertexID % 3) - 1)));
-		float r = 200.0f
-			+ cos((angle * 2.0f) + sin(g_t * 1.5f)) * 40.0f
-			+ sin((angle * 2.0f) + sin(g_t * 2.0f)) * 30.0f
-			+ cos((angle * 3.0f) + sin(g_t * 3.5f)) * 20.0f
-			+ sin((angle * 3.0f) + sin(g_t * 4.0f)) * 10.0f;
-		pos = vec2(640.0f, 360.0f) + Circular(r, angle);
-		Color.a = (1.0f - r / 360.0f);
-	}
-
-	gl_Position = s3d_Transform2D(pos, g_transform);	
-}
-# version 300 es
-
-//	Copyright (c) 2008-2022 Ryo Suzuki.
-//	Copyright (c) 2016-2022 OpenSiv3D Project.
-//	Licensed under the MIT License.
-
-precision mediump float;
-
-//
-//	Textures
-//
-uniform sampler2D Texture0;
-
-//
-//	PSInput
-//
-in vec4 Color;
-in vec2 UV;
-
-//
-//	PSOutput
-//
-layout(location = 0) out vec4 FragColor;
-
-//
-//	Constant Buffer
-//
-layout(std140) uniform PSConstants2D
-{
-	vec4 g_colorAdd;
-	vec4 g_sdfParam;
-	vec4 g_sdfOutlineColor;
-	vec4 g_sdfShadowColor;
-	vec4 g_internal;
-};
-
-//
-//	Functions
-//
-void main()
-{
-	vec4 texColor = texture(Texture0, UV);
 
 	FragColor = ((texColor * Color) + g_colorAdd);
 }
