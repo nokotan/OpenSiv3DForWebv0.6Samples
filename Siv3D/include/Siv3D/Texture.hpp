@@ -26,7 +26,7 @@ namespace s3d
 	struct TexturedRoundRect;
 
 	/// @brief テクスチャ
-	/// @reamrk 描画できる画像です。
+	/// @remark 描画できる画像です。
 	class Texture : public AssetHandle<Texture>
 	{
 	public:
@@ -85,6 +85,10 @@ namespace s3d
 		/// @return  テクスチャの幅と高さ（ピクセル）
 		[[nodiscard]]
 		Size size() const;
+
+		template <class Type = double>
+		[[nodiscard]]
+		Type horizontalAspectRatio() const noexcept;
 
 		/// @brief テクスチャの設定を返します。
 		/// @return テクスチャの設定

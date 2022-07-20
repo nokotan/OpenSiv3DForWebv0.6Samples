@@ -9,6 +9,7 @@
             const device = await adapter.requestDevice();
     
             Module["preinitializedWebGPUDevice"] = device;
+        } catch(_) {
         } finally {
             removeRunDependency(dependencyName);
         }
@@ -63,4 +64,6 @@
             }
         })
     }
+
+    // {{{ runtimeKeepalivePush() }}};
 })();
