@@ -3,8 +3,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 
 	Audio audio;
 	double posSec = 0.0;

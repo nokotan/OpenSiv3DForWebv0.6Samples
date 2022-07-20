@@ -16,8 +16,7 @@ Array<Rect> GenerateRandomRects()
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
     Scene::SetBackground(ColorF{ 0.99 });
     Array<Rect> input;
     Array<double> rotations;

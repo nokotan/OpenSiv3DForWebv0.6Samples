@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 
 	const Array<MultiPolygon> countries = GeoJSONFeatureCollection{ JSON::Load(U"example/geojson/countries.geojson") }.getFeatures()
 		.map([](const GeoJSONFeature& f) { return f.getGeometry().getPolygons(); });

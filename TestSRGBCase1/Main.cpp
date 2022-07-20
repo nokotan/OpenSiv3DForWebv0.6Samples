@@ -2,7 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
 	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 
 	DebugCamera3D camera{ Graphics3D::GetRenderTargetSize(), 45_deg, Vec3{ 0, 3, -16 } };

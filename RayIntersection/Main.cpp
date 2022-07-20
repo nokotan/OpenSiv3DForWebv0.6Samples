@@ -16,8 +16,7 @@ void Draw(const Shape& shape, const Ray& ray)
 
 void Main()
 {
-    Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.25 });
 	const ColorF backgroundColor = ColorF{ 0.4, 0.6, 0.8 }.removeSRGBCurve();
 	const Texture uvChecker{ U"example/texture/uv.png", TextureDesc::MippedSRGB };

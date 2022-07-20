@@ -2,8 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	
     const Texture windmill{ U"example/windmill.png" };
 	const PixelShader ps = HLSL{ U"example/shader/hlsl/rgb_shift.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/rgb_shift.frag", {{U"PSConstants2D", 0}} }

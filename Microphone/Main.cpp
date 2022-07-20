@@ -2,8 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);	
-
 	// if (System::EnumerateMicrophones().isEmpty())
 	// {
 	// 	throw Error{ U"No microphone is connected" };

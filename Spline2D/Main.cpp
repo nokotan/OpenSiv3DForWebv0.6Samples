@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 	Scene::SetBackground(ColorF{ 0.75 });
 
 	Array<Vec2> points;

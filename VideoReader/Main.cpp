@@ -13,8 +13,7 @@ void ShowStatus(const VideoReader& video)
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 
 	VideoReader video{ U"example/video/river.mp4" };
 

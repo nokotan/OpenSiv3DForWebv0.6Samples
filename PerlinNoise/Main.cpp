@@ -2,8 +2,7 @@
 
 void Main()
 {
-   	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 
 	Image image1{ 512, 512, Palette::White };
 	Image image2{ 512, 512, Palette::White };

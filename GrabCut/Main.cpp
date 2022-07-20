@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 	Scene::SetBackground(ColorF{ 0.8, 1.0, 0.9 });
 	
 	const Image image{ U"example/windmill.png" };

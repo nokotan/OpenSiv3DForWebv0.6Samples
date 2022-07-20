@@ -2,8 +2,6 @@
 
 void Main()
 {
-    Scene::SetResizeMode(ResizeMode::Keep);
-    
     const VertexShader vs2D = HLSL{ U"example/shader/hlsl/default2d.hlsl", U"VS" }
         | GLSL{ U"example/shader/glsl/default2d.vert", {{U"VSConstants2D", 0}} }
         | ESSL{ U"example/shader/essl/default2d.vert", {{U"VSConstants2D", 0}} }

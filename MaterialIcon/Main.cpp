@@ -2,8 +2,6 @@
 
 void Main()
 {
-  	Scene::SetResizeMode(ResizeMode::Keep);
-    
     const Font font{ 30, Typeface::Medium };
     const Font iconFont{ 30, Typeface::Icon_MaterialDesign };
     font.addFallback(iconFont);

@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-    Scene::Resize(1280, 720);
+    Window::Resize(1280, 720);
 
 	Webcam webcam{ 0, Size{ 1280, 720 }, StartImmediately::Yes };
 
@@ -20,7 +19,7 @@ void Main()
 		}
 		else
 		{
-			Scene::Resize(webcam.getResolution());
+			Window::Resize(webcam.getResolution());
 		}
 		
 		if (webcam.hasNewFrame())

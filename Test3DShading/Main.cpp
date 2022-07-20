@@ -2,8 +2,7 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(900, 600);
+	Window::Resize(900, 600);
 	Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
 
 	Graphics3D::SetGlobalAmbientColor(ColorF{ 0.0 });

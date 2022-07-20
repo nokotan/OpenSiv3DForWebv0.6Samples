@@ -28,8 +28,6 @@ struct UnitAdapter : KDTreeAdapter<Array<Unit>, Vec2>
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-
 	// 200 個の Unit を生成
 	Array<Unit> units;
 	{

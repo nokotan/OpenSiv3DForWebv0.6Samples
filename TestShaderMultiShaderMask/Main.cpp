@@ -2,9 +2,8 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
     // ウィンドウを 960x600 にリサイズ
-	Scene::Resize(960, 600);
+	Window::Resize(960, 600);
 
 	// シーンの背景色を淡い水色に設定
 	Scene::SetBackground(ColorF(0.8, 0.9, 1.0));

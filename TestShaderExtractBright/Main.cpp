@@ -2,9 +2,7 @@
 
 void Main()
 {
-    Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
-	Scene::SetResizeMode(ResizeMode::Keep);
+	Window::Resize(1280, 720);
 
 	const PixelShader psBright = HLSL{ U"example/shader/hlsl/extract_bright_linear.hlsl", U"PS" }
 		| GLSL{ U"example/shader/glsl/extract_bright_linear.frag", {{U"PSConstants2D", 0}} }

@@ -2,8 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	
 	const Texture texture{ U"example/windmill.png", TextureDesc::Mipped };
 	const Texture textureSRGB{ U"example/windmill.png", TextureDesc::MippedSRGB };
 	RenderTexture renderTexture{ 400, 100, ColorF{0.8, 0.9, 1.0} };

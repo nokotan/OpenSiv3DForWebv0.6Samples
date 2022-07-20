@@ -2,8 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-	
 	const RenderTexture renderTexture{ Scene::Size(), TextureFormat::R8G8B8A8_Unorm_SRGB, HasDepth::Yes };
 	DebugCamera3D camera{ Graphics3D::GetRenderTargetSize(), 45_deg, Vec3{ 0, 3, -16 } };
 

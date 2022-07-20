@@ -9,8 +9,7 @@ struct GameOfLife
 void Main()
 {
     // ウィンドウを 1280x720 にリサイズ
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Scene::Resize(1280, 720);
+	Window::Resize(1280, 720);
 
 	// セルの数 (1280x720)
 	constexpr Size FieldSize{ 1280, 720 };

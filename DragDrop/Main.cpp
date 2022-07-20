@@ -2,8 +2,6 @@
 
 void Main()
 {
-	Scene::SetResizeMode(ResizeMode::Keep);
-
 	bool acceptFiles = true;
 	bool acceptText = false; // デフォルトではテキストのドロップは受け付けない
 
