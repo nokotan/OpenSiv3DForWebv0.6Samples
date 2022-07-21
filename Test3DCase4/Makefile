@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Test3DCase4/CMakeFiles/Test3DCase4.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DCase4/CMakeFiles/Test3DCase4.dir/rule
-.PHONY : Test3DCase4/CMakeFiles/Test3DCase4.dir/rule
+Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/rule
+.PHONY : Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/rule
 
 # Convenience name for target.
-Test3DCase4: Test3DCase4/CMakeFiles/Test3DCase4.dir/rule
+Test3DCase4WebGPU: Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/rule
 
-.PHONY : Test3DCase4
+.PHONY : Test3DCase4WebGPU
 
 # fast build rule for target.
-Test3DCase4/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/build
-.PHONY : Test3DCase4/fast
+Test3DCase4WebGPU/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build
+.PHONY : Test3DCase4WebGPU/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/build.make Test3DCase4/CMakeFiles/Test3DCase4WebGPU.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Test3DCase4"
+	@echo "... Test3DCase4WebGPU"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
