@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/rule:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/rule
-.PHONY : PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/rule
+PolygonHole/CMakeFiles/PolygonHole.dir/rule:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f CMakeFiles/Makefile2 PolygonHole/CMakeFiles/PolygonHole.dir/rule
+.PHONY : PolygonHole/CMakeFiles/PolygonHole.dir/rule
 
 # Convenience name for target.
-PolygonHoleWebGPU: PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/rule
+PolygonHole: PolygonHole/CMakeFiles/PolygonHole.dir/rule
 
-.PHONY : PolygonHoleWebGPU
+.PHONY : PolygonHole
 
 # fast build rule for target.
-PolygonHoleWebGPU/fast:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build.make PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build
-.PHONY : PolygonHoleWebGPU/fast
+PolygonHole/fast:
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHole.dir/build.make PolygonHole/CMakeFiles/PolygonHole.dir/build
+.PHONY : PolygonHole/fast
 
 Main.o: Main.cpp.o
 
@@ -131,7 +131,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build.make PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/Main.cpp.o
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHole.dir/build.make PolygonHole/CMakeFiles/PolygonHole.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -140,7 +140,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build.make PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/Main.cpp.i
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHole.dir/build.make PolygonHole/CMakeFiles/PolygonHole.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -149,7 +149,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/build.make PolygonHole/CMakeFiles/PolygonHoleWebGPU.dir/Main.cpp.s
+	cd /__w/OpenSiv3DForWebv0.6Samples/OpenSiv3DForWebv0.6Samples/Build && $(MAKE) -f PolygonHole/CMakeFiles/PolygonHole.dir/build.make PolygonHole/CMakeFiles/PolygonHole.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... PolygonHoleWebGPU"
+	@echo "... PolygonHole"
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
