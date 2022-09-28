@@ -10,21 +10,23 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 # Common Config
 
 set(Siv3DAppIncludeDirectories
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include/ThirdParty
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include/Siv3D
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/include/Siv3D/ThirdParty
 )
 
 set(Siv3DAppLibraryDirectories
     ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/freetype
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/harfbuzz
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/opencv
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/turbojpeg
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/giflib
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/webp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/opus
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/tiff
-    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/SDL2
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/freetype
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/harfbuzz
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/opencv
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/turbojpeg
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/giflib
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/webp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/opus
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/tiff
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/png
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/zlib
+    ${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/SDL2
 )
 
 set(Siv3DAppLibraries
@@ -41,6 +43,8 @@ set(Siv3DAppLibraries
     opusfile 
     opus
     tiff
+    png
+    z
     SDL2
 )
 
@@ -53,12 +57,11 @@ set(Siv3DAppLinkerFlags
 
     "-s ENVIRONMENT='web'"
     "-s MODULARIZE=1"
+    "-s EXIT_RUNTIME=1"
     "-s ALLOW_MEMORY_GROWTH=1"
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
     # "-s DECLARE_ASM_MODULE_EXPORTS=0"
 
-    #"-s USE_SDL=2"
-    "-s USE_LIBPNG=1"
     "-s USE_OGG=1"
     "-s USE_VORBIS=1"
 
@@ -69,16 +72,16 @@ set(Siv3DAppLinkerFlags
 
     "-s ASYNCIFY=1"
     "-s ASYNCIFY_IGNORE_INDIRECT=1"
-    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
-    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::CSystem::init(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
+    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dGetClipboardText, siv3dDecodeImageFromFile, siv3dSleepUntilWaked, invoke_vi, invoke_v ]\""
+    "-s ASYNCIFY_ADD=\"[ 'main','Main()','dynCall_v','dynCall_vi','s3d::TryMain()','s3d::CSystem::init()','s3d::System::Update()','s3d::AACDecoder::decode(*) const','s3d::MP3Decoder::decode(*) const','s3d::CAudioDecoder::decode(*)','s3d::AudioDecoder::Decode(*)','s3d::Wave::Wave(*)','s3d::Audio::Audio(*)','s3d::Clipboard::GetText(*)','s3d::CClipboard::getText(*)','s3d::GenericDecoder::decode(*) const','s3d::CImageDecoder::decode(*)','s3d::Image::Image(*)','s3d::Texture::Texture(*)','s3d::ImageDecoder::Decode(*)','s3d::ImageDecoder::GetImageInfo(*)','s3d::CRenderer2D_GLES3::init()','s3d::CRenderer2D_WebGPU::init()','s3d::Clipboard::GetText(*)','s3d::CClipboard::getText(*)','s3d::SimpleHTTP::Save(*)','s3d::SimpleHTTP::Load(*)','s3d::SimpleHTTP::Get(*)','s3d::SimpleHTTP::Post(*)','s3d::VideoReader::VideoReader(*)','s3d::VideoReader::open(*)','s3d::Platform::Web::FetchFileIfNotExists(*)']\""
 
     # "-s LZ4=1"
-    "-Wl,--allow-undefined"
 
-    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
-    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
-    "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
-    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
+    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/Templates/Embeddable/web-player.html'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/Templates/Embeddable/web-player.js'"
+    "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.js'"
+    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.pre.js'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.post.js'"
 )
 
 set(Siv3DAppWebGPULinkerFlags
@@ -86,12 +89,11 @@ set(Siv3DAppWebGPULinkerFlags
 
     "-s ENVIRONMENT='web'"
     "-s MODULARIZE=1"
+    "-s EXIT_RUNTIME=1"
     "-s ALLOW_MEMORY_GROWTH=1"
     "-s ERROR_ON_UNDEFINED_SYMBOLS=0"
     # "-s DECLARE_ASM_MODULE_EXPORTS=0"
 
-    "-s USE_SDL=2"
-    "-s USE_LIBPNG=1"
     "-s USE_OGG=1"
     "-s USE_VORBIS=1"
 
@@ -100,28 +102,27 @@ set(Siv3DAppWebGPULinkerFlags
 
     "-s ASYNCIFY=1"
     "-s ASYNCIFY_IGNORE_INDIRECT=1"
-    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dOpenDialog, siv3dDecodeAudioFromFile, siv3dGetClipboardText ]\""
-    "-s ASYNCIFY_ADD=\"[ main, Main(), s3d::System::Update(), s3d::AACDecoder::decode(*) const, s3d::MP3Decoder::decode(*) const, s3d::CAudioDecoder::decode(*), s3d::AudioDecoder::Decode(*), s3d::Wave::Wave(*), s3d::Audio::Audio(*), s3d::Clipboard::GetText(*), s3d::CClipboard::getText(*) ]\""
+    "-s ASYNCIFY_IMPORTS=\"[ siv3dRequestAnimationFrame, siv3dGetClipboardText, siv3dDecodeImageFromFile, siv3dSleepUntilWaked, invoke_vi, invoke_v ]\""
+    "-s ASYNCIFY_ADD=\"[ 'main','Main()','dynCall_v','dynCall_vi','s3d::TryMain()','s3d::CSystem::init()','s3d::System::Update()','s3d::AACDecoder::decode(*) const','s3d::MP3Decoder::decode(*) const','s3d::CAudioDecoder::decode(*)','s3d::AudioDecoder::Decode(*)','s3d::Wave::Wave(*)','s3d::Audio::Audio(*)','s3d::Clipboard::GetText(*)','s3d::CClipboard::getText(*)','s3d::GenericDecoder::decode(*) const','s3d::CImageDecoder::decode(*)','s3d::Image::Image(*)','s3d::Texture::Texture(*)','s3d::ImageDecoder::Decode(*)','s3d::ImageDecoder::GetImageInfo(*)','s3d::CRenderer2D_GLES3::init()','s3d::CRenderer2D_WebGPU::init()','s3d::Clipboard::GetText(*)','s3d::CClipboard::getText(*)','s3d::SimpleHTTP::Save(*)','s3d::SimpleHTTP::Load(*)','s3d::SimpleHTTP::Get(*)','s3d::SimpleHTTP::Post(*)','s3d::VideoReader::VideoReader(*)','s3d::VideoReader::open(*)','s3d::Platform::Web::FetchFileIfNotExists(*)']\""
 
     # "-s LZ4=1"
-    "-Wl,--allow-undefined"
 
-    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.html'"
-    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.pre.js'"
-    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.post.js'"
-    "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D.js'"
-    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Templates/Embeddable/web-player.js'"
+    "--shell-file '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/Templates/Embeddable/web-player.html'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/Templates/Embeddable/web-player.js'"
+    "--js-library '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.js'"
+    "--pre-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.pre.js'"
+    "--post-js '${CMAKE_CURRENT_SOURCE_DIR}/Siv3D/lib/Siv3D/Siv3D.post.js'"
 )
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "MINSIZEREL")
   list(APPEND Siv3DAppCompileFlags
-    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[main,_ZN3s3d7TryMainEv]\""
   )
   list(APPEND Siv3DAppLinkerFlags
-    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[main,_ZN3s3d7TryMainEv]\""
   )
   list(APPEND Siv3DAppWebGPULinkerFlags
-    "-s EXCEPTION_CATCHING_ALLOWED=\"[InitSiv3D]\""
+    "-s EXCEPTION_CATCHING_ALLOWED=\"[main,_ZN3s3d7TryMainEv]\""
   )
 endif()
 

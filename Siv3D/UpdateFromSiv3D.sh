@@ -1,9 +1,11 @@
 #!/bin/bash
 
-Siv3DRoot="../../OpenSiv3D"
+curl -L -o OpenSiv3D.tgz $1
 
-cp -r ${Siv3DRoot}/Siv3D/include .
-cp -r ${Siv3DRoot}/Web/Package/lib/Siv3D/* ./lib/
-cp -r ${Siv3DRoot}/Web/Package/lib/lib*.a ./lib/
-cp -r ${Siv3DRoot}/Web/App/resources .
-cp -r ${Siv3DRoot}/Web/App/example .
+# Extract & Overwrite
+tar -xvf OpenSiv3D.tgz
+cp -r Package/* Siv3D
+
+# Clean up
+rm -r Package
+rm OpenSiv3D.tgz
